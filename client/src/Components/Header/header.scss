@@ -1,0 +1,16 @@
+header {
+    width: 100%;
+    display: flex;
+    
+    .menu{
+        display: flex;
+        width: 100%;
+        padding: 0;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+        list-style-type: none;
+        li {
+            padding: 10px;
+        }
+    }
+}

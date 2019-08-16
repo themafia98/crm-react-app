@@ -1,19 +1,19 @@
 import React,{Fragment} from 'react';
 import Header from '../../Components/Header/Header';
-import './about.scss';
-class About extends React.PureComponent {
+import './service.scss';
+class Service extends React.PureComponent {
 
     render(){
 
         return (
             <Fragment>
                 <Header go = {true} />
-                <section className = 'About'>
-                    <p>About</p>
+                <section className = 'Service'>
+                    <p>Service</p>
                 </section>
             </Fragment>
         )
     }
 }
 
-export default About;
+export default Service;

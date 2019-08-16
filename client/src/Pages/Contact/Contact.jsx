@@ -1,14 +1,17 @@
-import React from 'react';
-
+import React,{Fragment} from 'react';
+import Header from '../../Components/Header/Header';
 import './contact.scss';
 class Contact extends React.PureComponent {
 
     render(){
 
         return (
-            <div>
-            <p>Contact</p>
-            </div>
+            <Fragment>
+                <Header go = {true} />
+                <section className = 'Contanct'>
+                    <p>Contact</p>
+                </section>
+            </Fragment>
         )
     }
 }

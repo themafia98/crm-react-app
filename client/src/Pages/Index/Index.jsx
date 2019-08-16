@@ -7,11 +7,10 @@ import './index.scss';
 class Index extends React.PureComponent {
 
     render(){
-
         return (
             <Fragment>
                 <Header />
-                   <Main title = 'Внедрение ZOHO CRM для малого и среднего бизнеса' />
+                   <Main title = 'Внедрение CRM для малого и среднего бизнеса' />
             </Fragment>
         )
     }

@@ -2,6 +2,7 @@ import React from 'react';
 import {Switch, Route} from 'react-router-dom';
 
 import Index from './Pages/Index/Index';
+import Service from './Pages/Service/Service';
 import Contact from './Pages/Contact/Contact';
 import About from './Pages/About/About';
 
@@ -15,6 +16,7 @@ class App extends React.PureComponent {
         <Route exact path = '/' component = {Index}></Route>
         <Route exact path = '/About' component = {About}></Route>
         <Route exact path = '/Contact' component = {Contact}></Route>
+        <Route exact path = '/Service' component = {Service}></Route>
       </Switch>
     )
   }
