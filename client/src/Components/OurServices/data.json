@@ -1,0 +1,38 @@
+{
+    "dataServices":
+    [
+        {
+            "title": "Внедрение",
+            "content": "Делаем «как для себя» Результат - успешный запуск и готовая к работе CRM-система.",
+            "type": "IndexService"
+        },
+        {
+            "title": "Сопровождение",
+            "content": "Поддержка и доработка CRM – оперативно, конфиденциально, недорого.",
+            "type": "IndexService"
+        },
+        {
+            "title": "Миграция",
+            "content": "Из AmoCRM, Bitrix24, vTiger и других - с нами все пройдет гладко!",
+            "type": "IndexService"
+        },
+        {
+            "title": "Интеграции",
+            "content": "Надежные решения интергации продуктов Zoho с другими сервисами и службами.",
+            "type": "IndexService",
+            "url": "/Services"
+        },
+        {
+            "title": "Solutions",
+            "content": "Мы познакомим вас и обучим работе.",
+            "type": "IndexService",
+            "url": "/Services"
+        },
+        {
+            "title": "Поддержка",
+            "content": "Hello, IT? Мы с радостью ответим на все Ваши вопросы и поможем в принятии решений.",
+            "type": "IndexService",
+            "url": "/Services"
+        }
+    ]
+}

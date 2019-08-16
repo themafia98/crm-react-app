@@ -1,0 +1,49 @@
+.list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    .ListItem {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding: 30px 0;
+        width: 25%;
+        text-align: center;
+        margin: 10px;
+        background-color: #ffffff;
+        border-color: #e6e6e6;
+        border-radius: 5px;
+        box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.10);
+        .ListItem__content {
+            margin-top: 0;
+            width: 70%;
+        }
+
+        .ListItem__controller{
+            width: 100%;
+            .ListItem__controller__button {
+                cursor: pointer;
+                font-size: .8rem;
+                width: 30%;
+                color: white;
+                font-weight: bold;
+                background-color: #db4646;
+                transition: all .3s linear;
+                width: 50%;
+                height: 45px;
+                white-space: normal;
+                box-sizing: border-box;
+                border-radius: 5px;
+                outline: none;
+                border: 0 none;
+            }
+
+            .ListItem__controller__button:hover,
+            .ListItem__controller__button:active {
+                color: black;
+                box-shadow: 0 0 10px;
+            }
+        }
+    }
+}

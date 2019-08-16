@@ -1,4 +1,8 @@
-header, section:not(.main) {
+:root {
+    font-family: 'Roboto',Arial,sans-serif;
+}
+
+.container {
     margin: 0 auto;
     max-width: 90%;
 }

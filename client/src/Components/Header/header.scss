@@ -9,8 +9,16 @@ header {
         justify-content: flex-end;
         flex-wrap: wrap;
         list-style-type: none;
-        li {
+        a {
+            
+            text-decoration: none;
+            font-weight: bold;
+            color: rgb(0, 0, 0);
             padding: 10px;
+        }
+
+        .selected {
+            color :red;
         }
     }
 }

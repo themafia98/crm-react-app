@@ -5,26 +5,38 @@ import Logo from '../Logo/Logo';
 
 import './header.scss';
 
-const Header = ({go, location, history}) => {
+const Header = ({go, location, history, to}) => {
 
     const redirectHome = () => {
         history.push('/');
     };
 
     return (
-        <header>
+        <header className = 'container'>
             <Logo cbRedirectHome = {go && redirectHome} go = {go} path = '/img/logo.png' />
             <ul className = 'menu'>
-                <NavLink  to = {'/'}>
+                <NavLink 
+                    exact
+                    activeClassName="selected"  
+                    to = {'/'}
+                >
                     <li>Главная</li>
                 </NavLink >
-                <NavLink  to = '/Service'>
+                <NavLink  
+                    activeClassName="selected"  
+                    to = '/Service'>
                     <li>Услуги</li>
-                </NavLink >
-                <NavLink  to = '/About'>
+                </NavLink>
+                <NavLink 
+                    activeClassName="selected"  
+                    to = '/About'
+                >
                     <li>О нас</li>
                 </NavLink >
-                <NavLink  to = '/Contact'>
+                <NavLink 
+                    activeClassName="selected"
+                    to = '/Contact'
+                >
                     <li>Контакты</li>
                 </NavLink >
             </ul>

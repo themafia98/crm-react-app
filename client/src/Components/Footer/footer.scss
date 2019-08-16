@@ -1,0 +1,11 @@
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(23, 23, 23);
+    height: 15vh;
+    .footer__title {
+        font-weight: bold;
+        color: #ffffff;
+    }
+}
