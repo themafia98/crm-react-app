@@ -7,12 +7,16 @@ let path = require('path');
 let cookieParser = require('cookie-parser');
 let logger = require('morgan');
 
-// let usersRouter = require('./routes/users');
+
+
+const Mail = require('./api/Mail');
+const sender = new Mail();
 
 let app = express();
 
 app.use(logger('dev'));
 app.use(express.json());
+
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
@@ -20,12 +24,7 @@ let port:string = process.env.PORT || '3001';
 app.set('port', port);
 
 let server = http.createServer(app);
-// app.use('/users', usersRouter);
 
-// catch 404 and forward to error handler
-app.use(function(req:any, res:any, next:any):void {
-  next(createError(404));
-});
 
 // error handler
 app.use(function(err:any, req:any, res:any, next:any):void {
@@ -39,33 +38,13 @@ app.use(function(err:any, req:any, res:any, next:any):void {
 });
 
 
-function onError(error:any):void {
-  if (error.syscall !== 'listen') {
-    throw error;
-  }
+app.get('/sendMail', (req,res) => {
 
-  // handle specific listen errors with friendly messages
-  switch (error.code) {
-    case 'EACCES':
-      console.error(port + ' requires elevated privileges');
-      process.exit(1);
-      break;
-    case 'EADDRINUSE':
-      console.error(port + ' is already in use');
-      process.exit(1);
-      break;
-    default:
-      throw error;
-  }
-}
-
-function onListening():void {
-  debug('Listening on ' + server.address());
-}
+  res.send('GET handler for /sendMail route.');
+});
 
 
-server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
-
+server.listen(port, ():void => {
+  console.log(`Server listen on ${port}`);
+});
 module.exports = app;

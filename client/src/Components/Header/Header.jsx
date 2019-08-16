@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink, withRouter  } from 'react-router-dom';
 
-import Logo from '../Logo/Logo';
+import Icon from '../Icon/Icon';
 
 import './header.scss';
 
@@ -13,7 +13,7 @@ const Header = ({go, location, history, to}) => {
 
     return (
         <header className = 'container'>
-            <Logo cbRedirectHome = {go && redirectHome} go = {go} path = '/img/logo.png' />
+            <Icon cbRedirectHome = {go && redirectHome} go = {go} path = '/img/logo.png' />
             <ul className = 'menu'>
                 <NavLink 
                     exact
@@ -24,7 +24,7 @@ const Header = ({go, location, history, to}) => {
                 </NavLink >
                 <NavLink  
                     activeClassName="selected"  
-                    to = '/Service'>
+                    to = '/Services'>
                     <li>Услуги</li>
                 </NavLink>
                 <NavLink 

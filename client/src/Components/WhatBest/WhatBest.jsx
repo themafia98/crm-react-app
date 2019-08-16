@@ -1,22 +1,20 @@
 import React from 'react';
 import List from '../List/List';
-import './ourServices.scss';
 import data from '../../data.json';
-const OurServices = props => {
+import './wecan.scss';
+const WhatBest = props => {
 
     return (
-        <section className = 'OurServices'>
+        <section className = 'WhatBest'>
             <div className = 'container'>
-                <h2>Наши услуги</h2>
+                <h2>Почему стоит выбрать нас</h2>
                     <List 
-                        data = {data.dataServicess} 
+                        data = {data.weCan} 
                         key = 'listIndex' 
                         mode = 'index' 
                     />
             </div>
         </section>
     )
-}
-
-
-export default OurServices;
+};
+export default WhatBest;

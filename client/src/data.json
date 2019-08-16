@@ -1,0 +1,83 @@
+{
+    "dataServicess":
+    [
+        {
+            "title": "Внедрение",
+            "content": "Делаем «как для себя» Результат - успешный запуск и готовая к работе CRM-система.",
+            "type": "IndexServices"
+        },
+        {
+            "title": "Сопровождение",
+            "content": "Поддержка и доработка CRM – оперативно, конфиденциально, недорого.",
+            "type": "IndexServices"
+        },
+        {
+            "title": "Миграция",
+            "content": "Из AmoCRM, Bitrix24, vTiger и других - с нами все пройдет гладко!",
+            "type": "IndexServices"
+        },
+        {
+            "title": "Интеграции",
+            "content": "Надежные решения интергации продуктов Zoho с другими сервисами и службами.",
+            "type": "IndexServices",
+            "url": "/Services"
+        },
+        {
+            "title": "Solutions",
+            "content": "Мы познакомим вас и обучим работе.",
+            "type": "IndexServices",
+            "url": "/Services"
+        },
+        {
+            "title": "Поддержка",
+            "content": "Hello, IT? Мы с радостью ответим на все Ваши вопросы и поможем в принятии решений.",
+            "type": "IndexServices",
+            "url": "/Services"
+        }
+    ],
+    "weCan":
+    [
+        {
+            "title": "Качество",
+            "content": "Вне зависимости от масштаба проекта, cделаем \"как для себя\". CRMOZ - сертифицированный партнер Zoho Corporation.",
+            "icon": "/img/wecan__start.svg",
+            "class": "item__weCan",
+            "type": "IndexCan"
+        },
+        {
+            "title": "Цены",
+            "content": "Наши расценки всегда рыночные, а скорость проведения и сопровождение работ всегда очень высокие.",
+            "icon": "/img/wecan__money.svg",
+            "class": "item__weCan",
+            "type": "IndexCan"
+        },
+        {
+            "title": "Поддержка",
+            "content": "Мы всегда ответим на ваши вопросы даже через год после завершения проекта. Вы никогда не останетесь 1 на 1 с проблемой.",
+            "icon": "/img/wecan__talk.svg",
+            "class": "item__weCan",
+            "type": "IndexCan"
+        },
+        {
+            "title": "Подарки",
+            "content": "Любите подарки? Скидки на наши услуги, партнерские купоны на хостинг, телефонию, рекламу, бесплатные интеграции.",
+            "icon": "/img/weCan__gift.svg",
+            "class": "item__weCan",
+            "type": "IndexCan"
+        },
+        {
+            "title": "Довольные клиенты",
+            "content": "Что может быть лучше довольного клиента? Мы гарантирует индивидуальный подход к любой проблеме.",
+            "icon": "/img/weCan__peope.svg",
+            "class": "item__weCan",
+            "type": "IndexCan"
+        },
+        {
+            "title": "Эффективность",
+            "content": "Мы постоянно работаем над совершенствованием нашей методологии внедрения и интеграций CRM.",
+            "icon": "/img/weCan__effect.svg",
+            "class": "item__weCan",
+            "type": "IndexCan"
+        }
+    ]
+}

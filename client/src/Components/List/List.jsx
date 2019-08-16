@@ -10,10 +10,11 @@ const List = ({mode, data}) => {
                 <ListItem
                     key = {index}
                     title = {item.title}
+                    icon = {item.icon ? item.icon : null}
                     content = {item.content}
                     type = {item.type}
                     url = {item.url}
-                    newClass = {null}
+                    newClass = {item.class}
                 />
             );
         });

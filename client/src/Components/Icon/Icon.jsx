@@ -1,16 +1,16 @@
 import React from 'react';
-import './logo.scss';
-const Logo = ({path, go, cbRedirectHome}) => {
+import './Icon.scss';
+const Icon = ({path, go, newClass, cbRedirectHome}) => {
     return (
         <div 
             onClick = {go && cbRedirectHome}  
-            className = 'logo'>
+            className = {!newClass ? 'Icon' : 'Icon ' + newClass}>
             <img       
                 className = {go ? 'go' : null} 
                 src = {process.env.PUBLIC_URL + path} 
-                alt = 'logo' 
+                alt = 'Icon' 
             />
         </div>
     )
 };
-export default Logo;
+export default Icon;

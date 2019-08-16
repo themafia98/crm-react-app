@@ -2,6 +2,14 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+
+    .ListItem.item__weCan{
+        width: 40%;
+        align-items: unset;
+        text-align: unset; 
+        padding: 0;
+        box-shadow: unset;
+    }
     .ListItem {
         display: flex;
         flex-direction: column;
@@ -15,6 +23,25 @@
         border-color: #e6e6e6;
         border-radius: 5px;
         box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.10);
+
+        .ListItem__titleWrapper{
+            display: flex;
+            align-items: center;
+            img {
+                width: 30px;
+                height: 30px;
+                margin-right: 1px;
+            }
+        }
+
+        .ListItem__icon {
+            width: 30px;
+            height: 30px;
+        }
+
+        .ListItem__title {
+            font-weight: bold;
+        }
         .ListItem__content {
             margin-top: 0;
             width: 70%;
