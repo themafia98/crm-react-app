@@ -2,7 +2,6 @@ import React,{useState} from 'react';
 import './form.scss';
 const Form = ({mode}) => {
 
-    
     const [disabled, setDisabled] = useState(false);
     const [error, setError] = useState('');
     const refForm = React.createRef();
@@ -15,7 +14,10 @@ const Form = ({mode}) => {
             return setError('Не все поля заполнены!');
         } 
         setDisabled(true);
-        fetch('http://localhost:3001/sendMail', {
+        let adress = 'http://localhost:3001/mail/sendMailConsultation';
+        if (process.env.NODE_ENV === 'production')
+        adress = process.env.REACT_APP_CONSUL;
+        fetch(adress, {
             method: 'POST',
             body: new FormData(refForm.current),
         })

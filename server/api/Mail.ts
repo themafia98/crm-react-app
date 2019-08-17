@@ -26,15 +26,33 @@ namespace namespaceMail {
             this.hosting = super.getTransporter();
         }
 
-        createMailOptions(from:string, number:string, to:string, subject:string):void{
+        createMailOptions(from:string,name:string, number:string, to:string, subject:string):void{
             this.mailOptions = {
                 from: from, // sender address
                 to: to, // list of receivers
                 subject: subject, // Subject line
                 html:`
                 <h3>Запрос на консультацию</h3>
+                <p>Имя:${name}</p>
                 <p>E-mail клиента: ${from}</p>
                 <p>Номер клиента: ${number}</p>
+                `
+            };
+        }
+
+        createFeedBackMailOptions(from:string,name:string,
+                                  text:string, number:string, 
+                                  to:string, subject:string):void{
+            this.mailOptions = {
+                from: from, // sender address
+                to: to, // list of receivers
+                subject: subject, // Subject line
+                html:`
+                <h3>Вопрос от клиента</h3>
+                <p>Имя:${name}</p>
+                <p>E-mail клиента: ${from}</p>
+                <p>Номер клиента: ${number}</p>
+                <p>${text}</p>
                 `
             };
         }

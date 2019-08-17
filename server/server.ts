@@ -4,7 +4,7 @@ import logger from 'morgan';
 import cors from 'cors';
 import envfile from 'envfile';
 import multer from 'multer';
-
+import {RequestParam} from './settings/interface';
 import namespaceMail from './api/Mail';
 
 
@@ -41,22 +41,46 @@ app.use(function(err:any, req:Request, res:Response, next:NextFunction):void {
   res.render('error');
 });
 
-app.post('/sendMail',upload.none(), (req:Request,res:Response) => {
-  console.log(app.locals.server);
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    const isEmpty = !req.body.email && !req.body.name && !req.body.number;
-    if (isEmpty) return res.sendStatus(400);
-    const data = req.body;
-    console.log(data);
-    sender.createMailOptions(data.email,data.number, env.GMAIL_USER, 'Перезвонить');
-    sender.sendMail()
-    .then(resPromise => {
-      console.log('Send Mail status: ' + resPromise);
-      if (resPromise)
-      res.sendStatus(200);
-      else res.sendStatus(400);
-    });
+app.param('type', function(req:RequestParam, res: Response, next: NextFunction, type:string) {
+  req.type = type;
+  next();
 });
+
+app.post('/mail/:type',upload.none(), (req:RequestParam,res:Response) => {
+
+    res.setHeader('Access-Control-Allow-Origin', '*');
+  const type = req.type;
+    if (type === 'sendMailConsultation'){
+      const isEmpty = !req.body.email && !req.body.name && !req.body.number;
+      if (isEmpty) return res.sendStatus(400);
+      const data = req.body;
+      console.log(data);
+      sender.createMailOptions(data.email,data.name, data.number, env.GMAIL_USER, 'Консультация');
+      sender.sendMail()
+      .then(resPromise => {
+        console.log('Send Mail status: ' + resPromise);
+        if (resPromise)
+        res.sendStatus(200);
+        else res.sendStatus(400);
+      });
+    } else if (type === 'sendMailQuestion'){
+      const isEmpty = !req.body.email && !req.body.name && !req.body.number && !req.body.text;
+      if (isEmpty) return res.sendStatus(400);
+      const data = req.body;
+      console.log(data);
+      sender.createFeedBackMailOptions(data.email,data.name,data.text, 
+                                      data.number, env.GMAIL_USER, 'Вопрос от клиента');
+      sender.sendMail()
+      .then(resPromise => {
+        console.log('Send Mail status: ' + resPromise);
+        if (resPromise)
+        res.sendStatus(200);
+        else res.sendStatus(400);
+      });
+    }
+});
+
+
 
 
 app.get('*',(req:Request, res:Response) => {
