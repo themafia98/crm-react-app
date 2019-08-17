@@ -1,16 +1,20 @@
 
-let debug = require('debug')('server:server');
-let http = require('http');
-let createError = require('http-errors');
-let express = require('express');
-let path = require('path');
-let cookieParser = require('cookie-parser');
-let logger = require('morgan');
+const debug = require('debug')('server:server');
+const http = require('http');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+
+const fs = require('fs');
+const nodemailder = require('nodemailer');
+const envfile = require('envfile');
 
 
+const NameSpaceMailer = require('./api/Mail');
 
-const Mail = require('./api/Mail');
-const sender = new Mail();
+const sender = new NameSpaceMailer.MailHosting(nodemailder, envfile.parseFileSync('.env'));
 
 let app = express();
 
@@ -40,6 +44,7 @@ app.use(function(err:any, req:any, res:any, next:any):void {
 
 app.get('/sendMail', (req,res) => {
 
+  sender.createSender().sendMail();
   res.send('GET handler for /sendMail route.');
 });
 
