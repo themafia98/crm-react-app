@@ -1,7 +1,7 @@
 import React from 'react';
 import ListItem from './ListItem';
 import './list.scss';
-const List = ({mode, data}) => {
+const List = ({mode, data, type}) => {
     console.log(mode);
     const makeItems = data => {
         if (data)
@@ -23,7 +23,7 @@ const List = ({mode, data}) => {
 
     switch(mode){
         case 'index': return (
-            <div className = 'list'>
+            <div className = {!type ? 'list' : 'list list--marginLeft--10'}>
                 {makeItems(data)}
             </div>
         )

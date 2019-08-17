@@ -11,7 +11,8 @@ const WhatBest = props => {
                     <List 
                         data = {data.weCan} 
                         key = 'listIndex' 
-                        mode = 'index' 
+                        mode = 'index'
+                        type = 'weCan'
                     />
             </div>
         </section>
