@@ -1,6 +1,7 @@
 import nodemailer,{SendMailOptions, Transporter, SentMessageInfo} from 'nodemailer';
 import {Send} from '../settings/interface';
 import {transOptions} from '../types';
+
 namespace namespaceMail {
 
     abstract class Mail {
@@ -25,12 +26,16 @@ namespace namespaceMail {
             this.hosting = super.getTransporter();
         }
 
-        createMailOptions(from:string, to:string, subject:string):void{
+        createMailOptions(from:string, number:string, to:string, subject:string):void{
             this.mailOptions = {
                 from: from, // sender address
                 to: to, // list of receivers
                 subject: subject, // Subject line
-                html: '<h1>HI BRO!</h1>'// plain text body
+                html:`
+                <h3>Запрос на консультацию</h3>
+                <p>E-mail клиента: ${from}</p>
+                <p>Номер клиента: ${number}</p>
+                `
             };
         }
 
@@ -42,8 +47,10 @@ namespace namespaceMail {
             this.hosting.sendMail(this.getMailOptions(), (err:any, info:SentMessageInfo) => {
                     if(err)
                     console.log(err)
-                    else
-                    console.log(info);
+                    else{
+                        console.log('Email send:');
+                        console.log(info)
+                    }
                 });
         }
     }

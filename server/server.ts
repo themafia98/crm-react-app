@@ -2,8 +2,7 @@
 import express, {Application, Request, Response, NextFunction} from 'express';
 import http from 'http';
 import logger from 'morgan';
-import cookieParser from 'cookie-parser';
-
+import cors from 'cors';
 import {SendMailOptions} from 'nodemailer';
 import {transOptions} from './types';
 import fs from 'fs';
@@ -11,18 +10,22 @@ import envfile from 'envfile';
 
 import namespaceMail from './api/Mail';
 
-export const app:Application = express();
+import multer from 'multer';
 
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+export const app:Application = express();
 
 const port:string = process.env.PORT || '3001';
 const server = http.createServer(app);
 
+
+app.use(logger('dev'));
+app.use(cors({
+    origin: 'http://localhost:3000/'
+  }));
 app.set('port', port);
 
+
+const upload = multer();
 const env = envfile.parseFileSync('.env');
 const sender = new namespaceMail.Sender({
     service: 'gmail',
@@ -43,9 +46,12 @@ app.use(function(err:any, req:Request, res:Response, next:NextFunction):void {
   res.render('error');
 });
 
-app.get('/sendMail', (req:Request,res:Response) => {
-
-    sender.createMailOptions('test@test.test', env.GMAIL_USER, 'test request');
+app.post('/sendMail',upload.none(), (req:Request,res:Response) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    if (!req.body) return res.sendStatus(400);
+    const data = req.body;
+    console.log(data.email);
+    sender.createMailOptions(data.email,data.number, env.GMAIL_USER, 'Перезвонить');
     sender.sendMail();
   res.sendStatus(200);
 });
