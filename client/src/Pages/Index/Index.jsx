@@ -16,7 +16,7 @@ class Index extends React.PureComponent {
                     <Main 
                         title = 'Внедрение CRM для малого и среднего бизнеса' 
                     />
-                    <Form />
+                    <Form mode = 'index' />
                     <OurServices />
                     <WhatBest />
                 <Footer footerTitle = 'CRM© 2019 All rights reserved' />

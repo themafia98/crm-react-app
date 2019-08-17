@@ -2,7 +2,7 @@ import React,{Fragment} from 'react';
 import Header from '../../Components/Header/Header';
 import './contact.scss';
 import InformationContact from '../../Components/ContactComponents/InformationContact';
-import ContactForm from '../../Components/ContactComponents/ContactForm';
+import Form from '../../Components/Form/Form';
 class Contact extends React.PureComponent {
 
     render(){
@@ -23,7 +23,7 @@ class Contact extends React.PureComponent {
                         <InformationContact />
                     </div>
                     <div className = 'col-6'>
-                       <ContactForm />
+                       <Form mode = 'contact' />
                     </div>
                 </div>
                 </section>
