@@ -3,8 +3,8 @@
   "version": "0.5.0",
   "private": true,
   "scripts": {
-    "build": "tsc",
-    "dev": "nodemon ./server.ts",
+    "build": "tsc --pretty",
+    "dev": "nodemon ./server.ts --pretty",
     "prod": "cross-env NODE_ENV=production node build/server.js"
   },
   "dependencies": {
