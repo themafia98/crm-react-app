@@ -1,4 +1,5 @@
 import React,{useState} from 'react';
+import isFetch from 'isomorphic-fetch';
 import './contactComponents.scss';
 const ContactForm = props => {
 
@@ -17,7 +18,7 @@ const ContactForm = props => {
         let adress = 'http://localhost:3001/mail/sendMailQuestion';
         if (process.env.NODE_ENV === 'production')
         adress = process.env.REACT_APP_QUESTION;
-        fetch(adress, {
+        isFetch(adress, {
             method: 'POST',
             body: new FormData(refForm.current),
         })

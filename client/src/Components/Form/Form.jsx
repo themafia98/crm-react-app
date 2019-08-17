@@ -1,4 +1,5 @@
 import React,{useState} from 'react';
+import isFetch from 'isomorphic-fetch';
 import './form.scss';
 const Form = ({mode}) => {
 
@@ -17,7 +18,7 @@ const Form = ({mode}) => {
         let adress = 'http://localhost:3001/mail/sendMailConsultation';
         if (process.env.NODE_ENV === 'production')
         adress = process.env.REACT_APP_CONSUL;
-        fetch(adress, {
+        isFetch(adress, {
             method: 'POST',
             body: new FormData(refForm.current),
         })
