@@ -20,7 +20,6 @@ app.use(cors({
     origin: app.locals.frontend
   }));
 app.set('port', port);
-
 const upload = multer();
 const env = envfile.parseFileSync('.env');
 const sender = new namespaceMail.Sender({
@@ -41,16 +40,18 @@ app.use(function(err:any, req:Request, res:Response, next:NextFunction):void {
   res.render('error');
 });
 
-app.param('type', function(req:RequestParam, res: Response, next: NextFunction, type:string) {
+app.param('type', (req:RequestParam, res: Response, next: NextFunction, type:string):void => {
   req.type = type;
   next();
 });
 
-app.post('/mail/:type',upload.none(), (req:RequestParam,res:Response) => {
+app.post('/mail/:type',upload.none(), (req:RequestParam,res:Response):void|object => {
+    const {type} = req;
 
     res.setHeader('Access-Control-Allow-Origin', '*');
-  const type = req.type;
+    
     if (type === 'sendMailConsultation'){
+
       const isEmpty = !req.body.email && !req.body.name && !req.body.number;
       if (isEmpty) return res.sendStatus(400);
       const data = req.body;
@@ -63,7 +64,9 @@ app.post('/mail/:type',upload.none(), (req:RequestParam,res:Response) => {
         res.sendStatus(200);
         else res.sendStatus(400);
       });
+
     } else if (type === 'sendMailQuestion'){
+
       const isEmpty = !req.body.email && !req.body.name && !req.body.number && !req.body.text;
       if (isEmpty) return res.sendStatus(400);
       const data = req.body;
@@ -77,10 +80,9 @@ app.post('/mail/:type',upload.none(), (req:RequestParam,res:Response) => {
         res.sendStatus(200);
         else res.sendStatus(400);
       });
+
     }
 });
-
-
 
 
 app.get('*',(req:Request, res:Response) => {

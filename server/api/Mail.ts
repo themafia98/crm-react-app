@@ -1,4 +1,4 @@
-import nodemailer,{SendMailOptions, Transporter, SentMessageInfo} from 'nodemailer';
+import nodemailer,{SendMailOptions, Transporter} from 'nodemailer';
 import {Send} from '../settings/interface';
 import {transOptions} from '../types';
 
