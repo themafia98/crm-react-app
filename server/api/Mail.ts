@@ -43,15 +43,15 @@ namespace namespaceMail {
             return this.mailOptions;
         }
 
-        sendMail():void{
-            this.hosting.sendMail(this.getMailOptions(), (err:any, info:SentMessageInfo) => {
-                    if(err)
-                    console.log(err)
-                    else{
-                        console.log('Email send:');
-                        console.log(info)
-                    }
-                });
+        async sendMail():Promise<boolean>{
+            let isDone = false;
+                await this.hosting.sendMail(this.getMailOptions())
+                .then((res) => {
+                    if (/OK/ig.test(res.response))
+                    isDone = true;
+                    else isDone = false;
+                })
+            return isDone;
         }
     }
 }

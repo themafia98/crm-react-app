@@ -4,21 +4,34 @@ const Form = ({mode}) => {
 
     
     const [disabled, setDisabled] = useState(false);
+    const [error, setError] = useState('');
     const refForm = React.createRef();
     
     const sendRequest = event => {
+        const form = refForm.current;
+        const isFull = form.email.value && form.name.value  && form.number.value;
+        if (!isFull) {
+            console.warn('Fail,isFull - false');
+            return setError('Не все поля заполнены!');
+        } 
         setDisabled(true);
         fetch('http://localhost:3001/sendMail', {
             method: 'POST',
             body: new FormData(refForm.current),
         })
         .then(res => { 
-            if (res.status === 200 || res.status === 400) setDisabled(false);
-            if (res.status === 400) throw new Error('request invalid');
-            else console.log('Request send!');
+            if (res.status === 200) {
+                setDisabled(false);
+                setError('');
+                console.log('Request send!');
+            }
+            else if (res.status === 400) 
+                throw new Error('Ошибка отправки запроса!');
         })
         .catch(error => {
-            console.error(error);
+            setDisabled(false);
+            console.error(error.message);
+            setError(error.message);
         });
     }
 
@@ -26,21 +39,18 @@ const Form = ({mode}) => {
         <section className = 'feedBack container'>
             <form ref = {refForm}>
                 <input 
-                    required 
                     name = 'email'  
                     className = 'form__textInput' 
                     type = 'email' 
                     placeholder = 'E-mail' 
                 />
                 <input 
-                    required 
                     name = 'name'  
                     className = 'form__textInput' 
                     type = 'text' 
                     placeholder = 'Имя' 
                 />
                 <input 
-                    required 
                     name = 'number' 
                     className = 'form__textInput' 
                     type = 'tel' 
@@ -53,6 +63,7 @@ const Form = ({mode}) => {
                     type = 'button' 
                     value = 'Бесплатная консультация' 
                 />
+                {error && <span className = 'error'>{error}</span>}
             </form>
         </section>
     )

@@ -10,11 +10,15 @@ import namespaceMail from './api/Mail';
 
 export const app:Application = express();
 
+if(process.env.NODE_ENV === 'production')
+app.locals.server = 'http://analytik.by/';
+else app.locals.server = 'http://localhost:3000/';
+
 const port:string = process.env.PORT || '3001';
 
 app.use(logger('dev'));
 app.use(cors({
-    origin: 'http://localhost:3000/'
+    origin: app.locals.server
   }));
 app.set('port', port);
 
@@ -39,19 +43,25 @@ app.use(function(err:any, req:Request, res:Response, next:NextFunction):void {
 });
 
 app.post('/sendMail',upload.none(), (req:Request,res:Response) => {
+  console.log(app.locals.server);
     res.setHeader('Access-Control-Allow-Origin', '*');
-    if (!req.body) return res.sendStatus(400);
+    const isEmpty = !req.body.email && !req.body.name && !req.body.number;
+    if (isEmpty) return res.sendStatus(400);
     const data = req.body;
-    console.log(data.email);
+    console.log(data);
     sender.createMailOptions(data.email,data.number, env.GMAIL_USER, 'Перезвонить');
-    sender.sendMail();
-    res.sendStatus(200);
+    sender.sendMail()
+    .then(resPromise => {
+      console.log('Send Mail status: ' + resPromise);
+      if (resPromise)
+      res.sendStatus(200);
+      else res.sendStatus(400);
+    });
 });
 
 
-app.get('/',(req:Request, res:Response, next: NextFunction) => {
-
-    res.send('Start ts server');
+app.get('*',(req:Request, res:Response) => {
+  res.redirect(app.locals.server);
 });
 
 app.listen(port,() => console.log(`Server listen on ${port}`));

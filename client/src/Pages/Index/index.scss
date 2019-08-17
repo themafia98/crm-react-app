@@ -1,8 +1,15 @@
 
 .feedBack {
     display: flex;
+    position: relative;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     height: 15vh;
+
+    .error {
+        color: red;
+        position: absolute;
+        top: 0;
+    }
 }
