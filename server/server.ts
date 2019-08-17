@@ -1,55 +1,52 @@
 
-const debug = require('debug')('server:server');
-const http = require('http');
-const createError = require('http-errors');
-const express = require('express');
-const path = require('path');
-const cookieParser = require('cookie-parser');
-const logger = require('morgan');
+import express, {Application, Request, Response, NextFunction} from 'express';
+import http from 'http';
+import path from 'path';
+import logger from 'morgan';
+import cookieParser from 'cookie-parser';
+import createError from 'http-errors';
 
-const fs = require('fs');
-const nodemailder = require('nodemailer');
-const envfile = require('envfile');
+import fs from 'fs';
+import nodemailder from 'nodemailer';
+import envfile from 'envfile';
 
+export const app:Application = express();
+envfile.parseFileSync('.env');
 
-const NameSpaceMailer = require('./api/Mail');
-
-const sender = new NameSpaceMailer.MailHosting(nodemailder, envfile.parseFileSync('.env'));
-
-let app = express();
 
 app.use(logger('dev'));
 app.use(express.json());
-
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-let port:string = process.env.PORT || '3001';
+const port:string = process.env.PORT || '3001';
+const server = http.createServer(app);
+
 app.set('port', port);
 
-let server = http.createServer(app);
 
-
-// error handler
-app.use(function(err:any, req:any, res:any, next:any):void {
+// // error handler
+app.use(function(err:any, req:Request, res:Response, next:NextFunction):void {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
-
   // render the error page
   res.status(err.status || 500);
   res.render('error');
 });
 
 
-app.get('/sendMail', (req,res) => {
+app.get('/sendMail', (req:Request,res:Response) => {
 
-  sender.createSender().sendMail();
+//   sender.createSender().sendMail();
   res.send('GET handler for /sendMail route.');
 });
 
 
-server.listen(port, ():void => {
-  console.log(`Server listen on ${port}`);
+app.get('/',(req:Request, res:Response, next: NextFunction) => {
+
+    res.send('Start ts server');
 });
-module.exports = app;
+
+app.listen(port,() => console.log(`Server listen on ${port}`));
+
