@@ -6,19 +6,23 @@ const Form = ({mode}) => {
 
     const [disabled, setDisabled] = useState(false);
     const [error, setError] = useState('');
+    const [done, setDone] = useState(false);
     const refForm = React.createRef();
 
     
     const validate = (data) => {
         const isEmail = /\w{1,18}@\w{1,18}\.\w{1,10}/.test(data.email);
         const isName = /^\D+$/g.test(data.name);
-        const isNumber = /^\+?\d{1,6}(\(\d+\))?\d{1,10}$/.test(data.number);
+        const isNumber = /^\+?\d{3,10}(\(\d+\))?\d{3,10}$/.test(data.number);
 
         if (isEmail && isName && isNumber) return true;
         else return false;
     };
     
     const sendRequest = event => {
+
+        setDone(false);
+
         const form = refForm.current;
         const isFull = form.email.value && form.name.value  && form.number.value;
 
@@ -46,6 +50,7 @@ const Form = ({mode}) => {
             if (res.status === 200) {
                 setDisabled(false);
                 setError('');
+                setDone(true);
                 console.log('Request send!');
             }
             else if (res.status === 400) 
@@ -59,6 +64,9 @@ const Form = ({mode}) => {
     }
 
     const sendRequestQuestion = event => {
+
+        setDone(false);
+
         const form = refForm.current;
         const isFull = form.email.value && form.name.value  && form.number.value && form.text.value;
         
@@ -85,6 +93,7 @@ const Form = ({mode}) => {
             if (res.status === 200) {
                 setDisabled(false);
                 setError('');
+                setDone(true);
                 console.log('Request send!');
             }
             else if (res.status === 400) 
@@ -126,6 +135,7 @@ const Form = ({mode}) => {
                         type = 'button' 
                         value = 'Бесплатная консультация' 
                     />
+                    {done && <span className = 'done'>Письмо отправлено, мы скоро ответим!</span>}
                     {error && <span className = 'error'>{error}</span>}
                 </form>
             </section>
@@ -153,6 +163,7 @@ const Form = ({mode}) => {
                     type = 'text'
                     placeholder = 'Ваш вопрос' 
                 />
+                {done && <span className = 'done'>Письмо отправлено, мы скоро ответим!</span>}
                 {error && <span className = 'error'>{error}</span>}
                 <input
                     onClick = {sendRequestQuestion}

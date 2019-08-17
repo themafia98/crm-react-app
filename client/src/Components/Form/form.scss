@@ -57,6 +57,11 @@
          color: red;
         font-weight: bold;
     }
+
+    .done {
+        color: green;
+        font-weight: bold;
+    }
     input,textarea{
         border-top: 0 none;
         border-left: 0 none;
@@ -72,6 +77,7 @@
     input::placeholder{
         font-weight: bold;
     }
+
 
     textarea{
         outline: none;
@@ -101,6 +107,10 @@
         outline: none;
         border: 0 none;
         align-self: flex-start;
+    }
+
+    input[type = 'button']:disabled {
+        background: gray;
     }
 
     input[type = 'button']:not(:disabled):hover,
