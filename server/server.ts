@@ -10,14 +10,14 @@ import namespaceMail from './api/Mail';
 
 export const app:Application = express();
 if(process.env.NODE_ENV === 'production')
-app.locals.server = 'http://analytik.by/';
-else app.locals.server = 'http://localhost:3000/';
+app.locals.frontend = 'http://analytik.by/';
+else app.locals.frontend = 'http://localhost:3000/';
 
 const port:string = process.env.PORT || '3001';
 
 app.use(logger('dev'));
 app.use(cors({
-    origin: app.locals.server
+    origin: app.locals.frontend
   }));
 app.set('port', port);
 
@@ -84,8 +84,8 @@ app.post('/mail/:type',upload.none(), (req:RequestParam,res:Response) => {
 
 
 app.get('*',(req:Request, res:Response) => {
-  res.redirect(app.locals.server);
+  res.redirect(app.locals.frontend);
 });
 
-app.listen(port,() => console.log(`Server listen on ${port} with origin ${app.locals.server}`));
+app.listen(port,() => console.log(`Server listen on ${port} with origin ${app.locals.frontend}`));
 
