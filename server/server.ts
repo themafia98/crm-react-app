@@ -1,29 +1,22 @@
 
 import express, {Application, Request, Response, NextFunction} from 'express';
-import http from 'http';
 import logger from 'morgan';
 import cors from 'cors';
-import {SendMailOptions} from 'nodemailer';
-import {transOptions} from './types';
-import fs from 'fs';
 import envfile from 'envfile';
+import multer from 'multer';
 
 import namespaceMail from './api/Mail';
 
-import multer from 'multer';
 
 export const app:Application = express();
 
 const port:string = process.env.PORT || '3001';
-const server = http.createServer(app);
-
 
 app.use(logger('dev'));
 app.use(cors({
     origin: 'http://localhost:3000/'
   }));
 app.set('port', port);
-
 
 const upload = multer();
 const env = envfile.parseFileSync('.env');
@@ -34,7 +27,6 @@ const sender = new namespaceMail.Sender({
            pass: env.GMAIL_PASSWORD
        }
 });
-
 
 // // error handler
 app.use(function(err:any, req:Request, res:Response, next:NextFunction):void {
@@ -53,7 +45,7 @@ app.post('/sendMail',upload.none(), (req:Request,res:Response) => {
     console.log(data.email);
     sender.createMailOptions(data.email,data.number, env.GMAIL_USER, 'Перезвонить');
     sender.sendMail();
-  res.sendStatus(200);
+    res.sendStatus(200);
 });
 
 

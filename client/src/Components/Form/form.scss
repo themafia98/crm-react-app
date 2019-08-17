@@ -21,6 +21,10 @@ form {
         background-color: #efefef;
     }
 
+    input:disabled {
+        background: gray;
+    }
+
     .form__submit{
         cursor: pointer;
         font-size: 1.05rem;
@@ -30,13 +34,13 @@ form {
         background-color: #db4646;
         transition: all .3s linear;
     }
-    .form__submit:hover,
-    .form__submit:active {
+    .form__submit:not(:disabled):hover,
+    .form__submit:not(:disabled):active {
         color: black;
         box-shadow: 0 0 10px;
     }
 
-    .form__submit:active{
+    .form__submit:not(:disabled):active{
         color: wheat;
     }
 }
