@@ -1,9 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {withRouter} from 'react-router-dom';
 import Icon from '../Icon/Icon';
-const ListItem = ({content, type, url, title, newClass, icon, history}) => {
+const ListItem = ({content, url, title, newClass, icon, history}) => {
+
     const go = event => {
-        console.log(url);
         history.push(url);
         event.stopPropagation();
     };
@@ -26,6 +27,13 @@ const ListItem = ({content, type, url, title, newClass, icon, history}) => {
             }
         </div>
     )
-
 }
+ListItem.propTypes = {
+    content: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    history: PropTypes.object.isRequired,
+    url: PropTypes.string,
+    newClass: PropTypes.string,
+    icon: PropTypes.string,
+};
 export default withRouter(ListItem);

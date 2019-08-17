@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Icon.scss';
 const Icon = ({path, go, newClass, cbRedirectHome}) => {
     return (
@@ -13,4 +14,14 @@ const Icon = ({path, go, newClass, cbRedirectHome}) => {
         </div>
     )
 };
+Icon.propTypes = {
+    path: PropTypes.string.isRequired,
+    go: PropTypes.oneOfType([
+        PropTypes.string.isRequired,
+        PropTypes.bool.isRequired
+    ]),
+    newClass: PropTypes.string,
+    cbRedirectHome: PropTypes.func
+
+}
 export default Icon;

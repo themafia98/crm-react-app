@@ -1,4 +1,5 @@
 import React,{useState,Fragment} from 'react';
+import PropTypes from 'prop-types';
 import isFetch from 'isomorphic-fetch';
 import './form.scss';
 const Form = ({mode}) => {
@@ -168,4 +169,12 @@ const Form = ({mode}) => {
         )
     } else return <Fragment></Fragment>
 };
+
+Form.propTypes = {
+    mode: PropTypes.oneOfType([
+        PropTypes.string.isRequired,
+        PropTypes.bool.isRequired
+    ])
+};
+
 export default Form;

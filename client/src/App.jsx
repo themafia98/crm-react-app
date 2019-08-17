@@ -7,10 +7,7 @@ import Contact from './Pages/Contact/Contact';
 import About from './Pages/About/About';
 
 class App extends React.PureComponent {
-
-
   render(){
-
     return (
       <Switch>
         <Route exact path = '/' component = {Index}></Route>

@@ -1,11 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { NavLink, withRouter  } from 'react-router-dom';
 
 import Icon from '../Icon/Icon';
 
 import './header.scss';
 
-const Header = ({go, location, history, to}) => {
+const Header = ({go, history}) => {
 
     const redirectHome = () => {
         history.push('/');
@@ -42,6 +43,14 @@ const Header = ({go, location, history, to}) => {
             </ul>
         </header>
     )
+}
+
+Header.propTypes = {
+    go: PropTypes.oneOfType([
+        PropTypes.string.isRequired,
+        PropTypes.bool.isRequired
+    ]),
+    history: PropTypes.object.isRequired,
 }
 
 export default withRouter(Header);

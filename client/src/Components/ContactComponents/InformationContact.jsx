@@ -1,8 +1,6 @@
 import React,{Fragment} from 'react';
 import './contactComponents.scss';
-const InformationContact = () => {
-
-
+const InformationContact = props => {
     return (
         <Fragment>
             <p className = 'Contact__content__skype'>

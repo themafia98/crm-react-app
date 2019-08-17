@@ -1,6 +1,7 @@
 import React,{Fragment} from 'react';
-
+import PropTypes from 'prop-types';
 import './main.scss';
+
 const Main = ({title}) => {
 
     return (
@@ -13,7 +14,9 @@ const Main = ({title}) => {
             </section>
         </Fragment>
     )
-
+};
+Main.propTypes = {
+    title: PropTypes.string.isRequired,
 }
 
 export default Main;
