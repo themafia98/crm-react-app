@@ -1,8 +1,9 @@
 import React,{Fragment} from 'react';
+import Footer from '../../Components/Footer/Footer';
 import Header from '../../Components/Header/Header';
-import './contact.scss';
 import InformationContact from '../../Components/ContactComponents/InformationContact';
 import Form from '../../Components/Form/Form';
+import './contact.scss';
 class Contact extends React.PureComponent {
 
     render(){
@@ -27,6 +28,7 @@ class Contact extends React.PureComponent {
                     </div>
                 </div>
                 </section>
+            <Footer footerTitle = 'CRM© 2019 All rights reserved' />
             </Fragment>
         )
     }

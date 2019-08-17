@@ -8,10 +8,14 @@
         .telegram,
         .viber,
         .skype {
+            outline: none;
+            text-decoration: none;
             color: rgb(255, 133, 98);
         }
     }
     .Contact__content__tel{
+        text-decoration: none;
+        color: black;
         font-weight: bold;
         font-size: 1.8rem;
     }

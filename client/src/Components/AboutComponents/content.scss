@@ -1,0 +1,15 @@
+.About__Content{
+    display: flex;
+
+    .myPhoto{
+        width: 95%;
+    }
+    .About__Content__contentMain{
+        h3 {
+            text-align: center;
+        }
+        p {
+            padding-left: 5vh;
+        }
+    }
+}

@@ -9,7 +9,7 @@ class Services extends React.PureComponent {
             <Fragment>
                 <Header go = {true} />
                 <section className = 'Services'>
-                    <p>Services</p>
+                    <p className = 'Services__title'>Услуги</p>
                 </section>
             </Fragment>
         )
