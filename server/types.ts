@@ -1,0 +1,1 @@
+export type transOptions = {service:string, auth:object};

@@ -1,18 +1,17 @@
 
 import express, {Application, Request, Response, NextFunction} from 'express';
 import http from 'http';
-import path from 'path';
 import logger from 'morgan';
 import cookieParser from 'cookie-parser';
-import createError from 'http-errors';
 
+import {SendMailOptions} from 'nodemailer';
+import {transOptions} from './types';
 import fs from 'fs';
-import nodemailder from 'nodemailer';
 import envfile from 'envfile';
 
-export const app:Application = express();
-envfile.parseFileSync('.env');
+import namespaceMail from './api/Mail';
 
+export const app:Application = express();
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -23,6 +22,15 @@ const port:string = process.env.PORT || '3001';
 const server = http.createServer(app);
 
 app.set('port', port);
+
+const env = envfile.parseFileSync('.env');
+const sender = new namespaceMail.Sender({
+    service: 'gmail',
+    auth: {
+           user: env.GMAIL_USER,
+           pass: env.GMAIL_PASSWORD
+       }
+});
 
 
 // // error handler
@@ -35,11 +43,11 @@ app.use(function(err:any, req:Request, res:Response, next:NextFunction):void {
   res.render('error');
 });
 
-
 app.get('/sendMail', (req:Request,res:Response) => {
 
-//   sender.createSender().sendMail();
-  res.send('GET handler for /sendMail route.');
+    sender.createMailOptions('test@test.test', env.GMAIL_USER, 'test request');
+    sender.sendMail();
+  res.sendStatus(200);
 });
 
 
