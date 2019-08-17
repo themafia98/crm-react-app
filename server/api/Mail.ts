@@ -3,7 +3,7 @@ import {Send} from '../settings/interface';
 import {transOptions} from '../types';
 namespace namespaceMail {
 
-    class Mail {
+    abstract class Mail {
         private transporter:Transporter;
 
         constructor(transOptions:transOptions){
@@ -16,12 +16,13 @@ namespace namespaceMail {
 
     }
 
-    export class Sender implements Send {
-        private hosting:Mail;
+    export class Sender extends Mail implements Send {
+        private hosting:Transporter;
         private mailOptions:SendMailOptions;
 
         constructor(transOptions:transOptions){
-            this.hosting = new Mail(transOptions);
+            super(transOptions);
+            this.hosting = super.getTransporter();
         }
 
         createMailOptions(from:string, to:string, subject:string):void{
@@ -38,8 +39,7 @@ namespace namespaceMail {
         }
 
         sendMail():void{
-            const trans = this.hosting.getTransporter();
-                trans.sendMail(this.getMailOptions(), (err:any, info:SentMessageInfo) => {
+            this.hosting.sendMail(this.getMailOptions(), (err:any, info:SentMessageInfo) => {
                     if(err)
                     console.log(err)
                     else
