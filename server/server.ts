@@ -9,7 +9,6 @@ import namespaceMail from './api/Mail';
 
 
 export const app:Application = express();
-
 if(process.env.NODE_ENV === 'production')
 app.locals.server = 'http://analytik.by/';
 else app.locals.server = 'http://localhost:3000/';
@@ -64,5 +63,5 @@ app.get('*',(req:Request, res:Response) => {
   res.redirect(app.locals.server);
 });
 
-app.listen(port,() => console.log(`Server listen on ${port}`));
+app.listen(port,() => console.log(`Server listen on ${port} with origin ${app.locals.server}`));
 
