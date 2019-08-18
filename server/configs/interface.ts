@@ -1,5 +1,5 @@
 import {SendMailOptions} from 'nodemailer';
-import { Request } from "express";
+import { Request, } from "express";
 export interface Send {
     sendMail():void,
     createMailOptions(from:string,name:string, number:string, to:string, subject:string):void
@@ -11,4 +11,8 @@ export interface Send {
 export interface RequestParam extends Request {
     origin: string,
     type: string
-  }
+}
+
+export interface ServerInfo extends AddressInfo {
+
+}

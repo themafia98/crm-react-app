@@ -1,8 +1,11 @@
 import nodemailer,{SendMailOptions, Transporter} from 'nodemailer';
-import {Send} from '../settings/interface';
-import {transOptions} from '../types';
+import namespaceLogger from '../logger/logger';
+import {Send} from '../configs/interface';
+import {transOptions} from '../configs/types';
 
 namespace namespaceMail {
+
+    const log = namespaceLogger.loggerError();
 
     abstract class Mail {
         private transporter:Transporter;
@@ -69,7 +72,7 @@ namespace namespaceMail {
                     isDone = true;
                     else isDone = false;
                 })
-                .catch(error => console.error(error));
+                .catch(error => log.error(error.message + ` / ${Date.now()}`));
             return isDone;
         }
     }
