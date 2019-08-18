@@ -10,8 +10,8 @@ import namespaceMail from './api/Mail';
 
 export const app:Application = express();
 if(process.env.NODE_ENV === 'production')
-app.locals.frontend = 'http://analytik.by/';
-else app.locals.frontend = 'http://localhost:3000/';
+app.locals.frontend = 'http://analytik.by';
+else app.locals.frontend = 'http://localhost:3000';
 
 const port:string = process.env.PORT || '3001';
 
@@ -48,7 +48,7 @@ app.param('type', (req:RequestParam, res: Response, next: NextFunction, type:str
 app.post('/mail/:type',upload.none(), (req:RequestParam,res:Response):void|object => {
     const {type} = req;
 
-    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Origin',app.locals.frontend);
     
     if (type === 'sendMailConsultation'){
 
