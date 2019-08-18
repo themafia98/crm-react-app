@@ -10,7 +10,7 @@ import namespaceMail from './api/Mail';
 
 export const app:Application = express();
 if(process.env.NODE_ENV === 'production')
-app.locals.frontend = 'http://analytik.by';
+app.locals.frontend = 'https://themafia98.github.io';
 else app.locals.frontend = 'http://localhost:3000';
 
 const port:string = process.env.PORT || '3001';
@@ -63,7 +63,8 @@ app.post('/mail/:type',upload.none(), (req:RequestParam,res:Response):void|objec
         if (resPromise)
         res.sendStatus(200);
         else res.sendStatus(400);
-      });
+      })
+      .catch(error => console.error(error));
 
     } else if (type === 'sendMailQuestion'){
 

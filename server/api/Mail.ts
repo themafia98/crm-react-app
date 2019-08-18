@@ -69,6 +69,7 @@ namespace namespaceMail {
                     isDone = true;
                     else isDone = false;
                 })
+                .catch(error => console.error(error));
             return isDone;
         }
     }

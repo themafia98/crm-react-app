@@ -21,7 +21,7 @@ class About extends React.PureComponent {
                 <section className = 'About container'>
                     <p className = 'About__title'>О нас</p>
                     <ContentAbout   
-                        photoUrl = {'/img/demo__about.jpg'}
+                        photoUrl = {process.env.PUBLIC_URL + '/img/demo__about.jpg'}
                         content = {this.state.aboutMe}
                     />
                     <RoadCareer content = {this.state.road} />
