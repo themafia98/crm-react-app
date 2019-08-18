@@ -48,9 +48,12 @@ app.param('type', (req:RequestParam, res: Response, next: NextFunction, type:str
 app.post('/mail/:type',upload.none(), (req:RequestParam,res:Response):void|object => {
     const {type} = req;
 
+    const isForm = req.is('multipart/form-data');
     res.setHeader('Access-Control-Allow-Origin',app.locals.frontend);
-    
-    if (type === 'sendMailConsultation'){
+
+    if (!isForm) return res.sendStatus(400).send('Bad request format');
+
+    if  (isForm && type === 'sendMailConsultation'){
 
       const isEmpty = !req.body.email && !req.body.name && !req.body.number;
       if (isEmpty) return res.sendStatus(400);
@@ -66,7 +69,7 @@ app.post('/mail/:type',upload.none(), (req:RequestParam,res:Response):void|objec
       })
       .catch(error => console.error(error));
 
-    } else if (type === 'sendMailQuestion'){
+    } else if (isForm && type === 'sendMailQuestion'){
 
       const isEmpty = !req.body.email && !req.body.name && !req.body.number && !req.body.text;
       if (isEmpty) return res.sendStatus(400);
@@ -81,8 +84,7 @@ app.post('/mail/:type',upload.none(), (req:RequestParam,res:Response):void|objec
         res.sendStatus(200);
         else res.sendStatus(400);
       });
-
-    }
+    } else res.sendStatus(400);
 });
 
 
