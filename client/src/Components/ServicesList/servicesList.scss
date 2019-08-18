@@ -1,0 +1,28 @@
+.ServicesList{
+    display: flex;
+    height: 60vh;
+    .services_controllers{
+        display: flex;
+        flex-direction: column;
+        input[type = 'button']{
+            cursor: pointer;
+            outline: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            background-color: whitesmoke;
+            border: 1px solid black;
+            height: 33.333%;
+            width: 50%;
+            margin: 10px;
+            transition: .3s ease-in-out;
+        }
+
+        input[type = 'button']:hover{
+            background: rgb(83, 199, 117);
+        }
+
+        input.active {
+            background: rgb(83, 199, 117);
+        }
+    }
+}

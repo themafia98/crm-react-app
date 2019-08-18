@@ -1,4 +1,5 @@
 import React,{Fragment} from 'react';
+import ServicesList from '../../Components/ServicesList/ServicesList';
 import withScroll from '../../Components/withScroll';
 import Footer from '../../Components/Footer/Footer';
 import Header from '../../Components/Header/Header';
@@ -12,6 +13,7 @@ class Services extends React.PureComponent {
                 <Header go = {true} />
                 <section className = 'Services'>
                     <p className = 'Services__title'>Услуги</p>
+                    <ServicesList />
                 </section>
                 <Footer footerTitle = 'CRM© 2019 All rights reserved' />
             </Fragment>

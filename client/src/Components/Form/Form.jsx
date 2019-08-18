@@ -18,6 +18,11 @@ const Form = ({mode}) => {
         if (isEmail && isName && isNumber) return true;
         else return false;
     };
+
+    const openModalPolicy = event => {
+
+        event.stopPropagation();
+    }
     
     const sendRequest = event => {
 
@@ -173,7 +178,11 @@ const Form = ({mode}) => {
                 <p className = 'policy'>
                     Нажимая на кнопку, вы даете согласие 
                     на обработку персональных данных 
-                    и соглашаетесь c политикой конфиденциальности
+                    и соглашаетесь c <span
+                        onClick = {openModalPolicy} 
+                        className = 'policy'>
+                         политикой конфиденциальности
+                    </span>
                 </p>
             </form>
         )

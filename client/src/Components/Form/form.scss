@@ -120,5 +120,14 @@
     }
 }
 
+span.policy {
+    cursor: pointer;
+    color: orange;
+}
+
+span.policy:hover {
+    text-decoration: underline;
+}
+
 
 

@@ -5,13 +5,20 @@ import Header from '../../Components/Header/Header';
 import InformationContact from '../../Components/ContactComponents/InformationContact';
 import Form from '../../Components/Form/Form';
 import './contact.scss';
+import ModalWindow from '../../Components/ModalWindow/ModalWindow';
 class Contact extends React.PureComponent {
 
-    render(){
+    state = {
+        modalPolicyActive: false,
+        modalMode: null,
+    }
 
+    render(){ 
+        const {modalMode,modalPolicyActive} = this.state;
         return (
             <Fragment>
                 <Header go = {true} />
+                {modalPolicyActive && <ModalWindow mode = {modalMode} />}
                 <section className = 'Contact container'>
                 <div className = 'Contact__info'>
                     <h3 className = 'Contact__info__title'>Напишите нам</h3>
