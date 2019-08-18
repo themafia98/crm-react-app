@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import mainStreamEvents from '../../EventEmitter';
+import eventEmitter from '../../EventEmitter';
 import { NavLink, withRouter  } from 'react-router-dom';
 
 import Icon from '../Icon/Icon';
@@ -75,11 +75,11 @@ class Header extends React.PureComponent {
     }
 
     componentDidMount = () => {
-        mainStreamEvents.on('EventMenu',this.fixed);
+        eventEmitter.on('EventMenu',this.fixed);
     };
 
     componentWillUnmount = () => {
-        mainStreamEvents.off('EventMenu',this.fixed);
+        eventEmitter.off('EventMenu',this.fixed);
     };
 }
 

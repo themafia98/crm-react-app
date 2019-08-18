@@ -6,12 +6,22 @@ import InformationContact from '../../Components/ContactComponents/InformationCo
 import Form from '../../Components/Form/Form';
 import './contact.scss';
 import ModalWindow from '../../Components/ModalWindow/ModalWindow';
+import eventEmitter from '../../EventEmitter';
 class Contact extends React.PureComponent {
 
     state = {
         modalPolicyActive: false,
         modalMode: null,
     }
+
+    openModal = eventItem => {
+        const {active, action} = eventItem;
+        this.setState({
+            ...this.state,
+            modalPolicyActive: active,
+            modalMode: action
+        });
+    };
 
     render(){ 
         const {modalMode,modalPolicyActive} = this.state;
@@ -39,6 +49,14 @@ class Contact extends React.PureComponent {
             <Footer footerTitle = 'CRM© 2019 All rights reserved' />
             </Fragment>
         )
+    }
+
+    componentDidMount = () => {
+        eventEmitter.on('EventOpenModal', this.openModal);
+    }
+
+    componentWillUnmount = () => {
+        eventEmitter.off('EventOpenModal', this.openModal);
     }
 }
 

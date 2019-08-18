@@ -1,5 +1,5 @@
 import React,{useState, useEffect} from 'react';
-import mainStreamEvents from '../EventEmitter';
+import eventEmitter from '../EventEmitter';
 
 const withScroll = Component => props => {
 
@@ -7,11 +7,11 @@ const withScroll = Component => props => {
     
     const scrollEvent = event => {
         if (event.nativeEvent.view.pageYOffset > 0)
-        mainStreamEvents.emit("EventMenu", {
+        eventEmitter.emit("EventMenu", {
             action: 'fixed',
         });
         else if (event.nativeEvent.view.pageYOffset <= 0)
-        mainStreamEvents.emit("EventMenu", {
+        eventEmitter.emit("EventMenu", {
             action: null,
         });
 
@@ -20,7 +20,7 @@ const withScroll = Component => props => {
 
     const didMount = () => {
         if (global.pageYOffset > 0)
-        mainStreamEvents.emit("EventMenu", {
+        eventEmitter.emit("EventMenu", {
             action: 'fixed',
         });
 

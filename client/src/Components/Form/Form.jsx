@@ -1,5 +1,6 @@
 import React,{useState,Fragment} from 'react';
 import PropTypes from 'prop-types';
+import eventEmitter from '../../EventEmitter';
 import isFetch from 'isomorphic-fetch';
 import './form.scss';
 const Form = ({mode}) => {
@@ -21,6 +22,7 @@ const Form = ({mode}) => {
 
     const openModalPolicy = event => {
 
+        eventEmitter.emit('EventOpenModal', {action: 'policy', active: true});
         event.stopPropagation();
     }
     

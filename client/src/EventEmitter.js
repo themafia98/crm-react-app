@@ -1,3 +1,3 @@
 import Event from 'events';
-const mainStreamEvents = new Event();
-export default mainStreamEvents;
+const eventEmitter = new Event();
+export default eventEmitter;
