@@ -10,3 +10,25 @@
 .col-6{
     flex: 0 0 50%;
 }
+
+.scroller {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    transition: all .3s ease-in-out;
+}
+
+.scroller-before:before{
+        content: '';
+        width: 100%;
+        display: block;
+        height: 10vh;
+        box-sizing: border-box;
+}
+
+// .scroller-after:after {
+//     content: '';
+//     width: 100%;
+//     display: block;
+//     height: 10vh;
+// }

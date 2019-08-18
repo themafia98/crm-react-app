@@ -1,6 +1,8 @@
 header {
     width: 100%;
+    z-index: 1000;
     display: flex;
+    background: whitesmoke;
     
     .menu{
         display: flex;
@@ -22,3 +24,25 @@ header {
         }
     }
 }
+
+.header-flex {
+    margin: 0 auto;
+    max-width: 90%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+};
+
+header.fixed{
+
+    max-width: 100%;
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    top: 0;
+    background: whitesmoke;
+    display: flex;
+
+}
+
+    

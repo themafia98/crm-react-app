@@ -1,6 +1,5 @@
 import React from 'react';
 import {Switch, Route} from 'react-router-dom';
-
 import Index from './Pages/Index/Index';
 import Services from './Pages/Services/Services';
 import Contact from './Pages/Contact/Contact';

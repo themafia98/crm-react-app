@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react';
-
+import withScroll from '../../Components/withScroll';
 import Header from '../../Components/Header/Header';
 import Main from '../../Components/Main/Main';
 import Form from '../../Components/Form/Form';
@@ -25,4 +25,4 @@ class Index extends React.PureComponent {
     }
 }
 
-export default Index;
+export default withScroll(Index);

@@ -1,4 +1,5 @@
 import React,{Fragment} from 'react';
+import withScroll from '../../Components/withScroll';
 import dataAbout from '../../dataAbout.json';
 import Header from '../../Components/Header/Header';
 import Footer from '../../Components/Footer/Footer';
@@ -31,4 +32,4 @@ class About extends React.PureComponent {
     }
 }
 
-export default About;
+export default withScroll(About);

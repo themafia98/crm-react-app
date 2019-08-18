@@ -1,4 +1,5 @@
 import React,{Fragment} from 'react';
+import withScroll from '../../Components/withScroll';
 import Footer from '../../Components/Footer/Footer';
 import Header from '../../Components/Header/Header';
 import InformationContact from '../../Components/ContactComponents/InformationContact';
@@ -34,4 +35,4 @@ class Contact extends React.PureComponent {
     }
 }
 
-export default Contact;
+export default withScroll(Contact);

@@ -1,4 +1,5 @@
 import React,{Fragment} from 'react';
+import withScroll from '../../Components/withScroll';
 import Footer from '../../Components/Footer/Footer';
 import Header from '../../Components/Header/Header';
 import './services.scss';
@@ -18,4 +19,4 @@ class Services extends React.PureComponent {
     }
 }
 
-export default Services;
+export default withScroll(Services);
