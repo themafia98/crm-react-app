@@ -12,7 +12,3 @@ export interface RequestParam extends Request {
     origin: string,
     type: string
 }
-
-export interface ServerInfo extends AddressInfo {
-
-}
