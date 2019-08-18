@@ -56,7 +56,7 @@ app.post('/mail/:type',upload.none(), (req:RequestParam,res:Response):void|objec
     if  (isForm && type === 'sendMailConsultation'){
 
       const isEmpty = !req.body.email && !req.body.name && !req.body.number;
-      if (isEmpty) return res.sendStatus(400);
+      if (isEmpty) return res.sendStatus(400).send('Form is empty');
       const data = req.body;
       console.log(data);
       sender.createMailOptions(data.email,data.name, data.number, env.GMAIL_USER, 'Консультация');
@@ -64,15 +64,15 @@ app.post('/mail/:type',upload.none(), (req:RequestParam,res:Response):void|objec
       .then(resPromise => {
         console.log('Send Mail status: ' + resPromise);
         if (resPromise)
-        res.sendStatus(200);
-        else res.sendStatus(400);
+        res.sendStatus(200).send('Mail send');
+        else res.sendStatus(400).send('Mail send fail');
       })
       .catch(error => console.error(error));
 
     } else if (isForm && type === 'sendMailQuestion'){
 
       const isEmpty = !req.body.email && !req.body.name && !req.body.number && !req.body.text;
-      if (isEmpty) return res.sendStatus(400);
+      if (isEmpty) return res.sendStatus(400).send('Form is empty');
       const data = req.body;
       console.log(data);
       sender.createFeedBackMailOptions(data.email,data.name,data.text, 
@@ -81,10 +81,10 @@ app.post('/mail/:type',upload.none(), (req:RequestParam,res:Response):void|objec
       .then(resPromise => {
         console.log('Send Mail status: ' + resPromise);
         if (resPromise)
-        res.sendStatus(200);
-        else res.sendStatus(400);
+        res.sendStatus(200).send('Mail send');
+        else res.sendStatus(400).send('Mail send fail');
       });
-    } else res.sendStatus(400);
+    } else res.sendStatus(400).send('form-data invalid');;
 });
 
 
