@@ -4,6 +4,7 @@ import namespacelogger from './logger/logger';
 import cors from 'cors';
 import envfile from 'envfile';
 import multer from 'multer';
+import {formData} from './configs/types';
 import {RequestParam} from './configs/interface';
 import namespaceMail from './api/Mail';
 
@@ -55,17 +56,17 @@ app.param('type', (req:RequestParam, res: Response, next: NextFunction, type:str
 app.post('/mail/:type',upload.none(), (req:RequestParam,res:Response):void|object => {
     const {type} = req;
 
-    const isForm = req.is('multipart/form-data');
+    const isForm:boolean|string = req.is('multipart/form-data');
     res.setHeader('Access-Control-Allow-Origin',app.locals.frontend);
 
     if (!isForm) return res.sendStatus(400).send('Bad request format');
 
     if  (isForm && type === 'sendMailConsultation'){
 
-      const isEmpty = !req.body.email && !req.body.name && !req.body.number;
+      const isEmpty:boolean = !req.body.email && !req.body.name && !req.body.number;
       if (isEmpty) return res.sendStatus(400).send('Form is empty');
 
-      const data = req.body;
+      const data:formData = req.body;
       console.log(data);
 
       sender.createMailOptions(data.email,data.name, data.number, env.GMAIL_USER, 'Консультация');
@@ -88,7 +89,8 @@ app.post('/mail/:type',upload.none(), (req:RequestParam,res:Response):void|objec
 
       const isEmpty = !req.body.email && !req.body.name && !req.body.number && !req.body.text;
       if (isEmpty) return res.sendStatus(400).send('Form is empty');
-      const data = req.body;
+      
+      const data:formData = req.body;
       console.log(data);
 
       sender.createFeedBackMailOptions(data.email,data.name,data.text, 
