@@ -84,12 +84,12 @@ app.post('/mail/:type',upload.none(), (req:RequestParam,res:Response):void|objec
     const isForm:boolean|string = req.is('multipart/form-data');
     res.setHeader('Access-Control-Allow-Origin',app.locals.frontend);
 
-    if (!isForm) return res.sendStatus(400).send('Bad request format');
+    if (!isForm) return res.status(400).send('Bad request format');
 
     if  (isForm && type === 'sendMailConsultation'){
 
       const isEmpty:boolean = !req.body.email && !req.body.name && !req.body.number;
-      if (isEmpty) return res.sendStatus(400).send('Form is empty');
+      if (isEmpty) return res.status(400).send('Form is empty');
 
       const data:formData = req.body;
       console.log(data);
@@ -113,7 +113,7 @@ app.post('/mail/:type',upload.none(), (req:RequestParam,res:Response):void|objec
     } else if (isForm && type === 'sendMailQuestion'){
 
       const isEmpty = !req.body.email && !req.body.name && !req.body.number && !req.body.text;
-      if (isEmpty) return res.sendStatus(400).send('Form is empty');
+      if (isEmpty) return res.status(400).send('Form is empty');
       
       const data:formData = req.body;
       console.log(data);
@@ -133,7 +133,7 @@ app.post('/mail/:type',upload.none(), (req:RequestParam,res:Response):void|objec
         res.sendStatus(200);
         else res.sendStatus(400);
       });
-    } else res.sendStatus(400).send('form-data invalid');;
+    } else res.status(400).send('form-data invalid');;
 });
 
 
