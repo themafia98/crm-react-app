@@ -23,6 +23,7 @@ namespace AppNamespace {
               pass: env.GMAIL_PASSWORD
         }
       });
+
  
       app.param('type', (req:RequestParam, res: Response, next: NextFunction, type:string):void => {
         req.type = type;
