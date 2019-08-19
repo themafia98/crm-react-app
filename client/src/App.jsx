@@ -4,6 +4,7 @@ import Index from './Pages/Index/Index';
 import Services from './Pages/Services/Services';
 import Contact from './Pages/Contact/Contact';
 import About from './Pages/About/About';
+import createHistory from 'history/createBrowserHistory';
 
 class App extends React.PureComponent {
   render(){
