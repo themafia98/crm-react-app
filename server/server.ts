@@ -28,7 +28,7 @@ else app.locals.frontend = 'http://localhost:3000';
 const port:string = process.env.PORT || '3001';
 
 
-let corsOptions = {
+const corsOptions = {
     origin: function (origin:string, callback:(error:object, result?:boolean) => void) {
         if (app.locals.frontend === origin) {
             callback(null, true)

@@ -11,7 +11,12 @@ const ModalContent = ({mode}) => {
 
     const didMount = () => {
         setLoad(true);
-        isFetch('http://localhost:3001/policy')
+
+        let adress = 'http://localhost:3001/policy';
+        if (process.env.NODE_ENV === 'production')
+        adress = process.env.REACT_APP_POLICY;
+
+        isFetch(adress)
         .then(res => res.json())
         .then(text => {
             setPolicy(text.split(/\\n/ig).map((item,index) => {
