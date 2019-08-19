@@ -1,12 +1,36 @@
-import React,{Fragment} from 'react';
+import React,{useEffect,useState,Fragment} from 'react';
+import Loader from '../Loader/Loader';
+import isFetch from 'isomorphic-fetch';
 import './modalWindow.scss';
 
 const ModalContent = ({mode}) => {
 
+
+    const [policyContent, setPolicy] = useState(false);
+    const [isLoad, setLoad] = useState(false);
+
+    const didMount = () => {
+        setLoad(true);
+        isFetch('http://localhost:3001/policy')
+        .then(res => res.json())
+        .then(text => {
+            setPolicy(text.split(/\\n/ig).map((item,index) => {
+            return <p key = {index}>{item}</p>
+            }));
+            setLoad(false);
+        });
+    }
+
+    useEffect(didMount,[]);
+
     if (mode === 'policy'){
         return (
             <div className = 'Modal__policy'>
-            
+            <p className = 'Modal_policy__title'>
+                Политика конфиденциальности персональных данных
+            </p>
+            {isLoad && <Loader loaderClass = 'Loader' />}
+            {policyContent}
             </div>
         )
     } else return <Fragment></Fragment>

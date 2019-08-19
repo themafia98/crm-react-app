@@ -1,5 +1,7 @@
 
 import express, {Application, Request, Response, NextFunction} from 'express';
+import rateLimit from 'express-rate-limit';
+import fs from 'fs';
 import namespacelogger from './logger/logger';
 import cors from 'cors';
 import envfile from 'envfile';
@@ -9,8 +11,13 @@ import {RequestParam} from './configs/interface';
 import namespaceMail from './api/Mail';
 
 
-export const debug = namespacelogger.loggerDebug();
-export const log = namespacelogger.loggerError();
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100 // limit each IP to 100 requests per windowMs
+});
+
+const debug = namespacelogger.loggerDebug();
+const log = namespacelogger.loggerError();
 export const app:Application = express();
 
 
@@ -20,10 +27,25 @@ else app.locals.frontend = 'http://localhost:3000';
 
 const port:string = process.env.PORT || '3001';
 
-app.use(cors({
-    origin: app.locals.frontend
-}));
 
+let corsOptions = {
+    origin: function (origin:string, callback:(error:object, result?:boolean) => void) {
+        if (app.locals.frontend === origin) {
+            callback(null, true)
+        } else {
+            callback(new Error('Not allowed by CORS'))
+        }
+    },
+    methods: ['GET', 'POST'],
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
+app.use(cors(corsOptions));
+
+// app.use(cors({
+//     origin: app.locals.frontend
+// }));
+app.use(limiter);
+app.disable('x-powered-by');
 
 app.set('port', port);
 const upload = multer();
@@ -39,11 +61,15 @@ const sender = new namespaceMail.Sender({
 // // error handler
 app.use(function(err:any, req:Request, res:Response, next:NextFunction):void {
   // set locals, only providing error in development
+  const today = new Date();
+  const time  = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+  const day = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
+  log.error(`${res.locals.message} / ${day}/${time}`);
   // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+  res.sendStatus(503);
 });
 
 
@@ -51,7 +77,6 @@ app.param('type', (req:RequestParam, res: Response, next: NextFunction, type:str
   req.type = type;
   next();
 });
-
 
 app.post('/mail/:type',upload.none(), (req:RequestParam,res:Response):void|object => {
     const {type} = req;
@@ -112,6 +137,20 @@ app.post('/mail/:type',upload.none(), (req:RequestParam,res:Response):void|objec
 });
 
 
+app.get('/policy', (req: RequestParam, res:Response, next: NextFunction):void => {
+  
+  res.setHeader('Access-Control-Allow-Origin',app.locals.frontend);
+  try {
+  fs.readFile('./data/policy.txt','utf-8', (err, data) => {
+    if (err) throw err;
+    res.status(200).send(JSON.stringify(data));
+  })
+  } catch(error){
+    log.error(error.message);
+    res.status(400).send(error.message);
+  };
+
+});
 
 app.get('*',(req:Request, res:Response) => {
   res.redirect(app.locals.frontend);
