@@ -4,8 +4,6 @@ import rateLimit from 'express-rate-limit';
 import path from 'path';
 import fs from 'fs';
 import {debug, log} from './logger/logModule';
-import corsOptions from './configs/cors';
-import cors from 'cors';
 
 
 const {app} = AppNamespace;
@@ -31,11 +29,7 @@ app.use((err:Error, req:Request, res:Response):void => {
   res.sendStatus(403);
 });
 
-app.use(cors(corsOptions));
-app.disable('x-powered-by');
 app.set('port', port);
-
-
 app.listen(port,() => {
 
     const today = new Date();

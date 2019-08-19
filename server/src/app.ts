@@ -8,10 +8,23 @@ import {debug, log} from './logger/logModule';
 import {formData} from './configs/types';
 import {RequestParam} from './configs/interface';
 import namespaceMail from './api/Mail';
-
+import cors from 'cors';
 namespace AppNamespace {
 
     export const app:Application = express();
+    app.disable('x-powered-by');
+    const corsOptions = {
+      origin: function (origin:string, callback:(error:object, result?:boolean) => void) {
+          if (app.locals.frontend.origin === origin) {
+              callback(null, true)
+          } else {
+              callback(new Error('Not allowed by CORS'))
+          }
+      },
+      methods: ['GET', 'POST'],
+      optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+    };
+    app.use(cors(corsOptions));
 
     const env = envfile.parseFileSync('.env');
     const upload = multer(); // form-data
@@ -33,7 +46,6 @@ namespace AppNamespace {
       app.post('/mail/:type',upload.none(), (req:RequestParam,res:Response):void|object => {
           const {type} = req;
       
-          console.log(res);
           const isForm:boolean|string = req.is('multipart/form-data');
           res.setHeader('Access-Control-Allow-Origin',app.locals.frontend.origin);
       
@@ -93,7 +105,7 @@ namespace AppNamespace {
       app.get('/policy', (req: RequestParam, res:Response):void => {
         
         res.setHeader('Access-Control-Allow-Origin',app.locals.frontend.origin);
-        console.log(__dirname);
+
           const policy = fs.createReadStream(path.join(__dirname, '/data','policy.txt'));
       
           policy.on('open', () => {
