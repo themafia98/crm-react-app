@@ -55,11 +55,11 @@ const sender = new namespaceMail.Sender({
     auth: {
            user: env.GMAIL_USER,
            pass: env.GMAIL_PASSWORD
-       }
+    }
 });
 
 // // error handler
-app.use(function(err:any, req:Request, res:Response, next:NextFunction):void {
+app.use((err:Error, req:Request, res:Response, next:NextFunction):void => {
   // set locals, only providing error in development
   const today = new Date();
   const time  = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
