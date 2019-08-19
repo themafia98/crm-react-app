@@ -1,6 +1,7 @@
 
 import express, {Application, Request, Response, NextFunction} from 'express';
 import rateLimit from 'express-rate-limit';
+import path from 'path';
 import fs from 'fs';
 import namespacelogger from './logger/logger';
 import cors from 'cors';
@@ -10,10 +11,8 @@ import {formData} from './configs/types';
 import {RequestParam} from './configs/interface';
 import namespaceMail from './api/Mail';
 
-
-const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100 // limit each IP to 100 requests per windowMs
+fs.readFile(path.join(__dirname, '/configs', 'limit.json'),'utf-8', (error: Error, config:Buffer) => {
+    app.use(rateLimit(config));  // 15 * 60 * 1000
 });
 
 const debug = namespacelogger.loggerDebug();
@@ -22,15 +21,15 @@ export const app:Application = express();
 
 
 if(process.env.NODE_ENV === 'production')
-app.locals.frontend = 'https://themafia98.github.io';
-else app.locals.frontend = 'http://localhost:3000';
+app.locals.frontend = new URL('https://themafia98.github.io');
+else app.locals.frontend = new URL('http://localhost:3000');
 
 const port:string = process.env.PORT || '3001';
 
 
 const corsOptions = {
     origin: function (origin:string, callback:(error:object, result?:boolean) => void) {
-        if (app.locals.frontend === origin) {
+        if (app.locals.frontend.origin === origin) {
             callback(null, true)
         } else {
             callback(new Error('Not allowed by CORS'))
@@ -41,10 +40,11 @@ const corsOptions = {
 }
 app.use(cors(corsOptions));
 
+
+
 // app.use(cors({
 //     origin: app.locals.frontend
 // }));
-app.use(limiter);
 app.disable('x-powered-by');
 
 app.set('port', port);
@@ -69,7 +69,7 @@ app.use((err:Error, req:Request, res:Response, next:NextFunction):void => {
   res.locals.error = req.app.get('env') === 'development' ? err : {};
   log.error(`${res.locals.message} / ${day}/${time}`);
   // render the error page
-  res.sendStatus(503);
+  res.sendStatus(403);
 });
 
 
@@ -82,7 +82,7 @@ app.post('/mail/:type',upload.none(), (req:RequestParam,res:Response):void|objec
     const {type} = req;
 
     const isForm:boolean|string = req.is('multipart/form-data');
-    res.setHeader('Access-Control-Allow-Origin',app.locals.frontend);
+    res.setHeader('Access-Control-Allow-Origin',app.locals.frontend.origin);
 
     if (!isForm) return res.status(400).send('Bad request format');
 
@@ -139,21 +139,20 @@ app.post('/mail/:type',upload.none(), (req:RequestParam,res:Response):void|objec
 
 app.get('/policy', (req: RequestParam, res:Response, next: NextFunction):void => {
   
-  res.setHeader('Access-Control-Allow-Origin',app.locals.frontend);
-  try {
-  fs.readFile('./data/policy.txt','utf-8', (err, data) => {
-    if (err) throw err;
-    res.status(200).send(JSON.stringify(data));
-  })
-  } catch(error){
+  res.setHeader('Access-Control-Allow-Origin',app.locals.frontend.origin);
+    const policy = fs.createReadStream(path.join(__dirname, '/data','policy.txt'));
+
+    policy.on('open', () => policy.pipe(res));
+    policy.on('error', (error) => {
     log.error(error.message);
-    res.status(400).send(error.message);
-  };
+    res.sendStatus(404);
+    });
+
 
 });
 
 app.get('*',(req:Request, res:Response) => {
-  res.redirect(app.locals.frontend);
+  res.redirect(app.locals.frontend.origin);
 });
 
 

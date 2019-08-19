@@ -17,7 +17,7 @@ const ModalContent = ({mode}) => {
         adress = process.env.REACT_APP_POLICY;
 
         isFetch(adress)
-        .then(res => res.json())
+        .then(res => res.text())
         .then(text => {
             setPolicy(text.split(/\\n/ig).map((item,index) => {
             return <p key = {index}>{item}</p>
