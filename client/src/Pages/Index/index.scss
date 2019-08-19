@@ -21,3 +21,20 @@
         top: 0;
     }
 }
+
+@media screen and (max-width: 650px){
+    .main .main__title {
+        font-size: 2rem;
+    }
+    .feedBack {
+        height: 70vh;
+    }
+    .index {
+        flex-wrap: wrap;
+    }
+    .index .form__textInput {
+        width: 95%;
+        margin: 10px;
+    }
+    
+}

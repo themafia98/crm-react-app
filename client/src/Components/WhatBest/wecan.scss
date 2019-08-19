@@ -10,3 +10,38 @@
 
     height: 65vh;
 }
+
+@media screen and (max-width: 650px){
+    .WhatBest {
+        height: 205vh;
+    }
+    .list .ListItem {
+        width: 100%;
+    }
+}
+@media screen and (max-width: 822px){
+    .WhatBest {
+        height: 115vh;
+    }
+    .WhatBest .container h2 {
+        font-size: 2rem;
+    }
+    .list .ListItem.item__weCan {
+        width: 100%;
+    }
+    .list .ListItem {
+        width: 45%;
+    }
+}
+
+@media screen and (max-width: 950px){
+    .list .ListItem.item__weCan {
+        width: 47%;
+    }
+    .list .ListItem {
+        width: 35%;
+    }
+
+}
+
+

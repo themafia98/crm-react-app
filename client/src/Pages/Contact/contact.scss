@@ -19,3 +19,27 @@
         }
     }
 }
+
+@media screen and (max-width: 650px){
+    .Contact .Contact__info {
+        width: 90%;
+    }
+    .Contact .Contact__info .Contact__info__title {
+        font-size: 1.8rem;
+    }
+    .Contact .Contact__info {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 1015px){
+    .Contact .Contact__info {
+        width: 60%;
+    }
+    .Contact .Contact__info .Contact__info__title {
+        font-size: 2.3rem;
+    }
+    .Contact .Contact__info {
+        width: 60%;
+    }
+}

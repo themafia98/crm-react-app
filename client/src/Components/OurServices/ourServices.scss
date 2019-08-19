@@ -10,3 +10,32 @@
     height: 73vh;
 
 }
+
+@media screen and (max-width: 650px){
+    .OurServices {
+        height: 270vh;
+    }
+    .list .ListItem {
+        width: 100%;
+    }
+}
+@media screen and (max-width: 900px){
+    .OurServices {
+        height: 110vh;
+    }
+}
+
+@media screen and (max-width: 950px){
+    .OurServices {
+        height: 110vh;
+    }
+    .list .ListItem {
+        width: 35%;
+    }
+}
+
+@media screen and (max-width: 822px){
+    .list .ListItem {
+        width: 45%;
+    }
+}

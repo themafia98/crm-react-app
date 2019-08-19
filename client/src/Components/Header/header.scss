@@ -45,4 +45,38 @@ header.fixed{
 
 }
 
-    
+@media screen and (max-width: 400px){
+    header:not(.fixed) {
+        height: 20vh;
+    }
+    div.buffer:before {
+        content: '';
+        display: block;
+        height: 15vh;
+    }
+}
+
+@media screen and (max-width: 355px){
+    header:not(.fixed) {
+        height: 30vh;
+    }
+}
+
+@media screen and (max-width: 650px){
+    header:not(.fixed) {
+        height: 15vh;
+    }
+    .header-flex {
+        flex-direction: column;
+    }
+    header .menu {
+        justify-content: center;
+    }
+
+    div.buffer:before {
+        content: '';
+        display: block;
+        height: 12vh;
+    }
+}
+

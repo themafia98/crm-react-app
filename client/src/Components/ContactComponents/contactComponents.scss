@@ -20,3 +20,40 @@
         font-size: 1.8rem;
     }
 }
+
+@media screen and (max-width: 650px){
+    .Contact__content {
+        flex-direction: column;
+    }
+    .contact-text--center {
+        text-align: center;
+    }
+    .col-mobile {
+        flex: 0 0 100%;
+    }
+    .contact input {
+        height: 10vh;
+        padding: 0;
+        margin: 0;
+    }
+    .contact textarea {
+        height: 30vh;
+    }
+    .contact input[type='button'] {
+        align-self: center;
+    }
+}
+@media screen and (max-width: 765px){
+    .Contact__content {
+        margin: 0;
+    }
+    .Contact__content__telegram, .Contact__content .Contact__content__tel {
+        font-size: 1.3rem;
+    }
+    
+}
+@media screen and (max-width: 1015px){
+    .Contact__content {
+        margin: 0 8%;
+    }
+}

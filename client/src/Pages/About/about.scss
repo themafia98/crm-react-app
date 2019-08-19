@@ -11,3 +11,21 @@
         padding: 25px 0;
     }
 }
+
+@media screen and (max-width: 650px){
+    .About .About__title {
+        font-size: 1.8rem;
+    }
+}
+
+@media screen and (max-width: 900px){
+    .About__Content {
+        flex-direction: column;
+    }
+    .About__Content .About__Content__contentMain p {
+        padding-left: 0;
+    }
+    .About .roadCareer__content {
+        margin: 0;
+    }
+}

@@ -1,0 +1,28 @@
+@media screen and (max-width: 1050px){
+    .ServicesList .services_controllers input[type='button'] {
+        height: 25%;
+        width: 60%;
+        white-space: pre-wrap;
+    }
+}
+
+@media screen and (max-width: 900px){
+    .Services {
+    
+        .Services__title {
+            font-size: 1.8rem;
+        }
+
+        .ServicesList {
+            flex-direction: column;
+            height: 150vh;
+                .services_controllers{
+                    input {
+                        width: 100%;
+                        height: 20%;
+                        margin: 1vh 0;
+                    }
+                }
+        }
+    }
+}

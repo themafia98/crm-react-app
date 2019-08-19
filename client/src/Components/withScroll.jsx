@@ -1,21 +1,28 @@
-import React,{useState, useEffect} from 'react';
+import React,{createRef, useState, useEffect} from 'react';
 import eventEmitter from '../EventEmitter';
 
 const withScroll = Component => props => {
 
-    const [isBefore, setBefore] = useState(false);
+    const [buffer,setBuffer] = useState(false);
+    const scrollerRef = createRef();
     
-    const scrollEvent = event => {
-        if (event.nativeEvent.view.pageYOffset > 0)
-        eventEmitter.emit("EventMenu", {
-            action: 'fixed',
-        });
-        else if (event.nativeEvent.view.pageYOffset <= 0)
-        eventEmitter.emit("EventMenu", {
-            action: null,
-        });
+    const scrollEvent = event => {  
+        const isMobile = scrollerRef.current.clientWidth < 650;
 
-        setBefore(event.nativeEvent.view.pageYOffset > 0);
+        if ((event.nativeEvent.view.pageYOffset <= 0) ||
+            (buffer && event.nativeEvent.view.pageYOffset <= 100)){
+            isMobile && setBuffer(false);
+            eventEmitter.emit("EventMenu", {
+                action: null,
+            });
+        }
+        else if ((event.nativeEvent.view.pageYOffset > 0) ||
+            (buffer && event.nativeEvent.view.pageYOffset > 100)){
+            isMobile && setBuffer(true);
+            eventEmitter.emit("EventMenu", {
+                action: 'fixed',
+            });
+        }
     };
 
     const didMount = () => {
@@ -30,7 +37,8 @@ const withScroll = Component => props => {
 
     return (
         <div onWheel = {scrollEvent} 
-             className = {!isBefore ? 'scroller' : 'scroller'}>
+             ref = {scrollerRef}
+             className = {!buffer ? 'scroller' : 'scroller buffer'}>
             <Component {...props} />
         </div>
     )
