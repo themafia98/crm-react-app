@@ -4,7 +4,9 @@
 /node_modules
 /.pnp
 .pnp.js
-
+Procfile
+debug.log
+error.log
 # testing
 /coverage
 .vscode
