@@ -3,8 +3,9 @@
   "version": "0.5.0",
   "private": true,
   "scripts": {
-    "build": "tsc --pretty",
-    "dev": "nodemon ./server.ts --pretty",
+    "build": "npm run copyfiles && tsc",
+    "dev": "nodemon ./src/server.ts --pretty",
+	"copyfiles": "copyfiles -f src/data/*.txt build/data/",
     "prod": "cross-env NODE_ENV=production node build/server.js"
   },
   "dependencies": {
@@ -16,6 +17,7 @@
     "multer": "^1.4.2",
     "nodemailer": "^6.3.0",
     "typescript": "^3.5.3",
+	"copyfiles": "^2.1.1",
     "winston": "^3.2.1"
   },
   "devDependencies": {
@@ -24,6 +26,7 @@
     "@types/nodemailer": "^6.2.1",
     "@types/winston": "^2.4.4",
     "cross-env": "^5.2.0",
+	"copyfiles": "^2.1.1",
     "nodemon": "^1.19.1",
     "ts-node": "^8.3.0"
   }

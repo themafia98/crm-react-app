@@ -93,6 +93,7 @@ namespace AppNamespace {
       app.get('/policy', (req: RequestParam, res:Response):void => {
         
         res.setHeader('Access-Control-Allow-Origin',app.locals.frontend.origin);
+        console.log(__dirname);
           const policy = fs.createReadStream(path.join(__dirname, '/data','policy.txt'));
       
           policy.on('open', () => {

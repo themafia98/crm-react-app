@@ -7,6 +7,7 @@ import {debug, log} from './logger/logModule';
 import corsOptions from './configs/cors';
 import cors from 'cors';
 
+
 const {app} = AppNamespace;
 const port:string = process.env.PORT || '3001';
 
