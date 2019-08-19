@@ -3,6 +3,8 @@ import Loader from '../Loader/Loader';
 import isFetch from 'isomorphic-fetch';
 import './modalWindow.scss';
 
+const upload = multer(); // form-data
+
 const ModalContent = ({mode}) => {
 
 

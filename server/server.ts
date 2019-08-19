@@ -1,159 +1,40 @@
-
-import express, {Application, Request, Response, NextFunction} from 'express';
+import {Request, Response} from 'express';
+import AppNamespace from './app';
 import rateLimit from 'express-rate-limit';
 import path from 'path';
 import fs from 'fs';
-import namespacelogger from './logger/logger';
+import {debug, log} from './logger/logModule';
+import corsOptions from './configs/cors';
 import cors from 'cors';
-import envfile from 'envfile';
-import multer from 'multer';
-import {formData} from './configs/types';
-import {RequestParam} from './configs/interface';
-import namespaceMail from './api/Mail';
 
-fs.readFile(path.join(__dirname, '/configs', 'limit.json'),'utf-8', (error: Error, config:Buffer) => {
-    app.use(rateLimit(config));  // 15 * 60 * 1000
-});
-
-const debug = namespacelogger.loggerDebug();
-const log = namespacelogger.loggerError();
-export const app:Application = express();
-
+const {app} = AppNamespace;
+const port:string = process.env.PORT || '3001';
 
 if(process.env.NODE_ENV === 'production')
 app.locals.frontend = new URL('https://themafia98.github.io');
 else app.locals.frontend = new URL('http://localhost:3000');
 
-const port:string = process.env.PORT || '3001';
-
-
-const corsOptions = {
-    origin: function (origin:string, callback:(error:object, result?:boolean) => void) {
-        if (app.locals.frontend.origin === origin) {
-            callback(null, true)
-        } else {
-            callback(new Error('Not allowed by CORS'))
-        }
-    },
-    methods: ['GET', 'POST'],
-    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-}
-app.use(cors(corsOptions));
-
-
-
-// app.use(cors({
-//     origin: app.locals.frontend
-// }));
-app.disable('x-powered-by');
-
-app.set('port', port);
-const upload = multer();
-const env = envfile.parseFileSync('.env');
-const sender = new namespaceMail.Sender({
-    service: 'gmail',
-    auth: {
-           user: env.GMAIL_USER,
-           pass: env.GMAIL_PASSWORD
-    }
+fs.readFile(path.join(__dirname, '/configs', 'limit.json'),'utf-8', (error: Error, config:Buffer) => {
+  app.use(rateLimit(config));  // 15 * 60 * 1000
 });
 
-// // error handler
-app.use((err:Error, req:Request, res:Response, next:NextFunction):void => {
-  // set locals, only providing error in development
-  const today = new Date();
-  const time  = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-  const day = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-  log.error(`${res.locals.message} / ${day}/${time}`);
-  // render the error page
+    // // error handler
+app.use((err:Error, req:Request, res:Response):void => {
+      // set locals, only providing error in development
+      const today = new Date();
+      const time  = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+      const day = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    
+      res.locals.message = err.message;
+      res.locals.error = req.app.get('env') === 'development' ? err : {};
+      log.error(`${res.locals.message} / ${day}/${time}`);
+      // render the error page
   res.sendStatus(403);
 });
 
-
-app.param('type', (req:RequestParam, res: Response, next: NextFunction, type:string):void => {
-  req.type = type;
-  next();
-});
-
-app.post('/mail/:type',upload.none(), (req:RequestParam,res:Response):void|object => {
-    const {type} = req;
-
-    const isForm:boolean|string = req.is('multipart/form-data');
-    res.setHeader('Access-Control-Allow-Origin',app.locals.frontend.origin);
-
-    if (!isForm) return res.status(400).send('Bad request format');
-
-    if  (isForm && type === 'sendMailConsultation'){
-
-      const isEmpty:boolean = !req.body.email && !req.body.name && !req.body.number;
-      if (isEmpty) return res.status(400).send('Form is empty');
-
-      const data:formData = req.body;
-      console.log(data);
-
-      sender.createMailOptions(data.email,data.name, data.number, env.GMAIL_USER, 'Консультация');
-      
-      const today = new Date();
-      const time  = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-      const day = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-
-      debug.info(`Start send requset mail from ${data.email} to ${env.GMAIL_USER} /${day}/${time}`);
-
-      sender.sendMail().then(resPromise => {
-        debug.info('Send Mail status: ' + resPromise);
-        if (resPromise)
-        res.sendStatus(200);
-        else res.sendStatus(400);
-      })
-      .catch(error => log.error(error.message + ` / ${Date.now()}`));
-
-    } else if (isForm && type === 'sendMailQuestion'){
-
-      const isEmpty = !req.body.email && !req.body.name && !req.body.number && !req.body.text;
-      if (isEmpty) return res.status(400).send('Form is empty');
-      
-      const data:formData = req.body;
-      console.log(data);
-
-      sender.createFeedBackMailOptions(data.email,data.name,data.text, 
-                                      data.number, env.GMAIL_USER, 'Вопрос от клиента');
-      
-      const today = new Date();
-      const time  = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-      const day = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-                                
-      debug.info(`Start send feedback mail from ${data.email} to ${env.GMAIL_USER} /${day}/${time}`);  
-
-      sender.sendMail().then(resPromise => {
-        debug.info('Send Mail status: ' + resPromise);
-        if (resPromise)
-        res.sendStatus(200);
-        else res.sendStatus(400);
-      });
-    } else res.status(400).send('form-data invalid');;
-});
-
-
-app.get('/policy', (req: RequestParam, res:Response, next: NextFunction):void => {
-  
-  res.setHeader('Access-Control-Allow-Origin',app.locals.frontend.origin);
-    const policy = fs.createReadStream(path.join(__dirname, '/data','policy.txt'));
-
-    policy.on('open', () => policy.pipe(res));
-    policy.on('error', (error) => {
-    log.error(error.message);
-    res.sendStatus(404);
-    });
-
-
-});
-
-app.get('*',(req:Request, res:Response) => {
-  res.redirect(app.locals.frontend.origin);
-});
+app.use(cors(corsOptions));
+app.disable('x-powered-by');
+app.set('port', port);
 
 
 app.listen(port,() => {
