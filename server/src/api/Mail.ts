@@ -7,7 +7,6 @@ namespace namespaceMail {
 
     const log = namespaceLogger.loggerError();
 
-
     abstract class Mail {
         private transporter:Transporter;
 
@@ -79,7 +78,4 @@ namespace namespaceMail {
         }
     }
 }
-
-
-
 export default namespaceMail;

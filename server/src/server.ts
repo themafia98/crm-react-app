@@ -35,3 +35,5 @@ namespace server {
       console.log(`Server listen on ${port} with origin ${app.locals.frontend}`);
   });
 }
+
+export default server;
