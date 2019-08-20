@@ -38,10 +38,10 @@ class Contact extends React.PureComponent {
                     </p>
                 </div>
                 <div className = 'Contact__content'>
-                    <div className = 'col-6'>
+                    <div className = 'col-6 col-mobile contact-text--center'>
                         <InformationContact />
                     </div>
-                    <div className = 'col-6'>
+                    <div className = 'col-6 col-mobile'>
                        <Form mode = 'contact' />
                     </div>
                 </div>

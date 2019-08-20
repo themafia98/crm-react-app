@@ -1,6 +1,13 @@
 img[alt = 'loader'].Loader {
     width: 20%;
     position: absolute;
-    transform: translate(-50%);
+    transform: translate(-50%, -50%);
+    top: 50%;
     left: 50%;
+}
+
+@media screen and (max-width: 650px){
+    img[alt='loader'].Loader {
+        width: 50%;
+    }
 }

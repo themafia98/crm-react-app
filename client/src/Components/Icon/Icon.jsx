@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './Icon.scss';
-const Icon = ({path, go, newClass, cbRedirectHome}) => {
+const Icon = ({path, go, className,alt, cbRedirectHome}) => {
     return (
         <div 
             onClick = {go && cbRedirectHome}  
-            className = {!newClass ? 'Icon' : 'Icon ' + newClass}>
+            className = {!className ? 'Icon' : 'Icon ' + className}>
             <img       
                 className = {go ? 'go' : null} 
                 src = {process.env.PUBLIC_URL + path} 
-                alt = 'Icon' 
+                alt = {alt ? alt : 'icon'}
             />
         </div>
     )

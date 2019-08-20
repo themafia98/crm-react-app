@@ -20,6 +20,15 @@
     }
 }
 
+@media screen and (max-width: 1015px){
+    .Contact .Contact__info {
+        width: 60%;
+    }
+    .Contact .Contact__info .Contact__info__title {
+        font-size: 2.3rem;
+    }
+}
+
 @media screen and (max-width: 650px){
     .Contact .Contact__info {
         width: 90%;
@@ -30,16 +39,13 @@
     .Contact .Contact__info {
         width: 90%;
     }
+
+    .contact-text--center {
+        text-align: center;
+    }
+
+    .col-mobile {
+        flex: 0 0 100%;
+    }
 }
 
-@media screen and (max-width: 1015px){
-    .Contact .Contact__info {
-        width: 60%;
-    }
-    .Contact .Contact__info .Contact__info__title {
-        font-size: 2.3rem;
-    }
-    .Contact .Contact__info {
-        width: 60%;
-    }
-}

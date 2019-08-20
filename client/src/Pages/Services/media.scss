@@ -4,7 +4,10 @@
         width: 60%;
         white-space: pre-wrap;
     }
+
+    
 }
+
 
 @media screen and (max-width: 900px){
     .Services {
@@ -12,6 +15,7 @@
         .Services__title {
             font-size: 1.8rem;
         }
+
 
         .ServicesList {
             flex-direction: column;

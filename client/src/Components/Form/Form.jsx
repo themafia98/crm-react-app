@@ -177,7 +177,7 @@ const Form = ({mode}) => {
                     type = 'button' 
                     value = 'Отправить' 
                 />
-                <p className = 'policy'>
+                <p className = 'policy contact-text--center'>
                     Нажимая на кнопку, вы даете согласие 
                     на обработку персональных данных 
                     и соглашаетесь c <span

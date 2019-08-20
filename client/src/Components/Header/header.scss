@@ -45,22 +45,6 @@ header.fixed{
 
 }
 
-@media screen and (max-width: 400px){
-    header:not(.fixed) {
-        height: 20vh;
-    }
-    div.buffer:before {
-        content: '';
-        display: block;
-        height: 15vh;
-    }
-}
-
-@media screen and (max-width: 355px){
-    header:not(.fixed) {
-        height: 30vh;
-    }
-}
 
 @media screen and (max-width: 650px){
     header:not(.fixed) {
@@ -71,6 +55,15 @@ header.fixed{
     }
     header .menu {
         justify-content: center;
+        z-index: 10;
+    }
+
+    .fixed [alt='logo'] {
+        position: absolute;
+        left: 50%;
+        width: 75%;
+        transform: translate(-50%);
+        opacity: 0.2;
     }
 
     div.buffer:before {
@@ -78,5 +71,81 @@ header.fixed{
         display: block;
         height: 12vh;
     }
+    header.fixed {
+        height: 12vh;
+    }
 }
 
+@media screen and (max-width: 400px){
+    header:not(.fixed) {
+        height: 20vh;
+    }
+    div.buffer:before {
+        content: '';
+        display: block;
+        height: 15vh;
+    }
+    header.fixed {
+        height: 15vh;
+    }
+
+    header.fixed [alt='logo'] {
+        position: absolute;
+        left: 50%;
+        z-index: -1;
+        width: 100%;
+        transform: translate(-50%);
+        opacity: 0.2;
+    }
+}
+
+@media screen and (max-width: 355px){
+    header:not(.fixed) {
+        height: 30vh;
+    }
+}
+
+// @media screen and (max-width: 650px)
+// <style>
+// header:not(.fixed) {
+//     height: 30vh;
+// }
+// @media screen and (max-width: 355px)
+// <style>
+// header:not(.fixed) {
+//     height: 30vh;
+// }
+// @media screen and (max-width: 400px)
+// <style>
+// header:not(.fixed) {
+//     height: 20vh;
+// }
+// <style>
+// header {
+//     width: 100%;
+//     z-index: 1000;
+//     display: flex;
+//     background: whitesmoke;
+// }
+// user agent stylesheet
+// header {
+//     display: block;
+// }
+// <style>
+// :root {
+//     font-family: 'Roboto',Arial,sans-serif;
+
+
+
+
+
+// @media screen and (max-width: 400px)
+// <style>
+// header.fixed {
+//     height: 15vh;
+// }
+// @media screen and (max-width: 650px)
+// <style>
+// header.fixed {
+//     height: 12vh;
+// }

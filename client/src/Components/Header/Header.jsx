@@ -42,7 +42,13 @@ class Header extends React.PureComponent {
         return (
             <header className = {!fixed ? null : 'fixed'}>
                 <div className = 'container header-flex'>
-                    <Icon cbRedirectHome = {go && this.redirectHome} go = {go} path = '/img/logo.png' />
+                    <Icon 
+                        alt = 'logo'
+                        className = 'logo'
+                        cbRedirectHome = {go && this.redirectHome} 
+                        go = {go} 
+                        path = '/img/logo.png' 
+                    />
                     <ul className = 'menu'>
                         <NavLink 
                             exact
