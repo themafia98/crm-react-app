@@ -10,5 +10,6 @@ export interface Send {
 
 export interface RequestParam extends Request {
     origin: string,
-    type: string
+    type?: string,
+    serviceType?: string,
 }

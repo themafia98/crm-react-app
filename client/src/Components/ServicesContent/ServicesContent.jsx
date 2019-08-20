@@ -4,73 +4,30 @@ import './servicesContent.scss';
 class ServicesContent extends React.PureComponent {
 
     static propTypes = {
-        mode: PropTypes.string.isRequired,
+        mode: PropTypes.oneOfType([
+            PropTypes.string.isRequired, PropTypes.object.isRequired // null
+        ]),
     }
 
     render(){
-
-        switch (this.props.mode){
+        const {content, mode} = this.props;
+        switch (mode){
             case 'auto': return (
                             <div className = 'ServicesContent'>
-                                <p>auto</p>
-                                <p>Testdddddddddddddddddddddddddddddddddddddd</p>
-                                <p>Test</p>
-                                <p>Test</p>
-                                <p>Test</p>
-                                <p>Test</p>
-                                <p>Test</p>
-                                <p>Test</p>
-                                <p>Test</p>
-                                <p>Test</p>
-                                <p>Test</p>
-                                <p>Test</p>
-                                <p>Test</p>
-                                <p>Test</p>
-                                <p>Test</p>
-                                <p>Test</p>
-                                <p>Test</p>
+                                <h3 className = 'servicesContent__title'>Автоматизация продаж</h3>
+                                {content}
                             </div>
                         )
             case 'amoCRM': return (
                             <div className = 'ServicesContent'>
-                                <p>amoCRM</p>
-                                <p>Testdddddddddddddddddddddddddddddddddddddd</p>
-                                <p>Test</p>
-                                <p>Test</p>
-                                <p>Test</p>
-                                <p>Test</p>
-                                <p>Test</p>
-                                <p>Test</p>
-                                <p>Test</p>
-                                <p>Test</p>
-                                <p>Test</p>
-                                <p>Test</p>
-                                <p>Test</p>
-                                <p>Test</p>
-                                <p>Test</p>
-                                <p>Test</p>
-                                <p>Test</p>
+                                <h3 className = 'servicesContent__title '>amoCRM</h3>
+                                {content}
                             </div>
                         )  
             case 'retailCRM': return (
                             <div className = 'ServicesContent'>
-                                <p>retailCRM</p>
-                                <p>Testdddddddddddddddddddddddddddddddddddddd</p>
-                                <p>Test</p>
-                                <p>Test</p>
-                                <p>Test</p>
-                                <p>Test</p>
-                                <p>Test</p>
-                                <p>Test</p>
-                                <p>Test</p>
-                                <p>Test</p>
-                                <p>Test</p>
-                                <p>Test</p>
-                                <p>Test</p>
-                                <p>Test</p>
-                                <p>Test</p>
-                                <p>Test</p>
-                                <p>Test</p>
+                                <h3 className = 'servicesContent__title '>retailCRM</h3>
+                                {content}
                             </div>
                         )   
             default: return <div className = 'notFound'><p>Content not found</p></div>     
