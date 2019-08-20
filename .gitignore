@@ -9,6 +9,7 @@ debug.log
 error.log
 # testing
 /coverage
+token.json
 # production
 /build
 .netlify

@@ -1,5 +1,4 @@
 import express,{Application, Request, Response, NextFunction} from 'express';
-import envfile from 'envfile';
 import multer from 'multer';
 import path from 'path';
 import fs from 'fs';
@@ -9,6 +8,8 @@ import {formData} from './configs/types';
 import {RequestParam} from './configs/interface';
 import namespaceMail from './api/Mail';
 import cors from 'cors';
+
+import token from './data/token.json';
 
 namespace AppNamespace {
 
@@ -26,17 +27,13 @@ namespace AppNamespace {
       optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
     };
     app.use(cors(corsOptions));
-    let env = null; 
-    if (process.env.NODE_ENV === 'production')
-    env = envfile.parseFileSync('.env');
-    else env = {GMAIL_USER: '', GMAIL_PASSWORD: ''};
     const upload = multer(); // form-data
 
     const sender = new namespaceMail.Sender({
         service: 'gmail',
         auth: {
-              user: env.GMAIL_USER,
-              pass: env.GMAIL_PASSWORD
+              user: token.gmail.USER,
+              pass: token.gmail.PASSWORD
         }
       });
 
@@ -62,13 +59,13 @@ namespace AppNamespace {
             const data:formData = req.body;
             console.log(data);
       
-            sender.createMailOptions(data.email,data.name, data.number, env.GMAIL_USER, 'Консультация');
+            sender.createMailOptions(data.email,data.name, data.number, token.gmail.USER, 'Консультация');
             
             const today = new Date();
             const time  = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
             const day = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
       
-            debug.info(`Start send requset mail from ${data.email} to ${env.GMAIL_USER} /${day}/${time}`);
+            debug.info(`Start send requset mail from ${data.email} to ${token.gmail.USER} /${day}/${time}`);
       
             sender.sendMail().then(resPromise => {
               debug.info('Send Mail status: ' + resPromise);
@@ -87,13 +84,13 @@ namespace AppNamespace {
             console.log(data);
       
             sender.createFeedBackMailOptions(data.email,data.name,data.text, 
-                                            data.number, env.GMAIL_USER, 'Вопрос от клиента');
+                                            data.number, token.gmail.USER, 'Вопрос от клиента');
             
             const today = new Date();
             const time  = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
             const day = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
                                       
-            debug.info(`Start send feedback mail from ${data.email} to ${env.GMAIL_USER} /${day}/${time}`);  
+            debug.info(`Start send feedback mail from ${data.email} to ${token.gmail.USER} /${day}/${time}`);  
       
             sender.sendMail().then(resPromise => {
               debug.info('Send Mail status: ' + resPromise);

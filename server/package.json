@@ -5,19 +5,20 @@
   "scripts": {
     "build": "npm run copyfiles && tsc",
     "dev": "nodemon ./src/server.ts --pretty",
-	"copyfiles": "copyfiles -f src/data/*.txt build/data/",
+    "copyfiles": "copyfiles -f src/data/*.txt build/data/",
     "prod": "cross-env NODE_ENV=production node build/server.js"
   },
   "dependencies": {
+    "@types/gapi": "^0.0.39",
+    "bcrypt": "^3.0.6",
+    "copyfiles": "^2.1.1",
     "cors": "^2.8.5",
     "ejs": "^2.6.2",
-    "envfile": "^3.0.0",
     "express": "^4.17.1",
     "express-rate-limit": "^5.0.0",
     "multer": "^1.4.2",
     "nodemailer": "^6.3.0",
     "typescript": "^3.5.3",
-	"copyfiles": "^2.1.1",
     "winston": "^3.2.1"
   },
   "devDependencies": {
@@ -25,8 +26,8 @@
     "@types/node": "^12.7.2",
     "@types/nodemailer": "^6.2.1",
     "@types/winston": "^2.4.4",
+    "copyfiles": "^2.1.1",
     "cross-env": "^5.2.0",
-	"copyfiles": "^2.1.1",
     "nodemon": "^1.19.1",
     "ts-node": "^8.3.0"
   }

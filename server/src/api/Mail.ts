@@ -7,11 +7,13 @@ namespace namespaceMail {
 
     const log = namespaceLogger.loggerError();
 
+
     abstract class Mail {
         private transporter:Transporter;
 
         constructor(transOptions:transOptions){
             this.transporter = nodemailer.createTransport(transOptions);
+            
         }
 
         getTransporter():Transporter{

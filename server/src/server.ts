@@ -6,6 +6,23 @@ import fs from 'fs';
 import {debug, log} from './logger/logModule';
 
 
+import bcrypt from 'bcrypt';
+
+// пароль пользователя
+var passwordFromUser = "3PdertE35710h";
+ 
+// создаем соль
+var salt = bcrypt.genSaltSync(10);
+ 
+// шифруем пароль
+var passwordToSave = bcrypt.hashSync(passwordFromUser, salt)
+ 
+// выводим результат
+console.log(passwordToSave);
+console.log(`${bcrypt.hashSync('test_user_pass', salt) == passwordToSave}`);
+
+
+
 const {app} = AppNamespace;
 const port:string = process.env.PORT || '3001';
 
@@ -37,7 +54,7 @@ app.listen(port,() => {
     const day = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
 
     console.log(`Server listen on ${port} with origin ${app.locals.frontend}`);
-    debug.info(`Server ${app.get('port')} start in ${day}/${time} with origin ${app.locals.frontend}`);
+    // debug.info(`Server ${app.get('port')} start in ${day}/${time} with origin ${app.locals.frontend}`);
 
 });
 
