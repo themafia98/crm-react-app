@@ -9,8 +9,6 @@ debug.log
 error.log
 # testing
 /coverage
-.vscode
-.launch
 # production
 /build
 .netlify
