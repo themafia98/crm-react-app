@@ -7,17 +7,17 @@ const withScroll = Component => props => {
     const scrollerRef = createRef();
     
     const scrollEvent = event => {  
-        const isMobile = scrollerRef.current.clientWidth < 650;
+        const isMobile = event.currentTarget.innerWidth < 650;
 
-        if ((event.nativeEvent.view.pageYOffset <= 0) ||
-            (buffer && event.nativeEvent.view.pageYOffset <= 100)){
+        if ((event.currentTarget.pageYOffset <= 0) ||
+            (buffer && event.currentTarget.pageYOffset <= 100)){
             isMobile && setBuffer(false);
             eventEmitter.emit("EventMenu", {
                 action: null,
             });
         }
-        else if ((event.nativeEvent.view.pageYOffset > 0) ||
-            (buffer && event.nativeEvent.view.pageYOffset > 100)){
+        else if ((event.currentTarget.pageYOffset > 0) ||
+            (buffer && event.currentTarget.pageYOffset > 100)){
             isMobile && setBuffer(true);
             eventEmitter.emit("EventMenu", {
                 action: 'fixed',
@@ -26,21 +26,28 @@ const withScroll = Component => props => {
     };
 
     const didMount = () => {
+        window.addEventListener('scroll',scrollEvent,false);
         if (global.pageYOffset > 0)
         eventEmitter.emit("EventMenu", {
             action: 'fixed',
         });
+
+        return () => {
+            window.removeEventListener('scroll',scrollEvent,false);
+        }
 
     };
     
     useEffect(didMount, []);
 
     return (
-        <div onWheel = {scrollEvent} 
+        <div
              ref = {scrollerRef}
              className = {!buffer ? 'scroller' : 'scroller buffer'}>
             <Component {...props} />
         </div>
     )
+
+
 };
 export default withScroll;

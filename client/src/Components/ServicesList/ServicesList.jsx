@@ -15,7 +15,7 @@ class ServicesList extends React.PureComponent {
         const {active} = this.state;
         return (
             <div className = 'ServicesList container'>
-                <div className = 'col-6 services_controllers'>
+                <div className = 'col-2 col-4  services_controllers'>
                     <input
                         onClick = {this.autoMode}
                         className = {active === 'auto' ? 'controller_auto active':
@@ -38,7 +38,7 @@ class ServicesList extends React.PureComponent {
                         value = 'Внедрнение retailCRM' 
                     />
                 </div>
-                <div className = 'col-6'>
+                <div className = 'col-10 col-7 services_content'>
                     <ServicesContent mode = {active} />
                 </div>
             </div>

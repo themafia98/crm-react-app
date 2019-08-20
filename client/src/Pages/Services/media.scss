@@ -1,8 +1,14 @@
 @media screen and (max-width: 1050px){
+    .ServicesList .services_controllers{
+        margin-right: 0;
+    }
+
     .ServicesList .services_controllers input[type='button'] {
-        height: 25%;
-        width: 60%;
-        white-space: pre-wrap;
+        height: 30%;
+        font-size: 1rem;
+        padding: 20px;
+        width: 90%;
+        white-space: normal;
     }
 
     
@@ -16,13 +22,20 @@
             font-size: 1.8rem;
         }
 
+        .col-4 {
+            flex: 0 0 25%;
+        }
+
+        .col-7 {
+            flex: 0 0 70%;
+        }
 
         .ServicesList {
             flex-direction: column;
-            height: 150vh;
+            height: 100vh;
                 .services_controllers{
                     input {
-                        width: 100%;
+                        width: 98%;
                         height: 20%;
                         margin: 1vh 0;
                     }

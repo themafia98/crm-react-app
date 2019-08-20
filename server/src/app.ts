@@ -9,6 +9,7 @@ import {formData} from './configs/types';
 import {RequestParam} from './configs/interface';
 import namespaceMail from './api/Mail';
 import cors from 'cors';
+
 namespace AppNamespace {
 
     export const app:Application = express();
