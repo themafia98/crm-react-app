@@ -26,8 +26,10 @@ namespace AppNamespace {
       optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
     };
     app.use(cors(corsOptions));
-
-    const env = envfile.parseFileSync('.env');
+    let env = null; 
+    if (process.env.NODE_ENV === 'production')
+    env = envfile.parseFileSync('.env');
+    else env = {GMAIL_USER: '', GMAIL_PASSWORD: ''};
     const upload = multer(); // form-data
 
     const sender = new namespaceMail.Sender({

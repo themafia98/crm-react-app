@@ -44,3 +44,9 @@
         }
     }
 }
+
+@media screen and (max-width: 650px){
+    .Services .col-7 {
+        flex: 0 0 60%;
+    }
+}
