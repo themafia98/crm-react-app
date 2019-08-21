@@ -1,5 +1,4 @@
 import React,{Fragment} from 'react';
-import {Link, Redirect} from 'react-router-dom';
 import eventEmitter from '../../EventEmitter';
 import ServicesList from '../../Components/ServicesList/ServicesList';
 import withScroll from '../../Components/withScroll';
