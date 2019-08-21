@@ -1,4 +1,5 @@
 import React,{Fragment} from 'react';
+import {Link, Redirect} from 'react-router-dom';
 import eventEmitter from '../../EventEmitter';
 import ServicesList from '../../Components/ServicesList/ServicesList';
 import withScroll from '../../Components/withScroll';
@@ -7,12 +8,19 @@ import Header from '../../Components/Header/Header';
 import './services.scss';
 class Services extends React.PureComponent {
 
-    redirect = ({action}) => {
-        
-    }
+    state = {
+        priceList: ''
+    };
+
+    showPriceList = ({action}) => {
+        if (this.state.priceList !== action)
+        this.setState({
+            ...this.state,
+            priceList: action
+        })
+    };
 
     render(){
-
         return (
             <Fragment>
                 <Header go = {true} />
@@ -26,11 +34,11 @@ class Services extends React.PureComponent {
     }
 
     componentDidMount = () => {
-        eventEmitter.on('EventRedirectPrice', this.redirect);
+        eventEmitter.on('EventRedirectPrice', this.showPriceList);
     }
 
     componentWillUnmount = () => {
-        eventEmitter.off('EventRedirectPrice', this.redirect);
+        eventEmitter.off('EventRedirectPrice', this.showPriceList);
     }
 }
 

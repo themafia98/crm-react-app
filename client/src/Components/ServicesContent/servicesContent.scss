@@ -1,4 +1,6 @@
 .ServicesContent {
+    display: flex;
+    flex-direction: column;
     width: 100%;
     font-size: 1.2rem;
     .servicesContent__title {
@@ -7,6 +9,7 @@
     }
 
     .servicesContent__priceButton {
+        width: 100%;
         cursor: pointer;
         font-size: .8rem;
         color: white;

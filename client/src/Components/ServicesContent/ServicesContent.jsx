@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {Link, Redirect} from 'react-router-dom';
 import eventEmitter from '../../EventEmitter';
 import './servicesContent.scss';
 class ServicesContent extends React.PureComponent {
@@ -10,54 +11,80 @@ class ServicesContent extends React.PureComponent {
         ]),
     }
 
-    goPriceAuto = event => {
-        eventEmitter.emit("EventRedirectPrice",{action: 'auto', type: 'redirect'});
+    state = {
+        mode: this.props.mode,
+        content: this.props.content,
+        redirect: {to: '', action: false},
+    }
+
+    goPrice = event => {
+        const target = event.target;
+        if (!this.state.redirect.action)
+            this.setState({
+                ...this.state,
+                redirect: {
+                    ...this.state.redirect,
+                    to: 'retailCRM',
+                    action: true
+                }
+            })
+        // if (target === this.auto)
+        // eventEmitter.emit("EventRedirectPrice",{action: 'auto'});
+        // else if (target === this.amoCRM)
+        // eventEmitter.emit("EventRedirectPrice",{action: 'amoCRM'});
+        // else if (target === this.retailCRM)
+        // eventEmitter.emit("EventRedirectPrice",{action: 'retailCRM'});
+
         event.stopPropagation();
     };
 
-    goPriceAmoCRM = event => {
-        eventEmitter.emit("EventRedirectPrice",{action: 'amoCRM', type: 'redirect'});
-        event.stopPropagation();
-    };
+    auto = null;
+    amoCRM = null;
+    retailCRM = null;
 
-    goPriceRetailCRM = event => {
-        eventEmitter.emit("EventRedirectPrice",{action: 'retailCRM', type: 'redirect'});
-        event.stopPropagation();
-    };
+    refAuto = node => this.auto = node;
+    refAmoCRM = node => this.amoCRM = node;
+    refRetailCRM = node => this.retailCRM = node;
 
     render(){
-        const {content, mode} = this.props;
+        const {content, mode} = this.state;
+
+        if (this.state.redirect.action)
+            return <Redirect to = {{pathname: '/Services', search: `?priceList=${mode}`}} />
 
         switch (mode){
             case 'auto': return (
                             <div className = 'ServicesContent'>
                                 <h3 className = 'servicesContent__title'>Автоматизация продаж</h3>
-                                <input
-                                    onClick = {this.goPriceAuto}
-                                    type = 'button' 
-                                    className = 'servicesContent__priceButton' 
-                                    value = 'Прайс-лист по автоматизации'
-                                />
+                                    <input
+                                        ref = {this.refAuto}
+                                        onClick = {this.goPrice}
+                                        type = 'button' 
+                                        className = 'servicesContent__priceButton' 
+                                        value = 'Прайс-лист по автоматизации'
+                                    />
                                 {content}
                             </div>
                         )
             case 'amoCRM': return (
                             <div className = 'ServicesContent'>
                                 <h3 className = 'servicesContent__title '>amoCRM</h3>
-                                <input
-                                    onClick = {this.goPriceAmoCRM}
-                                    type = 'button' 
-                                    className = 'servicesContent__priceButton' 
-                                    value = 'Все цены на внедрение amoCRM'
-                                />
+                                    <input
+                                        ref = {this.refAmoCRM}
+                                        onClick = {this.goPrice}
+                                        type = 'button' 
+                                        className = 'servicesContent__priceButton' 
+                                        value = 'Все цены на внедрение amoCRM'
+                                    />
                                 {content}
                             </div>
                         )  
             case 'retailCRM': return (
                             <div className = 'ServicesContent'>
                                 <h3 className = 'servicesContent__title '>retailCRM</h3>
-                                <input 
-                                    onClick = {this.goPriceRetailCRM}
+                                <input
+                                    ref = {this.refRetailCRM}
+                                    onClick = {this.goPrice}
                                     type = 'button' 
                                     className = 'servicesContent__priceButton' 
                                     value = 'Все цены на внедрение retailCRM'
@@ -67,6 +94,16 @@ class ServicesContent extends React.PureComponent {
                         )   
             default: return <div className = 'notFound'><p>Content not found</p></div>     
         }
+    }
+
+    componentDidUpdate = (prevProps) => {
+
+        if (prevProps !== this.props)
+            this.setState({
+                ...this.state,
+                mode: this.props.mode,
+                content: this.props.content
+            });
     }
 }
 export default ServicesContent;
