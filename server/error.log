@@ -20,3 +20,7 @@
 {"message":"undefined / 2019-8-19/12:53:38","level":"\u001b[31merror\u001b[39m"}
 {"message":"Invalid login: 535-5.7.8 Username and Password not accepted. Learn more at\n535 5.7.8  https://support.google.com/mail/?p=BadCredentials l15sm14109441wru.56 - gsmtp / 1566297039301","level":"\u001b[31merror\u001b[39m"}
 {"message":"Missing credentials for \"PLAIN\" / 1566312920179","level":"\u001b[31merror\u001b[39m"}
+{"message":"ENOENT: no such file or directory, open 'C:\\Dev\\Frontend\\crm-react-app\\server\\src\\data\\services\\autoAbout.txt'","level":"\u001b[31merror\u001b[39m"}
+{"message":"ENOENT: no such file or directory, open 'C:\\Dev\\Frontend\\crm-react-app\\server\\src\\data\\services\\amoCRMAbout.txt'","level":"\u001b[31merror\u001b[39m"}
+{"message":"ENOENT: no such file or directory, open 'C:\\Dev\\Frontend\\crm-react-app\\server\\src\\data\\services\\retailCRMAbout.txt'","level":"\u001b[31merror\u001b[39m"}
+{"message":"ENOENT: no such file or directory, open 'C:\\Dev\\Frontend\\crm-react-app\\server\\src\\data\\services\\amoCRMAbout.txt'","level":"\u001b[31merror\u001b[39m"}

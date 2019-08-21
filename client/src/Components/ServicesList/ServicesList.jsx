@@ -11,9 +11,14 @@ class ServicesList extends React.PureComponent {
 
     autoMode = event => { 
 
+        if (this.state.active === 'auto') return;
+
+        let address = null;
         if (process.env.NODE_ENV === 'production')
-        isFetch('')
-        else isFetch('http://localhost:3001/services/auto')
+        address = process.env.REACT_APP_S_AUTO;
+        else address = 'http://localhost:3001/services/auto';
+
+        isFetch(address)
         .then(res => res.text())
         .then(res => {
             return res.split('\n');
@@ -31,9 +36,15 @@ class ServicesList extends React.PureComponent {
 
     };
     amoCRRMode = event => {  
+
+        if (this.state.active === 'amoCRM') return;
+
+        let address = null;
         if (process.env.NODE_ENV === 'production')
-        isFetch('')
-        else isFetch('http://localhost:3001/services/amoCRM')
+        address = process.env.REACT_APP_S_AMOCRM;
+        else address ='http://localhost:3001/services/amoCRM';
+
+        isFetch(address)
             .then(res => res.text())
             .then(res => {
                 return res.split('\n');
@@ -50,10 +61,16 @@ class ServicesList extends React.PureComponent {
         .catch(error => console.error(error));
     };
 
-    retailCRMode  = event => {  
+    retailCRMode  = event => { 
+        
+        if (this.state.active === 'retailCRM') return;
+
+        let address = null;
         if (process.env.NODE_ENV === 'production')
-        isFetch('')
-        else isFetch('http://localhost:3001/services/retailCRM')
+        address = process.env.REACT_APP_S_RETAILCRM;
+        else address = 'http://localhost:3001/services/retailCRM';
+
+        isFetch(address)
             .then(res => res.text())
             .then(content =>{
                 this.setState({
@@ -101,22 +118,25 @@ class ServicesList extends React.PureComponent {
 
     componentDidMount = () => {
         if (!this.state.active){
+            let address = null;
             if (process.env.NODE_ENV === 'production')
-                isFetch('')
-            else isFetch('http://localhost:3001/services/auto')
-                .then(res => res.text())
-                .then(res => {
-                    return res.split('\n');
-                })
-                .then(content =>{
-                    this.setState({
-                        ...this.state, 
-                        active: 'auto', 
-                        content: content.map((item,index) => {
-                            return <p key = {index}>{item}</p>
-                        })
-                    });
-                })
+            address = process.env.REACT_APP_S_AUTO;
+            else address = 'http://localhost:3001/services/auto';
+    
+            isFetch(address)
+            .then(res => res.text())
+            .then(res => {
+                return res.split('\n');
+            })
+            .then(content =>{
+                this.setState({
+                    ...this.state, 
+                    active: 'auto', 
+                    content: content.map((item,index) => {
+                        return <p key = {index}>{item}</p>
+                    })
+                });
+            })
             .catch(error => console.error(error));
         };
     }

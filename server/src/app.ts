@@ -9,7 +9,7 @@ import {RequestParam} from './configs/interface';
 import namespaceMail from './api/Mail';
 import cors from 'cors';
 
-import token from './data/token.json';
+import token from './configs/token.json';
 
 namespace AppNamespace {
 
@@ -130,11 +130,11 @@ namespace AppNamespace {
           if (!req.serviceType){ return void res.sendStatus(404); };
 
           if (req.serviceType === 'auto')
-          service = fs.createReadStream(path.join(__dirname, '/data/services','autoAbout.txt'));
+          service = fs.createReadStream(path.join(__dirname, '/data','autoAbout.txt'));
           else if (req.serviceType === 'amoCRM')
-          service = fs.createReadStream(path.join(__dirname, '/data/services','amoCRMAbout.txt'));
+          service = fs.createReadStream(path.join(__dirname, '/data','amoCRMAbout.txt'));
           else if (req.serviceType === 'retailCRM')
-          service = fs.createReadStream(path.join(__dirname, '/data/services','retailCRMAbout.txt'));
+          service = fs.createReadStream(path.join(__dirname, '/data','retailCRMAbout.txt'));
           else  return void res.sendStatus(404);
 
           service.on('open', () => {

@@ -11,7 +11,7 @@ namespace server {
   export const port:string = process.env.PORT || '3001';
 
   if(process.env.NODE_ENV === 'production')
-  app.locals.frontend = new URL('https://themafia98.github.io');
+  app.locals.frontend = new URL('https://crm-react-app.netlify.com');
   else app.locals.frontend = new URL('http://localhost:3000');
 
   fs.readFile(path.join(__dirname, '/configs', 'limit.json'),'utf-8', (error: Error, config:Buffer) => {
