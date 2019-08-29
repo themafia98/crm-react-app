@@ -129,7 +129,7 @@ class ServicesList extends React.PureComponent {
                         value = 'Внедрнение retailCRM' 
                     />
                 </div>
-                <div className = 'col-10 col-7 services_content'>
+                <div className = 'col-9 col-8 col-7 services_content'>
                     <ServicesContent load = {this.state.load} content = {content} mode = {active} />
                 </div>
             </div>

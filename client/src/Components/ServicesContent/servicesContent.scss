@@ -1,31 +1,29 @@
 .ServicesContent {
     display: flex;
     flex-direction: column;
-    width: 100%;
     font-size: 1.2rem;
     .servicesContent__title {
         text-align: center;
         font-weight: bold;
-    }
-
-    .servicesContent__priceButton {
-        width: 100%;
-        cursor: pointer;
-        font-size: .8rem;
-        color: white;
-        font-weight: bold;
-        background-color: #db4646;
-        transition: all .3s linear;
-        height: 45px;
-        white-space: normal;
-        box-sizing: border-box;
-        border-radius: 5px;
-        outline: none;
-        border: 0 none;
     }
     .servicesContent__priceButton:active,
     .servicesContent__priceButton:hover {
         color: black;
         box-shadow: 0 0 10px;
     }
+}
+
+.servicesContent__priceButton {
+    cursor: pointer;
+    font-size: .8rem;
+    color: white;
+    font-weight: bold;
+    background-color: #db4646;
+    transition: all .3s linear;
+    height: 45px;
+    white-space: normal;
+    box-sizing: border-box;
+    border-radius: 5px;
+    outline: none;
+    border: 0 none;
 }

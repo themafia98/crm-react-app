@@ -1,6 +1,5 @@
 .ServicesList{
     display: flex;
-    height: 60vh;
     .services_controllers{
         display: flex;
         flex-direction: column;
@@ -13,7 +12,7 @@
             font-size: 1.2rem;
             background-color: whitesmoke;
             border: 1px solid black;
-            height: 33.33%;
+            height: 100px;
             white-space: normal;
             width: 100%;
             margin: 1vh 0;

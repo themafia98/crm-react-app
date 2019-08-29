@@ -74,13 +74,13 @@ class ServicesContent extends React.PureComponent {
             case 'retailCRM': return (
                             <div className = 'ServicesContent'>
                                 <h3 className = 'servicesContent__title '>retailCRM</h3>
-                                <input
-                                    ref = {this.refRetailCRM}
-                                    onClick = {this.goPrice}
-                                    type = 'button' 
-                                    className = 'servicesContent__priceButton' 
-                                    value = 'Все цены на внедрение retailCRM'
-                                />
+                                    <input
+                                        ref = {this.refRetailCRM}
+                                        onClick = {this.goPrice}
+                                        type = 'button' 
+                                        className = 'servicesContent__priceButton' 
+                                        value = 'Все цены на внедрение retailCRM'
+                                    />
                                 {content}
                             </div>
                         )   

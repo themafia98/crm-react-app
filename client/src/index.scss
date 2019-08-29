@@ -15,9 +15,14 @@
     flex: 0 0 90%;
 }
 
+.col-9{
+    flex: 0 0 80%;
+}
+
 .col-2 {
     flex: 0 0 10%;
 }
+
 
 .scroller {
     position: absolute;
@@ -34,9 +39,8 @@
         box-sizing: border-box;
 }
 
-// .scroller-after:after {
-//     content: '';
-//     width: 100%;
-//     display: block;
-//     height: 10vh;
-// }
+@media screen and (max-width: 930px){
+    .col-9 {
+        flex: 0 0 75%;
+    }
+}
