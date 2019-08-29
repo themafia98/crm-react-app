@@ -11,6 +11,12 @@
 
 }
 
+@media screen and (max-width: 1150px){
+    .OurServices {
+        height: 80vh;
+    }
+}
+
 @media screen and (max-width: 950px){
     .OurServices {
         height: 110vh;
@@ -35,7 +41,7 @@
 
 @media screen and (max-width: 650px){
     .OurServices {
-        height: 270vh;
+        height: 1445px;
     }
     .list .ListItem {
         width: 100%;

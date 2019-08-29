@@ -18,6 +18,7 @@ class Services extends React.PureComponent {
     }
 
     showPriceList = ({action}) => {
+
         this.props.history.push(`Services/Price/${action}`);
     };
 

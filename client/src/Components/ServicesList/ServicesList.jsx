@@ -7,6 +7,14 @@ class ServicesList extends React.PureComponent {
     state = {
         active: null,
         content: null,
+        load: false,
+    };
+
+    setLoad = async () => {
+        await this.setState({
+            ...this.state,
+            load: true,
+        });
     };
 
     autoMode = event => { 
@@ -17,22 +25,26 @@ class ServicesList extends React.PureComponent {
         if (process.env.NODE_ENV === 'production')
         address = process.env.REACT_APP_S_AUTO;
         else address = 'http://localhost:3001/services/auto';
-
-        isFetch(address)
-        .then(res => res.text())
-        .then(res => {
-            return res.split('\n');
-        })
-        .then(content =>{
-            this.setState({
-                ...this.state, 
-                active: 'auto', 
-                content: content.map((item,index) => {
-                    return <p key = {index}>{item}</p>
-                })
-            });
-        })
-        .catch(error => console.error(error));
+        
+        this.setLoad()
+        .then(next => {
+            isFetch(address)
+            .then(res => res.text())
+            .then(res => {
+                return res.split('\n');
+            })
+            .then(content =>{
+                this.setState({
+                    ...this.state, 
+                    active: 'auto', 
+                    content: content.map((item,index) => {
+                        return <p key = {index}>{item}</p>
+                    }),
+                    load: false,
+                });
+            })
+            .catch(error => console.error(error));
+        });
 
     };
     amoCRRMode = event => {  
@@ -44,6 +56,8 @@ class ServicesList extends React.PureComponent {
         address = process.env.REACT_APP_S_AMOCRM;
         else address ='http://localhost:3001/services/amoCRM';
 
+        this.setLoad()
+        .then(next => {
         isFetch(address)
             .then(res => res.text())
             .then(res => {
@@ -55,10 +69,12 @@ class ServicesList extends React.PureComponent {
                     active: 'amoCRM', 
                     content: content.map((item,index) => {
                         return <p key = {index}>{item}</p>
-                    })
+                    }),
+                    load: false,
                 });
             })
         .catch(error => console.error(error));
+        });
     };
 
     retailCRMode  = event => { 
@@ -70,16 +86,20 @@ class ServicesList extends React.PureComponent {
         address = process.env.REACT_APP_S_RETAILCRM;
         else address = 'http://localhost:3001/services/retailCRM';
 
+        this.setLoad()
+        .then(next => {
         isFetch(address)
             .then(res => res.text())
             .then(content =>{
                 this.setState({
                     ...this.state, 
                     active: 'retailCRM', 
-                    content: <p>{content}</p>
-                });
+                    content: <p>{content}</p>,
+                    load: false,
+                })
             })
         .catch(error => console.error(error));
+        });
     };
     
     render(){
@@ -110,7 +130,7 @@ class ServicesList extends React.PureComponent {
                     />
                 </div>
                 <div className = 'col-10 col-7 services_content'>
-                    <ServicesContent content = {content} mode = {active} />
+                    <ServicesContent load = {this.state.load} content = {content} mode = {active} />
                 </div>
             </div>
         )

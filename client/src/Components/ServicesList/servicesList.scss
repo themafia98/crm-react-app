@@ -39,4 +39,10 @@
             word-wrap: break-word;
         }
     }
+
+    .loaderServicesList{
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%);
+    }
 }

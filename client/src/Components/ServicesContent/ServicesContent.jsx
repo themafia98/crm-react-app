@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Loader from '../Loader/Loader';
 import eventEmitter from '../../EventEmitter';
 import './servicesContent.scss';
 class ServicesContent extends React.PureComponent {
@@ -39,6 +40,9 @@ class ServicesContent extends React.PureComponent {
 
     render(){
         const {content, mode} = this.state;
+        const {load} = this.props;
+
+        if (load) return <Loader loaderClass = 'loaderServicesList' />
 
         switch (mode){
             case 'auto': return (
@@ -80,7 +84,7 @@ class ServicesContent extends React.PureComponent {
                                 {content}
                             </div>
                         )   
-            default: return <div className = 'notFound'><p>Content not found</p></div>     
+            default: return <Loader loaderClass = 'loaderServicesList' />
         }
     }
 

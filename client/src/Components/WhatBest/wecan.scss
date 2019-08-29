@@ -12,6 +12,13 @@
 }
 
 
+@media screen and (max-width: 1518px){
+    .WhatBest {
+        height: 75vh;
+    }
+}
+
+
 @media screen and (max-width: 950px){
     .list .ListItem.item__weCan {
         width: 47%;
@@ -33,7 +40,7 @@
 
 @media screen and (max-width: 650px){
     .WhatBest {
-        height: 205vh;
+        height: 1145px;
     }
     .list .ListItem .ListItem__content {
         width: 100%;
