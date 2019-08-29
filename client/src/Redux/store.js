@@ -1,5 +1,5 @@
 import {createStore} from 'redux';
-import services from './reducers.js';
+import services from './combineReducers';
 
 const store = createStore(
     services,  
