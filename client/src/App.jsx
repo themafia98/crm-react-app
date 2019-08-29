@@ -2,6 +2,7 @@ import React from 'react';
 import {Switch, Route} from 'react-router-dom';
 
 import Index from './Pages/Index/Index';
+import Price from './Pages/Price/Price';
 import Services from './Pages/Services/Services';
 import Contact from './Pages/Contact/Contact';
 import About from './Pages/About/About';
@@ -13,6 +14,7 @@ const App = () => {
         <Route  path = '/About' component = {About} />
         <Route  path = '/Contact' component = {Contact} />
         <Route exact path = '/Services' component = {Services} />
+        <Route exact path = '/Services/Price/:type' component = {Price} />
         <Route exact path = '*' component = {Index} />
       </Switch>
     )

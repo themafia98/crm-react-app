@@ -1,22 +1,24 @@
 import React,{Fragment} from 'react';
+import PropTypes from 'prop-types';
+import {withRouter} from 'react-router-dom';
+
 import eventEmitter from '../../EventEmitter';
 import ServicesList from '../../Components/ServicesList/ServicesList';
 import withScroll from '../../Components/withScroll';
 import Footer from '../../Components/Footer/Footer';
 import Header from '../../Components/Header/Header';
 import './services.scss';
+
 class Services extends React.PureComponent {
 
-    state = {
-        priceList: ''
-    };
+    static propTypes = {
+        location: PropTypes.object.isRequired,
+        match: PropTypes.object.isRequired,
+        history: PropTypes.object.isRequired,
+    }
 
     showPriceList = ({action}) => {
-        if (this.state.priceList !== action)
-        this.setState({
-            ...this.state,
-            priceList: action
-        })
+        this.props.history.push(`Services/Price/${action}`);
     };
 
     render(){
@@ -41,4 +43,4 @@ class Services extends React.PureComponent {
     }
 }
 
-export default withScroll(Services);
+export default withScroll(withRouter(Services));

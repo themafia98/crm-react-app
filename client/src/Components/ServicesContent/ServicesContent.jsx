@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Link, Redirect} from 'react-router-dom';
 import eventEmitter from '../../EventEmitter';
 import './servicesContent.scss';
 class ServicesContent extends React.PureComponent {
@@ -19,21 +18,13 @@ class ServicesContent extends React.PureComponent {
 
     goPrice = event => {
         const target = event.target;
-        if (!this.state.redirect.action)
-            this.setState({
-                ...this.state,
-                redirect: {
-                    ...this.state.redirect,
-                    to: 'retailCRM',
-                    action: true
-                }
-            })
-        // if (target === this.auto)
-        // eventEmitter.emit("EventRedirectPrice",{action: 'auto'});
-        // else if (target === this.amoCRM)
-        // eventEmitter.emit("EventRedirectPrice",{action: 'amoCRM'});
-        // else if (target === this.retailCRM)
-        // eventEmitter.emit("EventRedirectPrice",{action: 'retailCRM'});
+
+        if (target === this.auto)
+        eventEmitter.emit("EventRedirectPrice",{action: 'auto'});
+        else if (target === this.amoCRM)
+        eventEmitter.emit("EventRedirectPrice",{action: 'amoCRM'});
+        else if (target === this.retailCRM)
+        eventEmitter.emit("EventRedirectPrice",{action: 'retailCRM'});
 
         event.stopPropagation();
     };
@@ -48,9 +39,6 @@ class ServicesContent extends React.PureComponent {
 
     render(){
         const {content, mode} = this.state;
-
-        if (this.state.redirect.action)
-            return <Redirect to = {{pathname: '/Services', search: `?priceList=${mode}`}} />
 
         switch (mode){
             case 'auto': return (
