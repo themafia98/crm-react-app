@@ -141,7 +141,7 @@ class ServicesList extends React.PureComponent {
             let address = null;
             if (process.env.NODE_ENV === 'production')
             address = process.env.REACT_APP_S_AUTO;
-            else address = 'http://localhost1:3001/services/auto';
+            else address = 'http://localhost:3001/services/auto';
     
             isFetch(address)
             .then(res => res.text())
