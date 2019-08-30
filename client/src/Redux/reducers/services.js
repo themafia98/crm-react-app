@@ -1,11 +1,20 @@
+import {UPDATE_SERVICES_TYPE} from '../actions/servicesActions';
 
 const initialState = {
-    type: 'begin'
-}
+    servicesType: null,
+    content: null
+};
 
 const reducerServices = (state = initialState, action) => {
 
-    return state;
+    switch(action.type){
+        case UPDATE_SERVICES_TYPE: return {
+            ...state,
+            servicesType: action.update.servicesType,
+            content: action.update.content,
+        }
+        default: return state;
+    }
 };
 
 export {reducerServices};

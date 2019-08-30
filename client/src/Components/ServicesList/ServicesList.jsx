@@ -1,12 +1,12 @@
 import React from 'react';
+import eventEmitter from '../../EventEmitter';
 import isFetch from 'isomorphic-fetch';
 import './servicesList.scss';
 import ServicesContent from '../ServicesContent/ServicesContent';
 class ServicesList extends React.PureComponent {
 
     state = {
-        active: null,
-        content: null,
+        defaultContent: null,
         load: false,
     };
 
@@ -17,120 +17,67 @@ class ServicesList extends React.PureComponent {
         });
     };
 
-    autoMode = event => { 
+    refAuto = null;
+    refAmoCRM = null;
+    refRetailCRM = null;
+    refFuncAuto = node => this.refAuto = node;
+    refFuncAmoCRM = node => this.refAmoCRM = node; 
+    refFuncRetailCRM = node => this.refRetailCRM = node;
 
-        if (this.state.active === 'auto') return;
 
-        let address = null;
-        if (process.env.NODE_ENV === 'production')
-        address = process.env.REACT_APP_S_AUTO;
-        else address = 'http://localhost:3001/services/auto';
-        
-        this.setLoad()
-        .then(next => {
-            isFetch(address)
-            .then(res => res.text())
-            .then(res => {
-                return res.split('\n');
-            })
-            .then(content =>{
-                this.setState({
-                    ...this.state, 
-                    active: 'auto', 
-                    content: content.map((item,index) => {
-                        return <p key = {index}>{item}</p>
-                    }),
-                    load: false,
-                });
-            })
-            .catch(error => console.error(error));
-        });
+    setContentEmitter = event => {
 
-    };
-    amoCRRMode = event => {  
+        let action = null;
 
-        if (this.state.active === 'amoCRM') return;
+        if (event.target.value === this.refAuto.value)
+            action = 'auto'
+        else if (event.target.value === this.refAmoCRM.value)
+            action = 'amoCRM'
+        else if (event.target.value === this.refRetailCRM.value)
+            action = 'retailCRM'
 
-        let address = null;
-        if (process.env.NODE_ENV === 'production')
-        address = process.env.REACT_APP_S_AMOCRM;
-        else address ='http://localhost:3001/services/amoCRM';
+            eventEmitter.emit('EventSetContent', {action: action});
+        event.stopPropagation();
+    }
 
-        this.setLoad()
-        .then(next => {
-        isFetch(address)
-            .then(res => res.text())
-            .then(res => {
-                return res.split('\n');
-            })
-            .then(content =>{
-                this.setState({
-                    ...this.state, 
-                    active: 'amoCRM', 
-                    content: content.map((item,index) => {
-                        return <p key = {index}>{item}</p>
-                    }),
-                    load: false,
-                });
-            })
-        .catch(error => console.error(error));
-        });
-    };
 
-    retailCRMode  = event => { 
-        
-        if (this.state.active === 'retailCRM') return;
-
-        let address = null;
-        if (process.env.NODE_ENV === 'production')
-        address = process.env.REACT_APP_S_RETAILCRM;
-        else address = 'http://localhost:3001/services/retailCRM';
-
-        this.setLoad()
-        .then(next => {
-        isFetch(address)
-            .then(res => res.text())
-            .then(content =>{
-                this.setState({
-                    ...this.state, 
-                    active: 'retailCRM', 
-                    content: <p>{content}</p>,
-                    load: false,
-                })
-            })
-        .catch(error => console.error(error));
-        });
-    };
-    
     render(){
-        const {active, content} = this.state;
+
+        const {servicesType, load, content} = this.props;
+        const {defaultContent} = this.state;
+
+        const currentContent = content ? content : defaultContent;
+ 
         return (
             <div className = 'ServicesList container'>
                 <div className = 'col-2 col-4  services_controllers'>
                     <input
-                        onClick = {this.autoMode}
-                        className = {active === 'auto' ? 'controller_auto active':
+                        ref = {this.refFuncAuto}
+                        onClick = {this.setContentEmitter}
+                        className = {servicesType === 'auto' ? 'controller_auto active':
                                                                 'controller_auto'} 
                         type = 'button' 
                         value = 'Автоматизация продаж' 
                     />
                     <input
-                        onClick = {this.amoCRRMode}
-                        className = {active === 'amoCRM' ? 'controller_amoCRM active': 
+                        ref = {this.refFuncAmoCRM}
+                        onClick = {this.setContentEmitter}
+                        className = {servicesType === 'amoCRM' ? 'controller_amoCRM active': 
                                                                 'controller_amoCRM'} 
                         type = 'button' 
                         value = 'Внедрнение amoCRM' 
                     />
                     <input 
-                        onClick = {this.retailCRMode}
-                        className = {active === 'retailCRM' ? 'controller_retailCRM active':
+                        ref = {this.refFuncRetailCRM}
+                        onClick = {this.setContentEmitter}
+                        className = {servicesType === 'retailCRM' ? 'controller_retailCRM active':
                                                                 'controller_retailCRM'} 
                         type = 'button' 
                         value = 'Внедрнение retailCRM' 
                     />
                 </div>
                 <div className = 'col-9 col-8 col-7 services_content'>
-                    <ServicesContent load = {this.state.load} content = {content} mode = {active} />
+                    <ServicesContent load = {load} content = {currentContent} mode = {servicesType} />
                 </div>
             </div>
         )
@@ -148,14 +95,17 @@ class ServicesList extends React.PureComponent {
             .then(res => {
                 return res.split('\n');
             })
-            .then(content =>{
+            .then(content => {
+
+                const defaultContent = content.map((item,index) => {
+                    return <p key = {index}>{item}</p>
+                });
+
                 this.setState({
                     ...this.state, 
-                    active: 'auto', 
-                    content: content.map((item,index) => {
-                        return <p key = {index}>{item}</p>
-                    })
+                    defaultContent: defaultContent,
                 });
+                eventEmitter.emit('EventSetContent', {action: 'default'});
             })
             .catch(error => console.error(error));
         };

@@ -1,7 +1,7 @@
 import React,{Fragment} from 'react';
 import PropTypes from 'prop-types';
 import {withRouter} from 'react-router-dom';
-
+import {connect} from 'react-redux';
 import PriceContent from '../../Components/PriceContent/PriceContent';
 import Header from '../../Components/Header/Header';
 import Footer from '../../Components/Footer/Footer';
@@ -43,4 +43,11 @@ class Price extends React.PureComponent {
 
     }
 }
-export default withRouter(Price);
+
+const mapStateFromProps = ({services}) => {
+    return {
+        services: services,
+    }
+};
+
+export default connect(mapStateFromProps)(withRouter(Price));

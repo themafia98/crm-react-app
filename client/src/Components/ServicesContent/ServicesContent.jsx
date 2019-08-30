@@ -12,8 +12,6 @@ class ServicesContent extends React.PureComponent {
     }
 
     state = {
-        mode: this.props.mode,
-        content: this.props.content,
         redirect: {to: '', action: false},
     }
 
@@ -39,9 +37,9 @@ class ServicesContent extends React.PureComponent {
     refRetailCRM = node => this.retailCRM = node;
 
     render(){
-        const {content, mode} = this.state;
+        const {content, mode} = this.props;
         const {load} = this.props;
-
+ 
         if (load) return <Loader loaderClass = 'loaderServicesList' />
 
         switch (mode){
