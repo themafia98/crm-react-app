@@ -35,7 +35,7 @@ class Services extends React.PureComponent {
 
         let address = null;
         if (process.env.NODE_ENV === 'production')
-        address = process.env.REACT_APP_S_AUTO;
+        address = `${process.env.REACT_APP_SERVICES}${action}`;
         else address = `http://localhost:3001/services/${action}`;
         
             isFetch(address)
