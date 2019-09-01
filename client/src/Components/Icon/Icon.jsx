@@ -8,7 +8,7 @@ const Icon = ({path, go, className,alt, cbRedirectHome}) => {
             className = {!className ? 'Icon' : 'Icon ' + className}>
             <img       
                 className = {go ? 'go' : null} 
-                src = {process.env.PUBLIC_URL + path} 
+                src = {path} 
                 alt = {alt ? alt : 'icon'}
             />
         </div>
