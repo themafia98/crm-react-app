@@ -15,5 +15,17 @@ namespace security {
         return result;
     };
 
+    export const createCryptPassword = async (password:string|number):Promise<boolean> => {
+        let isSave = false;
+        await bcrypt.genSalt(10, (error:Error, salt:string|number) => {
+            if (error) return log.error(error.message + ` / ${Date.now()}`);
+            bcrypt.hash(password, salt, (error:Error, encrypted:string) => {
+                if (error) return log.error(error.message + ` / ${Date.now()}`);
+                isSave = true;
+            });
+        });
+        return isSave;
+    }
+
 }
 export default security;
