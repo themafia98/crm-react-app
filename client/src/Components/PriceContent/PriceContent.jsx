@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './content.scss';
 
 const PriceContent = ({mode}) => {
     
@@ -11,7 +11,7 @@ const PriceContent = ({mode}) => {
         case 'retailCRM':
                 return <div className = 'PriceContent retailCRM_price'></div>
         default:
-             return <div className = 'PriceContent'>Not found</div>
+             return <div className = 'PriceContent'>Контент в разработке!</div>
     }
 };
 export default PriceContent;

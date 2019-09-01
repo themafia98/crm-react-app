@@ -1,0 +1,25 @@
+.Price {
+    display: flex;
+    .priceWrapperContent {
+        display: flex;
+        margin-top: 5px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .goBack_button {
+        font-weight: bold;
+        height: 40px;
+        width: 80px;
+        background-color: tomato;
+        border: 1px solid black;
+        border-radius: 7px;
+        color: white;
+        transition: .3s ease-out;
+    }
+    .goBack_button:hover{
+        cursor: pointer;
+        color: black;
+        box-shadow: 0 0 10px;
+    }
+}

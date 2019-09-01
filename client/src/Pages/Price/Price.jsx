@@ -31,10 +31,12 @@ class Price extends React.PureComponent {
                 <Header go = {true} />
                 <section className = 'Price'>
                     <div className = 'container'>
-                        <input type = 'button' value = 'назад' onClick = {this.goBack} />
-                        {
-                            <PriceContent mode = {this.state.mode} />
-                        }
+                        <div className = 'priceWrapperContent'>
+                            <input className = 'goBack_button' type = 'button' value = 'назад' onClick = {this.goBack} />
+                            {
+                                <PriceContent mode = {this.state.mode} />
+                            }
+                        </div>
                     </div>
                 </section>
                 <Footer footerTitle = 'CRM© 2019 All rights reserved' />
