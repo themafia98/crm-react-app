@@ -2,10 +2,9 @@ import React,{Fragment} from 'react';
 import PropTypes from 'prop-types';
 import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
-import isFetch from 'isomorphic-fetch';
 
 import eventEmitter from '../../EventEmitter';
-import {updateServicesType} from '../../Redux/actions/servicesActions';
+import {loadMiddlewareServices} from '../../Redux/middleware/middlewareServices';
 
 import ServicesList from '../../Components/ServicesList/ServicesList';
 import withScroll from '../../Components/withScroll';
@@ -31,25 +30,7 @@ class Services extends React.PureComponent {
 
         const {dispatch, servicesType} = this.props;
         if (servicesType === action) return;
-        if (action === 'default') action = 'auto';
-
-        let address = null;
-        if (process.env.NODE_ENV === 'production')
-        address = `${process.env.REACT_APP_SERVICES}${action}`;
-        else address = `http://localhost:3001/services/${action}`;
-        
-            isFetch(address)
-            .then(res => res.text())
-            .then(res => {
-                return res.split('\n');
-            })
-            .then(content =>{
-                dispatch(updateServicesType({
-                    content: content,
-                    servicesType: action
-                }))
-            })
-            .catch(error => console.error(error));
+        dispatch(loadMiddlewareServices(action)); 
     };
 
     render(){

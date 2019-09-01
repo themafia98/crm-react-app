@@ -84,7 +84,9 @@ class ServicesList extends React.PureComponent {
     }
 
     componentDidMount = () => {
-        if (!this.state.active){
+
+        const {servicesType} = this.props;
+        if (!servicesType){
             let address = null;
             if (process.env.NODE_ENV === 'production')
             address = process.env.REACT_APP_S_AUTO;
