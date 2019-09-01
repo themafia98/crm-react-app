@@ -25,7 +25,6 @@ class Price extends React.PureComponent {
     }
 
     render(){
-        console.log(this.props);
         return (
             <Fragment>
                 <Header go = {true} />
