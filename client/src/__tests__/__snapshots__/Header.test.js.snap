@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header test 1`] = `
+<header
+  className={null}
+>
+  <div
+    className="container header-flex"
+  >
+    <div
+      className="Icon logo"
+    >
+      <img
+        alt="logo"
+        className={null}
+        src="/img/logo.png"
+      />
+    </div>
+    <ul
+      className="menu"
+    >
+      <a
+        aria-current="page"
+        className="selected"
+        href="/"
+        onClick={[Function]}
+        style={Object {}}
+      >
+        <li>
+          Главная
+        </li>
+      </a>
+      <a
+        aria-current={null}
+        href="/Services"
+        onClick={[Function]}
+      >
+        <li>
+          Услуги
+        </li>
+      </a>
+      <a
+        aria-current={null}
+        href="/About"
+        onClick={[Function]}
+      >
+        <li>
+          О нас
+        </li>
+      </a>
+      <a
+        aria-current={null}
+        href="/Contact"
+        onClick={[Function]}
+      >
+        <li>
+          Контакты
+        </li>
+      </a>
+    </ul>
+  </div>
+</header>
+`;

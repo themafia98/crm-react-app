@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form test 1`] = `
+<section
+  className="feedBack container"
+>
+  <form
+    className="index"
+  >
+    <input
+      className="form__textInput"
+      name="email"
+      placeholder="E-mail"
+      type="email"
+    />
+    <input
+      className="form__textInput"
+      name="name"
+      placeholder="Имя"
+      type="text"
+    />
+    <input
+      className="form__textInput"
+      name="number"
+      placeholder="Телефон"
+      type="tel"
+    />
+    <input
+      className="form__textInput form__submit"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+      value="Бесплатная консультация"
+    />
+    
+  </form>
+</section>
+`;
+
+exports[`Form test 2`] = `
+<section
+  className="feedBack container"
+>
+  <form
+    className="index"
+  >
+    <input
+      className="form__textInput"
+      name="email"
+      placeholder="E-mail"
+      type="email"
+    />
+    <input
+      className="form__textInput"
+      name="name"
+      placeholder="Имя"
+      type="text"
+    />
+    <input
+      className="form__textInput"
+      name="number"
+      placeholder="Телефон"
+      type="tel"
+    />
+    <input
+      className="form__textInput form__submit"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+      value="Бесплатная консультация"
+    />
+    
+  </form>
+</section>
+`;

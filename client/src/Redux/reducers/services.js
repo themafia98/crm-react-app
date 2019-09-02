@@ -11,7 +11,7 @@ const reducerServices = (state = initialState, action) => {
         case UPDATE_SERVICES_TYPE: return {
             ...state,
             servicesType: action.update.servicesType,
-            content: action.update.content,
+            content: [...action.update.content],
         }
         default: return state;
     }

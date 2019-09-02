@@ -31,6 +31,9 @@ const Form = ({mode}) => {
         setDone(false);
 
         const form = refForm.current;
+
+        if (!form) return;
+        
         const isFull = form.email.value && form.name.value  && form.number.value;
 
         const isValid = validate({

@@ -18,9 +18,14 @@ const ContentAbout = ({photoUrl, content}) => {
         </div>
     )
 
-}
+};
+
 ContentAbout.propsTypes = {
     photoUrl: PropTypes.string.isRequired,
-    content: PropTypes.string.isRequired,
-}
+    content: PropTypes.oneOfType([
+        PropTypes.string.isRequired,
+        PropTypes.array.isRequired
+    ])
+};
+
 export default ContentAbout;

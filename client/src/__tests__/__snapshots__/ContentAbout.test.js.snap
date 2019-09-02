@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ContentAbout test 1`] = `
+<div
+  className="About__Content"
+>
+  <div
+    className="col-6"
+  >
+    <img
+      alt="myPhoto"
+      className="myPhoto"
+      src="/img/test.jpg"
+    />
+  </div>
+  <div
+    className="col-6 About__Content__contentMain"
+  >
+    <h3>
+      100 лет опыта в бизнесе и ИТ технологиях
+    </h3>
+    <p>
+      Hello test done!
+    </p>
+  </div>
+</div>
+`;
