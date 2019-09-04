@@ -7,7 +7,7 @@ namespace namespaceMail {
 
     const log = namespaceLogger.loggerError();
 
-    abstract class Mail {
+    abstract class MailTransporter {
         private transporter:Transporter;
 
         constructor(transOptions:transOptions){
@@ -29,7 +29,7 @@ namespace namespaceMail {
 
     }
 
-    export class Sender extends Mail implements Send {
+    export class Sender extends MailTransporter implements Send {
         private hosting:Transporter;
         private mailOptions:SendMailOptions;
 
