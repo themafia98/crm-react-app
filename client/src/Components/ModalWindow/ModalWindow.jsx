@@ -26,8 +26,7 @@ class ModalWindow extends React.PureComponent {
 
 
     render(){
-
-        if (!this.props.test)
+        
         return (
         <div 
             ref = {this.modalWrapperRef} 

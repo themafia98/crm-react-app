@@ -1,3 +1,23 @@
 .ErrorBoundary {
     text-align:  center;
+
+    input[type = 'button']{
+        cursor: pointer;
+        outline: none;
+        font-weight: bold;
+        font-size: 1.2rem;
+        background-color: whitesmoke;
+        border: 1px solid black;
+        height: 50px;
+        white-space: normal;
+        width: 150px;
+        transition: .3s ease-in-out;
+    }
+
+    input[type = 'button']:hover,
+    input[type = 'button']:active,
+    input[type = 'button']:focus{
+        color: red;
+        background: rgb(149, 189, 30);
+    }
 }

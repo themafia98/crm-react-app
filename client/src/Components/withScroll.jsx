@@ -2,33 +2,35 @@ import React,{createRef, useState, useEffect} from 'react';
 import eventEmitter from '../EventEmitter';
 
 
-// in progress (fixed and finish this component)
+// in progress (I should finish this component)
 
 const withScroll = Component => props => {
 
-    const [buffer,setBuffer] = useState(false);
     const scrollerRef = createRef();
     
     const scrollEvent = event => {  
-        const isMobile = event.currentTarget.innerWidth < 650;
 
-        if ((event.currentTarget.pageYOffset <= 0) ||
-            (buffer && event.currentTarget.pageYOffset <= 100)){
-            isMobile && setBuffer(false);
-            eventEmitter.emit("EventMenu", {
-                action: null,
-            });
-        }
-        else if ((event.currentTarget.pageYOffset > 0) ||
-            (buffer && event.currentTarget.pageYOffset > 100)){
-            isMobile && setBuffer(true);
+        if (event.currentTarget.innerWidth < 650) return;
+
+        const unfixed = event.currentTarget.pageYOffset < 100;
+        const fixed = event.currentTarget.pageYOffset > 100;
+
+        if (fixed){
+
             eventEmitter.emit("EventMenu", {
                 action: 'fixed',
+            });
+
+        } else if (unfixed){
+
+            eventEmitter.emit("EventMenu", {
+                action: null,
             });
         }
     };
 
     const didMount = () => {
+
         window.addEventListener('scroll',scrollEvent,false);
         if (global.pageYOffset > 0)
         eventEmitter.emit("EventMenu", {
@@ -46,7 +48,7 @@ const withScroll = Component => props => {
     return (
         <div
              ref = {scrollerRef}
-             className = {!buffer ? 'scroller' : 'scroller buffer'}>
+             className = 'scroller'>
             <Component {...props} />
         </div>
     )
