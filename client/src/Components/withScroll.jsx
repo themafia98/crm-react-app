@@ -30,7 +30,7 @@ const withScroll = Component => props => {
     };
 
     const didMount = () => {
-        console.log(global.innerWidth);
+
         window.addEventListener('scroll',scrollEvent,false);
         if (global.pageYOffset > 0 && global.innerWidth)
         eventEmitter.emit("EventMenu", {
