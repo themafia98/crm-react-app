@@ -12,7 +12,15 @@ namespace namespaceMail {
 
         constructor(transOptions:transOptions){
             this.transporter = nodemailer.createTransport(transOptions);
-            
+            this.transporter.verify()
+            .then(res => {
+                if (res)
+                 console.log("Server is ready to take messages");
+                 else throw new Error('Server error to take messages');
+            })
+            .catch(error => {
+                log.error(error.message + ` / ${Date.now()}`);
+            });
         }
 
         getTransporter():Transporter{
