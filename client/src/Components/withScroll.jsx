@@ -32,7 +32,7 @@ const withScroll = Component => props => {
     const didMount = () => {
 
         window.addEventListener('scroll',scrollEvent,false);
-        if (global.pageYOffset > 0 && global.innerWidth)
+        if (global.pageYOffset > 0 && global.innerWidth < 650)
         eventEmitter.emit("EventMenu", {
             action: 'fixed',
         });
