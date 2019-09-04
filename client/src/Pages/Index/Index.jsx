@@ -7,8 +7,8 @@ import OurServices from '../../Components/OurServices/OurServices';
 import WhatBest from '../../Components/WhatBest/WhatBest';
 import Footer from '../../Components/Footer/Footer';
 import './index.scss';
-class Index extends React.PureComponent {
 
+class Index extends React.PureComponent {
     render(){
         return (
             <Fragment>

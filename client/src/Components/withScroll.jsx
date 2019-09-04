@@ -1,6 +1,9 @@
 import React,{createRef, useState, useEffect} from 'react';
 import eventEmitter from '../EventEmitter';
 
+
+// in progress (fixed and finish this component)
+
 const withScroll = Component => props => {
 
     const [buffer,setBuffer] = useState(false);

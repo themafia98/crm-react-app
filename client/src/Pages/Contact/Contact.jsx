@@ -4,9 +4,11 @@ import Footer from '../../Components/Footer/Footer';
 import Header from '../../Components/Header/Header';
 import InformationContact from '../../Components/ContactComponents/InformationContact';
 import Form from '../../Components/Form/Form';
+
 import './contact.scss';
 import ModalWindow from '../../Components/ModalWindow/ModalWindow';
 import eventEmitter from '../../EventEmitter';
+
 class Contact extends React.PureComponent {
 
     state = {
