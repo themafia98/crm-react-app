@@ -1,4 +1,4 @@
-import React,{createRef, useState, useEffect} from 'react';
+import React,{createRef, useEffect} from 'react';
 import eventEmitter from '../EventEmitter';
 
 
