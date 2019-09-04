@@ -30,7 +30,7 @@ class Contact extends React.PureComponent {
         return (
             <Fragment>
                 <Header go = {true} />
-                {modalPolicyActive && <ModalWindow mode = {modalMode} />}
+                {modalPolicyActive && <ModalWindow test = {1} mode = {modalMode} />}
                 <section className = 'Contact container'>
                 <div className = 'Contact__info'>
                     <h3 className = 'Contact__info__title'>Напишите нам</h3>
