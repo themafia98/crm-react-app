@@ -1,7 +1,7 @@
 import {updateServicesType} from '../actions/servicesActions';
 import isFetch from 'isomorphic-fetch';
 
-const loadMiddlewareServices = (action) => (dispatch) => {
+const loadMiddlewareServices = (action) => async (dispatch) => {
 
     if (action === 'default') action = 'auto';
 
@@ -22,6 +22,8 @@ const loadMiddlewareServices = (action) => (dispatch) => {
                 }));
             })
         .catch(error => console.error(error));
+
+        return true;
 };
 
 export {loadMiddlewareServices};

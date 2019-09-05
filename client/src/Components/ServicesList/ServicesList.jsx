@@ -10,10 +10,12 @@ class ServicesList extends React.PureComponent {
         load: false,
     };
 
-    setLoad = async () => {
-        await this.setState({
+    setLoad = (action) => {
+
+        if (action !== this.state.load)
+        this.setState({
             ...this.state,
-            load: true,
+            load: action,
         });
     };
 
@@ -36,15 +38,16 @@ class ServicesList extends React.PureComponent {
         else if (event.target.value === this.refRetailCRM.value)
             action = 'retailCRM'
 
-            eventEmitter.emit('EventSetContent', {action: action});
+        eventEmitter.emit('EventSetContent', {action: action});
+
         event.stopPropagation();
     }
 
 
     render(){
 
-        const {servicesType, load, content} = this.props;
-        const {defaultContent} = this.state;
+        const {servicesType, content} = this.props;
+        const {defaultContent, load} = this.state;
 
         const currentContent = content ? content : defaultContent;
  
@@ -86,6 +89,9 @@ class ServicesList extends React.PureComponent {
     componentDidMount = () => {
 
         const {servicesType} = this.props;
+
+        eventEmitter.on('EventLoadingServicesChunks', this.setLoad);
+
         if (!servicesType){
             let address = null;
             if (process.env.NODE_ENV === 'production')
@@ -111,6 +117,10 @@ class ServicesList extends React.PureComponent {
             })
             .catch(error => console.error(error));
         };
-    }
+    };
+
+    componentWillUnmount = () => {
+        eventEmitter.off('EventLoadingServicesChunks', this.setLoad);
+    };
 };
 export default ServicesList;

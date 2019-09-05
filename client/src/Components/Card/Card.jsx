@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import './card.scss';
 
 const Card = ({mode}) => {
-    console.log(mode);
     return (
         <div key = 'Card' className = 'Card'>
         <p className ='Card__title'>SIP Install</p>

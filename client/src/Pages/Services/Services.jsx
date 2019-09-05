@@ -30,7 +30,13 @@ class Services extends React.PureComponent {
 
         const {dispatch, servicesType} = this.props;
         if (servicesType === action) return;
-        dispatch(loadMiddlewareServices(action)); 
+        eventEmitter.emit('EventLoadingServicesChunks',true);
+        dispatch(loadMiddlewareServices(action))
+        .then(res => {
+            if (res) 
+            eventEmitter.emit('EventLoadingServicesChunks',false);
+        })
+        .catch(errror => console.error(errror));
     };
 
     render(){

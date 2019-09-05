@@ -10,3 +10,10 @@
     font-weight: bold;
     font-size: 30px;
 }
+
+
+@media screen and (max-width: 815px){
+    .PriceContent {
+        justify-content: center;
+    }
+}

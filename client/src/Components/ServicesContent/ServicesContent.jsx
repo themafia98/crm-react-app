@@ -39,7 +39,7 @@ class ServicesContent extends React.PureComponent {
     render(){
         const {content, mode} = this.props;
         const {load} = this.props;
- 
+
         if (load) return <Loader loaderClass = 'loaderServicesList' />
 
         switch (mode){
