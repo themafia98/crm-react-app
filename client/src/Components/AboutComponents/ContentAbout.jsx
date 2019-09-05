@@ -4,7 +4,7 @@ import './content.scss';
 const ContentAbout = ({photoUrl, content}) => {
 
     return (
-        <div className = 'About__Content'>
+        <div key = 'About__Content' className = 'About__Content'>
             <div className = 'col-6'>
                 <img className = 'myPhoto' 
                     src = {photoUrl}

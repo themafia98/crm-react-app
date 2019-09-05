@@ -34,9 +34,17 @@ namespace server {
   });
 
   app.set('port', port);
-  app.listen(port,() => {
+  const server = app.listen(port,() => {
       console.log(`Server listen on ${port} with origin ${app.locals.frontend}`);
   });
+
+
+  process.on( 'SIGTERM', function () {
+    server.close(function () {
+      console.log("Finished");
+    });
+  });
+
 }
 
 export default server;

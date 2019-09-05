@@ -40,7 +40,7 @@ class Header extends React.PureComponent {
         const {go} = this.props;
         const {fixed} = this.state;
         return (
-            <header className = {!fixed ? null : 'fixed'}>
+            <header key = 'header' className = {!fixed ? null : 'fixed'}>
                 <div className = 'container header-flex'>
                     <Icon 
                         alt = 'logo'

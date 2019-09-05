@@ -44,7 +44,7 @@ class ServicesContent extends React.PureComponent {
 
         switch (mode){
             case 'auto': return (
-                            <div className = 'ServicesContent'>
+                            <div key = 'ServicesContentAuto' className = 'ServicesContent'>
                                 <h3 className = 'servicesContent__title'>Автоматизация продаж</h3>
                                     <input
                                         ref = {this.refAuto}
@@ -57,7 +57,7 @@ class ServicesContent extends React.PureComponent {
                             </div>
                         )
             case 'amoCRM': return (
-                            <div className = 'ServicesContent'>
+                            <div key = 'ServicesContentAmo' className = 'ServicesContent'>
                                 <h3 className = 'servicesContent__title '>amoCRM</h3>
                                     <input
                                         ref = {this.refAmoCRM}
@@ -70,7 +70,7 @@ class ServicesContent extends React.PureComponent {
                             </div>
                         )  
             case 'retailCRM': return (
-                            <div className = 'ServicesContent'>
+                            <div key = 'ServicesContentRetail' className = 'ServicesContent'>
                                 <h3 className = 'servicesContent__title '>retailCRM</h3>
                                     <input
                                         ref = {this.refRetailCRM}

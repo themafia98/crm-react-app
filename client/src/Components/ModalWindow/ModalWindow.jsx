@@ -29,11 +29,12 @@ class ModalWindow extends React.PureComponent {
         
         return (
         <div 
+            key = 'ModalWindowWrapper'
             ref = {this.modalWrapperRef} 
             onClick = {this.closeModal} 
             className = 'ModalWrapper'
         >
-            <div className = 'Modal'>
+            <div key = 'ModalWindow' className = 'Modal'>
                 <ModalContent mode = {this.props.mode} />
             </div>
         </div>

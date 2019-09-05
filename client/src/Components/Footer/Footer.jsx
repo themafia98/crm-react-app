@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './footer.scss';
 const Footer = ({footerTitle}) => {
     return (
-        <footer>
+        <footer key = 'footer'>
             <p className = 'footer__title'>{footerTitle}</p>
         </footer>
     )

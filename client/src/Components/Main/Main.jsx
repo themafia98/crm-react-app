@@ -6,7 +6,7 @@ const Main = ({title}) => {
 
     return (
         <Fragment>
-            <section className = 'main'>
+            <section key = 'main' className = 'main'>
             <div className = 'blackout'></div>
                 <p className = 'main__title'>
                     {title}

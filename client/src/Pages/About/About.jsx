@@ -18,7 +18,7 @@ class About extends React.PureComponent {
         return (
             <Fragment>
                 <Header go = {true} />
-                <section className = 'About container'>
+                <section key = 'About' className = 'About container'>
                     <p className = 'About__title'>О нас</p>
                     <ContentAbout   
                         photoUrl = {process.env.PUBLIC_URL + '/img/demo__about.jpg'}

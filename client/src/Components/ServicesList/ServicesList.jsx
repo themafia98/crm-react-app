@@ -49,7 +49,7 @@ class ServicesList extends React.PureComponent {
         const currentContent = content ? content : defaultContent;
  
         return (
-            <div className = 'ServicesList container'>
+            <div key = 'ServicesList' className = 'ServicesList container'>
                 <div className = 'col-2 col-4  services_controllers'>
                     <input
                         ref = {this.refFuncAuto}

@@ -4,6 +4,7 @@ import './Icon.scss';
 const Icon = ({path, go, className,alt, cbRedirectHome}) => {
     return (
         <div 
+            key = 'icon'
             onClick = {go && cbRedirectHome}  
             className = {!className ? 'Icon' : 'Icon ' + className}>
             <img       

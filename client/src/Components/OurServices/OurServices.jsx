@@ -5,7 +5,7 @@ import data from '../../data.json';
 const OurServices = props => {
 
     return (
-        <section className = 'OurServices'>
+        <section key = 'OurServices' className = 'OurServices'>
             <div className = 'container'>
                 <h2>Наши услуги</h2>
                     <List 

@@ -1,0 +1,20 @@
+
+.Card {
+    width: 30%;
+    background-color: rgb(211, 206, 206);
+    padding: 3px;
+
+    .Card__title {
+        font-weight: bold;
+        font-size: 30px;
+    }
+    .Card__content {
+        font-size: 20px;
+    }
+    .Card__priceName {
+        font-weight:  bold;
+        .Card__priceCard {
+            color: red;
+        }
+    }
+}

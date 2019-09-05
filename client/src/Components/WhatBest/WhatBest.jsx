@@ -5,7 +5,7 @@ import './wecan.scss';
 const WhatBest = props => {
 
     return (
-        <section className = 'WhatBest'>
+        <section key = 'WhatBest' className = 'WhatBest'>
             <div className = 'container'>
                 <h2>Почему стоит выбрать нас</h2>
                     <List 

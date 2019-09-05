@@ -4,7 +4,7 @@ import './content.scss';
 
 const RoadCareer = ({content}) => {
     return (
-        <p className = 'roadCareer__content'>
+        <p key = 'roadCareer' className = 'roadCareer__content'>
             {content}
         </p>
     );

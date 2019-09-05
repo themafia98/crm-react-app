@@ -16,8 +16,14 @@ class Price extends React.PureComponent {
         match: PropTypes.object.isRequired,
     }
 
+    static getDerivedStateFromProps = (props, state) => {
+        if (props.match.params.type !== state.mode)
+        return {mode: props.match.params.type}
+        else return state;
+    }
+
     state = {
-        mode: this.props.match.params.mode,
+        mode: this.props.match.params.type,
     }
 
     goBack = event => {
@@ -28,12 +34,12 @@ class Price extends React.PureComponent {
         return (
             <Fragment>
                 <Header go = {true} />
-                <section className = 'Price'>
+                <section key = 'Price' className = 'Price'>
                     <div className = 'container'>
                         <div className = 'priceWrapperContent'>
                             <input className = 'goBack_button' type = 'button' value = 'назад' onClick = {this.goBack} />
                             {
-                                <PriceContent mode = {this.state.mode} />
+                                <PriceContent  mode = {this.state.mode} />
                             }
                         </div>
                     </div>

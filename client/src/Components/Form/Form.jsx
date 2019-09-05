@@ -117,7 +117,7 @@ const Form = ({mode}) => {
 
     if (mode === 'index'){
         return (
-            <section className = 'feedBack container'>
+            <section key = 'fromFeedBack' className = 'feedBack container'>
                 <form className = {mode} ref = {refForm}>
                     <input 
                         name = 'email'  
@@ -151,7 +151,7 @@ const Form = ({mode}) => {
         )
     } else if (mode === 'contact'){
         return (
-            <form className = {mode} ref = {refForm}>
+            <form key = 'formContact' className = {mode} ref = {refForm}>
                 <input 
                     name = 'name' 
                     type = 'text' 

@@ -25,7 +25,10 @@ const List = ({mode, data, type}) => {
 
     switch(mode){
         case 'index': return (
-            <div className = {!type ? 'list' : 'list list--marginLeft--10'}>
+            <div 
+                key = 'list' 
+                className = {!type ? 'list' : 'list list--marginLeft--10'}
+            >
                 {makeItems(data)}
             </div>
         )

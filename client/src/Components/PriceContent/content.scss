@@ -1,5 +1,12 @@
 .PriceContent {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
     text-align: center;
+    margin-top: 10px;
+}
+
+.nonePrice{
     font-weight: bold;
     font-size: 30px;
 }

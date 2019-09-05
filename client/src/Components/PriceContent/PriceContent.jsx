@@ -1,17 +1,30 @@
 import React from 'react';
+import Card from '../Card/Card';
 import './content.scss';
 
 const PriceContent = ({mode}) => {
-    
-    switch (mode) {
+        console.log(mode);
+    switch (mode) { /** In propress */
         case 'auto':
-            return <div className = 'PriceContent auto_price'></div>
+            return <div key = 'auto' className = 'PriceContent auto_price'> 
+            <Card mode = {mode} />
+            <Card mode = {mode} />
+            <Card mode = {mode} />
+            </div>
         case 'amoCRM':
-                return <div className = 'PriceContent amoCRM_price'></div>
+                return <div key = 'amoCRM' className = 'PriceContent amoCRM_price'>
+                <Card mode = {mode} />
+                <Card mode = {mode} />
+                <Card mode = {mode} />
+                </div>
         case 'retailCRM':
-                return <div className = 'PriceContent retailCRM_price'></div>
+                return <div key = 'retailCRM' className = 'PriceContent retailCRM_price'>
+                <Card mode = {mode} />
+                <Card mode = {mode} />
+                <Card mode = {mode} />
+                </div>
         default:
-             return <div className = 'PriceContent'>Контент в разработке!</div>
+             return <div key = 'nonePrice' className = 'PriceContent'>Цен еще нету!</div>
     }
 };
 export default PriceContent;
