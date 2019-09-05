@@ -103,7 +103,6 @@ const Form = ({mode}) => {
                 setDisabled(false);
                 setError('');
                 setDone(true);
-                console.log('Request send!');
             }
             else if (res.status === 400) 
                 throw new Error('Ошибка отправки запроса!');

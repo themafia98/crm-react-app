@@ -3,7 +3,7 @@ import Card from '../Card/Card';
 import './content.scss';
 
 const PriceContent = ({mode}) => {
-        console.log(mode);
+
     switch (mode) { /** In propress */
         case 'auto':
             return <div key = 'auto' className = 'PriceContent auto_price'> 
