@@ -10,10 +10,15 @@ const withScroll = Component => props => {
     
     const scrollEvent = event => {  
 
-        if (event.currentTarget.innerWidth < 650) return;
-
+        const sizeWindow = event.currentTarget.innerWidth < 650;
         const unfixed = event.currentTarget.pageYOffset < 100;
         const fixed = event.currentTarget.pageYOffset > 100;
+
+        if (sizeWindow && fixed) {
+            return eventEmitter.emit("EventMenu", {
+                action: null,
+            });
+        } else if (sizeWindow) return;
 
         if (fixed){
 
