@@ -39,8 +39,8 @@ namespace server {
   });
 
 
-  process.on( 'SIGTERM', function () {
-    server.close(function () {
+  process.on('SIGTERM', () => {
+    server.close(() => {
       console.log("Finished");
     });
   });

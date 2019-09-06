@@ -13,7 +13,7 @@ const ErrorPage = ({error}) => {
         <div className = 'ErrorBoundary'>
             <h1>Error page</h1>
             <p className = 'ErrorInfo'>{error}</p>
-            <input onClick = {restore} type = 'button' value = 'Востоновить' />
+            <input onClick = {restore} type = 'button' value = 'Восстановить' />
         </div>
     )
 };
