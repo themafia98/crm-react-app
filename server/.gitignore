@@ -9,6 +9,10 @@
 /coverage
 package-lock.json
 yarn.lock
+.gitignore
+debug.log
+error.log
+.log
 # production
 /build
 .vs

@@ -6,14 +6,14 @@ import fs,{ReadStream} from 'fs';
 import {debug, log} from './logger/logModule';
 import {formData} from './configs/types';
 import {RequestParam} from './configs/interface';
-import namespaceMail from './api/Mail';
-import cors from 'cors';
 
-import token from './configs/token.json';
+
+import cors from 'cors';
 
 namespace AppNamespace {
 
     export const app:Application = express();
+    
     app.disable('x-powered-by');
     const corsOptions = {
       origin: function (origin:string, callback:(error:object, result?:boolean) => void) {
@@ -29,15 +29,7 @@ namespace AppNamespace {
     app.use(cors(corsOptions));
     const upload = multer(); // form-data
 
-    const sender = new namespaceMail.Sender({
-        service: 'gmail',
-        auth: {
-              user: token.gmail.USER,
-              pass: token.gmail.PASSWORD
-        }
-      });
 
- 
       app.param('type', (req:RequestParam, res: Response, next: NextFunction, type:string):void => {
         req.type = type;
         next();
@@ -59,21 +51,21 @@ namespace AppNamespace {
             const data:formData = req.body;
             console.log(data);
       
-            sender.createMailOptions(data.email,data.name, data.number, token.gmail.USER, 'Консультация');
+            app.locals.sender.createMailOptions(data.email,data.name, data.number, process.env.TOKEN_GMAIL_USER, 'Консультация');
             
             const today = new Date();
             const time  = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
             const day = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
       
-            debug.info(`Start send requset mail from ${data.email} to ${token.gmail.USER} /${day}/${time}`);
+            debug.info(`Start send requset mail from ${data.email} to ${process.env.TOKEN_GMAIL_USER} /${day}/${time}`);
       
-            sender.sendMail().then(resPromise => {
+            app.locals.sender.sendMail().then((resPromise: string) => {
               debug.info('Send Mail status: ' + resPromise);
               if (resPromise)
               res.sendStatus(200);
               else res.sendStatus(400);
             })
-            .catch(error => log.error(error.message + ` / ${Date.now()}`));
+            .catch((error: { message: string; }) => log.error(error.message + ` / ${Date.now()}`));
       
           } else if (isForm && type === 'sendMailQuestion'){
       
@@ -83,16 +75,16 @@ namespace AppNamespace {
             const data:formData = req.body;
             console.log(data);
       
-            sender.createFeedBackMailOptions(data.email,data.name,data.text, 
-                                            data.number, token.gmail.USER, 'Вопрос от клиента');
+            app.locals.sender.createFeedBackMailOptions(data.email,data.name,data.text, 
+                                            data.number, process.env.TOKEN_GMAIL_USER, 'Вопрос от клиента');
             
             const today = new Date();
             const time  = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
             const day = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
                                       
-            debug.info(`Start send feedback mail from ${data.email} to ${token.gmail.USER} /${day}/${time}`);  
+            debug.info(`Start send feedback mail from ${data.email} to ${process.env.TOKEN_GMAIL_USER} /${day}/${time}`);  
       
-            sender.sendMail().then(resPromise => {
+            app.locals.sender.sendMail().then((resPromise: string) => {
               debug.info('Send Mail status: ' + resPromise);
               if (resPromise)
               res.sendStatus(200);
@@ -151,6 +143,7 @@ namespace AppNamespace {
         res.redirect(app.locals.frontend.origin);
       });
 };
+
 
 export default AppNamespace;
   
