@@ -1,5 +1,5 @@
 import nodemailer,{SendMailOptions, Transporter} from 'nodemailer';
-import security from '../api/security';
+import Security from './Security';
 import namespaceLogger from '../logger/logger';
 import Events from 'events';
 import {Send} from '../configs/interface';
@@ -14,7 +14,7 @@ namespace namespaceMail {
         private transporter:Transporter;
 
         constructor(transOptions:transOptions){
-            security.checkToken(process.env.TOKEN_GMAIL_PASSWORD, process.env.TOKEN_GMAIL_USER)
+            Security.checkToken(process.env.TOKEN_GMAIL_PASSWORD, process.env.TOKEN_GMAIL_USER)
             .then(res => {
                 if (res){
                     this.transporter = nodemailer.createTransport(transOptions);
@@ -51,7 +51,7 @@ namespace namespaceMail {
 
         createMailOptions(from:string,name:string, number:string, 
                             to:string, subject:string):void{
-            security.checkToken(process.env.TOKEN_GMAIL_PASSWORD, to)
+            Security.checkToken(process.env.TOKEN_GMAIL_PASSWORD, to)
             .then(res => {
                 if (res){
                     this.mailOptions = {
@@ -73,7 +73,7 @@ namespace namespaceMail {
         createFeedBackMailOptions(from:string,name:string,
                                   text:string, number:string, 
                                   to:string, subject:string):void{
-            security.checkToken(process.env.TOKEN_GMAIL_PASSWORD, to)
+            Security.checkToken(process.env.TOKEN_GMAIL_PASSWORD, to)
             .then(res => {
                 if (res){
                     this.mailOptions = {
@@ -99,7 +99,7 @@ namespace namespaceMail {
         async sendMail():Promise<boolean>{
             let isDone = false;
             const self = this;
-            return security.checkToken(process.env.TOKEN_GMAIL_PASSWORD, process.env.TOKEN_GMAIL_USER)
+            return Security.checkToken(process.env.TOKEN_GMAIL_PASSWORD, process.env.TOKEN_GMAIL_USER)
             .then(res => {
                 if (res) {
                     return self.hosting.sendMail(self.getMailOptions())

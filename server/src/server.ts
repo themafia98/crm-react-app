@@ -5,7 +5,7 @@ import dotenv from 'dotenv';
 import path from 'path';
 import fs from 'fs';
 
-import security from './api/security';
+import Security from './api/Security';
 import namespaceMail from './api/Mail';
 
 import {log} from './logger/logModule';
@@ -44,7 +44,7 @@ namespace Server {
   app.set('port', port);
   const server = app.listen(port,async () => {
       console.log(`Server listen on ${port} with origin ${app.locals.frontend}`);
-      security.create().then(res => {
+      Security.create().then(res => {
         app.locals.sender = new namespaceMail.Sender({
           service: 'gmail',
           auth: {
