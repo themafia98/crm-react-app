@@ -5,7 +5,7 @@ import dotenv from 'dotenv';
 import path from 'path';
 import fs from 'fs';
 
-import Security from './api/Security';
+import Security from './api/security';
 import namespaceMail from './api/Mail';
 
 import {log} from './logger/logModule';

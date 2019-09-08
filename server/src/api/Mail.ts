@@ -1,5 +1,5 @@
 import nodemailer,{SendMailOptions, Transporter} from 'nodemailer';
-import Security from './Security';
+import Security from './security';
 import namespaceLogger from '../logger/logger';
 import Events from 'events';
 import {Send} from '../configs/interface';
