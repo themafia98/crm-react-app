@@ -53,13 +53,13 @@ namespace Security {
 
 
     export async function create():Promise<boolean> {
-       await createCryptPassword(process.env.TOKEN_GMAIL_PASSWORD)
+       await Security.createCryptPassword(process.env.TOKEN_GMAIL_PASSWORD)
         .then(async token => {
           if (token['isSave'])
             app.locals.token = token['encrypted'];
           else app.locals.token = null;
           try {
-                const token_1 = await createCryptPassword(process.env.TOKEN_GMAIL_USER);
+                const token_1 = await Security.createCryptPassword(process.env.TOKEN_GMAIL_USER);
                 console.log(token_1);
                 if (token_1['isSave'])
                     app.locals.tokenName = token_1['encrypted'];
@@ -69,7 +69,7 @@ namespace Security {
             catch (error) {
                 return log.error(error.message + ` / ${Date.now()}`);
             }
-        }).catch(error => log.error(error.message + ` / ${Date.now()}`));
+        }).catch((error: { message: string; }) => log.error(error.message + ` / ${Date.now()}`));
 
         return true;
     };
