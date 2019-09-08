@@ -5,7 +5,7 @@ import namespaceLogger from '../logger/logger';
 import {Send} from '../configs/interface';
 import {transOptions} from '../configs/types';
 
-namespace namespaceMail {
+namespace MailNamespace {
 
     const log = namespaceLogger.loggerError();
     const eventEmitter = AppNamespace.eventEmitter;
@@ -115,4 +115,4 @@ namespace namespaceMail {
         }
     }
 }
-export default namespaceMail;
+export default MailTransporter;
