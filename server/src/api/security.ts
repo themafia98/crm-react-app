@@ -2,7 +2,7 @@ import bcrypt from 'bcrypt';
 import AppNamespace from '../app';
 import {log} from '../logger/logModule';
 
-namespace security {
+namespace Security {
 
     const app = AppNamespace.app;
 
@@ -53,13 +53,13 @@ namespace security {
 
 
     export async function create():Promise<boolean> {
-       await security.createCryptPassword(process.env.TOKEN_GMAIL_PASSWORD)
+       await createCryptPassword(process.env.TOKEN_GMAIL_PASSWORD)
         .then(async token => {
           if (token['isSave'])
             app.locals.token = token['encrypted'];
           else app.locals.token = null;
           try {
-                const token_1 = await security.createCryptPassword(process.env.TOKEN_GMAIL_USER);
+                const token_1 = await createCryptPassword(process.env.TOKEN_GMAIL_USER);
                 console.log(token_1);
                 if (token_1['isSave'])
                     app.locals.tokenName = token_1['encrypted'];
@@ -75,4 +75,4 @@ namespace security {
     };
 
 }
-export default security;
+export default Security;
