@@ -1,26 +1,35 @@
 import nodemailer,{SendMailOptions, Transporter} from 'nodemailer';
+import security from '../api/security';
 import namespaceLogger from '../logger/logger';
+import Events from 'events';
 import {Send} from '../configs/interface';
 import {transOptions} from '../configs/types';
 
 namespace namespaceMail {
 
+    const eventEmitter = new Events();
     const log = namespaceLogger.loggerError();
 
     abstract class MailTransporter {
         private transporter:Transporter;
 
         constructor(transOptions:transOptions){
-            this.transporter = nodemailer.createTransport(transOptions);
-            this.transporter.verify()
+            security.checkToken(process.env.TOKEN_GMAIL_PASSWORD, process.env.TOKEN_GMAIL_USER)
             .then(res => {
-                if (res)
-                 console.log("Server is ready to take messages");
-                 else throw new Error('Server error to take messages');
+                if (res){
+                    this.transporter = nodemailer.createTransport(transOptions);
+                    this.transporter.verify()
+                    .then(res => {
+                        if (res) {
+                        console.log("Server is ready to take messages");
+                        eventEmitter.emit('EventSetTransporter');
+                        } else throw new Error('Server error to take messages');
+                    })
+                    .catch(error => {
+                        log.error(error.message + ` / ${Date.now()}`);
+                    });
+            }
             })
-            .catch(error => {
-                log.error(error.message + ` / ${Date.now()}`);
-            });
         }
 
         getTransporter():Transporter{
@@ -35,39 +44,52 @@ namespace namespaceMail {
 
         constructor(transOptions:transOptions){
             super(transOptions);
-            this.hosting = super.getTransporter();
+            eventEmitter.on('EventSetTransporter', () => {
+                this.hosting = super.getTransporter();
+            });
         }
 
         createMailOptions(from:string,name:string, number:string, 
                             to:string, subject:string):void{
-            this.mailOptions = {
-                from: from, // sender address
-                to: to, // list of receivers
-                subject: subject, // Subject line
-                html:`
-                <h3>Запрос на консультацию</h3>
-                <p>Имя:${name}</p>
-                <p>E-mail клиента: ${from}</p>
-                <p>Номер клиента: ${number}</p>
-                `
-            };
+            security.checkToken(process.env.TOKEN_GMAIL_PASSWORD, to)
+            .then(res => {
+                if (res){
+                    this.mailOptions = {
+                        from: from, // sender address
+                        to: to, // list of receivers
+                        subject: subject, // Subject line
+                        html:`
+                        <h3>Запрос на консультацию</h3>
+                        <p>Имя:${name}</p>
+                        <p>E-mail клиента: ${from}</p>
+                        <p>Номер клиента: ${number}</p>
+                        `
+                    };
+                } else throw new Error ('Access error');
+            })
+            .catch(error => void log.error(error.message + ` / ${Date.now()}`));
         }
 
         createFeedBackMailOptions(from:string,name:string,
                                   text:string, number:string, 
                                   to:string, subject:string):void{
-            this.mailOptions = {
-                from: from, // sender address
-                to: to, // list of receivers
-                subject: subject, // Subject line
-                html:`
-                <h3>Вопрос от клиента</h3>
-                <p>Имя:${name}</p>
-                <p>E-mail клиента: ${from}</p>
-                <p>Номер клиента: ${number}</p>
-                <p>${text}</p>
-                `
-            };
+            security.checkToken(process.env.TOKEN_GMAIL_PASSWORD, to)
+            .then(res => {
+                if (res){
+                    this.mailOptions = {
+                        from: from, // sender address
+                        to: to, // list of receivers
+                        subject: subject, // Subject line
+                        html:`
+                        <h3>Вопрос от клиента</h3>
+                        <p>Имя:${name}</p>
+                        <p>E-mail клиента: ${from}</p>
+                        <p>Номер клиента: ${number}</p>
+                        <p>${text}</p>
+                        `
+                    };
+                } else throw new Error ('Access error');
+            }).catch(error => void log.error(error.message + ` / ${Date.now()}`));
         }
 
         getMailOptions():SendMailOptions{
@@ -76,14 +98,20 @@ namespace namespaceMail {
 
         async sendMail():Promise<boolean>{
             let isDone = false;
-                await this.hosting.sendMail(this.getMailOptions())
-                .then((res) => {
-                    if (/OK/ig.test(res.response))
-                    isDone = true;
-                    else isDone = false;
-                })
-                .catch(error => log.error(error.message + ` / ${Date.now()}`));
-            return isDone;
+            const self = this;
+            return security.checkToken(process.env.TOKEN_GMAIL_PASSWORD, process.env.TOKEN_GMAIL_USER)
+            .then(res => {
+                if (res) {
+                    return self.hosting.sendMail(self.getMailOptions())
+                        .then((res) => {
+                            if (/OK/ig.test(res.response))
+                            return isDone = true;
+                            else return isDone = false;
+                        })
+                    .catch(error => log.error(error.message + ` / ${Date.now()}`));
+                }
+            })
+            .catch(error => void log.error(error.message + ` / ${Date.now()}`));
         }
     }
 }
