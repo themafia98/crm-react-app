@@ -1,14 +1,14 @@
 import nodemailer,{SendMailOptions, Transporter} from 'nodemailer';
 import Security from './security';
+import AppNamespace from '../app';
 import namespaceLogger from '../logger/logger';
-import Events from 'events';
 import {Send} from '../configs/interface';
 import {transOptions} from '../configs/types';
 
 namespace namespaceMail {
 
-    const eventEmitter = new Events();
     const log = namespaceLogger.loggerError();
+    const eventEmitter = AppNamespace.eventEmitter;
 
     abstract class MailTransporter {
         private transporter:Transporter;

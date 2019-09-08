@@ -1,4 +1,5 @@
 import express,{Application, Request, Response, NextFunction} from 'express';
+import Events from 'events';
 import multer from 'multer';
 import path from 'path';
 import fs,{ReadStream} from 'fs';
@@ -13,6 +14,7 @@ import cors from 'cors';
 namespace AppNamespace {
 
     export const app:Application = express();
+    export const eventEmitter = new Events();
     
     app.disable('x-powered-by');
     const corsOptions = {
