@@ -38,7 +38,8 @@ namespace namespaceMail {
             this.hosting = super.getTransporter();
         }
 
-        createMailOptions(from:string,name:string, number:string, to:string, subject:string):void{
+        createMailOptions(from:string,name:string, number:string, 
+                            to:string, subject:string):void{
             this.mailOptions = {
                 from: from, // sender address
                 to: to, // list of receivers
