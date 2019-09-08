@@ -6,7 +6,7 @@ import path from 'path';
 import fs from 'fs';
 
 import Security from './api/security';
-import MailTransporter from './api/Mail';
+import MailNamespace from './api/Mail';
 
 import {log} from './logger/logModule';
 
@@ -45,7 +45,7 @@ namespace Server {
   const server = app.listen(port,async () => {
       console.log(`Server listen on ${port} with origin ${app.locals.frontend}`);
       Security.create().then(res => {
-        app.locals.sender = new MailTransporter.Sender({
+        app.locals.sender = new MailNamespace.Sender({
           service: 'gmail',
           auth: {
                 user: process.env.TOKEN_GMAIL_USER,

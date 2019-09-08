@@ -115,4 +115,4 @@ namespace MailNamespace {
         }
     }
 }
-export default MailTransporter;
+export default MailNamespace;
