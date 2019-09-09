@@ -5,6 +5,7 @@ import dotenv from 'dotenv';
 import path from 'path';
 import fs from 'fs';
 
+
 import Security from './api/security';
 import MailNamespace from './api/Mail';
 
@@ -46,7 +47,9 @@ namespace Server {
       console.log(`Server listen on ${port} with origin ${app.locals.frontend}`);
       Security.create().then(res => {
         app.locals.sender = new MailNamespace.Sender({
-          service: 'gmail',
+          host: 'smtp.gmail.com',
+          port: 465,
+          secure: true, 
           auth: {
                 user: process.env.TOKEN_GMAIL_USER,
                 pass: process.env.TOKEN_GMAIL_PASSWORD
