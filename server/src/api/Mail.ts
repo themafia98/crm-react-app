@@ -73,6 +73,7 @@ namespace MailNamespace {
         createFeedBackMailOptions(from:string,name:string,
                                   text:string, number:string, 
                                   to:string, subject:string):void{
+        
             Security.checkToken(process.env.TOKEN_GMAIL_PASSWORD, to)
             .then(res => {
                 if (res){
