@@ -102,7 +102,7 @@ namespace MailNamespace {
             const self = this;
             return Security.checkToken(process.env.TOKEN_GMAIL_PASSWORD, process.env.TOKEN_GMAIL_USER)
             .then(res => {
-                if (res) {
+                if (res && self.hosting) {
                     return self.hosting.sendMail(self.getMailOptions())
                         .then((res) => {
                             if (/OK/ig.test(res.response))

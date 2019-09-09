@@ -65,3 +65,9 @@
 {"message":"No recipients defined / 1567983530727","level":"\u001b[31merror\u001b[39m"}
 {"message":"No recipients defined / 1567983591909","level":"\u001b[31merror\u001b[39m"}
 {"message":"No recipients defined / 1567983601291","level":"\u001b[31merror\u001b[39m"}
+{"message":"ENOENT: no such file or directory, open 'C:\\Dev\\Frontend\\crm-react-app\\server\\src\\services\\data\\amoCRMAbout.txt'","level":"\u001b[31merror\u001b[39m"}
+{"message":"ENOENT: no such file or directory, open 'C:\\Dev\\Frontend\\crm-react-app\\server\\src\\services\\data\\retailCRMAbout.txt'","level":"\u001b[31merror\u001b[39m"}
+{"message":"ENOENT: no such file or directory, open 'C:\\Dev\\Frontend\\crm-react-app\\server\\src\\services\\data\\amoCRMAbout.txt'","level":"\u001b[31merror\u001b[39m"}
+{"message":"ENOENT: no such file or directory, open 'C:\\Dev\\Frontend\\crm-react-app\\server\\src\\services\\data\\autoAbout.txt'","level":"\u001b[31merror\u001b[39m"}
+{"message":"ENOENT: no such file or directory, open 'C:\\Dev\\Frontend\\crm-react-app\\server\\src\\services\\data\\policy.txt'","level":"\u001b[31merror\u001b[39m"}
+{"message":"ENOENT: no such file or directory, open 'C:\\Dev\\Frontend\\crm-react-app\\server\\src\\services\\data\\policy.txt'","level":"\u001b[31merror\u001b[39m"}
