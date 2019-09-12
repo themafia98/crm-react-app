@@ -43,7 +43,7 @@ namespace Server {
   });
 
   app.set('port', port);
-  const server = app.listen(port,async () => {
+  const server = app.listen(port,() => {
       console.log(`Server listen on ${port} with origin ${app.locals.frontend}`);
       Security.create().then(res => {
         app.locals.sender = new MailNamespace.Sender({

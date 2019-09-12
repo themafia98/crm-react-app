@@ -3,9 +3,10 @@ import fs from 'fs';
 import path from 'path';
 import {RequestParam} from '../configs/interface';
 
+import {errorSender} from '../utils/mainUtils';
 import {log} from '../logger/logModule';
 
-export default function policy(app:Application){
+export default (app:Application) => {
 
     app.get('/policy', (req: RequestParam, res:Response):void => {
         
@@ -19,8 +20,7 @@ export default function policy(app:Application){
           });
           policy.on('error', (error:Error) => {
           log.error(error.message);
-          res.sendStatus(404);
+          errorSender(res, 404);
           });
       });
-
 };

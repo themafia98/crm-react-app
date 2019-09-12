@@ -3,10 +3,10 @@ import fs,{ReadStream} from 'fs';
 import path from 'path';
 import {RequestParam} from '../configs/interface';
 
-
+import {errorSender} from '../utils/mainUtils';
 import {log} from '../logger/logModule';
 
-export default function servicesType(app:Application){
+export default (app:Application) => {
 
   app.param('serviceType', (req:RequestParam, res: Response, next: NextFunction, serviceType:string):void => {
     req.serviceType = serviceType;
@@ -17,7 +17,7 @@ export default function servicesType(app:Application){
     
     let service:null|ReadStream = null;
     res.setHeader('Access-Control-Allow-Origin',app.locals.frontend.origin);
-      if (!req.serviceType){ return void res.sendStatus(404); };
+      if (!req.serviceType){ return void errorSender(res, 404); };
 
       if (req.serviceType === 'auto')
       service = fs.createReadStream(path.join(__dirname, '../data','autoAbout.txt'));
@@ -25,7 +25,7 @@ export default function servicesType(app:Application){
       service = fs.createReadStream(path.join(__dirname, '../data','amoCRMAbout.txt'));
       else if (req.serviceType === 'retailCRM')
       service = fs.createReadStream(path.join(__dirname, '../data','retailCRMAbout.txt'));
-      else  return void res.sendStatus(404);
+      else  return void errorSender(res, 404);
 
       service.on('open', () => {
         res.setHeader('Content-Type','text/html; charset=utf-8');
@@ -33,7 +33,7 @@ export default function servicesType(app:Application){
       });
       service.on('error', (error:Error) => {
         log.error(error.message);
-        res.sendStatus(404);
+        errorSender(res, 404);
       });
   });
 };

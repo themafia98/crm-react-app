@@ -4,8 +4,9 @@ import {debug, log} from '../logger/logModule';
 import {formData} from '../configs/types';
 import {RequestParam} from '../configs/interface';
 
+import {errorSender} from '../utils/mainUtils';
 
-export default function servicesMail(app:Application){
+export default (app:Application) => {
 
     const upload = multer(); // form-data
 
@@ -20,12 +21,12 @@ export default function servicesMail(app:Application){
           const isForm:boolean|string = req.is('multipart/form-data');
           res.setHeader('Access-Control-Allow-Origin',app.locals.frontend.origin);
       
-          if (!isForm) return res.status(400).send('Bad request format');
+          if (!isForm) return errorSender(res, 400);
       
           if  (isForm && type === 'sendMailConsultation'){
       
             const isEmpty:boolean = !req.body.email && !req.body.name && !req.body.number;
-            if (isEmpty) return res.status(400).send('Form is empty');
+            if (isEmpty) return errorSender(res, 400);
       
             const data:formData = req.body;
             console.log(data);
@@ -42,14 +43,14 @@ export default function servicesMail(app:Application){
               debug.info('Send Mail status: ' + resPromise);
               if (resPromise)
               res.sendStatus(200);
-              else res.sendStatus(400);
+              else errorSender(res, 400);
             })
             .catch((error: { message: string; }) => log.error(error.message + ` / ${Date.now()}`));
       
           } else if (isForm && type === 'sendMailQuestion'){
       
             const isEmpty = !req.body.email && !req.body.name && !req.body.number && !req.body.text;
-            if (isEmpty) return res.status(400).send('Form is empty');
+            if (isEmpty) return errorSender(res, 400);
             
             const data:formData = req.body;
             console.log(data);
@@ -67,8 +68,8 @@ export default function servicesMail(app:Application){
               debug.info('Send Mail status: ' + resPromise);
               if (resPromise)
               res.sendStatus(200);
-              else res.sendStatus(400);
+              else errorSender(res, 400);
             });
-          } else res.status(400).send('form-data invalid');;
+          } else errorSender(res, 400);
       });
 };
