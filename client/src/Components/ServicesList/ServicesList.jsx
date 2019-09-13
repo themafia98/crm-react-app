@@ -140,8 +140,12 @@ class ServicesList extends React.PureComponent {
         const {failLoadData} = this.state;
 
         eventEmitter.on('EventLoadingServicesChunks', this.setLoad);
-        
+
         if (!servicesType && !failLoadData) this.getData();
+        else if (servicesType) this.setState({
+            ...this.state,
+            load: false,
+        })
     };
 
     componentWillUnmount = () => {
