@@ -20,7 +20,7 @@ export default (app:Application) => {
 
         if (typeof priceType === 'string'){
             if (priceType === 'CardsAuto'){
-                pipe = fs.createReadStream(path.join(__dirname, '../', 'cardsAuto.txt'));
+                pipe = fs.createReadStream(path.join(__dirname, '../', 'CardsAuto.txt'));
             } else if (priceType === 'CardsAmoCRM'){
                 pipe = fs.createReadStream(path.join(__dirname, '../', 'CardsAmoCRM.txt'));
             } else if (priceType === 'CardsRetailCRM'){

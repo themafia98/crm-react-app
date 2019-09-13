@@ -6,16 +6,16 @@ import {RequestParam} from '../configs/interface';
 
 import {errorSender} from '../utils/mainUtils';
 
-export default (app:Application) => {
+export default (app:Application):Function|void => {
 
     const upload = multer(); // form-data
 
-      app.param('type', (req:RequestParam, res: Response, next: NextFunction, type:string):void => {
+      app.param('type', (req:RequestParam, res: Response, next: NextFunction, type:string) => {
         req.type = type;
         next();
       });
       
-      app.post('/mail/:type',upload.none(), (req:RequestParam,res:Response):void|object => {
+      app.post('/mail/:type',upload.none(), (req:RequestParam,res:Response) => {
           const {type} = req;
       
           const isForm:boolean|string = req.is('multipart/form-data');
