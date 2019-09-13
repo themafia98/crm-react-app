@@ -4,7 +4,7 @@ import fs from 'fs';
 import path from 'path';
 
 import {log} from '../logger/logModule';
-import {errorSender} from '../Utils/mainUtils';
+import {errorSender} from '../utils/mainUtils';
 
 export default (app:Application) => {
 

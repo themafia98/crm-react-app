@@ -3,7 +3,7 @@ import fs,{ReadStream} from 'fs';
 import path from 'path';
 import {RequestParam} from '../configs/interface';
 
-import {errorSender} from '../Utils/mainUtils';
+import {errorSender} from '../utils/mainUtils';
 import {log} from '../logger/logModule';
 
 export default (app:Application) => {
