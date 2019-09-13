@@ -1,6 +1,6 @@
 import React,{useEffect,useState,Fragment} from 'react';
 import Loader from '../Loader/Loader';
-import AJAX from '../../Utils/GetData';
+import AJAX from '../../Utils/Utils';
 import './modalWindow.scss';
 
 const ModalContent = ({mode}) => {

@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import {RequestParam} from '../configs/interface';
 
-import {errorSender} from '../utils/mainUtils';
+import {errorSender} from '../Utils/mainUtils';
 import {log} from '../logger/logModule';
 
 export default (app:Application) => {

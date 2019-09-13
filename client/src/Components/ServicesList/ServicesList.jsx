@@ -1,6 +1,6 @@
 import React from 'react';
 import eventEmitter from '../../EventEmitter';
-import AJAX from '../../Utils/GetData';
+import AJAX from '../../Utils/Utils';
 import ServicesContent from '../ServicesContent/ServicesContent';
 import './servicesList.scss';
 

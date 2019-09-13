@@ -1,5 +1,5 @@
 import {updateServicesType} from '../actions/servicesActions';
-import AJAX from '../../Utils/GetData';
+import AJAX from '../../Utils/Utils';
 
 const loadMiddlewareServices = (action) => async (dispatch) => {
 
