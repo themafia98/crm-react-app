@@ -4,7 +4,7 @@ import {debug, log} from '../logger/logModule';
 import {formData} from '../configs/types';
 import {RequestParam} from '../configs/interface';
 
-import {errorSender} from '../Utils/mainUtils';
+import {errorSender} from '../utils/mainUtils';
 
 export default (app:Application):Function|void => {
 
