@@ -1,5 +1,5 @@
 import {FORBIDDEN, NOTFOUND, SERVERERROR, BADREQUEST} from './const';
-import {Response} from './node_modules/express';
+import {Response} from 'express';
 
 export function errorSender(res:Response, status:number, message?:string):Response{
     return res.status(status).send(`${getError(status)}. ${message ? message : ''}`);
