@@ -1,13 +1,15 @@
 import React from 'react';
 import eventEmitter from '../../EventEmitter';
-import isFetch from 'isomorphic-fetch';
-import './servicesList.scss';
+import AJAX from '../../Utils/GetData';
 import ServicesContent from '../ServicesContent/ServicesContent';
+import './servicesList.scss';
+
 class ServicesList extends React.PureComponent {
 
     state = {
         defaultContent: null,
-        load: false,
+        failLoadData: false,
+        load: true,
     };
 
     setLoad = (action) => {
@@ -25,6 +27,52 @@ class ServicesList extends React.PureComponent {
     refFuncAuto = node => this.refAuto = node;
     refFuncAmoCRM = node => this.refAmoCRM = node; 
     refFuncRetailCRM = node => this.refRetailCRM = node;
+
+
+    serverErrorResponse = () => {
+        this.setState({
+            ...this.state,
+            failLoadData: true,
+            load: false,
+        });
+    };
+
+    getData = () => {
+        let address = null;
+
+        if (process.env.NODE_ENV === 'production')
+        address = process.env.REACT_APP_S_AUTO;
+        else address = 'http://localhost:3001/services/auto';
+
+        AJAX.reset().send(address)
+        .then(res => {
+            if (res.statusSend && res.statusSend === 'wait')
+                throw new Error ('Wait');
+            if (res.ok) return res.text();
+            else throw new Error ('Fail fetch');
+        })
+        .then(res => {
+            return res.split('\n');
+        })
+        .then(content => {
+
+            const defaultContent = content.map((item,index) => {
+                return <p key = {index}>{item}</p>
+            });
+
+            this.setState({
+                ...this.state, 
+                defaultContent: defaultContent,
+            });
+            eventEmitter.emit('EventSetContent', {action: 'default'});
+        })
+        .catch(error => { 
+                console.error(error.message);
+                if (error.message === 'Fail fetch'){
+                    this.serverErrorResponse();
+                }
+        });
+    };
 
 
     setContentEmitter = event => {
@@ -89,34 +137,11 @@ class ServicesList extends React.PureComponent {
     componentDidMount = () => {
 
         const {servicesType} = this.props;
+        const {failLoadData} = this.state;
 
         eventEmitter.on('EventLoadingServicesChunks', this.setLoad);
-
-        if (!servicesType){
-            let address = null;
-            if (process.env.NODE_ENV === 'production')
-            address = process.env.REACT_APP_S_AUTO;
-            else address = 'http://localhost:3001/services/auto';
-    
-            isFetch(address)
-            .then(res => res.text())
-            .then(res => {
-                return res.split('\n');
-            })
-            .then(content => {
-
-                const defaultContent = content.map((item,index) => {
-                    return <p key = {index}>{item}</p>
-                });
-
-                this.setState({
-                    ...this.state, 
-                    defaultContent: defaultContent,
-                });
-                eventEmitter.emit('EventSetContent', {action: 'default'});
-            })
-            .catch(error => console.error(error));
-        };
+        
+        if (!servicesType && !failLoadData) this.getData();
     };
 
     componentWillUnmount = () => {

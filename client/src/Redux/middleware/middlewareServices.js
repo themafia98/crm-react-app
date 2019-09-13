@@ -1,5 +1,5 @@
 import {updateServicesType} from '../actions/servicesActions';
-import isFetch from 'isomorphic-fetch';
+import AJAX from '../../Utils/GetData';
 
 const loadMiddlewareServices = (action) => async (dispatch) => {
 
@@ -10,18 +10,20 @@ const loadMiddlewareServices = (action) => async (dispatch) => {
     address = `${process.env.REACT_APP_SERVICES}${action}`;
     else address = `http://localhost:3001/services/${action}`;
     
-        isFetch(address)
-            .then(res => res.text())
-            .then(res => {
-                return res.split('\n');
-            })
-            .then(content =>{
-                dispatch(updateServicesType({
-                    content: content,
-                    servicesType: action
-                }));
-            })
-        .catch(error => console.error(error));
+    AJAX.reset().send(address)
+    .then(res => {
+        if (res.statusSend && res.statusSend === 'wait')
+            throw new Error ('Wait');
+        if (res.ok) return res.text();
+        else throw new Error ('Fail fetch');
+    }).then(res =>  res.split('\n'))
+        .then(content =>{
+            dispatch(updateServicesType({
+                content: content,
+                servicesType: action
+            }));
+        })
+        .catch(error => console.error(error.message));
 
         return true;
 };

@@ -82,7 +82,11 @@ class ServicesContent extends React.PureComponent {
                                 {content}
                             </div>
                         )   
-            default: return <Loader loaderClass = 'loaderServicesList' />
+            default: return (
+                <div className = 'FailLoadData'>
+                    <p>Server is not responding</p>
+                </div>
+            )
         }
     }
 
