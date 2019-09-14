@@ -3,15 +3,16 @@ import 'abortcontroller-polyfill/dist/polyfill-patch-fetch';
 
 class Requst {
 
-    constructor(count = 0){
+    constructor(count = 0, tryReconnectCount = 10){
        this.reconnectCouter = count;
+       this.tryReconnectCount = tryReconnectCount;
        this.controllers = [];
     }
 
-    reset() { this.reconnectCouter = 0; return this; }
+    reset = () => { this.reconnectCouter = 0; return this; }
 
     send = async (adress, config = null) => {
-        if (this.reconnectCouter > 10){
+        if (this.reconnectCouter > this.tryReconnectCount){
 
             if (this.controllers.length > 1)
             this.controllers.forEach(signal => {
@@ -45,7 +46,7 @@ class Requst {
     };
 };
 
-const AJAX = new Requst();
+const AJAX = new Requst(0, 15);
 
 export {Requst};
 export default AJAX;

@@ -20,11 +20,11 @@ export default (app:Application) => {
 
         if (typeof priceType === 'string'){
             if (priceType === 'CardsAuto'){
-                pipe = fs.createReadStream(path.join(__dirname, '../', 'CardsAuto.txt'));
+                pipe = fs.createReadStream(path.join(__dirname, '../', 'CardsAuto.json'));
             } else if (priceType === 'CardsAmoCRM'){
-                pipe = fs.createReadStream(path.join(__dirname, '../', 'CardsAmoCRM.txt'));
+                pipe = fs.createReadStream(path.join(__dirname, '../', 'CardsAmoCRM.json'));
             } else if (priceType === 'CardsRetailCRM'){
-                pipe = fs.createReadStream(path.join(__dirname, '../', 'CardsRetailCRM.txt'));
+                pipe = fs.createReadStream(path.join(__dirname, '../', 'CardsRetailCRM.json'));
             }
 
             pipe.on('open', () => {
