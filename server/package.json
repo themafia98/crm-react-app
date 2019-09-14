@@ -5,7 +5,7 @@
   "scripts": {
     "build": "npm run copyfiles && tsc",
     "dev": "nodemon ./src/server.ts --pretty",
-    "copyfiles": "copyfiles -f -V  src/data/**/*.txt build/data/",
+    "copyfiles": "copyfiles -f -V  src/data/**/*.* build/data/",
     "prod": "cross-env NODE_ENV=production node build/server.js"
   },
   "dependencies": {
