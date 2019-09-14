@@ -5,7 +5,7 @@ set pathProject = ""
 set /P pathProject=Enter path (Default: C:\Dev\Frontend\crm-react-app\):
 
 if NOT DEFINED pathProject (
-    echo set default path to project C:\Dev\Frontend\crm-react-app\
+    echo Set default path to project C:\Dev\Frontend\crm-react-app\
     set pathProject=C:\Dev\Frontend\crm-react-app\
 )
 
