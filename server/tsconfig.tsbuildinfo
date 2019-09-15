@@ -1,0 +1,2029 @@
+{
+  "program": {
+    "fileInfos": {
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es6.d.ts": {
+        "version": "c180f01a2aaac7d733001fa1db20f881dc83cf33096b674a1546ca26762e69da",
+        "signature": "c180f01a2aaac7d733001fa1db20f881dc83cf33096b674a1546ca26762e69da"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es5.d.ts": {
+        "version": "1f753cee573dea40df8a9dc873fef5566957b19ad513874f6643d8dfb14842d0",
+        "signature": "1f753cee573dea40df8a9dc873fef5566957b19ad513874f6643d8dfb14842d0"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2015.d.ts": {
+        "version": "7994d44005046d1413ea31d046577cdda33b8b2470f30281fd9c8b3c99fe2d96",
+        "signature": "7994d44005046d1413ea31d046577cdda33b8b2470f30281fd9c8b3c99fe2d96"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2016.d.ts": {
+        "version": "5f217838d25704474d9ef93774f04164889169ca31475fe423a9de6758f058d1",
+        "signature": "5f217838d25704474d9ef93774f04164889169ca31475fe423a9de6758f058d1"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2017.d.ts": {
+        "version": "459097c7bdd88fc5731367e56591e4f465f2c9de81a35427a7bd473165c34743",
+        "signature": "459097c7bdd88fc5731367e56591e4f465f2c9de81a35427a7bd473165c34743"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2018.d.ts": {
+        "version": "2edd3ddf436ef8e12df876dcae4ecd6a8748577944c477bf4b20d5596e0c9843",
+        "signature": "2edd3ddf436ef8e12df876dcae4ecd6a8748577944c477bf4b20d5596e0c9843"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.dom.d.ts": {
+        "version": "973df4e41aea3780ce77073777d37dd5896f684124f4c42409f3a832133837a4",
+        "signature": "973df4e41aea3780ce77073777d37dd5896f684124f4c42409f3a832133837a4"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.dom.iterable.d.ts": {
+        "version": "eb843da29336c7d5840bb439b24cf68a4a1652fd01c6e4e66ec74d8b136e944a",
+        "signature": "eb843da29336c7d5840bb439b24cf68a4a1652fd01c6e4e66ec74d8b136e944a"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.webworker.importscripts.d.ts": {
+        "version": "fe4e59403e34c7ff747abe4ff6abbc7718229556d7c1a5b93473fb53156c913b",
+        "signature": "fe4e59403e34c7ff747abe4ff6abbc7718229556d7c1a5b93473fb53156c913b"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.scripthost.d.ts": {
+        "version": "b9faa17292f17d2ad75e34fac77dd63a6403af1dba02d39cd0cbb9ffdf3de8b9",
+        "signature": "b9faa17292f17d2ad75e34fac77dd63a6403af1dba02d39cd0cbb9ffdf3de8b9"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2015.core.d.ts": {
+        "version": "2a0390a665763bcc90f0670e43c587928d8fefe2a94a11209c1e22cba7b09f52",
+        "signature": "2a0390a665763bcc90f0670e43c587928d8fefe2a94a11209c1e22cba7b09f52"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2015.collection.d.ts": {
+        "version": "dd94d8ef48c562389eb58af8df3a3a34d11367f7c818192aa5f16470d469e3f0",
+        "signature": "dd94d8ef48c562389eb58af8df3a3a34d11367f7c818192aa5f16470d469e3f0"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2015.generator.d.ts": {
+        "version": "828413486bdcaa342558e8e4570b1b287b776cb61b4b70b0214bd10c5d9a94c3",
+        "signature": "828413486bdcaa342558e8e4570b1b287b776cb61b4b70b0214bd10c5d9a94c3"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2015.iterable.d.ts": {
+        "version": "6c9f73334f8bf47aea685ca5b46a8f7e992a223e96fbceb030f26a4d2324ba21",
+        "signature": "6c9f73334f8bf47aea685ca5b46a8f7e992a223e96fbceb030f26a4d2324ba21"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2015.promise.d.ts": {
+        "version": "e6b8ff2798f8ebd7a1c7afd8671f2cb67ee1901c422f5964d74b0b34c6574ea2",
+        "signature": "e6b8ff2798f8ebd7a1c7afd8671f2cb67ee1901c422f5964d74b0b34c6574ea2"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2015.proxy.d.ts": {
+        "version": "5e72f949a89717db444e3bd9433468890068bb21a5638d8ab15a1359e05e54fe",
+        "signature": "5e72f949a89717db444e3bd9433468890068bb21a5638d8ab15a1359e05e54fe"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2015.reflect.d.ts": {
+        "version": "f5b242136ae9bfb1cc99a5971cccc44e99947ae6b5ef6fd8aa54b5ade553b976",
+        "signature": "f5b242136ae9bfb1cc99a5971cccc44e99947ae6b5ef6fd8aa54b5ade553b976"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2015.symbol.d.ts": {
+        "version": "9ae2860252d6b5f16e2026d8a2c2069db7b2a3295e98b6031d01337b96437230",
+        "signature": "9ae2860252d6b5f16e2026d8a2c2069db7b2a3295e98b6031d01337b96437230"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts": {
+        "version": "3e0a459888f32b42138d5a39f706ff2d55d500ab1031e0988b5568b0f67c2303",
+        "signature": "3e0a459888f32b42138d5a39f706ff2d55d500ab1031e0988b5568b0f67c2303"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2016.array.include.d.ts": {
+        "version": "3f96f1e570aedbd97bf818c246727151e873125d0512e4ae904330286c721bc0",
+        "signature": "3f96f1e570aedbd97bf818c246727151e873125d0512e4ae904330286c721bc0"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2017.object.d.ts": {
+        "version": "ff8ad203e83338289b0f5defc1a5b5c253fb7d251b464db497383f915a0df3f4",
+        "signature": "ff8ad203e83338289b0f5defc1a5b5c253fb7d251b464db497383f915a0df3f4"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts": {
+        "version": "b8667586a618c5cf64523d4e500ae39e781428abfb28f3de441fc66b56144b6f",
+        "signature": "b8667586a618c5cf64523d4e500ae39e781428abfb28f3de441fc66b56144b6f"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2017.string.d.ts": {
+        "version": "21df2e0059f14dcb4c3a0e125859f6b6ff01332ee24b0065a741d121250bc71c",
+        "signature": "21df2e0059f14dcb4c3a0e125859f6b6ff01332ee24b0065a741d121250bc71c"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2017.intl.d.ts": {
+        "version": "c1759cb171c7619af0d2234f2f8fb2a871ee88e956e2ed91bb61778e41f272c6",
+        "signature": "c1759cb171c7619af0d2234f2f8fb2a871ee88e956e2ed91bb61778e41f272c6"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2017.typedarrays.d.ts": {
+        "version": "28569d59e07d4378cb3d54979c4c60f9f06305c9bb6999ffe6cab758957adc46",
+        "signature": "28569d59e07d4378cb3d54979c4c60f9f06305c9bb6999ffe6cab758957adc46"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2018.asynciterable.d.ts": {
+        "version": "42102aaeb1bfec213be1e9777466a6d551eeba8567fed18c0cdbca8c35e3c6e4",
+        "signature": "42102aaeb1bfec213be1e9777466a6d551eeba8567fed18c0cdbca8c35e3c6e4"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2018.intl.d.ts": {
+        "version": "1b820b57379c726f94af50cd60053674af53ff9d079c1563cc70071e8b757dd0",
+        "signature": "1b820b57379c726f94af50cd60053674af53ff9d079c1563cc70071e8b757dd0"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2018.promise.d.ts": {
+        "version": "efe049114bad1035b0aa9a4a0359f50ab776e3897c411521e51d3013079cbd62",
+        "signature": "efe049114bad1035b0aa9a4a0359f50ab776e3897c411521e51d3013079cbd62"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2018.regexp.d.ts": {
+        "version": "e7780d04cd4120ee554c665829db2bbdd6b947cbaa3c150b7d9ea74df3beb2e8",
+        "signature": "e7780d04cd4120ee554c665829db2bbdd6b947cbaa3c150b7d9ea74df3beb2e8"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.esnext.intl.d.ts": {
+        "version": "f6e0c89daaf72eac38dfb1d5ef0972183f7f26a68da15bfe5bcb7cfccf0c7db8",
+        "signature": "f6e0c89daaf72eac38dfb1d5ef0972183f7f26a68da15bfe5bcb7cfccf0c7db8"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.esnext.bigint.d.ts": {
+        "version": "63b66918290d794f73832a6d0325be5026236674fe8c0cb0b68d162000d7bbe8",
+        "signature": "63b66918290d794f73832a6d0325be5026236674fe8c0cb0b68d162000d7bbe8"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/globals.d.ts": {
+        "version": "e4461b72726848da76a31153b6b01af5e0be3b08dbfa2ec5741ad302eb20f2ed",
+        "signature": "e4461b72726848da76a31153b6b01af5e0be3b08dbfa2ec5741ad302eb20f2ed"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/assert.d.ts": {
+        "version": "58a52f282f1dad18179023804c1f3a7536bf875748a0a314abd43f60fd5b244f",
+        "signature": "58a52f282f1dad18179023804c1f3a7536bf875748a0a314abd43f60fd5b244f"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/async_hooks.d.ts": {
+        "version": "1305b079a057355f496bdde048716189178877a6b4fe0e9267a46af67f8c7561",
+        "signature": "1305b079a057355f496bdde048716189178877a6b4fe0e9267a46af67f8c7561"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/buffer.d.ts": {
+        "version": "61215c1a376bbe8f51cab4cc4ddbf3746387015113c37a84d981d4738c21b878",
+        "signature": "61215c1a376bbe8f51cab4cc4ddbf3746387015113c37a84d981d4738c21b878"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/child_process.d.ts": {
+        "version": "123366127434e33eade36f3d06653dbc7457397fc93cfdd100776cfc12b6734c",
+        "signature": "123366127434e33eade36f3d06653dbc7457397fc93cfdd100776cfc12b6734c"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/cluster.d.ts": {
+        "version": "ce629710e5e58724902b753212e97861fd73e2aa09f5d88cb6d55dc763cf8c8a",
+        "signature": "ce629710e5e58724902b753212e97861fd73e2aa09f5d88cb6d55dc763cf8c8a"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/console.d.ts": {
+        "version": "525c8fc510d9632d2a0a9de2d41c3ac1cdd79ff44d3b45c6d81cacabb683528d",
+        "signature": "525c8fc510d9632d2a0a9de2d41c3ac1cdd79ff44d3b45c6d81cacabb683528d"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/constants.d.ts": {
+        "version": "8ce9418c78d3c1fb703ddbe38c936d34a989ba278666979826590dfa0772a424",
+        "signature": "8ce9418c78d3c1fb703ddbe38c936d34a989ba278666979826590dfa0772a424"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/crypto.d.ts": {
+        "version": "77c1fb6a190212f87a5edb26351d419c31dff1992c48707540cdcf812e4655f1",
+        "signature": "77c1fb6a190212f87a5edb26351d419c31dff1992c48707540cdcf812e4655f1"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/dgram.d.ts": {
+        "version": "7954df44c35d39b851b996fdc1af0a252e4e23f862abfef388a058203bb94c30",
+        "signature": "7954df44c35d39b851b996fdc1af0a252e4e23f862abfef388a058203bb94c30"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/dns.d.ts": {
+        "version": "ef226a42de7022eacdfa0f15aabf73b46c47af93044c8ebfab8aa8e3cf6c330c",
+        "signature": "ef226a42de7022eacdfa0f15aabf73b46c47af93044c8ebfab8aa8e3cf6c330c"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/domain.d.ts": {
+        "version": "d5b7c8819ce1bd31a45f7675309e145ec28e3aa1b60a8e0637fd0e8916255baa",
+        "signature": "d5b7c8819ce1bd31a45f7675309e145ec28e3aa1b60a8e0637fd0e8916255baa"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/events.d.ts": {
+        "version": "0be551fde848d5adde38731272ee980bda2bde0f8bf2a76ce99e01b86985546c",
+        "signature": "0be551fde848d5adde38731272ee980bda2bde0f8bf2a76ce99e01b86985546c"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/fs.d.ts": {
+        "version": "6bd120d96313412155ae7d4766d586a38576a058b3e269be2152db7030fbc882",
+        "signature": "6bd120d96313412155ae7d4766d586a38576a058b3e269be2152db7030fbc882"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/http.d.ts": {
+        "version": "db6de49919cf11a300f9203371d8e251d58558c509b3b92cee3badadfdb34d36",
+        "signature": "db6de49919cf11a300f9203371d8e251d58558c509b3b92cee3badadfdb34d36"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/http2.d.ts": {
+        "version": "745494f14a9e133beee622ca51cdc59c8896ff77c9f3cd017a4ce735b30dac2d",
+        "signature": "745494f14a9e133beee622ca51cdc59c8896ff77c9f3cd017a4ce735b30dac2d"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/https.d.ts": {
+        "version": "dacbe08610729f6343ea9880ea8e737c6d7a6efa4a318d8f6acaf85db4aceed6",
+        "signature": "dacbe08610729f6343ea9880ea8e737c6d7a6efa4a318d8f6acaf85db4aceed6"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/inspector.d.ts": {
+        "version": "4218ced3933a31eed1278d350dd63c5900df0f0904f57d61c054d7a4b83dbe4c",
+        "signature": "4218ced3933a31eed1278d350dd63c5900df0f0904f57d61c054d7a4b83dbe4c"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/module.d.ts": {
+        "version": "03394bf8deb8781b490ae9266a843fbdf00647947d79e25fcbf1d89a9e9c8a66",
+        "signature": "03394bf8deb8781b490ae9266a843fbdf00647947d79e25fcbf1d89a9e9c8a66"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/net.d.ts": {
+        "version": "1224b49e2c8f3b4ed618969d2989412d1282536d2a6a31c30c84d5da01d8b8e4",
+        "signature": "1224b49e2c8f3b4ed618969d2989412d1282536d2a6a31c30c84d5da01d8b8e4"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/os.d.ts": {
+        "version": "1a6016bd905855b2b45881e9edbd7ab8c7175f8bcbb711ff06989c4bcdc75486",
+        "signature": "1a6016bd905855b2b45881e9edbd7ab8c7175f8bcbb711ff06989c4bcdc75486"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/path.d.ts": {
+        "version": "5fb30076f0e0e5744db8993648bfb67aadd895f439edad5cce039127a87a8a36",
+        "signature": "5fb30076f0e0e5744db8993648bfb67aadd895f439edad5cce039127a87a8a36"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/perf_hooks.d.ts": {
+        "version": "27ef4001526ee9d8afa57687a60bb3b59c52b32d29db0a2260094ab64726164f",
+        "signature": "27ef4001526ee9d8afa57687a60bb3b59c52b32d29db0a2260094ab64726164f"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/process.d.ts": {
+        "version": "3a8848a9c307429b861402cc69bc472ffe0c05b86474fc158723169161e16389",
+        "signature": "3a8848a9c307429b861402cc69bc472ffe0c05b86474fc158723169161e16389"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/punycode.d.ts": {
+        "version": "30ec6f9c683b988c3cfaa0c4690692049c4e7ed7dc6f6e94f56194c06b86f5e1",
+        "signature": "30ec6f9c683b988c3cfaa0c4690692049c4e7ed7dc6f6e94f56194c06b86f5e1"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/querystring.d.ts": {
+        "version": "e0070c45bf15b872f58eee948f71ad6f4f424f36330b2477753fc1aed3ece36e",
+        "signature": "e0070c45bf15b872f58eee948f71ad6f4f424f36330b2477753fc1aed3ece36e"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/readline.d.ts": {
+        "version": "b0bc3b2fd4113d182da1af2442ac532b987401579b291669859b60a261b7ee24",
+        "signature": "b0bc3b2fd4113d182da1af2442ac532b987401579b291669859b60a261b7ee24"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/repl.d.ts": {
+        "version": "65dbe15ed8a8ed5d4707a63868178dc38111cfc06de28a2e50713ca017a9c157",
+        "signature": "65dbe15ed8a8ed5d4707a63868178dc38111cfc06de28a2e50713ca017a9c157"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/stream.d.ts": {
+        "version": "2350c09d0121a0b22c386a7bb8436d521b444c6b4b3e6ee37197d08a23f3b9dd",
+        "signature": "2350c09d0121a0b22c386a7bb8436d521b444c6b4b3e6ee37197d08a23f3b9dd"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/string_decoder.d.ts": {
+        "version": "7e62aac2cc9c0710d772047ad89e8d7117f52592c791eb995ce1f865fedab432",
+        "signature": "7e62aac2cc9c0710d772047ad89e8d7117f52592c791eb995ce1f865fedab432"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/timers.d.ts": {
+        "version": "b40652bf8ce4a18133b31349086523b219724dca8df3448c1a0742528e7ad5b9",
+        "signature": "b40652bf8ce4a18133b31349086523b219724dca8df3448c1a0742528e7ad5b9"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/tls.d.ts": {
+        "version": "af5f07deb33b2fb92ef67ea5ebb69670b81c74908b646e7cd4361a331d2a558a",
+        "signature": "af5f07deb33b2fb92ef67ea5ebb69670b81c74908b646e7cd4361a331d2a558a"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/trace_events.d.ts": {
+        "version": "978aecd2e6bc2ac094e9a35eda98ff8586713857b3655e7c98ca5ed8f7d50662",
+        "signature": "978aecd2e6bc2ac094e9a35eda98ff8586713857b3655e7c98ca5ed8f7d50662"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/tty.d.ts": {
+        "version": "08261bfa763b8cd7fa74c06debf70ee22268c299a18e5dc7c48736bc352be007",
+        "signature": "08261bfa763b8cd7fa74c06debf70ee22268c299a18e5dc7c48736bc352be007"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/url.d.ts": {
+        "version": "1e3da92862604b1f7a32265169f9aa712c4567742d42597704e04ae3e07019e7",
+        "signature": "1e3da92862604b1f7a32265169f9aa712c4567742d42597704e04ae3e07019e7"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts": {
+        "version": "0f6382d5032e45eec50b8f6c1e18c77544bc4db2ef8f854d196b254ec16add12",
+        "signature": "0f6382d5032e45eec50b8f6c1e18c77544bc4db2ef8f854d196b254ec16add12"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/v8.d.ts": {
+        "version": "e98d697adf809fc14dc88ed4e00e4f0e0e381ca23d6d9320cf01af87e801f725",
+        "signature": "e98d697adf809fc14dc88ed4e00e4f0e0e381ca23d6d9320cf01af87e801f725"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/vm.d.ts": {
+        "version": "ad20b1311e55187f8eeefdd282a02dbc70e5ac0cf8ab4cabae99c142b32cc562",
+        "signature": "ad20b1311e55187f8eeefdd282a02dbc70e5ac0cf8ab4cabae99c142b32cc562"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/worker_threads.d.ts": {
+        "version": "7780573ed8387aaadcc61d87f3d60d77dabf1e060da252dc72ab1d73401988bb",
+        "signature": "7780573ed8387aaadcc61d87f3d60d77dabf1e060da252dc72ab1d73401988bb"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/zlib.d.ts": {
+        "version": "2ffd50644d73fc1fa59c69d48859b6c843d3604609d7353725b6d2b001f05a2b",
+        "signature": "2ffd50644d73fc1fa59c69d48859b6c843d3604609d7353725b6d2b001f05a2b"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/base.d.ts": {
+        "version": "6622f76993bdfeaacb947ba7c4cf26f2e5c5194194d02d792c3cba4174cd8fce",
+        "signature": "6622f76993bdfeaacb947ba7c4cf26f2e5c5194194d02d792c3cba4174cd8fce"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts": {
+        "version": "4f54f0a9dd3b644c99ec32b32f8804d5978bc854799b228ae9c467bf3c84c64c",
+        "signature": "4f54f0a9dd3b644c99ec32b32f8804d5978bc854799b228ae9c467bf3c84c64c"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/globals.d.ts": {
+        "version": "4926e99d2ad39c0bbd36f2d37cc8f52756bc7a5661ad7b12815df871a4b07ba1",
+        "signature": "4926e99d2ad39c0bbd36f2d37cc8f52756bc7a5661ad7b12815df871a4b07ba1"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/index.d.ts": {
+        "version": "765fc34423b93c2ab763670d8d11d99e5f47387c13c161d6f1640dd6d91b7d1c",
+        "signature": "765fc34423b93c2ab763670d8d11d99e5f47387c13c161d6f1640dd6d91b7d1c"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/range-parser/index.d.ts": {
+        "version": "4e88b833be14c7f384e0dcd57bb30acd799e8e34d212635d693e41a75a71164b",
+        "signature": "4e88b833be14c7f384e0dcd57bb30acd799e8e34d212635d693e41a75a71164b"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/express-serve-static-core/index.d.ts": {
+        "version": "d73f61d755e6f17b9dc315cbd8e6522a47c2153a07b67fd8295ef48b40ad6344",
+        "signature": "d73f61d755e6f17b9dc315cbd8e6522a47c2153a07b67fd8295ef48b40ad6344"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/mime/index.d.ts": {
+        "version": "be27a64e821a3e5af838650e4aa25805c60f057d0c37a9762c378d19d364b3e6",
+        "signature": "be27a64e821a3e5af838650e4aa25805c60f057d0c37a9762c378d19d364b3e6"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/serve-static/index.d.ts": {
+        "version": "cdbae5083ef8f786069519405ca1f1e2ce72b9efebdf5e1931584fba747f3bc0",
+        "signature": "cdbae5083ef8f786069519405ca1f1e2ce72b9efebdf5e1931584fba747f3bc0"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/connect/index.d.ts": {
+        "version": "c3be42b83b5f57ae2f65280fa395f6d31f61304ac1a29b7b406b6a0e71da8c82",
+        "signature": "c3be42b83b5f57ae2f65280fa395f6d31f61304ac1a29b7b406b6a0e71da8c82"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/body-parser/index.d.ts": {
+        "version": "599abfa56230d73afc30a3bde749c2efd90acb58301b446835d5e235b35e2768",
+        "signature": "599abfa56230d73afc30a3bde749c2efd90acb58301b446835d5e235b35e2768"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/express/index.d.ts": {
+        "version": "1f92cdebe2b1e0e6309ccdb6e8700cfd2d3e7131c7842f91b38ed1e4ff2a7090",
+        "signature": "1f92cdebe2b1e0e6309ccdb6e8700cfd2d3e7131c7842f91b38ed1e4ff2a7090"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/logform/index.d.ts": {
+        "version": "6dbcfbc6f4662840d93d1d9d7fb5cce1b1fa00f43caa595ffee1a70f1583a0b0",
+        "signature": "6dbcfbc6f4662840d93d1d9d7fb5cce1b1fa00f43caa595ffee1a70f1583a0b0"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/winston-transport/index.d.ts": {
+        "version": "d667ec244bc8f65d0ac176f7ea91ef9e2904e7aa10923fbbe843d19f1270593b",
+        "signature": "d667ec244bc8f65d0ac176f7ea91ef9e2904e7aa10923fbbe843d19f1270593b"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/winston/lib/winston/config/index.d.ts": {
+        "version": "e9c33c05be71c17c3b08988fe6755605632a09c5cdd267cede8de5558ec80027",
+        "signature": "e9c33c05be71c17c3b08988fe6755605632a09c5cdd267cede8de5558ec80027"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/winston/lib/winston/transports/index.d.ts": {
+        "version": "87ccbc897e31409ff604f0b0b0f7a29efa1e51f0858aaea9ec294deec863558c",
+        "signature": "87ccbc897e31409ff604f0b0b0f7a29efa1e51f0858aaea9ec294deec863558c"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/winston/index.d.ts": {
+        "version": "4bd85c7eeaceccc938121fcbd580883f6bb84d8326eb0db9c79a9961551a2bc5",
+        "signature": "4bd85c7eeaceccc938121fcbd580883f6bb84d8326eb0db9c79a9961551a2bc5"
+      },
+      "c:/dev/frontend/crm-react-app/server/src/logger/logger.ts": {
+        "version": "39a098b9b590285ef998f61bca2fccc8de2a69fd2a851c679a4373f3713597a7",
+        "signature": "fdfdb0026b22d2eafe732172a9db3c38d68aa956cef2b71f19e2b642067be506"
+      },
+      "c:/dev/frontend/crm-react-app/server/src/logger/logmodule.ts": {
+        "version": "43d913f98ee4ae210df11244ead57f19698abe8ba2320f798d68f48983b78cb9",
+        "signature": "91ca559f4ee107f63d25044cd097754ea5c2cabf63c6f808519e1e264c0c0f05"
+      },
+      "c:/dev/frontend/crm-react-app/server/src/configs/types.ts": {
+        "version": "a16c5c1e699096fec0543a160bb33f23b9782a2b2cd9486f3dc9bfd043ec4f2b",
+        "signature": "6f0000e0e78e11c87df413258ba82041df4e58d72eb833a3b75cb409c90d5bbf"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/dkim/index.d.ts": {
+        "version": "971b6006a4610efd734e051f5d1421f87bc0c73bfc3cd205819236d497cba1e4",
+        "signature": "971b6006a4610efd734e051f5d1421f87bc0c73bfc3cd205819236d497cba1e4"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mailer/mail-message.d.ts": {
+        "version": "d9be0e7047e30df44cafac456f18dd3f43af529225ad747c7330e835da6b370c",
+        "signature": "d9be0e7047e30df44cafac456f18dd3f43af529225ad747c7330e835da6b370c"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/xoauth2.d.ts": {
+        "version": "a9d32ef46fa1075bfeff4a4ab96c1331254558865ca9c7bf383712baa297f065",
+        "signature": "a9d32ef46fa1075bfeff4a4ab96c1331254558865ca9c7bf383712baa297f065"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mailer/index.d.ts": {
+        "version": "bf54271e59aa6df4670631b40b7fc0666e8ac0978fae18f96ed99f37fb8b3936",
+        "signature": "bf54271e59aa6df4670631b40b7fc0666e8ac0978fae18f96ed99f37fb8b3936"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mime-node/index.d.ts": {
+        "version": "ef55aa5db4666b49b32deef0969f2d00ea67f8cc77d9e87c4cc6bf4b115fb2e2",
+        "signature": "ef55aa5db4666b49b32deef0969f2d00ea67f8cc77d9e87c4cc6bf4b115fb2e2"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/smtp-connection/index.d.ts": {
+        "version": "559d3b5e23b28a26355233cd54b496701c6837fd9b539511158e44c028d7b8c5",
+        "signature": "559d3b5e23b28a26355233cd54b496701c6837fd9b539511158e44c028d7b8c5"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/shared.d.ts": {
+        "version": "06fdb97fb4733b9ff5a24fc3bf9c0713c93231d361f27ea95ed05bfab679ac61",
+        "signature": "06fdb97fb4733b9ff5a24fc3bf9c0713c93231d361f27ea95ed05bfab679ac61"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/json-transport.d.ts": {
+        "version": "f5af2c4bee48b94b4a247464406d600b5232036df7b835d16504f84303977474",
+        "signature": "f5af2c4bee48b94b4a247464406d600b5232036df7b835d16504f84303977474"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/sendmail-transport/index.d.ts": {
+        "version": "2739f287a5d26386849a9e1fd05421ece3366ae533f7569654ab73cc74d30aae",
+        "signature": "2739f287a5d26386849a9e1fd05421ece3366ae533f7569654ab73cc74d30aae"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/ses-transport.d.ts": {
+        "version": "9d01e91b2043a558330d6d2401a11674c6c64dca6a95ddad54d1460d04ccd32a",
+        "signature": "9d01e91b2043a558330d6d2401a11674c6c64dca6a95ddad54d1460d04ccd32a"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/smtp-pool/index.d.ts": {
+        "version": "f44c29cd43b1b2ebcb49b51b3315c85d00fd5ed66b80a7c7a629ad27132bf213",
+        "signature": "f44c29cd43b1b2ebcb49b51b3315c85d00fd5ed66b80a7c7a629ad27132bf213"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/smtp-transport.d.ts": {
+        "version": "b5a4a00d0d26d9ca9ce666ea46c2cf84f12139aa4e57b648d22c33362e25554a",
+        "signature": "b5a4a00d0d26d9ca9ce666ea46c2cf84f12139aa4e57b648d22c33362e25554a"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/stream-transport.d.ts": {
+        "version": "d10c3e41c9d07022049b732e9b5e8d16a5e584393cfa589b299ac29630ab671a",
+        "signature": "d10c3e41c9d07022049b732e9b5e8d16a5e584393cfa589b299ac29630ab671a"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/index.d.ts": {
+        "version": "e260b23510a804494b51bcc0a50c3453c78c1f8e1cf153b5f039ff021a54e8d9",
+        "signature": "e260b23510a804494b51bcc0a50c3453c78c1f8e1cf153b5f039ff021a54e8d9"
+      },
+      "c:/dev/frontend/crm-react-app/server/src/configs/interface.ts": {
+        "version": "894b20c6e77393ca859c96b663a156a9d62aa0f0daa481e379ae8f927ecd0b44",
+        "signature": "ae95b399cb6bff183058a1db733fcb15fee3f4c155854f4de20d7f93fc091ffe"
+      },
+      "c:/dev/frontend/crm-react-app/server/src/utils/const.ts": {
+        "version": "3fbe292a1d27af6cb9492e9c6e9e420056b11e947c6e53d19c8059013fc0562b",
+        "signature": "9866a39ecf16c3a630ee3124dc152491aa5d1b3a333bc107175249c1817bf4bf"
+      },
+      "c:/dev/frontend/crm-react-app/server/src/utils/mainutils.ts": {
+        "version": "8a8d7d950baf746254bf2550a2fe4b5847aa311c7a072027cb44393f2f56beac",
+        "signature": "652becf0b8ec4520254002bf21db703029894901190928614b29e55dd2eb5aca"
+      },
+      "c:/dev/frontend/crm-react-app/server/src/services/mail.ts": {
+        "version": "96a946dc799642ebe2526732f7d9c737c43ea99f69a4d55fde0c4a6b2f3e1e1e",
+        "signature": "4521f6542772d3345caf02bdac79a85f4d6bc898e26c97f20fe5863a7ce4dd40"
+      },
+      "c:/dev/frontend/crm-react-app/server/src/services/policy.ts": {
+        "version": "4a2d2f01a15ae49f76b9dd71becf2439a814a522c27c83682b31600c7866ddca",
+        "signature": "a1f09049c648560a296c23513092266a03c7e2bc32fef154241522718a8d635e"
+      },
+      "c:/dev/frontend/crm-react-app/server/src/services/price.ts": {
+        "version": "30b368d8acbe3e6b95f4b9725a878655c26d79ecf6486902b959eebf4786a75a",
+        "signature": "a1f09049c648560a296c23513092266a03c7e2bc32fef154241522718a8d635e"
+      },
+      "c:/dev/frontend/crm-react-app/server/src/services/servicestype.ts": {
+        "version": "6efd411b8fbbb6447788a9e9e473c71c6c7b172712b3433cc0bb53002a1311d6",
+        "signature": "a1f09049c648560a296c23513092266a03c7e2bc32fef154241522718a8d635e"
+      },
+      "c:/dev/frontend/crm-react-app/server/src/app.ts": {
+        "version": "afba8a5636841feb4ca48dedf264c33069cfe8f780f66448800c1f257a9cd0d3",
+        "signature": "9f3c645bd96a6be70dcd15b39282f83c1ba19fca0f16bcbd95041248d3d98bab"
+      },
+      "c:/dev/frontend/crm-react-app/server/src/globals.d.ts": {
+        "version": "3cfa7e28e997e8d5986daf14398f5128908d1e7cfb7d31cecaf2cad586ac6a10",
+        "signature": "3cfa7e28e997e8d5986daf14398f5128908d1e7cfb7d31cecaf2cad586ac6a10"
+      },
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/bcrypt/index.d.ts": {
+        "version": "18b9a9702d2fc7d3766b0c8124133c761ad25a9d767925005777eb2c2cd8aeba",
+        "signature": "18b9a9702d2fc7d3766b0c8124133c761ad25a9d767925005777eb2c2cd8aeba"
+      },
+      "c:/dev/frontend/crm-react-app/server/src/api/security.ts": {
+        "version": "cca6423faec2b71e3a3fd25f3250d734cebc07abb030a044116f8b37e3c04550",
+        "signature": "663dc6d08a240366d8f43d3cefa2bfb1f0ddf96a0fd5b755a1c4278dff10c7d4"
+      },
+      "c:/dev/frontend/crm-react-app/server/src/api/mail.ts": {
+        "version": "e8edaac87ce04105deab7b901b534969e8bf49307a44f8347b47610aabdca227",
+        "signature": "1664eaecc30487d8a0f182b07da3e1aaed09669871394b009579c71ee4680b39"
+      },
+      "c:/dev/frontend/crm-react-app/server/src/server.ts": {
+        "version": "1ce446ac86d5614ea23cc9a5d6d1967c9d2bd9dd0797c446951e4cdfba96008a",
+        "signature": "e7718d582a34a6970bda05571330531a370a46eb7a65760294f17494cc91cd35"
+      },
+      "c:/dev/frontend/crm-react-app/server/src/configs/limit.json": {
+        "version": "368111483ddefdad833dc4c42d95f6322d4a4185fe2fdbdda924b125a8383cad"
+      },
+      "c:/dev/frontend/crm-react-app/server/src/data/cardsamocrm.json": {
+        "version": "138d0f1a6ce8d1ba5d02646b5d714de80006ff348910da7fc9d829a83bfdcda0"
+      },
+      "c:/dev/frontend/crm-react-app/server/src/data/cardsauto.json": {
+        "version": "25c4150532df2e9e5b5117c6f0869d005a6f520e6a3dda0c240f81a62ed1e421"
+      },
+      "c:/dev/frontend/crm-react-app/server/src/data/cardsretailcrm.json": {
+        "version": "8bd2a64b05e21760de06ad8446c9d416505e4f5e5a7e4c3511274cba17b9175d"
+      }
+    },
+    "options": {
+      "target": 2,
+      "module": 1,
+      "resolveJsonModule": true,
+      "sourceMap": true,
+      "outDir": "C:/Dev/Frontend/crm-react-app/server/build",
+      "rootDir": "C:/Dev/Frontend/crm-react-app/server/src",
+      "composite": true,
+      "alwaysStrict": true,
+      "moduleResolution": 2,
+      "esModuleInterop": true,
+      "configFilePath": "C:/Dev/Frontend/crm-react-app/server/tsconfig.json"
+    },
+    "referencedMap": {
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es6.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es5.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2015.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2016.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2017.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2018.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.dom.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.dom.iterable.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.webworker.importscripts.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.scripthost.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2015.core.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2015.collection.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2015.generator.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2015.iterable.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2015.promise.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2015.proxy.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2015.reflect.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2015.symbol.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2016.array.include.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2017.object.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2017.string.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2017.intl.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2017.typedarrays.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2018.asynciterable.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2018.intl.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2018.promise.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2018.regexp.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.esnext.intl.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.esnext.bigint.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/globals.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/assert.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/async_hooks.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/buffer.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/child_process.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/events.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/net.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/stream.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/cluster.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/child_process.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/events.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/net.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/console.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/constants.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/crypto.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/stream.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/dgram.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/net.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/dns.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/events.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/dns.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/domain.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/events.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/events.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/fs.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/stream.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/events.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/url.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/http.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/events.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/stream.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/url.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/net.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/http2.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/events.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/fs.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/net.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/stream.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/tls.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/url.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/http.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/https.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/tls.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/events.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/http.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/url.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/inspector.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/events.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/module.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/net.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/stream.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/events.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/dns.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/os.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/path.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/perf_hooks.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/async_hooks.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/process.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/punycode.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/querystring.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/readline.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/events.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/stream.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/repl.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/readline.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/vm.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/stream.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/events.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/string_decoder.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/timers.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/tls.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/crypto.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/dns.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/net.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/stream.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/trace_events.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/tty.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/net.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/url.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/querystring.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/v8.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/stream.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/vm.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/worker_threads.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/vm.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/events.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/stream.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/zlib.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/stream.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/base.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/globals.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/assert.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/async_hooks.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/buffer.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/child_process.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/cluster.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/console.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/constants.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/crypto.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/dgram.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/dns.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/domain.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/events.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/fs.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/http.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/http2.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/https.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/inspector.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/module.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/net.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/os.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/path.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/perf_hooks.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/process.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/punycode.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/querystring.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/readline.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/repl.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/stream.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/string_decoder.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/timers.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/tls.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/trace_events.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/tty.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/url.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/v8.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/vm.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/worker_threads.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/zlib.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/globals.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/globals.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/index.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/base.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/globals.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/range-parser/index.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/express-serve-static-core/index.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/http.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/events.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/range-parser/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/mime/index.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/serve-static/index.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/express-serve-static-core/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/mime/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/connect/index.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/http.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/body-parser/index.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/connect/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/http.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/express/index.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/body-parser/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/serve-static/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/express-serve-static-core/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/logform/index.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/winston-transport/index.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/stream.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/logform/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/winston/lib/winston/config/index.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/winston/lib/winston/transports/index.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/http.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/winston-transport/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/winston/index.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/stream.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/logform/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/winston-transport/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/winston/lib/winston/config/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/winston/lib/winston/transports/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/src/logger/logger.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/winston/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/src/logger/logmodule.ts": [
+        "c:/dev/frontend/crm-react-app/server/src/logger/logger.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/src/configs/types.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/dkim/index.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/stream.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mailer/mail-message.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/stream.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mailer/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mime-node/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/xoauth2.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/http.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/stream.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/shared.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mailer/index.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/events.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/net.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/stream.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/url.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/shared.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/dkim/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mailer/mail-message.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mime-node/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/smtp-connection/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/xoauth2.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mime-node/index.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/stream.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mailer/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/smtp-connection/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/smtp-connection/index.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/events.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/net.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/stream.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/tls.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/shared.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mime-node/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/xoauth2.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/shared.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/smtp-connection/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/stream.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/json-transport.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/events.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/shared.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mailer/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mailer/mail-message.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mime-node/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/sendmail-transport/index.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/shared.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mailer/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mailer/mail-message.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mime-node/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/ses-transport.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/events.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/shared.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mailer/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mailer/mail-message.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mime-node/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/smtp-pool/index.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/events.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/shared.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mailer/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mailer/mail-message.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mime-node/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/smtp-connection/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/smtp-transport.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/events.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/stream.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/shared.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mailer/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mailer/mail-message.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mime-node/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/smtp-connection/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/xoauth2.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/stream-transport.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/events.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/stream.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/shared.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mailer/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mailer/mail-message.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mime-node/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/index.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/json-transport.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mailer/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mailer/mail-message.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/sendmail-transport/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/ses-transport.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/smtp-pool/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/smtp-transport.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/stream-transport.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/src/configs/interface.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/express/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/src/utils/const.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/src/utils/mainutils.ts": [
+        "c:/dev/frontend/crm-react-app/server/src/utils/const.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/express/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/src/services/mail.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/express/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/src/globals.d.ts",
+        "c:/dev/frontend/crm-react-app/server/src/logger/logmodule.ts",
+        "c:/dev/frontend/crm-react-app/server/src/configs/types.ts",
+        "c:/dev/frontend/crm-react-app/server/src/configs/interface.ts",
+        "c:/dev/frontend/crm-react-app/server/src/utils/mainutils.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/src/services/policy.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/express/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/fs.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/path.d.ts",
+        "c:/dev/frontend/crm-react-app/server/src/configs/interface.ts",
+        "c:/dev/frontend/crm-react-app/server/src/utils/mainutils.ts",
+        "c:/dev/frontend/crm-react-app/server/src/logger/logmodule.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/src/services/price.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/express/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/fs.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/path.d.ts",
+        "c:/dev/frontend/crm-react-app/server/src/configs/interface.ts",
+        "c:/dev/frontend/crm-react-app/server/src/utils/mainutils.ts",
+        "c:/dev/frontend/crm-react-app/server/src/logger/logmodule.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/src/services/servicestype.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/express/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/fs.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/path.d.ts",
+        "c:/dev/frontend/crm-react-app/server/src/configs/interface.ts",
+        "c:/dev/frontend/crm-react-app/server/src/utils/mainutils.ts",
+        "c:/dev/frontend/crm-react-app/server/src/logger/logmodule.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/src/app.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/express/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/events.d.ts",
+        "c:/dev/frontend/crm-react-app/server/src/services/mail.ts",
+        "c:/dev/frontend/crm-react-app/server/src/services/policy.ts",
+        "c:/dev/frontend/crm-react-app/server/src/services/price.ts",
+        "c:/dev/frontend/crm-react-app/server/src/services/servicestype.ts",
+        "c:/dev/frontend/crm-react-app/server/src/globals.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/src/globals.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/bcrypt/index.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/src/api/security.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/bcrypt/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/src/app.ts",
+        "c:/dev/frontend/crm-react-app/server/src/logger/logmodule.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/src/api/mail.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/src/api/security.ts",
+        "c:/dev/frontend/crm-react-app/server/src/app.ts",
+        "c:/dev/frontend/crm-react-app/server/src/logger/logger.ts",
+        "c:/dev/frontend/crm-react-app/server/src/configs/interface.ts",
+        "c:/dev/frontend/crm-react-app/server/src/configs/types.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/src/server.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/express/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/src/app.ts",
+        "c:/dev/frontend/crm-react-app/server/src/globals.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/path.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/fs.d.ts",
+        "c:/dev/frontend/crm-react-app/server/src/api/security.ts",
+        "c:/dev/frontend/crm-react-app/server/src/api/mail.ts",
+        "c:/dev/frontend/crm-react-app/server/src/logger/logmodule.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/src/configs/limit.json": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/src/data/cardsamocrm.json": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/src/data/cardsauto.json": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/src/data/cardsretailcrm.json": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ]
+    },
+    "exportedModulesMap": {
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es6.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es5.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2015.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2016.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2017.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2018.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.dom.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.dom.iterable.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.webworker.importscripts.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.scripthost.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2015.core.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2015.collection.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2015.generator.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2015.iterable.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2015.promise.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2015.proxy.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2015.reflect.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2015.symbol.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2016.array.include.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2017.object.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2017.string.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2017.intl.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2017.typedarrays.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2018.asynciterable.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2018.intl.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2018.promise.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2018.regexp.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.esnext.intl.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.esnext.bigint.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/globals.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/assert.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/base.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/globals.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/assert.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/async_hooks.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/buffer.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/child_process.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/cluster.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/console.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/constants.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/crypto.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/dgram.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/dns.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/domain.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/events.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/fs.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/http.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/http2.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/https.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/inspector.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/module.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/net.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/os.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/path.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/perf_hooks.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/process.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/punycode.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/querystring.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/readline.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/repl.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/stream.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/string_decoder.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/timers.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/tls.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/trace_events.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/tty.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/url.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/v8.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/vm.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/worker_threads.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/zlib.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/index.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/base.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/globals.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/index.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/json-transport.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mailer/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mailer/mail-message.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/sendmail-transport/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/ses-transport.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/smtp-pool/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/smtp-transport.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/stream-transport.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/src/api/mail.ts": [
+        "c:/dev/frontend/crm-react-app/server/src/configs/types.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/src/configs/interface.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/src/configs/interface.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/express/index.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/src/services/servicestype.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/express/index.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/src/app.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/express/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/events.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/src/services/price.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/express/index.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/src/services/policy.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/express/index.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/src/services/mail.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/express/index.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/stream-transport.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/events.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/stream.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/shared.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mailer/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mailer/mail-message.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mime-node/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/smtp-transport.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/events.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/stream.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/shared.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mailer/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mailer/mail-message.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mime-node/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/smtp-connection/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/xoauth2.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/smtp-pool/index.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/events.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/shared.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mailer/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mailer/mail-message.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mime-node/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/smtp-connection/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/ses-transport.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/events.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/shared.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mailer/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mailer/mail-message.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mime-node/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/sendmail-transport/index.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/shared.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mailer/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mailer/mail-message.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mime-node/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/json-transport.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/events.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/shared.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mailer/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mailer/mail-message.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mime-node/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mailer/index.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/events.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/net.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/stream.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/url.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/shared.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/dkim/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mailer/mail-message.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mime-node/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/smtp-connection/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/xoauth2.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mime-node/index.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/stream.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mailer/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/smtp-connection/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/smtp-connection/index.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/events.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/net.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/stream.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/tls.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/shared.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mime-node/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/xoauth2.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/shared.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/smtp-connection/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/stream.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/xoauth2.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/http.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/stream.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/shared.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mailer/mail-message.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/stream.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mailer/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mime-node/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/dkim/index.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/stream.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/winston/index.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/stream.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/logform/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/winston-transport/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/winston/lib/winston/config/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/winston/lib/winston/transports/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/src/logger/logger.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/winston/index.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/src/logger/logmodule.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/winston/index.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/winston/lib/winston/transports/index.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/http.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/winston-transport/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/winston/lib/winston/config/index.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/winston-transport/index.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/stream.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/logform/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/body-parser/index.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/connect/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/http.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/express/index.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/body-parser/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/serve-static/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/express-serve-static-core/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/src/utils/mainutils.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/express/index.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/connect/index.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/http.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/express-serve-static-core/index.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/http.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/events.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/range-parser/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/serve-static/index.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/express-serve-static-core/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/mime/index.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/async_hooks.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/perf_hooks.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/async_hooks.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/buffer.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/child_process.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/events.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/net.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/stream.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/cluster.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/child_process.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/events.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/net.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/console.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/constants.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/crypto.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/stream.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/tls.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/crypto.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/dns.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/net.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/stream.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/https.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/tls.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/events.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/http.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/url.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/http2.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/events.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/fs.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/net.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/stream.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/tls.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/url.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/http.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/dgram.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/net.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/dns.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/events.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/dns.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/net.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/stream.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/events.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/dns.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/tty.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/net.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/http.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/events.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/stream.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/url.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/net.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/domain.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/events.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/events.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/worker_threads.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/vm.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/events.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/stream.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/stream.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/events.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/zlib.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/stream.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/v8.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/stream.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/readline.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/events.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/stream.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/repl.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/readline.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/vm.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/fs.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/stream.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/events.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/url.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/inspector.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/events.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/module.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/os.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/path.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/process.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/punycode.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/querystring.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/url.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/querystring.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/string_decoder.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/timers.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/trace_events.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/bcrypt/index.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/src/globals.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/logform/index.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/mime/index.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/range-parser/index.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/globals.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/globals.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts"
+      ],
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/vm.d.ts": [
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+        "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
+      ]
+    },
+    "semanticDiagnosticsPerFile": [
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es6.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es5.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2015.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2016.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2017.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2018.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.dom.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.dom.iterable.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.webworker.importscripts.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.scripthost.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2015.core.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2015.collection.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2015.generator.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2015.iterable.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2015.promise.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2015.proxy.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2015.reflect.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2015.symbol.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2016.array.include.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2017.object.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2017.string.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2017.intl.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2017.typedarrays.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2018.asynciterable.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2018.intl.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2018.promise.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.es2018.regexp.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.esnext.intl.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/typescript/lib/lib.esnext.bigint.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/globals.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/assert.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/async_hooks.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/buffer.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/child_process.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/cluster.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/console.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/constants.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/crypto.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/dgram.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/dns.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/domain.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/events.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/fs.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/http.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/http2.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/https.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/inspector.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/module.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/net.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/os.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/path.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/perf_hooks.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/process.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/punycode.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/querystring.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/readline.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/repl.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/stream.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/string_decoder.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/timers.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/tls.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/trace_events.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/tty.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/url.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/v8.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/vm.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/worker_threads.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/zlib.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/base.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/globals.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/index.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/range-parser/index.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/express-serve-static-core/index.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/mime/index.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/serve-static/index.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/connect/index.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/body-parser/index.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/express/index.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/logform/index.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/winston-transport/index.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/winston/lib/winston/config/index.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/winston/lib/winston/transports/index.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/winston/index.d.ts",
+      "c:/dev/frontend/crm-react-app/server/src/logger/logger.ts",
+      "c:/dev/frontend/crm-react-app/server/src/logger/logmodule.ts",
+      "c:/dev/frontend/crm-react-app/server/src/configs/types.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/dkim/index.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mailer/mail-message.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/xoauth2.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mailer/index.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/mime-node/index.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/smtp-connection/index.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/shared.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/json-transport.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/sendmail-transport/index.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/ses-transport.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/smtp-pool/index.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/smtp-transport.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/stream-transport.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/index.d.ts",
+      "c:/dev/frontend/crm-react-app/server/src/configs/interface.ts",
+      "c:/dev/frontend/crm-react-app/server/src/utils/const.ts",
+      "c:/dev/frontend/crm-react-app/server/src/utils/mainutils.ts",
+      "c:/dev/frontend/crm-react-app/server/src/services/mail.ts",
+      "c:/dev/frontend/crm-react-app/server/src/services/policy.ts",
+      "c:/dev/frontend/crm-react-app/server/src/services/price.ts",
+      "c:/dev/frontend/crm-react-app/server/src/services/servicestype.ts",
+      "c:/dev/frontend/crm-react-app/server/src/app.ts",
+      "c:/dev/frontend/crm-react-app/server/src/globals.d.ts",
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/bcrypt/index.d.ts",
+      "c:/dev/frontend/crm-react-app/server/src/api/security.ts",
+      "c:/dev/frontend/crm-react-app/server/src/api/mail.ts",
+      "c:/dev/frontend/crm-react-app/server/src/server.ts",
+      "c:/dev/frontend/crm-react-app/server/src/configs/limit.json",
+      "c:/dev/frontend/crm-react-app/server/src/data/cardsamocrm.json",
+      "c:/dev/frontend/crm-react-app/server/src/data/cardsauto.json",
+      "c:/dev/frontend/crm-react-app/server/src/data/cardsretailcrm.json"
+    ]
+  },
+  "version": "3.5.3"
+}

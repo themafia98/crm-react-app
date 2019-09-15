@@ -6,7 +6,6 @@ import './content.scss';
 class PriceContent extends React.PureComponent {
 
     buildCard(cards){
-        console.log(cards);
         if (cards.type){
             return cards.storeCards.map((it,i) => {
                 return (
