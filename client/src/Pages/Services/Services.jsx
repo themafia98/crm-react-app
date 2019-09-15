@@ -4,7 +4,10 @@ import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 
 import eventEmitter from '../../EventEmitter';
-import {loadMiddlewareServices} from '../../Redux/middleware/middlewareServices';
+import {
+    loadMiddlewareServices, 
+    loadMiddlewarePriceCardsServices
+} from '../../Redux/middleware/middlewareServices';
 
 import ServicesList from '../../Components/ServicesList/ServicesList';
 import withScroll from '../../Components/withScroll';
@@ -21,18 +24,24 @@ class Services extends React.PureComponent {
     }
 
     showPriceList = ({action}) => {
-
-        this.props.history.push(`Services/Price/${action}`);
+        const {loadCards,cards} = this.props;
+        if (cards.type !== action)
+        loadCards(action)
+        .then(res => {
+            if (res)
+            this.props.history.push(`Services/Price/${action}`);
+        })
+        .catch(error => console.error(error.message));
+        else this.props.history.push(`Services/Price/${action}`);
     };
 
 
     setContent = ({action}) => { /** @eventEmitter */
 
-        const {dispatch, servicesType} = this.props;
+        const {servicesType, loadServices} = this.props;
         if (servicesType === action) return;
         eventEmitter.emit('EventLoadingServicesChunks',true);
-        dispatch(loadMiddlewareServices(action))
-        .then(res => {
+        loadServices(action).then(res => {
             if (res) 
             eventEmitter.emit('EventLoadingServicesChunks',false);
         })
@@ -72,7 +81,18 @@ const mapStateFromProps = ({services}) => {
         content: services.content ? services.content.map((item,index) => {
             return <p key = {index}>{item}</p>
         }) : services.content,
+        cards: services.cards,
     }
 };
 
-export default connect(mapStateFromProps)(withScroll(withRouter(Services)));
+const mapDispatchToProps = dispatch => {
+    return {
+        loadServices: action => dispatch(loadMiddlewareServices(action)),
+        loadCards: action => dispatch(loadMiddlewarePriceCardsServices(action))
+    }
+}
+
+export default connect(
+    mapStateFromProps,
+    mapDispatchToProps
+    )(withScroll(withRouter(Services)));

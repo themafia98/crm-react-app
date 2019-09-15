@@ -8,7 +8,7 @@ import {log} from '../logger/logModule';
 
 export default (app:Application) => {
 
-  app.param('serviceType', (req:RequestParam, res: Response, next: NextFunction, serviceType:string):void => {
+  app.param('serviceType', (req:RequestParam, res:Response, next: NextFunction, serviceType:string):void => {
     req.serviceType = serviceType;
     next();
   });

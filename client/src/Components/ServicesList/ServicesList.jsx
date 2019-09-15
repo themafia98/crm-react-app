@@ -79,8 +79,9 @@ class ServicesList extends React.PureComponent {
 
         let action = null;
 
-        if (event.target.value === this.refAuto.value)
-            action = 'auto'
+        if (event.target.value === this.refAuto.value){
+            action = 'auto';
+        }
         else if (event.target.value === this.refAmoCRM.value)
             action = 'amoCRM'
         else if (event.target.value === this.refRetailCRM.value)

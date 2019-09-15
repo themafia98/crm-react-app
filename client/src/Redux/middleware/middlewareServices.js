@@ -1,4 +1,4 @@
-import {updateServicesType} from '../actions/servicesActions';
+import {updateServicesType, loadPriceCards} from '../actions/servicesActions';
 import AJAX from '../../Utils/Utils';
 
 const loadMiddlewareServices = (action) => async (dispatch) => {
@@ -28,4 +28,32 @@ const loadMiddlewareServices = (action) => async (dispatch) => {
         return true;
 };
 
-export {loadMiddlewareServices};
+const loadMiddlewarePriceCardsServices = (action) => async (dispatch) => {
+
+    if (action === 'default') action = 'auto';
+
+    let address = null;
+    if (process.env.NODE_ENV === 'production')
+    address = `${process.env.REACT_APP_SERVICES}${action}`;
+    else address = `http://localhost:3001/price/cards/${action}`;
+    
+    AJAX.reset().send(address)
+    .then(res => {
+        if (res.statusSend && res.statusSend === 'wait')
+            throw new Error ('Wait');
+        if (res.ok) return res.json();
+        else throw new Error ('Fail fetch');
+    })
+        .then(cards =>{
+            console.log(cards);
+            dispatch(loadPriceCards({
+                type: action,
+                cards: cards[action]
+            }));
+        })
+        .catch(error => console.error(error.message));
+
+        return true;
+};
+
+export {loadMiddlewareServices, loadMiddlewarePriceCardsServices};

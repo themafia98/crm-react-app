@@ -3,6 +3,7 @@ import Events from 'events';
 
 import servicesMail from './services/mail';
 import policy from './services/policy';
+import price from './services/price';
 import servicesType from './services/servicesType';
 
 import cors from 'cors';
@@ -29,10 +30,7 @@ namespace AppNamespace {
       servicesMail(app);
       servicesType(app);
       policy(app);
-      
-      app.get('*',(req:Request, res:Response) => {
-        res.redirect(app.locals.frontend.origin);
-      });
+      price(app);
 };
 
 

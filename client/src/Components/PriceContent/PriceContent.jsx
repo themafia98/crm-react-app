@@ -2,29 +2,40 @@ import React from 'react';
 import Card from '../Card/Card';
 import './content.scss';
 
-const PriceContent = ({mode}) => {
 
-    switch (mode) { /** In propress */
-        case 'auto':
-            return <div key = 'auto' className = 'PriceContent auto_price'> 
-            <Card mode = {mode} />
-            <Card mode = {mode} />
-            <Card mode = {mode} />
+class PriceContent extends React.PureComponent {
+
+    buildCard(cards){
+        console.log(cards);
+        if (cards.type){
+            return cards.storeCards.map((it,i) => {
+                return (
+                <Card 
+                    key = {i} 
+                    mode = {cards.type}
+                    content = {it}
+                />
+                )
+            });
+        } else return (
+            <div 
+                key = 'nonePrice' 
+                className = 'PriceContent nonePrice'>
+                    Прайс-лист не найден.
             </div>
-        case 'amoCRM':
-                return <div key = 'amoCRM' className = 'PriceContent amoCRM_price'>
-                <Card mode = {mode} />
-                <Card mode = {mode} />
-                <Card mode = {mode} />
-                </div>
-        case 'retailCRM':
-                return <div key = 'retailCRM' className = 'PriceContent retailCRM_price'>
-                <Card mode = {mode} />
-                <Card mode = {mode} />
-                <Card mode = {mode} />
-                </div>
-        default:
-             return <div key = 'nonePrice' className = 'PriceContent'>Цен еще нету!</div>
+        )
+    }
+
+    render(){
+        const {cards, mode} = this.props;
+        if (cards){
+            return (
+            <div key = {mode} className = 'PriceContent'> 
+                {this.buildCard(cards)}
+            </div>
+            )
+        }
     }
 };
+
 export default PriceContent;

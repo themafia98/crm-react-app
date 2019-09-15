@@ -22,7 +22,7 @@ class ErrorBoundary extends React.PureComponent {
             ...this.state,
             isError: eventItem.isError,
             error: eventItem.error
-        })
+        });
     };
 
     render(){

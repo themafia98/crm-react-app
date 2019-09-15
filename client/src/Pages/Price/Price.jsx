@@ -2,6 +2,7 @@ import React,{Fragment} from 'react';
 import PropTypes from 'prop-types';
 import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
+import {loadMiddlewarePriceCardsServices} from '../../Redux/middleware/middlewareServices';
 import PriceContent from '../../Components/PriceContent/PriceContent';
 import Header from '../../Components/Header/Header';
 import Footer from '../../Components/Footer/Footer';
@@ -39,7 +40,7 @@ class Price extends React.PureComponent {
                         <div className = 'priceWrapperContent'>
                             <input className = 'goBack_button' type = 'button' value = 'назад' onClick = {this.goBack} />
                             {
-                                <PriceContent  mode = {this.state.mode} />
+                                <PriceContent cards = {this.props.cards}  mode = {this.state.mode} />
                             }
                         </div>
                     </div>
@@ -49,12 +50,26 @@ class Price extends React.PureComponent {
         )
 
     }
+
+    componentDidMount = () => {
+        const {loadCards} = this.props;
+        if (!this.props.cards.type) loadCards(this.state.mode);
+    };
 }
 
 const mapStateFromProps = ({services}) => {
     return {
-        services: services,
+        cards: services.cards,
     }
 };
 
-export default connect(mapStateFromProps)(withRouter(Price));
+const mapDispatchToProps = dispatch => {
+    return {
+        loadCards: action => dispatch(loadMiddlewarePriceCardsServices(action))
+    }
+}
+
+export default connect(
+    mapStateFromProps,
+     mapDispatchToProps
+)(withRouter(Price));
