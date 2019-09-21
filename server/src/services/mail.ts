@@ -4,6 +4,7 @@ import {debug, log} from '../logger/logModule';
 import {formData} from '../configs/types';
 import {RequestParam} from '../configs/interface';
 
+import {WHITELIST} from '../utils/const';
 import {errorSender} from '../utils/mainUtils';
 
 export default (app:Application):Function|void => {
@@ -19,7 +20,9 @@ export default (app:Application):Function|void => {
           const {type} = req;
       
           const isForm:boolean|string = req.is('multipart/form-data');
-          res.setHeader('Access-Control-Allow-Origin',app.locals.frontend.origin);
+          if (process.env.NODE_ENV !== 'production')
+          res.setHeader('Access-Control-Allow-Origin',WHITELIST[0]);
+          else res.setHeader('Access-Control-Allow-Origin',WHITELIST[WHITELIST.length-1]);
       
           if (!isForm) return errorSender(res, 400);
       

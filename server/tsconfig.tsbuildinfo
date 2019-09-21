@@ -330,7 +330,7 @@
         "signature": "1f92cdebe2b1e0e6309ccdb6e8700cfd2d3e7131c7842f91b38ed1e4ff2a7090"
       },
       "c:/dev/frontend/crm-react-app/server/src/admin/index.ts": {
-        "version": "681cb1df9f74779237b225594e81a8ad03aae85d55c891d8357d544c3f2cd5c2",
+        "version": "f22e3f2adb29e1764313a38099faa7646087df77d6541f189f0e89270c88a38f",
         "signature": "64ffd76c8239455062804f3b2be392a4661cb95c5ebd387d5ee279516fcfb146"
       },
       "c:/dev/frontend/crm-react-app/server/node_modules/logform/index.d.ts": {
@@ -434,28 +434,28 @@
         "signature": "652becf0b8ec4520254002bf21db703029894901190928614b29e55dd2eb5aca"
       },
       "c:/dev/frontend/crm-react-app/server/src/services/mail.ts": {
-        "version": "96a946dc799642ebe2526732f7d9c737c43ea99f69a4d55fde0c4a6b2f3e1e1e",
+        "version": "887e0af606e1de58c112453525297b9cb99a016014324ed4645b9f56d88c955a",
         "signature": "4521f6542772d3345caf02bdac79a85f4d6bc898e26c97f20fe5863a7ce4dd40"
       },
       "c:/dev/frontend/crm-react-app/server/src/services/policy.ts": {
-        "version": "4a2d2f01a15ae49f76b9dd71becf2439a814a522c27c83682b31600c7866ddca",
+        "version": "1b5974e600913a91c7b4886529eddae4dabba61d790f18e3a3cc82a8cdd5ef1f",
         "signature": "a1f09049c648560a296c23513092266a03c7e2bc32fef154241522718a8d635e"
       },
       "c:/dev/frontend/crm-react-app/server/src/services/price.ts": {
-        "version": "30b368d8acbe3e6b95f4b9725a878655c26d79ecf6486902b959eebf4786a75a",
+        "version": "a31f9d0d0d930b944511eac5805c70bddc13be96ff805024b4e9819e3d810a86",
         "signature": "a1f09049c648560a296c23513092266a03c7e2bc32fef154241522718a8d635e"
       },
       "c:/dev/frontend/crm-react-app/server/src/services/servicestype.ts": {
-        "version": "6efd411b8fbbb6447788a9e9e473c71c6c7b172712b3433cc0bb53002a1311d6",
+        "version": "3cbcd92225324112d8f9f897e08cab96127a55a573ca3b449c1ff4c8e240dfb5",
         "signature": "a1f09049c648560a296c23513092266a03c7e2bc32fef154241522718a8d635e"
       },
       "c:/dev/frontend/crm-react-app/server/src/app.ts": {
-        "version": "8180a2093bfb84dc74ff401d5b255fd5132dde690cde4d8202920edaf35d23de",
+        "version": "fd123719a28967a193a39266701f522dfc5f9e9d56c80c7c980c4a55082c199c",
         "signature": "9f3c645bd96a6be70dcd15b39282f83c1ba19fca0f16bcbd95041248d3d98bab"
       },
       "c:/dev/frontend/crm-react-app/server/src/globals.d.ts": {
-        "version": "286138a70ddc9b814f9ecefb41e678d9be3701f81251a59f837f7962e80d7127",
-        "signature": "286138a70ddc9b814f9ecefb41e678d9be3701f81251a59f837f7962e80d7127"
+        "version": "cb80443465f8b8f5cd79000da34286ee10f8203d87ca12a951b8773d595e1be2",
+        "signature": "cb80443465f8b8f5cd79000da34286ee10f8203d87ca12a951b8773d595e1be2"
       },
       "c:/dev/frontend/crm-react-app/server/node_modules/@types/bcrypt/index.d.ts": {
         "version": "18b9a9702d2fc7d3766b0c8124133c761ad25a9d767925005777eb2c2cd8aeba",
@@ -466,11 +466,11 @@
         "signature": "663dc6d08a240366d8f43d3cefa2bfb1f0ddf96a0fd5b755a1c4278dff10c7d4"
       },
       "c:/dev/frontend/crm-react-app/server/src/api/mail.ts": {
-        "version": "e8edaac87ce04105deab7b901b534969e8bf49307a44f8347b47610aabdca227",
+        "version": "3b113a351a3d722a7b902428f0df3d798b73787b65225219cc6ee75ba1eee298",
         "signature": "1664eaecc30487d8a0f182b07da3e1aaed09669871394b009579c71ee4680b39"
       },
       "c:/dev/frontend/crm-react-app/server/src/server.ts": {
-        "version": "15af883d840839cb91b31bca861b9b3f45c13767acfae34b3ac34471b03c017c",
+        "version": "bf296cdcfcf9585f9475b1d9f7c24f7218c72c8ff485f71686d651acfdfb0e62",
         "signature": "e7718d582a34a6970bda05571330531a370a46eb7a65760294f17494cc91cd35"
       },
       "c:/dev/frontend/crm-react-app/server/src/configs/limit.json": {
@@ -1155,6 +1155,7 @@
         "c:/dev/frontend/crm-react-app/server/src/logger/logmodule.ts",
         "c:/dev/frontend/crm-react-app/server/src/configs/types.ts",
         "c:/dev/frontend/crm-react-app/server/src/configs/interface.ts",
+        "c:/dev/frontend/crm-react-app/server/src/utils/const.ts",
         "c:/dev/frontend/crm-react-app/server/src/utils/mainutils.ts",
         "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
         "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/ts3.2/util.d.ts"
@@ -1164,6 +1165,7 @@
         "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/fs.d.ts",
         "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/path.d.ts",
         "c:/dev/frontend/crm-react-app/server/src/configs/interface.ts",
+        "c:/dev/frontend/crm-react-app/server/src/utils/const.ts",
         "c:/dev/frontend/crm-react-app/server/src/utils/mainutils.ts",
         "c:/dev/frontend/crm-react-app/server/src/logger/logmodule.ts",
         "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
@@ -1174,6 +1176,7 @@
         "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/fs.d.ts",
         "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/path.d.ts",
         "c:/dev/frontend/crm-react-app/server/src/configs/interface.ts",
+        "c:/dev/frontend/crm-react-app/server/src/utils/const.ts",
         "c:/dev/frontend/crm-react-app/server/src/utils/mainutils.ts",
         "c:/dev/frontend/crm-react-app/server/src/logger/logmodule.ts",
         "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
@@ -1184,6 +1187,7 @@
         "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/fs.d.ts",
         "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/path.d.ts",
         "c:/dev/frontend/crm-react-app/server/src/configs/interface.ts",
+        "c:/dev/frontend/crm-react-app/server/src/utils/const.ts",
         "c:/dev/frontend/crm-react-app/server/src/utils/mainutils.ts",
         "c:/dev/frontend/crm-react-app/server/src/logger/logmodule.ts",
         "c:/dev/frontend/crm-react-app/server/node_modules/@types/node/util.d.ts",
@@ -2001,6 +2005,7 @@
       "c:/dev/frontend/crm-react-app/server/node_modules/@types/connect/index.d.ts",
       "c:/dev/frontend/crm-react-app/server/node_modules/@types/body-parser/index.d.ts",
       "c:/dev/frontend/crm-react-app/server/node_modules/@types/express/index.d.ts",
+      "c:/dev/frontend/crm-react-app/server/src/admin/index.ts",
       "c:/dev/frontend/crm-react-app/server/node_modules/logform/index.d.ts",
       "c:/dev/frontend/crm-react-app/server/node_modules/winston-transport/index.d.ts",
       "c:/dev/frontend/crm-react-app/server/node_modules/winston/lib/winston/config/index.d.ts",
@@ -2024,11 +2029,13 @@
       "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/lib/stream-transport.d.ts",
       "c:/dev/frontend/crm-react-app/server/node_modules/@types/nodemailer/index.d.ts",
       "c:/dev/frontend/crm-react-app/server/src/configs/interface.ts",
+      "c:/dev/frontend/crm-react-app/server/src/utils/const.ts",
       "c:/dev/frontend/crm-react-app/server/src/utils/mainutils.ts",
       "c:/dev/frontend/crm-react-app/server/src/services/mail.ts",
       "c:/dev/frontend/crm-react-app/server/src/services/policy.ts",
       "c:/dev/frontend/crm-react-app/server/src/services/price.ts",
       "c:/dev/frontend/crm-react-app/server/src/services/servicestype.ts",
+      "c:/dev/frontend/crm-react-app/server/src/app.ts",
       "c:/dev/frontend/crm-react-app/server/src/globals.d.ts",
       "c:/dev/frontend/crm-react-app/server/node_modules/@types/bcrypt/index.d.ts",
       "c:/dev/frontend/crm-react-app/server/src/api/security.ts",
@@ -2037,10 +2044,7 @@
       "c:/dev/frontend/crm-react-app/server/src/configs/limit.json",
       "c:/dev/frontend/crm-react-app/server/src/data/cardsamocrm.json",
       "c:/dev/frontend/crm-react-app/server/src/data/cardsauto.json",
-      "c:/dev/frontend/crm-react-app/server/src/data/cardsretailcrm.json",
-      "c:/dev/frontend/crm-react-app/server/src/admin/index.ts",
-      "c:/dev/frontend/crm-react-app/server/src/utils/const.ts",
-      "c:/dev/frontend/crm-react-app/server/src/app.ts"
+      "c:/dev/frontend/crm-react-app/server/src/data/cardsretailcrm.json"
     ]
   },
   "version": "3.5.3"

@@ -1,6 +1,8 @@
 (() => {
+
     let formLogin = document.querySelector('.loginForm');
 
+    if (formLogin)
     formLogin.addEventListener('submit', event => {
         event.preventDefault();
 
@@ -17,11 +19,16 @@
                 }       
             };
             
-    
             AJAX.onerror = () => reject(new Error('Requst send error'));
-
             AJAX.send(new FormData(document.forms.loginForm));
 
-        }).catch(error => console.error(error));
+        })
+        .then(res => {
+            res = res.split(' ');
+            if (res && !/OK/.test(res[0]) && res[res.length-1].test(/admin\/cabinet/i)) 
+            throw new Error('Error redirect')
+            else return location.replace(res[res.length-1]);
+        })
+        .catch(error => console.error(error));
     });
 })();

@@ -3,6 +3,7 @@ import fs,{ReadStream} from 'fs';
 import path from 'path';
 import {RequestParam} from '../configs/interface';
 
+import {WHITELIST} from '../utils/const';
 import {errorSender} from '../utils/mainUtils';
 import {log} from '../logger/logModule';
 
@@ -16,7 +17,11 @@ export default (app:Application) => {
   app.get('/services/:serviceType',(req: RequestParam, res:Response):void => {
     
     let service:null|ReadStream = null;
-    res.setHeader('Access-Control-Allow-Origin',app.locals.frontend.origin);
+
+    if (process.env.NODE_ENV !== 'production')
+    res.setHeader('Access-Control-Allow-Origin',WHITELIST[0]);
+    else res.setHeader('Access-Control-Allow-Origin',WHITELIST[WHITELIST.length-1]);
+
       if (!req.serviceType){ return void errorSender(res, 404); };
 
       if (req.serviceType === 'auto')

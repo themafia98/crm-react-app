@@ -38,7 +38,7 @@ namespace Server {
 
   app.set('port', port);
   const server = app.listen(port,() => {
-      console.log(`Server listen on ${port} with origin whitelist: ${WHITELIST.join("")}`);
+      console.log(`Server listen on ${port} with origin whitelist: ${WHITELIST.join(",")}.`);
       Security.create().then(res => {
         app.locals.sender = new MailNamespace.Sender({
           host: 'smtp.gmail.com',

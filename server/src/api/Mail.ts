@@ -101,15 +101,18 @@ namespace MailNamespace {
             let isDone = false;
             const self = this;
             return Security.checkToken(process.env.TOKEN_GMAIL_PASSWORD, process.env.TOKEN_GMAIL_USER)
-            .then(res => {
+            .then(async res => {
                 if (res && self.hosting) {
-                    return self.hosting.sendMail(self.getMailOptions())
-                        .then((res) => {
-                            if (/OK/ig.test(res.response))
+                    try {
+                        const semdRes = await self.hosting.sendMail(self.getMailOptions());
+                        if (/OK/ig.test(semdRes.response))
                             return isDone = true;
-                            else return isDone = false;
-                        })
-                    .catch(error => log.error(error.message + ` / ${Date.now()}`));
+                        else
+                            return isDone = false;
+                    }
+                    catch (error) {
+                        return log.error(error.message + ` / ${Date.now()}`);
+                    }
                 }
             })
             .catch(error => void log.error(error.message + ` / ${Date.now()}`));
