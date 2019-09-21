@@ -1,0 +1,17 @@
+
+.loginForm {
+    width: 100%;
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.loginForm label,p {
+    text-align: center;
+}
+
+.loginForm input {
+    margin: 5px auto;
+    text-align: center;
+    padding: 10px;
+    display: block;
+}
