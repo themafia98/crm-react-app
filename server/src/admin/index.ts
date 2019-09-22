@@ -8,10 +8,6 @@ export default (app:Application, corsPublic?:Object):void|Function => {
 
     const upload = multer(); // form-data
 
-    app.get('/', (req:RequestParam, res:Response) => {
-        res.sendStatus(403);
-    });
-
     app.get('/admin', (req:RequestParam, res:Response) => {
         console.log('/admin');
        if (req.cookies['sid'] && req['session'].login){
@@ -21,7 +17,6 @@ export default (app:Application, corsPublic?:Object):void|Function => {
      });
 
      app.get('/admin/cabinet',(req:RequestParam, res:Response):void => {
-        console.log(req.cookies['sid']);
         if (req['session'].login && req.cookies['sid']){
             const currentUser = AppNamespace.getUsers()
             .find(user => user.login === req['session'].login);
@@ -48,9 +43,12 @@ export default (app:Application, corsPublic?:Object):void|Function => {
 
     app.get('/admin/api/logout', (req:Request, res:Response) => {
 
-        if (req['session'].login && req.cookies['sid']) res.clearCookie('sid');
+        if (req['session'].login && req.cookies['sid']) {
+        res.clearCookie('sid');
         res.setHeader("Content-Type", "text/html");
         return res.redirect(200, '/admin');
+        }
+        return errorSender(res, 403);
     });
 };
 

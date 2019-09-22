@@ -36,6 +36,10 @@ namespace Server {
             if (err.name) log.error(`${err.name} / ${day}/${time}`);
   });
 
+  app.get('/', (req:Request, res:Response) => {
+    res.sendStatus(403);
+  });
+
   app.set('port', port);
   const server = app.listen(port,() => {
       console.log(`Server listen on ${port} with origin whitelist: ${WHITELIST.join(",")}.`);
