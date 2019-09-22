@@ -13,4 +13,5 @@ export interface RequestParam extends Request {
     type?: string,
     priceType?:string,
     serviceType?: string,
+    session?: any,
 }

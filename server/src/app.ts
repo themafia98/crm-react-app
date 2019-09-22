@@ -1,5 +1,7 @@
 import express,{Application} from 'express';
+import uuid from 'uuid/v1';
 import session from 'express-session';
+import {RequestParam} from './configs/interface';
 import configSession from './configs/session.json';
 import cookieParser from 'cookie-parser';
 import helmet from 'helmet';
@@ -48,14 +50,15 @@ namespace AppNamespace {
 
     app.use(helmet());
     app.use(cors(corsOptions));
-    
+
     app.use(session({
+        // genid: () => uuid(),
         secret: configSession.secret,
         key: configSession.key,
         resave: false,
         maxAge: configSession.cookie.maxAge,
-        saveUninitialized: true,
-        cookie: {secure: true}
+        saveUninitialized: false,
+        cookie: {secure: false}
     }));
 
     adminInterface(app);
