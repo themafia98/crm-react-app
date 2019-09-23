@@ -64,6 +64,10 @@
         this.path = path;
     };
 
+    View.prototype.clear = function(){
+        if (this.root) this.root.innerHTML = '';
+    };
+
     function linkPathActive(link){
         try {
             link.classList.toggle('active_link');
@@ -71,26 +75,58 @@
         catch(error){
             console.error(error.message);
         }
-    }
+    };
 
-    function buildMenu(){
+    function buildMenu(root){
 
-        let node = document.createElement('div');
+        let node = root.createElement('div');
+        let nav = root.createElement('nav');
+
         node.classList.add('col');
 
-        let main = document.createElement('a');
+        let main = root.createElement('a');
         main.classList.add('cabinetAction__link');
         main.setAttribute('data-type', 'main');
-        main.href = '#test';
+        main.href = '#/main';
         main.innerHTML = 'Main';
 
-        if (location.hash === '') linkPathActive(main);
+        let services = root.createElement('a');
+        services.classList.add('cabinetAction__link');
+        services.setAttribute('data-type', 'services');
+        services.href = '#/services';
+        services.innerHTML = 'Services';
 
-        node.appendChild(main);
+        let about = root.createElement('a');
+        about.classList.add('cabinetAction__link');
+        about.setAttribute('data-type', 'about');
+        about.href = '#/about';
+        about.innerHTML = 'About';
+
+        if (location.hash === '#/main') linkPathActive(main);
+        if (location.hash === '#/services') linkPathActive(services);
+        if (location.hash === '#/about') linkPathActive(about);
+        
+        nav.appendChild(main); 
+        nav.appendChild(about);
+        nav.appendChild(services);
+       
+        node.appendChild(nav);
         return node;
     };
 
-    function buildMain(view){
+    function buildContent(root){
+        let node = root.createElement('div');
+        let contentContainer = root.createElement('div');
+
+        node.classList.add('col');
+
+        contentContainer.innerHTML = location.hash;
+
+        node.appendChild(contentContainer);
+        return node;
+    };
+
+    function buildMain(view, root){
         if (!view.root) {
             let app = root.querySelector('.cabinet');
             let root = root.createElement('div');
@@ -99,7 +135,8 @@
             view.root = root.querySelector('.cabinetAction');
         }
 
-        view.root.appendChild(buildMenu());
+        view.root.appendChild(buildMenu(root));
+        view.root.appendChild(buildContent(root));
     };
 
     function controllerMenuBuild(){
@@ -110,20 +147,33 @@
         let view = viewObj;
         return (path) => {
             view.setPath(path);
-            if (path === '/') return buildMain(view);
+            view.clear();
+            if (path === '/' || '/main') return buildMain(view, controller.root);
+            else {
+                view.setPath('/');
+                buildMain(view, controller.root);
+            }
         };
+    };
+
+    function locationReplacePath(){
+        if (location.hash === "#")
+        return location.hash.replace(/#/gi,'/');
+        else if (!location.hash){
+            location.hash = "#/main";
+        return location.hash.replace(/^$/,"/main");
+        }
+        else if (/\#\//.test(location.hash))
+        return location.hash.replace(/\#\//,"/");
     };
 
     function controllersBuild(controllerObj){
         let controller = controllerObj;
         return () => {
             controller.setListeners('router', window || globalThis, 'hashchange', (event) => {
-                let path = location.hash;
-
-                if (history && history.pushState)
-                if (!/\#/.event.newURL.test(event.newURL))
-                    history.pushState('', document.title, window.location.pathname + path);
-                else history.pushState('', document.title, window.location.pathname);
+                if (event.newURL !== event.oldURL){
+                    viewBuild(view, controller)(locationReplacePath());
+                }
             });
 
             if (!controller.isMenu()){
@@ -132,10 +182,10 @@
             };
 
         };
-    }
+    };
 
     function main(){
-        viewBuild(view, controller)('/');
+        viewBuild(view, controller)(locationReplacePath());
         controllersBuild(controller)('');
     };
 
@@ -146,4 +196,5 @@
     };
 
     init();
+
 })();
