@@ -1,4 +1,5 @@
 import {Request, Response} from 'express';
+import DataBase from './api/DataBase';
 import AppNamespace from './app';
 import rateLimit from 'express-rate-limit';
 import dotenv from 'dotenv';
@@ -50,6 +51,8 @@ namespace Server {
           }
         });
       });
+      
+      DataBase.init();
   });
 
 

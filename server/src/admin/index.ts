@@ -1,4 +1,4 @@
-import express,{Request, Response, Application} from 'express';
+import {Request, Response, Application, NextFunction} from 'express';
 import {RequestParam} from '../configs/interface';
 import {errorSender} from '../utils/mainUtils';
 import AppNamespace from '../app';
@@ -9,24 +9,13 @@ export default (app:Application, corsPublic?:Object):void|Function => {
     const upload = multer(); // form-data
 
     app.get('/admin', (req:RequestParam, res:Response) => {
-        console.log('/admin');
        if (req.cookies['sid'] && req['session'].login){
             return res.redirect('/admin/cabinet');
         }
         else return res.render('index');
      });
 
-     app.get('/admin/cabinet',(req:RequestParam, res:Response):void => {
-        if (req['session'].login && req.cookies['sid']){
-            const currentUser = AppNamespace.getUsers()
-            .find(user => user.login === req['session'].login);
-
-            if (currentUser && req.cookies['sid']) return void res.render('cabinet');
-            else return void res.redirect('/admin');
-
-        }  else return void res.redirect('/admin');
-     });
-
+     
     app.post('/admin/api/login',upload.none(), (req:RequestParam, res:Response) => {
         if (req.body.login && req.body.password){
             const currentUser = AppNamespace.getUsers()
@@ -41,14 +30,24 @@ export default (app:Application, corsPublic?:Object):void|Function => {
         } else return void errorSender(res, 403);
     });
 
-    app.get('/admin/api/logout', (req:Request, res:Response) => {
+     app.use((req:Request, res:Response, next:NextFunction) => {
+        if (req['session'].login && req.cookies['sid']){
+            next();
+        } else return res.redirect('/admin');
+    });
 
-        if (req['session'].login && req.cookies['sid']) {
+     app.get('/admin/cabinet',(req:RequestParam, res:Response):void => {
+        const currentUser = AppNamespace.getUsers()
+            .find(user => user.login === req['session'].login);
+            if (currentUser) return void res.render('cabinet');
+            else return void res.redirect('/admin');
+     });
+
+    app.get('/admin/api/logout', (req:Request, res:Response) => {
         res.clearCookie('sid');
         res.setHeader("Content-Type", "text/html");
         return res.redirect(200, '/admin');
-        }
-        return errorSender(res, 403);
     });
+
 };
 

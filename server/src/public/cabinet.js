@@ -189,12 +189,12 @@
         controllersBuild(controller)('');
     };
 
-    let init = () => {
+    let init = (document) => {
         controller = new Controller(document);
         view = new View(controller.root);
         main();
     };
 
-    init();
+    init(document);
 
 })();

@@ -1,2 +1,15 @@
 
 {"message":"queryA ETIMEOUT smtp.gmail.com / 1569257159130","level":"\u001b[31merror\u001b[39m"}
+{"message":"Missing credentials for \"PLAIN\" / 1569274158016","level":"\u001b[31merror\u001b[39m"}
+{"message":"Missing credentials for \"PLAIN\" / 1569274185173","level":"\u001b[31merror\u001b[39m"}
+{"message":"Missing credentials for \"PLAIN\" / 1569274217262","level":"\u001b[31merror\u001b[39m"}
+{"message":"Missing credentials for \"PLAIN\" / 1569274233306","level":"\u001b[31merror\u001b[39m"}
+{"message":"Missing credentials for \"PLAIN\" / 1569274256751","level":"\u001b[31merror\u001b[39m"}
+{"message":"Missing credentials for \"PLAIN\" / 1569274270430","level":"\u001b[31merror\u001b[39m"}
+{"message":"Missing credentials for \"PLAIN\" / 1569274278736","level":"\u001b[31merror\u001b[39m"}
+{"message":"Missing credentials for \"PLAIN\" / 1569274311078","level":"\u001b[31merror\u001b[39m"}
+{"message":"Missing credentials for \"PLAIN\" / 1569274347960","level":"\u001b[31merror\u001b[39m"}
+{"message":"Missing credentials for \"PLAIN\" / 1569274354942","level":"\u001b[31merror\u001b[39m"}
+{"message":"Missing credentials for \"PLAIN\" 1/ 1569274366804","level":"\u001b[31merror\u001b[39m"}
+{"message":"Missing credentials for \"PLAIN\" / 1569274388225","level":"\u001b[31merror\u001b[39m"}
+{"message":"Missing credentials for \"PLAIN\" / 1569274403379","level":"\u001b[31merror\u001b[39m"}
