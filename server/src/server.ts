@@ -1,4 +1,4 @@
-import express,{Request, Response} from 'express';
+import {Request, Response} from 'express';
 import AppNamespace from './app';
 import rateLimit from 'express-rate-limit';
 import dotenv from 'dotenv';
@@ -34,10 +34,6 @@ namespace Server {
             const day = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
             console.error(err.name);
             if (err.name) log.error(`${err.name} / ${day}/${time}`);
-  });
-
-  app.get('/', (req:Request, res:Response) => {
-    res.sendStatus(403);
   });
 
   app.set('port', port);

@@ -1,4 +1,4 @@
-(() => {
+(function(){
 
     let formLogin = document.querySelector('.loginForm');
     let logout = document.querySelector('.logout');

@@ -1,4 +1,6 @@
-
+body {
+    background-color: rgb(193, 232, 248);
+}
 .loginForm {
     width: 100%;
     max-width: 1140px;
@@ -11,7 +13,65 @@
 
 .loginForm input {
     margin: 5px auto;
+    border: 1px solid black;
+    border-radius: 4px;
+    outline: none;
     text-align: center;
     padding: 10px;
     display: block;
+}
+
+.loginForm .loginForm__title {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.loginForm .loginForm__enter {
+    cursor: pointer;
+    color: rgb(59, 2, 2);
+    font-weight: bold;
+    background-color: #FFF;
+}
+
+.loginForm .loginForm__enter:hover {
+    color: red;
+}
+
+.container {
+    width: 100%;
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.cabinet h1 {
+    transform: scale(1.2);
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.cabinet .logout {
+    font-weight: bold;
+    font-size: 17px;
+    text-decoration: none;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+
+.cabinet .logout:hover {
+    color: red;
+}
+
+.cabinetAction {
+    width: 100%;
+    display: flex;
+}
+
+.col {
+    flex: 0 0 50%;
+}
+
+.active_link {
+    font-weight: bold;
+    color: red;
 }

@@ -1,4 +1,4 @@
-import express,{Application} from 'express';
+import express,{Application, Request, Response} from 'express';
 import uuid from 'uuid/v1';
 import session from 'express-session';
 import {RequestParam} from './configs/interface';
@@ -40,6 +40,10 @@ namespace AppNamespace {
       methods: ['GET', 'POST'],
       optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
     };
+
+    app.get('/', (req:Request, res:Response) => {
+        res.sendStatus(403);
+    });
 
     app.use(express.static(path.join(__dirname, '/public')));
     app.use(express.urlencoded({extended: true}));
