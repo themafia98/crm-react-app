@@ -1,7 +1,7 @@
 import {Request, Response, Application, NextFunction} from 'express';
 import {RequestParam} from '../configs/interface';
 import {errorSender} from '../utils/mainUtils';
-import AppNamespace from '../app';
+import Database from '../api/DataBase';
 import multer from 'multer';
 
 export default (app:Application, corsPublic?:Object):void|Function => { 
@@ -19,7 +19,7 @@ export default (app:Application, corsPublic?:Object):void|Function => {
     app.post('/admin/api/login',upload.none(), (req:RequestParam, res:Response) => {
         if (req.body.login && req.body.password){
             let currentUser = null;
-            AppNamespace.getUser(req.body.login, req.body.password)
+            Database.getUser(req.body.login, req.body.password)
             .then(user => { 
                 if (user){
                     res.setHeader("Content-Type", "text/html");
@@ -37,7 +37,7 @@ export default (app:Application, corsPublic?:Object):void|Function => {
     });
 
      app.get('/admin/cabinet',(req:RequestParam, res:Response):void => {
-        AppNamespace.getUser(req['session'].login)
+        Database.getUser(req['session'].login)
         .then(user => {
             console.log(user);
             if (user) return void res.render('cabinet');

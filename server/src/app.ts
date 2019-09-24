@@ -1,7 +1,5 @@
 import express,{Application, Request, Response} from 'express';
-import mongoose from 'mongoose';
 import session from 'express-session';
-import {RequestParam} from './configs/interface';
 import configSession from './configs/session.json';
 import cookieParser from 'cookie-parser';
 import helmet from 'helmet';
@@ -14,7 +12,6 @@ import policy from './services/policy';
 import price from './services/price';
 import servicesType from './services/servicesType';
 
-import {UserModel} from './configs/schema';
 import {WHITELIST} from './utils/const';
 import cors from 'cors';
 
@@ -22,23 +19,6 @@ namespace AppNamespace {
 
     export const app:Application = express();
     export const eventEmitter = new Events();
-
-
-    export const getUser = async (login:string, password?: string) => {
-        const findObject = {};
-        let currentUser = null;
-        if (login) findObject['login'] = login;
-        if (password) findObject['password'] = password;
-
-        mongoose.connect(process.env.MONGO_DB_CONNECT, {useNewUrlParser: true, useUnifiedTopology: true});
-        await UserModel.findOne(findObject, (error:Error, user:Object) => {
-            mongoose.disconnect();
-            if(error) return console.log(error);
-            currentUser = user;
-            return user;
-        });
-        return currentUser;
-    };
 
     const corsOptions = {
       origin: function (origin:string, callback:(error:object, result?:boolean) => void){

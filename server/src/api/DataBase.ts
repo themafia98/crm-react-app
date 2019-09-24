@@ -1,25 +1,24 @@
-import {MongoClient} from 'mongodb';
+import mongoose from 'mongoose';
+import {UserModel} from '../configs/schema';
 import AppNamespace from '../app';
 
 namespace Database {
 
-    export const init = () => {
-        // const app = AppNamespace.app;
+    export const getUser = async (login:string, password?: string) => {
+        const findObject = {};
+        let currentUser = null;
+        if (login) findObject['login'] = login;
+        if (password) findObject['password'] = password;
 
-        // const db:MongoClient = new MongoClient(process.env.MONGO_DB_CONNECT,
-        //                 {useNewUrlParser: true, useUnifiedTopology: true});
-
-        // db.connect((error, client) => {
-        //     if (error) return console.error(error.message);
-        //     else {
-        //         const database = client.db(process.env.MAIN_DATABASE);
-        //         app.locals.db = client;
-        //         app.locals.collectionAdminUsers = database.collection("adminUsers");
-        //         app.locals.collectionCrmData = database.collection("crmData");
-        //         console.log('Mongo db connect');
-        //     };
-        // });
-    }
+        mongoose.connect(process.env.MONGO_DB_CONNECT, {useNewUrlParser: true, useUnifiedTopology: true});
+        await UserModel.findOne(findObject, (error:Error, user:Object) => {
+            mongoose.disconnect();
+            if(error) return console.error(error);
+            currentUser = user;
+            return user;
+        });
+        return currentUser;
+    };
 
 };
 
