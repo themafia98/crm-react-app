@@ -14,6 +14,7 @@ import policy from './services/policy';
 import price from './services/price';
 import servicesType from './services/servicesType';
 
+import {UserModel} from './configs/schema';
 import {WHITELIST} from './utils/const';
 import cors from 'cors';
 
@@ -23,7 +24,14 @@ namespace AppNamespace {
     export const eventEmitter = new Events();
 
     const users:Array<{login:string, password:string}> = [];
-    users.push({login: 'admin', password: 'admin'});
+
+    const admin = new UserModel({
+       login: "admin",
+       password: "admin"
+    });
+
+    users.push(admin);
+   
 
     export const getUsers = function():Array<{login:string, password:string}>{
         return users;

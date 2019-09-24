@@ -11,10 +11,11 @@ namespace Database {
             if (error) return console.error(error.message);
             else {
                 console.log('Mongo db connect');
-                
+
                 const db = client.db(process.env.MAIN_DATABASE);
                 const collection = db.collection("adminUsers");
                 collection.find().toArray((error, results) => {
+                    if (error) return console.error(error.message);
                     console.log(results);
                 });
                 client.close();
