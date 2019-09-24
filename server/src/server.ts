@@ -1,5 +1,5 @@
 import {Request, Response} from 'express';
-import DataBase from './api/DataBase';
+import DataBase from './api/database';
 import AppNamespace from './app';
 import rateLimit from 'express-rate-limit';
 import dotenv from 'dotenv';

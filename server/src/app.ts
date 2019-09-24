@@ -1,5 +1,5 @@
 import express,{Application, Request, Response} from 'express';
-import uuid from 'uuid/v1';
+import mongoose from 'mongoose';
 import session from 'express-session';
 import {RequestParam} from './configs/interface';
 import configSession from './configs/session.json';
@@ -23,18 +23,21 @@ namespace AppNamespace {
     export const app:Application = express();
     export const eventEmitter = new Events();
 
-    const users:Array<{login:string, password:string}> = [];
 
-    const admin = new UserModel({
-       login: "admin",
-       password: "admin"
-    });
+    export const getUser = async (login:string, password?: string) => {
+        const findObject = {};
+        let currentUser = null;
+        if (login) findObject['login'] = login;
+        if (password) findObject['password'] = password;
 
-    users.push(admin);
-   
-
-    export const getUsers = function():Array<{login:string, password:string}>{
-        return users;
+        mongoose.connect(process.env.MONGO_DB_CONNECT, {useNewUrlParser: true, useUnifiedTopology: true});
+        await UserModel.findOne(findObject, (error:Error, user:Object) => {
+            mongoose.disconnect();
+            if(error) return console.log(error);
+            currentUser = user;
+            return user;
+        });
+        return currentUser;
     };
 
     const corsOptions = {
@@ -79,11 +82,6 @@ namespace AppNamespace {
     policy(app);
     price(app);
 };
-
-export const add = (login:string, password:string):void => {
-    AppNamespace.getUsers().push({login: login, password: password});
-};
-
 
 export default AppNamespace;
   
