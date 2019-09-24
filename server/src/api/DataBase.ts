@@ -1,6 +1,5 @@
 import mongoose from 'mongoose';
 import {UserModel} from '../configs/schema';
-import AppNamespace from '../app';
 
 namespace Database {
 
