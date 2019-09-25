@@ -1,5 +1,7 @@
 import express,{Application, Request, Response} from 'express';
+import MongoStore from 'connect-mongo';
 import session from 'express-session';
+
 import configSession from './configs/session.json';
 import cookieParser from 'cookie-parser';
 import helmet from 'helmet';
@@ -12,6 +14,7 @@ import policy from './services/policy';
 import price from './services/price';
 import servicesType from './services/servicesType';
 
+import Database from './api/database';
 import {WHITELIST} from './utils/const';
 import cors from 'cors';
 
@@ -19,6 +22,7 @@ namespace AppNamespace {
 
     export const app:Application = express();
     export const eventEmitter = new Events();
+    const SessionStore = MongoStore(session);
 
     const corsOptions = {
       origin: function (origin:string, callback:(error:object, result?:boolean) => void){
@@ -45,7 +49,6 @@ namespace AppNamespace {
 
     app.use(helmet());
     app.use(cors(corsOptions));
-
     app.use(session({
         // genid: () => uuid(),
         secret: configSession.secret,
@@ -53,7 +56,8 @@ namespace AppNamespace {
         resave: false,
         maxAge: configSession.cookie.maxAge,
         saveUninitialized: false,
-        cookie: {secure: false}
+        cookie: {secure: false},
+        store: new SessionStore(Database.storeSession())
     }));
 
     adminInterface(app);

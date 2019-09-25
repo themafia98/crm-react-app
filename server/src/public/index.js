@@ -53,7 +53,6 @@
         })
         .then(res => {
             res = res.split(' ');
-            debugger;
             if (res && !/OK/.test(res[0]) && res[res.length-1].test(/admin/ig)) 
             throw new Error('Error redirect')
             else return location.replace(res[res.length-1]);
