@@ -31,38 +31,15 @@ namespace Database {
         mongoose.connect(process.env.MONGO_DB_CONNECT, {useNewUrlParser: true, useUnifiedTopology: true});
         await UserModel.findOne(findObject, (error:Error, user:Object) => {
             mongoose.disconnect();
-            if(error) return console.error(error);
+            if(error) {
+                log.error(error);
+                return console.error(error);
+            }
             currentUser = user;
             return user;
         });
         return currentUser;
     };
-
-    // export const getSession = async (login:string) => {
-    //     let session = false;
-    //     mongoose.connect(process.env.MONGO_DB_CONNECT, {useNewUrlParser: true, useUnifiedTopology: true});
-    //     await SessionModel.findOne({login: login}, (error:Error, user:Object) => {
-    //         mongoose.disconnect();
-    //         if(error) return console.error(error);
-    //         if (user) session = true;
-    //         return session;
-    //     });
-    //     return session;
-    // };
-
-    // export const createSession = async (login:string) => {
-    //     let done = false;
-    //     mongoose.connect(process.env.MONGO_DB_CONNECT, {useNewUrlParser: true, useUnifiedTopology: true});
-    //     await SessionModel.create({login: login},(error, session) => {
-    //         if (error) return console.error(error.message);
-    //         done = true;
-    //         console.log('Save session', session);
-    //        mongoose.disconnect();
-    //        return done;
-    //     });
-    //     return done;
-    // };
-
 };
 
 export default Database;

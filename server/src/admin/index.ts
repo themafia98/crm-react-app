@@ -4,6 +4,8 @@ import {errorSender} from '../utils/mainUtils';
 import Database from '../api/DataBase';
 import multer from 'multer';
 
+import {log} from '../logger/logModule';
+
 export default (app:Application, corsPublic?:Object):void|Function => { 
 
     const upload = multer(); // form-data
@@ -42,15 +44,16 @@ export default (app:Application, corsPublic?:Object):void|Function => {
 
     app.get('/admin/api/logout', (req:Request, res:Response) => {
         if (req['session']){
-            req['session'].destroy((error)=>{
-                if (error) {
-                    console.log(error);
-                }
-            };
-        }
-        res.clearCookie('sid');
-        res.setHeader("Content-Type", "text/html");
-        return res.redirect(200, '/admin');
+            req['session'].destroy((error) => { 
+                    if (error) {
+                        log.error(error);
+                        console.log(error);
+                    }
+            });
+            res.clearCookie('sid');
+            res.setHeader("Content-Type", "text/html");
+            return res.redirect(200, '/admin');
+        }  else return void errorSender(res, 403);
     });
 
 };

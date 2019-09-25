@@ -44,7 +44,7 @@ body {
 }
 
 .cabinet .Cabinet__header {
-    transform: scale(1.2);
+    font-size: 20px;
     text-align: center;
     margin-bottom: 30px;
 }
