@@ -31,7 +31,7 @@ export default (app:Application, corsPublic?:Object):void|Function => {
         }  else return void errorSender(res, 403);
     });
 
-     app.use((req:Request, res:Response, next:NextFunction) => {
+     app.use('/admin',(req:Request, res:Response, next:NextFunction) => {
         if (req['session'].login && req.cookies['sid']){
             next();
         } else return res.redirect('/admin');
