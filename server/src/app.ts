@@ -14,7 +14,7 @@ import policy from './services/policy';
 import price from './services/price';
 import servicesType from './services/servicesType';
 
-import Database from './api/database';
+import Database from './api/DataBase';
 import {WHITELIST} from './utils/const';
 import cors from 'cors';
 

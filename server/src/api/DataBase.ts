@@ -1,7 +1,6 @@
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import {UserModel, SessionModel} from '../configs/schema';
-import { connect } from 'net';
 
 import {log} from '../logger/logModule';
 
