@@ -22,10 +22,9 @@ export default (app:Application, corsPublic?:Object):void|Function => {
             Database.getUser(req.body.login, req.body.password)
             .then(user => { 
                 if (user){
-                    res.setHeader("Content-Type", "text/html");
                     req['session'].login = user.login;
                     return res.redirect(200, '/admin/cabinet');
-                }  else return void errorSender(res, 403);
+                } else return void errorSender(res, 403);
             });
         }  else return void errorSender(res, 403);
     });
@@ -37,15 +36,18 @@ export default (app:Application, corsPublic?:Object):void|Function => {
     });
 
      app.get('/admin/cabinet',(req:RequestParam, res:Response):void => {
-        Database.getUser(req['session'].login)
-        .then(user => {
-            console.log(user);
-            if (user) return void res.render('cabinet');
-            else return void res.redirect('/admin');
-        });
+        if (req['session'].login) return void res.render('cabinet');
+        else return void res.redirect('/admin');
      });
 
     app.get('/admin/api/logout', (req:Request, res:Response) => {
+        if (req['session']){
+            req['session'].destroy((error)=>{
+                if (error) {
+                    console.log(error);
+                }
+            };
+        }
         res.clearCookie('sid');
         res.setHeader("Content-Type", "text/html");
         return res.redirect(200, '/admin');
