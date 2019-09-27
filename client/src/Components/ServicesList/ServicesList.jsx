@@ -61,7 +61,8 @@ class ServicesList extends React.PureComponent {
             });
 
             this.setState({
-                ...this.state, 
+                ...this.state,
+                failLoadData: false,
                 defaultContent: defaultContent,
             });
             eventEmitter.emit('EventSetContent', {action: 'default'});
@@ -96,7 +97,7 @@ class ServicesList extends React.PureComponent {
     render(){
 
         const {servicesType, content} = this.props;
-        const {defaultContent, load} = this.state;
+        const {defaultContent, load, failLoadData} = this.state;
 
         const currentContent = content ? content : defaultContent;
  
@@ -129,7 +130,12 @@ class ServicesList extends React.PureComponent {
                     />
                 </div>
                 <div className = 'col-9 col-8 col-7 services_content'>
-                    <ServicesContent load = {load} content = {currentContent} mode = {servicesType} />
+                    <ServicesContent 
+                        load = {load} 
+                        content = {currentContent} 
+                        mode = {servicesType} 
+                        failLoadData = {failLoadData}
+                    />
                 </div>
             </div>
         )

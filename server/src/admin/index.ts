@@ -1,8 +1,11 @@
 import {Request, Response, Application, NextFunction} from 'express';
+import fs, {ReadStream} from 'fs';
+import path from 'path';
 import {RequestParam} from '../configs/interface';
 import {errorSender} from '../utils/mainUtils';
 import Database from '../api/DataBase';
 import multer from 'multer';
+import _ from 'lodash';
 
 import {log} from '../logger/logModule';
 
@@ -44,7 +47,7 @@ export default (app:Application, corsPublic?:Object):void|Function => {
 
     app.get('/admin/api/logout', (req:Request, res:Response) => {
         if (req['session']){
-            req['session'].destroy((error) => { 
+            req['session'].destroy((error:Error) => { 
                     if (error) {
                         log.error(error);
                         console.log(error);
@@ -55,6 +58,45 @@ export default (app:Application, corsPublic?:Object):void|Function => {
             return res.redirect(200, '/admin');
         }  else return void errorSender(res, 403);
     });
+
+    app.param('type', (req:RequestParam, res:Response, next: NextFunction, type:string):void => {
+        req.type = type;
+        next();
+      });
+
+    app.get('/admin/api/services/:type',(req:RequestParam, res:Response) => {
+        let service:null|ReadStream = null;
+    
+          if (!req.type){ return void errorSender(res, 404); };
+
+          if (req.type === 'auto')
+          service = fs.createReadStream(path.join(__dirname, '../data','autoAbout.txt'));
+          else if (req.type === 'amoCRM')
+          service = fs.createReadStream(path.join(__dirname, '../data','amoCRMAbout.txt'));
+          else if (req.type === 'retailCRM')
+          service = fs.createReadStream(path.join(__dirname, '../data','retailCRMAbout.txt'));
+          else  return void errorSender(res, 404);
+    
+          service.on('open', () => {
+            res.setHeader('Content-Type','text/html; charset=utf-8');
+            service.pipe(res)
+          });
+
+          service.on('error', (error:Error) => {
+            log.error(error.message);
+            errorSender(res, 404);
+          });
+
+      });
+
+    app.post('/admin/api/list',(req:Request, res:Response) => {
+       if (!_.isEmpty(req.body.path)){
+           if (req.body.path === '/services'){
+               return res.send(JSON.stringify({list: ['auto', 'amoCRM', 'retailCRM']}));
+           };
+       } else return void errorSender(res, 404);
+    });
+    
 
 };
 

@@ -43,6 +43,7 @@ namespace AppNamespace {
     app.use(express.static(path.join(__dirname, '/public')));
     app.use(express.urlencoded({extended: true}));
     app.use(cookieParser());
+    app.use('/admin',express.json());
 
     app.set('views', __dirname + '/public/views');
     app.set('view engine', 'ejs');

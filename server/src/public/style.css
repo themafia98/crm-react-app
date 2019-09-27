@@ -64,6 +64,10 @@ body {
     color: red;
 }
 
+.isSelect {
+    color: red;
+}
+
 .cabinetAction {
     width: 100%;
     display: flex;
@@ -84,8 +88,31 @@ body {
     color: tomato;
 }
 
+.cabinetAction .menuContentBlock .listMenu {
+    padding: 0;
+    display: flex;
+    list-style-type: none;
+    justify-content: space-between;
+    font-size: 20px;
+}
+
+.cabinetAction .menuContentBlock .listMenu li {
+    cursor: pointer;
+}
+
+.cabinetAction .menuContentBlock .listMenu li:hover {
+    color: red;
+}
+
+.cabinetAction textarea {
+    resize: none;
+    width: 100%;
+    height: 50%;
+}
+
 .col {
     flex: 0 0 50%;
+    height: 80vh;
 }
 
 .active_link {

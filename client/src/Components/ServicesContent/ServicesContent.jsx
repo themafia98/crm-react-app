@@ -38,9 +38,18 @@ class ServicesContent extends React.PureComponent {
 
     render(){
         const {content, mode} = this.props;
-        const {load} = this.props;
+        const {load, failLoadData} = this.props;
 
-        if (load) return <Loader loaderClass = 'loaderServicesList' />
+        if (failLoadData) return (
+            <div className = 'FailLoadData'>
+                <p>Server is not responding</p>
+            </div>
+        )
+        else if (load) return (
+                <Loader 
+                    loaderClass = 'loaderServicesList' 
+                />
+            )
 
         switch (mode){
             case 'auto': return (
@@ -82,10 +91,10 @@ class ServicesContent extends React.PureComponent {
                                 {content}
                             </div>
                         )   
-            default: return (
-                <div className = 'FailLoadData'>
-                    <p>Server is not responding</p>
-                </div>
+            default:  return (
+                <Loader 
+                    loaderClass = 'loaderServicesList' 
+                />
             )
         }
     }

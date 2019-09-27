@@ -53,7 +53,20 @@
 
     function View(doc){
         this.path = '/';
+        this.pathContent = '/auto';
         this.root = doc.querySelector('.cabinetAction') || null;
+    };
+
+    View.prototype.getPathContet = function(){
+        return this.pathContent;
+    };
+
+    View.prototype.setDeaultContetPath = function(){
+        this.pathContent = '/auto';
+    };
+
+    View.prototype.setContentPath = function(path){
+        this.pathContent = '/' + path;
     };
 
     View.prototype.getPath = function(){
@@ -114,7 +127,47 @@
         return node;
     };
 
-    function buildContent(root){
+    const createContetMenu = async (path) => {
+        let _list = null;
+        await getMenu(path)
+        .then(response => {
+        let listArray = response ? response.list : null;
+        let root = controller.root;
+        if (path === '/services'){
+            let menuContentBlock = root.createElement('div');
+            menuContentBlock.classList.add('menuContentBlock');
+            let list = root.createElement('ul');
+            list.classList.add('listMenu');
+    
+            if (!listArray) return;
+            else {
+                listArray.forEach((item,i) => {
+                    let menuItem = root.createElement('li');
+                    let path = '/' + item;
+                    console.log(view.getPathContet());
+                   if (view.getPathContet() === path){
+                       menuItem.classList.add('isSelect');
+                   }
+                    menuItem.innerHTML = item;
+                    controller.setListeners(i, menuItem, 'click',
+                    function(event){
+                        debugger
+                        view.setContentPath(event.target.innerHTML);
+                        viewBuild(view, controller)(view.path);
+                    }, false);
+                    list.appendChild(menuItem);
+                });
+
+                menuContentBlock.appendChild(list);
+                _list = menuContentBlock;
+                return _list;
+            }
+        }
+        });
+        return _list;
+    }
+
+    function buildContentMain(root){
         let node = root.createElement('div');
         let contentContainer = root.createElement('div');
 
@@ -126,6 +179,43 @@
         return node;
     };
 
+    function buildContentAbout(root){
+        let node = root.createElement('div');
+        let contentContainer = root.createElement('div');
+
+        node.classList.add('col');
+
+        contentContainer.innerHTML = location.hash;
+
+        node.appendChild(contentContainer);
+        return node;
+    };
+
+
+    const buildContentServices = async (root) =>{
+        let node = root.createElement('div');
+        let contentContainer = root.createElement('div');
+
+        node.classList.add('col');
+
+        let servicesInformationBlock = root.createElement('div');
+        servicesInformationBlock.classList.add('servicesInformationBlock');
+        let menu = await createContetMenu(view.getPath());
+        let data = await getDataServices(view.getPathContet());
+
+        let textArea = root.createElement('textarea');
+        textArea.classList.add('servicesTextArea');
+        textArea.innerHTML = data;
+
+
+        node.appendChild(menu);
+        node.appendChild(textArea);
+        node.appendChild(contentContainer);
+        return node;
+    };
+
+
+
     function buildMain(view, root){
         if (!view.root) {
             let app = root.querySelector('.cabinet');
@@ -136,7 +226,33 @@
         }
 
         view.root.appendChild(buildMenu(root));
-        view.root.appendChild(buildContent(root));
+        view.root.appendChild(buildContentMain(root));
+    };
+
+    function buildAbout(view, root){
+        if (!view.root) {
+            let app = root.querySelector('.cabinet');
+            let root = root.createElement('div');
+            root.classList.add('cabinetAction');
+            app.appendChild(root);
+            view.root = root.querySelector('.cabinetAction');
+        }
+
+        view.root.appendChild(buildMenu(root));
+        view.root.appendChild(buildContentAbout(root));
+    };
+
+    const buildServices =  async (view, root) => {
+        if (!view.root) {
+            let app = root.querySelector('.cabinet');
+            let root = root.createElement('div');
+            root.classList.add('cabinetAction');
+            app.appendChild(root);
+            view.root = root.querySelector('.cabinetAction');
+        }
+        let contentNode = await buildContentServices(root);
+        view.root.appendChild(buildMenu(root));
+        view.root.appendChild(contentNode);
     };
 
     function controllerMenuBuild(){
@@ -148,7 +264,13 @@
         return (path) => {
             view.setPath(path);
             view.clear();
-            if (path === '/' || '/main') return buildMain(view, controller.root);
+
+            if (path === '/' || path === '/main') 
+                return buildMain(view, controller.root);
+            else if (path === '/about') 
+                return buildAbout(view, controller.root);
+            else if (path === '/services') 
+                return buildServices(view, controller.root);
             else {
                 view.setPath('/');
                 buildMain(view, controller.root);
@@ -188,6 +310,49 @@
         viewBuild(view, controller)(locationReplacePath());
         controllersBuild(controller)('');
     };
+
+    const getDataServices = async (path) => {
+        if (path == '/') {
+            view.setDeaultContetPath();
+            path = view.getPathContet();
+        }
+        return new Promise(function(resolve, reject){
+            let AJAX = new XMLHttpRequest();
+            debugger;
+            AJAX.open('GET', `/admin/api/services${path}`);
+            AJAX.setRequestHeader('Content-Type', "application/json");
+            AJAX.onload = function(){
+                if (this.status === 200)
+                    resolve(this.response);
+                else {
+                    let error = new Error(this.statusText);
+                    reject(error);
+                }       
+            };
+            
+            AJAX.onerror = () => reject(new Error('Requst send error'));
+            AJAX.send();
+        });
+    };
+
+    const getMenu = async (path) => {
+        return new Promise(function(resolve, reject){
+            let AJAX = new XMLHttpRequest();
+            AJAX.open('POST', "/admin/api/list");
+            AJAX.setRequestHeader('Content-Type', "application/json");
+            AJAX.onload = function(){
+                if (this.status === 200)
+                    resolve(JSON.parse(this.response));
+                else {
+                    let error = new Error(this.statusText);
+                    reject(error);
+                }       
+            };
+            
+            AJAX.onerror = () => reject(new Error('Requst send error'));
+            AJAX.send(JSON.stringify({path: path}));
+        });
+    }
 
     let init = (document) => {
         controller = new Controller(document);

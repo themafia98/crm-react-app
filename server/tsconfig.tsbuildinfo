@@ -437,7 +437,7 @@
         "signature": "c7f5d748384337d755b2295c446de4409d908cd9ccbd472e9ba9e00a148ea2c9"
       },
       "c:/dev/frontend/crm-react-app/server/src/admin/index.ts": {
-        "version": "4dd79dd4a3669d6bfcfe2e16c6fcd9d6ef0b2a91516bb2fa674b7669dac16214",
+        "version": "0622bdfcf93331c4ef6eff3694dd67f96b36421a2cb151ee93fb45ffd5f23387",
         "signature": "7151ac428b4dcfc6d2cdcff8a34c5a2a4d844109de43582af60a33deac2b83b0"
       },
       "c:/dev/frontend/crm-react-app/server/src/configs/types.ts": {
@@ -2108,7 +2108,6 @@
       "c:/dev/frontend/crm-react-app/server/src/logger/logger.ts",
       "c:/dev/frontend/crm-react-app/server/src/logger/logmodule.ts",
       "c:/dev/frontend/crm-react-app/server/src/api/database.ts",
-      "c:/dev/frontend/crm-react-app/server/src/admin/index.ts",
       "c:/dev/frontend/crm-react-app/server/src/configs/types.ts",
       "c:/dev/frontend/crm-react-app/server/src/services/mail.ts",
       "c:/dev/frontend/crm-react-app/server/src/services/policy.ts",
@@ -2126,7 +2125,8 @@
       "c:/dev/frontend/crm-react-app/server/src/data/cardsauto.json",
       "c:/dev/frontend/crm-react-app/server/src/data/cardsretailcrm.json",
       "c:/dev/frontend/crm-react-app/server/node_modules/@types/bson/index.d.ts",
-      "c:/dev/frontend/crm-react-app/server/node_modules/@types/mongodb/index.d.ts"
+      "c:/dev/frontend/crm-react-app/server/node_modules/@types/mongodb/index.d.ts",
+      "c:/dev/frontend/crm-react-app/server/src/admin/index.ts"
     ]
   },
   "version": "3.5.3"
