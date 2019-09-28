@@ -2,8 +2,8 @@ import nodemailer,{SendMailOptions, Transporter} from 'nodemailer';
 import Security from './security';
 import AppNamespace from '../app';
 import namespaceLogger from '../logger/logger';
-import {Send} from '../configs/interface';
-import {transOptions} from '../configs/types';
+import {Send} from '../configCode/interface';
+import {transOptions} from '../configCode/types';
 
 namespace MailNamespace {
 

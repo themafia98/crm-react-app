@@ -4,10 +4,16 @@
   "private": true,
   "scripts": {
     "build": "npm run copyfiles && tsc",
+    "start": "webpack --watch",
     "dev": "nodemon ./src/server.ts --pretty",
-    "copyfiles": "copyfiles -f -V  src/data/**/*.* build/data/ && copyfiles -f -V  src/public/**/*.ejs build/public/views && copyfiles -f -V  src/public/**/*.js build/public/ && copyfiles -f -V  src/public/**/*.css build/public/",
+    "copyfiles": "copyfiles -f -V  src/data/**/*.* build/data/ && copyfiles -f -V  src/views/**/*.ejs build/views && copyfiles -f -V  src/public/**/*.ico build/public && copyfiles -f -V  src/public/**/*.css build/public && webpack",
     "prod": "cross-env NODE_ENV=production node build/server.js"
   },
+  "browserslist": [
+    "last 1 version",
+    "> 1%",
+    "IE 10"
+  ],
   "dependencies": {
     "bcrypt": "^3.0.6",
     "connect-mongo": "^3.0.0",
@@ -28,6 +34,7 @@
     "winston": "^3.2.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.6.2",
     "@types/bcrypt": "^3.0.0",
     "@types/express": "^4.17.0",
     "@types/lodash": "^4.14.141",
@@ -35,10 +42,21 @@
     "@types/node": "^12.7.2",
     "@types/nodemailer": "^6.2.1",
     "@types/winston": "^2.4.4",
+    "autoprefixer": "^9.6.1",
+    "babel-loader": "^8.0.6",
+    "copy-webpack-plugin": "^5.0.4",
     "copyfiles": "^2.1.1",
     "cross-env": "^5.2.0",
+    "css-loader": "^3.2.0",
+    "mini-css-extract-plugin": "^0.8.0",
     "nodemon": "^1.19.1",
+    "nodemon-webpack-plugin": "^4.1.1",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^8.0.0",
+    "style-loader": "^1.0.0",
     "ts-node": "^8.3.0",
-    "typescript": "^3.5.3"
+    "typescript": "^3.5.3",
+    "webpack": "^4.41.0",
+    "webpack-cli": "^3.3.9"
   }
 }

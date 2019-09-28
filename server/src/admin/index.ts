@@ -1,7 +1,7 @@
 import {Request, Response, Application, NextFunction} from 'express';
 import fs, {ReadStream} from 'fs';
 import path from 'path';
-import {RequestParam} from '../configs/interface';
+import {RequestParam} from '../configCode/interface';
 import {errorSender} from '../utils/mainUtils';
 import Database from '../api/DataBase';
 import multer from 'multer';

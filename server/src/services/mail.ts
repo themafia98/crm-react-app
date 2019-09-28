@@ -1,8 +1,8 @@
 import {Application, Response, NextFunction} from 'express';
 import multer from 'multer';
 import {debug, log} from '../logger/logModule';
-import {formData} from '../configs/types';
-import {RequestParam} from '../configs/interface';
+import {formData} from '../configCode/types';
+import {RequestParam} from '../configCode/interface';
 
 import {WHITELIST} from '../utils/const';
 import {errorSender} from '../utils/mainUtils';

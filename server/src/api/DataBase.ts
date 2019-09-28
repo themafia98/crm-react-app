@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-import {UserModel, SessionModel} from '../configs/schema';
+import {UserModel, SessionModel} from '../configCode/schema';
 
 import {log} from '../logger/logModule';
 

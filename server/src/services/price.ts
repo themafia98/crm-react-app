@@ -1,7 +1,7 @@
 import  {Response, NextFunction, Application} from 'express';
 import fs,{ReadStream} from 'fs';
 import path from 'path';
-import {RequestParam} from '../configs/interface';
+import {RequestParam} from '../configCode/interface';
 
 import {WHITELIST} from '../utils/const';
 import {errorSender} from '../utils/mainUtils';

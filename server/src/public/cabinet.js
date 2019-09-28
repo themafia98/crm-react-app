@@ -1,5 +1,8 @@
-(function(){
 
+    import './index';
+
+
+    if (/\/admin\/cabinet/.test(location.pathname)){
     let controller = null;
     let view = null;
 
@@ -151,7 +154,6 @@
                     menuItem.innerHTML = item;
                     controller.setListeners(i, menuItem, 'click',
                     function(event){
-                        debugger
                         view.setContentPath(event.target.innerHTML);
                         viewBuild(view, controller)(view.path);
                     }, false);
@@ -318,7 +320,6 @@
         }
         return new Promise(function(resolve, reject){
             let AJAX = new XMLHttpRequest();
-            debugger;
             AJAX.open('GET', `/admin/api/services${path}`);
             AJAX.setRequestHeader('Content-Type', "application/json");
             AJAX.onload = function(){
@@ -361,5 +362,4 @@
     };
 
     init(document);
-
-})();
+}

@@ -2,7 +2,6 @@ import express,{Application, Request, Response} from 'express';
 import MongoStore from 'connect-mongo';
 import session from 'express-session';
 
-import configSession from './configs/session.json';
 import cookieParser from 'cookie-parser';
 import helmet from 'helmet';
 import Events from 'events';
@@ -24,6 +23,16 @@ namespace AppNamespace {
     export const eventEmitter = new Events();
     const SessionStore = MongoStore(session);
 
+    const sessionOptions = {
+        secret: 'crmih',
+        key: "sid",
+        resave: false,
+        maxAge: null,
+        saveUninitialized: false,
+        cookie: {secure: false},
+        store: new SessionStore(Database.storeSession()),
+    };
+
     const corsOptions = {
       origin: function (origin:string, callback:(error:object, result?:boolean) => void){
             if (origin === undefined || WHITELIST.indexOf(origin) !== -1) {
@@ -40,26 +49,18 @@ namespace AppNamespace {
         res.sendStatus(403);
     });
 
-    app.use(express.static(path.join(__dirname, '/public')));
+    app.use(express.static(__dirname + '/public'));
     app.use(express.urlencoded({extended: true}));
     app.use(cookieParser());
     app.use('/admin',express.json());
 
-    app.set('views', __dirname + '/public/views');
+    app.set('views',__dirname + '/views');
+    app.engine('ejs', require('ejs').__express);
     app.set('view engine', 'ejs');
 
     app.use(helmet());
     app.use(cors(corsOptions));
-    app.use(session({
-        // genid: () => uuid(),
-        secret: configSession.secret,
-        key: configSession.key,
-        resave: false,
-        maxAge: configSession.cookie.maxAge,
-        saveUninitialized: false,
-        cookie: {secure: false},
-        store: new SessionStore(Database.storeSession())
-    }));
+    app.use(session(sessionOptions));
 
     adminInterface(app);
     servicesMail(app);

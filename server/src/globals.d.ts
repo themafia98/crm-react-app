@@ -7,4 +7,5 @@ declare module 'cookie-parser';
 declare module 'express-session';
 declare module 'uuid/v1';
 declare module 'mongoose';
+declare module 'connect-mongo';
 declare module 'express-rate-limit';
