@@ -5,18 +5,18 @@ const autoprefixer = require('autoprefixer');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-  mode: 'production',
+  mode: process.env.NODE_ENV,
   devtool: 'source-map',
   entry: {
-    entry: Path.join(__dirname, '/src/public/cabinet.js'),
+    entry: Path.join(__dirname, '/src/public/index.js'),
   },
   output: {
     path: Path.join(__dirname, '/build'),
-    filename: 'public/cabinet.js',
+    filename: 'public/index.js',
   },
   plugins: [
     new Webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('production')
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
     }),
     new Webpack.optimize.ModuleConcatenationPlugin(),
     new MiniCssExtractPlugin({
@@ -32,7 +32,7 @@ module.exports = {
         use: 'babel-loader'
       },
       {
-        test: /\.css$/,
+        test: /\.s?css$/i,
         use : [
           'style-loader',
           'css-loader',

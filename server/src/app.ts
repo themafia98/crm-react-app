@@ -5,7 +5,6 @@ import session from 'express-session';
 import cookieParser from 'cookie-parser';
 import helmet from 'helmet';
 import Events from 'events';
-import path from 'path';
 
 import adminInterface from './admin';
 import servicesMail from './services/mail';

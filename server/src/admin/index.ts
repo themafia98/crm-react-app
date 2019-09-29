@@ -5,6 +5,7 @@ import {RequestParam} from '../configCode/interface';
 import {errorSender} from '../utils/mainUtils';
 import Database from '../api/DataBase';
 import multer from 'multer';
+import dotenv from 'dotenv';
 import _ from 'lodash';
 
 import {log} from '../logger/logModule';
@@ -12,12 +13,14 @@ import {log} from '../logger/logModule';
 export default (app:Application, corsPublic?:Object):void|Function => { 
 
     const upload = multer(); // form-data
-
+    dotenv.config();
+    
     app.get('/admin', (req:RequestParam, res:Response) => {
+        console.log(process.env.NODE_ENV);
        if (req.cookies['sid'] && req['session'] && req['session'].login){
             return res.redirect('/admin/cabinet');
         }
-        else return res.render('index');
+        else return res.render('index', {process: process.env.NODE_ENV});
      });
 
      
@@ -41,7 +44,7 @@ export default (app:Application, corsPublic?:Object):void|Function => {
     });
 
      app.get('/admin/cabinet',(req:RequestParam, res:Response):void => {
-        if (req['session'].login) return void res.render('cabinet');
+        if (req['session'].login) return void res.render('cabinet', {process: process.env.NODE_ENV});
         else return void res.redirect('/admin');
      });
 

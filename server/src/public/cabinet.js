@@ -1,7 +1,6 @@
 
-    import './index.js';
-
     if (/\/admin\/cabinet/.test(location.pathname)){
+        
     let controller = null;
     let view = null;
 
