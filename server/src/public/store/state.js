@@ -9,9 +9,14 @@ State.prototype.getState = function(){
 };
 
  State.prototype.setStateProps = function(action, nameStore = this.nameStore){
-     if (!this.state[nameStore]) return false;
+     ;
+     if (!this.state[nameStore] === undefined) return false;
     switch (action.type){
         case 'SET_PAYLOAD':{
+            this.state[nameStore] = action.payload;
+            break;
+        }
+        case 'SET_MODE_LINK': {
             this.state[nameStore] = action.payload;
             break;
         }
@@ -30,7 +35,7 @@ State.prototype.action = function(typeAction){
 };
 
 State.prototype.checkPath = function(){
-    ;
+
     return this.getState().path === State.locationReplacePath();
 };
 

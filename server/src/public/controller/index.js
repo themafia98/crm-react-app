@@ -6,6 +6,7 @@ function Controller(doc){
     this.root = doc;
     this.connectionView = null;
     this.onceMenu = null;
+    this.countOnceMenuEvents = 0;
     this.listenersList = [];
 };
 
@@ -13,14 +14,16 @@ Controller.prototype.setConnectView = function(view){
     this.connectionView = view;
 };
 
-Controller.prototype.setListeners = function(id, target, event, callback, bubble){
-    let bubbleEvent = false;
-   if (bubble) bubbleEvent = true;
-    target.addEventListener(event, callback, bubbleEvent);
+Controller.prototype.setListeners = function(id, target, event, callback, bubble = false, mode = false){
+    if (mode === 'once' && this.countOnceMenuEvents > 0) return false;
+    target.addEventListener(event, callback, bubble);
    return this.listenersList.push({
         id: id,
         target: target,
+        callback: callback,
+        bubble: bubble,
         event: event,
+        mode: mode,
     });
 };
 
@@ -33,12 +36,22 @@ Controller.prototype.setMenu = function(action){
     this.onceMenu = action;
 };
 
-Controller.prototype.removeListeners = function(id){
+Controller.prototype.removeListeners = function(id = 'full', mode = false){
+    ;
     if (typeof name !== 'string') return null;
     for (let i = 0; i < this.listenersList.length; i++){
-        if (this.listenersList[i].id === id){
-            this.listenersList[i].target.removeEventListener();
+        const item = this.listenersList[i];
+        if (item.mode === 'once' || item.id === 'router') continue;
+        if (id !== 'full' && item.id === id){
+            item.target.removeEventListener(
+                item.event, item.callback, item.bubble
+            );
             break;
+        }
+        else {
+            item.target.removeEventListener(
+                item.event, item.callback, item.bubble
+            );
         }
     };
 };
@@ -55,8 +68,9 @@ Controller.prototype.getListener = function(id){
     return listener;
 };
 
-Controller.createLinks = function(listArray, list){
+Controller.createLinks = function(listArray, list, mode = false){
    const { view, state, controller, controller: { root } } = namespace;
+   ;
     listArray.forEach((item,i) => {
         let menuItem = root.createElement('li');
         let path = '/' + item;
@@ -67,8 +81,11 @@ Controller.createLinks = function(listArray, list){
         menuItem.innerHTML = item;
         controller.setListeners(i, menuItem, 'click',
         function(event){
+            const target = event.target;
+            ;
             view.setContentPath(event.target.innerHTML);
-            viewBuild(view, controller)(state.getState().path);
+            viewBuild(view, controller)(state.getState().path, 
+            target.dataset.mode !== 'nav');
         }, false);
         list.appendChild(menuItem);
     });
@@ -79,12 +96,10 @@ Controller.controllersBuild = function(controllerObj){
     const view = controller.connectionView;
     return () => {
         controller.setListeners('router', window || globalThis, 'hashchange', (event) => {
-            ;
             if (view && event.newURL !== event.oldURL){
                 viewBuild(view, controller)(namespace.state.action('SET_PATH'));
-            }
+            };
         });
-
         if (!controller.isMenu()){
             controller.setMenu(true);
         };

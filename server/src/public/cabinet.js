@@ -5,11 +5,25 @@ import View from './view/index.js';
     
     function viewBuild(state, newView, newController){
         let view = namespace.view || newView;
+        let storeState = namespace.state;
         let controller = namespace.controller || newController;
 
-        return (path) => {
-            namespace.state.action('SET_PATH');
+        return (path, modeLink = false) => {
+    
+            namespace.state.setStateProps({
+                type: 'SET_PAYLOAD',
+                payload: State.locationReplacePath(),
+            },'path');
+
+
+            if (modeLink !== storeState.getState().modeLink)
+            namespace.state.setStateProps({
+                type: 'SET_MODE_LINK',
+                payload: modeLink,
+            },'modeLink');
+
             view.clear();
+            controller.removeListeners('full');
             if (path === '/' || path === '/main') 
                 return  View.buildMain(view, controller.root);
             else if (path === '/about') 
@@ -34,7 +48,8 @@ import View from './view/index.js';
 
     let init = (document) => {
         namespace.state = new State({
-            path: State.locationReplacePath()
+            path: State.locationReplacePath(),
+            modeLink: false,
         });
         namespace.controller = new Controller(document);
         namespace.view = new View(namespace.controller.root, namespace.state);

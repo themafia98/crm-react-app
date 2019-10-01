@@ -55,6 +55,7 @@ View.prototype.getListMenu = function (path){
 };
 
 View.linkPathActive = function(link, mode){
+        ;
     const { view } = namespace;
     if (!mode) link.classList.toggle('active_link');
     else {
@@ -172,7 +173,7 @@ View.createDataServices = async (path) => {
 
 View.buildContentServices = async (root) =>{
 
-    const { view, state } = namespace;
+    const { view, state, controller } = namespace;
     const path = state.getState().path;
     const node = root.createElement('div');
     const contentContainer = root.createElement('div');
@@ -193,12 +194,27 @@ View.buildContentServices = async (root) =>{
         textArea.classList.add('servicesTextArea');
         textArea.innerHTML = data || '';
 
+        let inputChange = root.createElement('input');
+        inputChange.classList.add('sendChangeServices');
+        inputChange.setAttribute('type', 'button');
+        inputChange.value = 'Принять изменения';
+
 
         menu ? node.appendChild(menu) : null;
         textArea ? node.appendChild(textArea) : null;
         contentContainer ? node.appendChild(contentContainer) : null;
+        inputChange && textArea ? node.appendChild(inputChange) : null;
 
         view.mainContentNode = node.querySelector('.contentBox');
+
+        const button = node.querySelector('.sendChangeServices');
+        if (button && !controller.getListener('sendChangeServices')){
+            controller.setListeners('sendChangeServices', 
+            button, 'click', (event) => {
+                    
+                });
+        }
+
         return node;
     } else {
         contentBox.innerHTML = '';
@@ -210,11 +226,24 @@ View.buildContentServices = async (root) =>{
         let textArea = root.createElement('textarea');
         textArea.classList.add('servicesTextArea');
         textArea.innerHTML = data || '';
+        let inputChange = root.createElement('input');
+        inputChange.setAttribute('type', 'button');
+        inputChange.classList.add('sendChangeServices');
+        inputChange.value = 'Принять изменения';
 
 
         menu ? contentBox.appendChild(menu) : null;
         textArea ? contentBox.appendChild(textArea) : null;
         contentContainer ? contentBox.appendChild(contentContainer) : null;
+        inputChange && textArea ? contentBox.appendChild(inputChange) : null;
+        
+        const button = contentBox.querySelector('.sendChangeServices');
+        if (button && !controller.getListener('sendChangeServices')){
+            controller.setListeners('sendChangeServices', 
+            button, 'click', (event) => {
+                    
+                });
+        }
     }
 };
 
@@ -227,7 +256,7 @@ View.prototype.parseMenu = function(root){
     let list = root.createElement('ul');
     list.classList.add('listMenu');
     if (!view.listArrayMenu) return false;
-    else Controller.createLinks(view.listArrayMenu, list);
+    else Controller.createLinks(view.listArrayMenu, list, 'once');
         menuContentBlock.appendChild(list);
     return menuContentBlock;
 };
@@ -284,6 +313,7 @@ View.createContentMenu = async (path) => {
 View.buildMenu = function(root){
 
     const { view, state } = namespace;
+
     const isMain = location.hash === '#/main';
     const isServices = location.hash === '#/services';
     const isAbout = location.hash === '#/about';
@@ -297,22 +327,24 @@ View.buildMenu = function(root){
         let main = root.createElement('a');
         main.classList.add('cabinetAction__link');
         main.setAttribute('data-type', 'main');
+        main.dataset.mode = 'nav';
         main.href = '#/main';
         main.innerHTML = 'Main';
 
         let services = root.createElement('a');
         services.classList.add('cabinetAction__link');
         services.setAttribute('data-type', 'services');
+        services.dataset.mode = 'nav';
         services.href = '#/services';
         services.innerHTML = 'Services';
 
         let about = root.createElement('a');
         about.classList.add('cabinetAction__link');
         about.setAttribute('data-type', 'about');
+        about.dataset.mode = 'nav';
         about.href = '#/about';
         about.innerHTML = 'About';
 
-        ;
         if (!view.needUpdate && !view.firstRender && state.checkPath()) return;
 
 
@@ -327,7 +359,8 @@ View.buildMenu = function(root){
         node.appendChild(nav);
         return node;
     } else {
-        if (state.checkPath()) return;
+
+        if (state.getState().modeLink) return;
 
         let linkServices = root.querySelector('[data-type="services"]');
         let linkMain = root.querySelector('[data-type="main"]');
