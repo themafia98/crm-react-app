@@ -1,5 +1,5 @@
 
-function State(initialState, nameStore = 'store'){
+function State(initialState, nameStore = 'path'){
     this.nameStore = nameStore;
     this.state = initialState;
 };
@@ -8,13 +8,18 @@ State.prototype.getState = function(){
     return this.state;
 };
 
- State.prototype.setStateProp = function(type, action, nameStore = this.nameStore){
-    switch (type){
-        case 'SET_PATH':{
-            this.state[nameStore]['path'] = action.payload;
+ State.prototype.setStateProps = function(action, nameStore = this.nameStore){
+     if (!this.state[nameStore]) return false;
+    switch (action.type){
+        case 'SET_PAYLOAD':{
+            this.state[nameStore] = action.payload;
             break;
         }
     }
+};
+
+State.prototype.newReducer = function(name , defaultValue = null){
+    this.state[name] = defaultValue;
 };
 
 State.prototype.action = function(typeAction){
