@@ -25,6 +25,7 @@
     "express-rate-limit": "^5.0.0",
     "express-session": "^1.16.2",
     "helmet": "^3.21.0",
+    "heroku": "^7.31.2",
     "lodash": "^4.17.15",
     "mongodb": "^3.3.2",
     "mongoose": "^5.7.1",
