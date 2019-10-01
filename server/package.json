@@ -6,7 +6,7 @@
     "build": "npm run copyfiles && tsc",
     "start": "cross-env NODE_ENV=development webpack --watch",
     "dev": "cross-env NODE_ENV=development nodemon ./src/server.ts --pretty",
-    "copyfiles": "copyfiles -f -V  src/data/**/*.* build/data/ && copyfiles -f -V  src/views/**/*.ejs build/views && copyfiles -f -V  src/public/**/*.ico build/public && copyfiles -f -V  src/public/**/*.css build/public && webpack",
+    "copyfiles": "copyfiles -f -V  src/data/**/*.* build/data/ && copyfiles -f -V  src/views/**/*.ejs build/views && copyfiles -f -V  src/public/**/*.ico build/public && copyfiles -f -V  src/public/**/*.gif build/public && copyfiles -f -V  src/public/**/*.css build/public && webpack",
     "prod": "cross-env NODE_ENV=production node build/server.js"
   },
   "browserslist": [
