@@ -37,7 +37,19 @@ module.exports = {
           'style-loader',
           'css-loader',
         ]
-      }
+      },
+      {
+        test: /\.(gif|png|jpeg|svg|jpg|ico)$/,
+        use: [
+            {
+            loader: 'file-loader',
+            options: {
+                name:'[name].[ext]',
+                useRelativePath: true,
+            }
+            },
+          ],
+      },
     ]
   }
 };
