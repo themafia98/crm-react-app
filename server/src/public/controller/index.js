@@ -56,19 +56,19 @@ Controller.prototype.getListener = function(id){
 };
 
 Controller.createLinks = function(listArray, list){
-   const { view, controller, controller: { root } } = namespace
+   const { view, controller, controller: { root } } = namespace;
     listArray.forEach((item,i) => {
         let menuItem = root.createElement('li');
         let path = '/' + item;
-        console.log(view.getPathContext());
-    //    if (view.getPathContext() === path){
-    //        menuItem.classList.add('isSelect');
-    //    }
+
+       if (view.getPathContext() === path){
+           menuItem.classList.add('isSelect');
+       }
         menuItem.innerHTML = item;
         controller.setListeners(i, menuItem, 'click',
         function(event){
-            // view.setContentPath(event.target.innerHTML);
-            // viewBuild(view, controller)(view.path);
+            view.setContentPath(event.target.innerHTML);
+            viewBuild(view, controller)(view.path);
         }, false);
         list.appendChild(menuItem);
     });
