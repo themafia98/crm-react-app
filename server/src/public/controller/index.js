@@ -56,7 +56,7 @@ Controller.prototype.getListener = function(id){
 };
 
 Controller.createLinks = function(listArray, list){
-   const { view, controller, controller: { root } } = namespace;
+   const { view, state, controller, controller: { root } } = namespace;
     listArray.forEach((item,i) => {
         let menuItem = root.createElement('li');
         let path = '/' + item;
@@ -68,7 +68,7 @@ Controller.createLinks = function(listArray, list){
         controller.setListeners(i, menuItem, 'click',
         function(event){
             view.setContentPath(event.target.innerHTML);
-            viewBuild(view, controller)(view.path);
+            viewBuild(view, controller)(state.getState().path);
         }, false);
         list.appendChild(menuItem);
     });
@@ -81,7 +81,7 @@ Controller.controllersBuild = function(controllerObj){
         controller.setListeners('router', window || globalThis, 'hashchange', (event) => {
             ;
             if (view && event.newURL !== event.oldURL){
-                viewBuild(view, controller)(State.locationReplacePath());
+                viewBuild(view, controller)(namespace.state.action('SET_PATH'));
             }
         });
 

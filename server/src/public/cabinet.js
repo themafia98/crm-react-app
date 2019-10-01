@@ -6,10 +6,10 @@ import View from './view/index.js';
     function viewBuild(state, newView, newController){
         let view = namespace.view || newView;
         let controller = namespace.controller || newController;
-        return (path) => {
-            view.setPath(path);
-            view.clear();
 
+        return (path) => {
+            namespace.state.action('SET_PATH');
+            view.clear();
             if (path === '/' || path === '/main') 
                 return  View.buildMain(view, controller.root);
             else if (path === '/about') 
@@ -17,22 +17,24 @@ import View from './view/index.js';
             else if (path === '/services') 
                 return  View.buildServices(view, controller.root);
             else {
-                state.action('SET_PATH');
+                namespace.state.action('SET_PATH');
                 View.buildMain(view, controller.root);
             }
+
+            if (view.firstRender) view.firstRender = false;
         };
     };
 
     function main(){
         let view = namespace.view;
         let controller = namespace.controller;
-        viewBuild(namespace.state)(State.locationReplacePath());
+        viewBuild(namespace.state)(namespace.state.action('SET_PATH'));
         Controller.controllersBuild(controller)('');
     };
 
     let init = (document) => {
         namespace.state = new State({
-            path: '/main'
+            path: State.locationReplacePath()
         });
         namespace.controller = new Controller(document);
         namespace.view = new View(namespace.controller.root, namespace.state);
@@ -41,6 +43,11 @@ import View from './view/index.js';
         namespace.view.loaderHTML = new Image();
         namespace.view.loaderHTML.src = '/loader.gif';
         namespace.view.loaderHTML.onload = () => {
+            main();
+        };
+
+        namespace.view.loaderHTML.onerror = () => {
+            console.error('loader not found');
             main();
         };
     };

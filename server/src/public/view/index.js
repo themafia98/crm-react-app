@@ -1,12 +1,13 @@
 import namespace from '../store/namespace.js';
 import {getMenu, getDataServices} from '../rest.js';
 import Controller from '../controller/index.js';
+import State from '../store/state.js';
 
-function View(doc, state){
-    this.path = state && state.path ? state.path : '/';
+function View(doc){
     this.listArrayMenu = [];
     this.pathContent = '/auto';
     this.needUpdate = true;
+    this.firstRender = true;
     this.mainContentNode = null;
     this.root = doc.querySelector('.cabinetAction') || null;
     this.loaderHTML = null;
@@ -27,14 +28,6 @@ View.prototype.setDeaultContetPath = function(){
 
 View.prototype.setContentPath = function(path){
     this.pathContent = '/' + path;
-};
-
-View.prototype.getPath = function(){
-    return this.path;
-};
-
-View.prototype.setPath = function(path){
-    this.path = path;
 };
 
 View.prototype.clear = function(mode = 'part'){
@@ -66,8 +59,7 @@ View.linkPathActive = function(link, mode){
     if (!mode) link.classList.toggle('active_link');
     else {
         const parent = view.root.querySelector('.cabinet_navigator');
-        if (parent) {
-            debugger;
+        if (parent){
             const listLinks = Array.from(parent.childNodes);
             listLinks.forEach(linkFromList => {
                 if (link === linkFromList)
@@ -88,13 +80,14 @@ View.buildAbout = function(view, root){
     }
 
     const menuBlock = View.buildMenu(root);
-    if (menuBlock) view.root.appendChild(menuBlock);
-
     const contentAbout = View.buildContentAbout(root);
+
+    if (menuBlock) view.root.appendChild(menuBlock);
     if (contentAbout) view.root.appendChild(contentAbout);
 };
 
 View.buildServices =  async (view, root) => {
+    ;
     if (!view.root) {
         let app = root.querySelector('.cabinet');
         let root = root.createElement('div');
@@ -102,12 +95,11 @@ View.buildServices =  async (view, root) => {
         app.appendChild(root);
         view.root = root.querySelector('.cabinetAction');
     }
-    let contentNode = await View.buildContentServices(root);
-
+    const contentNode = await View.buildContentServices(root);
     const menuBlock = View.buildMenu(root);
-    if (menuBlock) view.root.appendChild(menuBlock);
 
-    view.root.appendChild(contentNode);
+    if (menuBlock) view.root.appendChild(menuBlock);
+    if (contentNode) view.root.appendChild(contentNode);
 };
 
 View.buildMain = function(view, root){
@@ -124,6 +116,8 @@ View.buildMain = function(view, root){
 
     const mainContent = View.buildContentMain(root);
     if (mainContent) view.root.appendChild(mainContent);
+
+
 };
 
 View.buildContentMain = function(root){
@@ -178,10 +172,12 @@ View.createDataServices = async (path) => {
 
 View.buildContentServices = async (root) =>{
 
-    const { view } = namespace;
+    const { view, state } = namespace;
+    const path = state.getState().path;
     const node = root.createElement('div');
     const contentContainer = root.createElement('div');
     const contentBox = root.querySelector('.contentBox');
+
 
     if (!contentBox){
 
@@ -190,8 +186,7 @@ View.buildContentServices = async (root) =>{
 
         let servicesInformationBlock = root.createElement('div');
         servicesInformationBlock.classList.add('servicesInformationBlock');
-
-        let menu = await View.createContentMenu(view.getPath());
+        let menu = await View.createContentMenu(path);
         let data =  await View.createDataServices(view.getPathContext());
 
         let textArea = root.createElement('textarea');
@@ -209,7 +204,7 @@ View.buildContentServices = async (root) =>{
         contentBox.innerHTML = '';
 
         
-        let menu = await View.createContentMenu(view.getPath());
+        let menu = await View.createContentMenu(path);
         let data =  await View.createDataServices(view.getPathContext());
 
         let textArea = root.createElement('textarea');
@@ -270,8 +265,7 @@ View.createContentMenu = async (path) => {
     await view.getListMenu(path)
     .then(response => {
     let listArray = response ? response.list : null;
-    let root = view.root;
-    ;
+
         if (path === '/services'){
             if (listArray) view.setListMenu(listArray);
             else throw new Error('not found menu');
@@ -289,6 +283,10 @@ View.createContentMenu = async (path) => {
 
 View.buildMenu = function(root){
 
+    const { view, state } = namespace;
+    const isMain = location.hash === '#/main';
+    const isServices = location.hash === '#/services';
+    const isAbout = location.hash === '#/about';
 
     if (!root.querySelector('.cabinet_navigator')) {
         let node = root.createElement('div');
@@ -314,9 +312,13 @@ View.buildMenu = function(root){
         about.href = '#/about';
         about.innerHTML = 'About';
 
-        if (location.hash === '#/main') View.linkPathActive(main);
-        if (location.hash === '#/services') View.linkPathActive(services);
-        if (location.hash === '#/about') View.linkPathActive(about);
+        ;
+        if (!view.needUpdate && !view.firstRender && state.checkPath()) return;
+
+
+        if (isMain) View.linkPathActive(main);
+        if (isServices) View.linkPathActive(services);
+        if (isAbout) View.linkPathActive(about);
         
         nav.appendChild(main); 
         nav.appendChild(about);
@@ -325,14 +327,16 @@ View.buildMenu = function(root){
         node.appendChild(nav);
         return node;
     } else {
+        if (state.checkPath()) return;
 
         let linkServices = root.querySelector('[data-type="services"]');
         let linkMain = root.querySelector('[data-type="main"]');
         let linkAbout = root.querySelector('[data-type="about"]');
 
-        if (location.hash === '#/main') View.linkPathActive(linkMain, 'use');
-        if (location.hash === '#/services') View.linkPathActive(linkServices, 'use');
-        if (location.hash === '#/about') View.linkPathActive(linkAbout, 'use');
+
+        if (isMain) View.linkPathActive(linkMain, 'use');
+        if (isServices) View.linkPathActive(linkServices, 'use');
+        if (isAbout) View.linkPathActive(linkAbout, 'use');
     }
 };
 

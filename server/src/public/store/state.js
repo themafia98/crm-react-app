@@ -20,7 +20,13 @@ State.prototype.getState = function(){
 State.prototype.action = function(typeAction){
     switch (typeAction){
         case 'SET_PATH': return State.locationReplacePath();
+        case "CHECK_PATH": return State.checkPath();
     }
+};
+
+State.prototype.checkPath = function(){
+    ;
+    return this.getState().path === State.locationReplacePath();
 };
 
 State.locationReplacePath = function(){
