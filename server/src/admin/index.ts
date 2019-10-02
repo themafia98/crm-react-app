@@ -1,4 +1,5 @@
 import {Request, Response, Application, NextFunction} from 'express';
+import mongodb, { Binary, MongoClient } from 'mongodb';
 import fs, {ReadStream} from 'fs';
 import path from 'path';
 import {RequestParam} from '../configCode/interface';
@@ -8,7 +9,16 @@ import multer from 'multer';
 import dotenv from 'dotenv';
 import _ from 'lodash';
 
+
+import fileUpload from 'express-fileupload';
+
 import {log} from '../logger/logModule';
+
+
+import mongoose from 'mongoose';
+import {UserModel, SessionModel} from '../configCode/schema';
+
+const binary = mongodb.Binary;
 
 export default (app:Application, corsPublic?:Object):void|Function => { 
 
@@ -99,7 +109,39 @@ export default (app:Application, corsPublic?:Object):void|Function => {
            };
        } else return void errorSender(res, 404);
     });
-    
 
+
+    app.use(fileUpload());
+    app.post('/admin/api/upload',(req:any, res:any) => {
+        const files = req.files.upload.data;
+        let file = {name: 'uploadFile', file: new binary(files) }
+
+        MongoClient.connect(process.env.MONGO_DB_CONNECT, { useNewUrlParser: true}, (err, client) => {
+            if (err) return  res.sendStatus(403);
+
+            let db = client.db('CrmData');
+            let collection = db.collection('files');
+            collection.insertOne(file);
+            client.close();
+            res.sendStatus(200);
+        });
+    });
+
+    app.get('/admin/api/download',(req:any, res:any) => {
+
+        MongoClient.connect(process.env.MONGO_DB_CONNECT, { useNewUrlParser: true}, (err, client) => {
+            if (err) return  res.sendStatus(403);
+
+            let db = client.db('CrmData');
+            let collection = db.collection('files');
+            collection.find({}).toArray((err, doc) => {
+                if (err) return res.sendStatus(403);
+                let buffer = doc[0].file.buffer;
+                fs.writeFileSync(__dirname + '/upload.xlsx', buffer);
+            });
+            client.close();
+            res.sendStatus(200);
+        });
+    });
 };
 

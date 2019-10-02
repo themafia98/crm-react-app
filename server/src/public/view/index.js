@@ -151,13 +151,58 @@ View.buildContentAbout = function(root){
         node.classList.add('col');
         node.classList.add('contentBox');
 
-        contentContainer.innerHTML = location.hash;
+        const form = root.createElement('form');
+        form.setAttribute('action', '/admin/api/upload');
+        form.setAttribute('method','POST');
+        form.setAttribute('enctype','multipart/form-data');
+  
+        let input = root.createElement('input');
+        input.setAttribute('type','file');
+        input.setAttribute('name', 'upload');
+  
+        form.appendChild(input);
+  
+        let submit = root.createElement('input');
+        submit.setAttribute('type', 'submit');
+  
+        form.appendChild(submit);
+  
+        node.appendChild(form);
+
+
+        const form2 = root.createElement('form');
+        form2.setAttribute('action', '/admin/api/download');
+        form2.setAttribute('method','GET');
+  
+        let submit2 = root.createElement('input');
+        submit2.setAttribute('type', 'submit');
+  
+        form2.appendChild(submit2);
+  
+        node.appendChild(form2);
 
         node.appendChild(contentContainer);
         view.mainContentNode = node.querySelector('.contentBox');
         return node;
     } else {
-        contentBox.innerHTML = location.hash;
+
+      const form = root.createElement('form');
+      form.setAttribute('action', '/admin/api/upload');
+      form.setAttribute('method','POST');
+      form.setAttribute('enctype','multipart/form-data');
+
+      let input = root.createElement('input');
+      input.setAttribute('type','file');
+      input.setAttribute('name', 'upload');
+
+      form.appendChild(input);
+
+      let submit = root.createElement('input');
+      submit.setAttribute('type', 'submit');
+
+      form.appendChild(submit);
+
+      contentBox.appendChild(form);
     }
 };
 
