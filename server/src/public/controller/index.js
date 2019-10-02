@@ -37,26 +37,29 @@ Controller.prototype.setMenu = function(action){
 };
 
 Controller.prototype.removeListeners = function(id = 'full', mode = false){
-    ;
     if (typeof name !== 'string') return null;
-    for (let i = 0; i < this.listenersList.length; i++){
-        const item = this.listenersList[i];
-        if (item.mode === 'once' || item.id === 'router') continue;
+    this.listenersList = this.listenersList.map (item => {
+        let isDelete = false;
+        if (item.mode === 'once' || item.id === 'router') return item;
         if (id !== 'full' && item.id === id){
-            item.target.removeEventListener(
-                item.event, item.callback, item.bubble
-            );
-            break;
-        }
-        else {
+            isDelete = true;
             item.target.removeEventListener(
                 item.event, item.callback, item.bubble
             );
         }
-    };
+        else if (id === 'full'){
+            item.target.removeEventListener(
+                item.event, item.callback, item.bubble
+            );
+        }
+        if (!isDelete) return item;
+    });
+
+    this.listenersList = this.listenersList.filter(item => item !== undefined);
 };
 
 Controller.prototype.getListener = function(id){
+    ;
     if (typeof name !== 'string') return null;
     let listener = null;
     for (let i = 0; i < this.listenersList.length; i++){
@@ -79,10 +82,14 @@ Controller.createLinks = function(listArray, list, mode = false){
            menuItem.classList.add('isSelect');
        }
         menuItem.innerHTML = item;
+
+        if (controller.getListener(i))
+        controller.removeListeners(i);
+
         controller.setListeners(i, menuItem, 'click',
         function(event){
             const target = event.target;
-            ;
+ 
             view.setContentPath(event.target.innerHTML);
             viewBuild(view, controller)(state.getState().path, 
             target.dataset.mode !== 'nav');

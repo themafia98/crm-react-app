@@ -208,13 +208,14 @@ View.buildContentServices = async (root) =>{
         view.mainContentNode = node.querySelector('.contentBox');
 
         const button = node.querySelector('.sendChangeServices');
+
         if (button && !controller.getListener('sendChangeServices')){
+
             controller.setListeners('sendChangeServices', 
             button, 'click', (event) => {
-                    
-                });
+                debugger;
+            });
         }
-
         return node;
     } else {
         contentBox.innerHTML = '';
@@ -238,11 +239,15 @@ View.buildContentServices = async (root) =>{
         inputChange && textArea ? contentBox.appendChild(inputChange) : null;
         
         const button = contentBox.querySelector('.sendChangeServices');
-        if (button && !controller.getListener('sendChangeServices')){
+        if (button){
+
+            if (controller.getListener('sendChangeServices'))
+                controller.removeListeners('sendChangeServices');
+
             controller.setListeners('sendChangeServices', 
             button, 'click', (event) => {
-                    
-                });
+                debugger;
+            });
         }
     }
 };
