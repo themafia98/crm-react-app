@@ -156,10 +156,15 @@ View.buildContentAbout = function(root){
         form.setAttribute('method','POST');
         form.setAttribute('enctype','multipart/form-data');
   
+        let name = root.createElement('input');
+        name.setAttribute('type','text');
+        name.setAttribute('name', 'nameFile');
+
         let input = root.createElement('input');
         input.setAttribute('type','file');
         input.setAttribute('name', 'upload');
   
+        form.appendChild(name);
         form.appendChild(input);
   
         let submit = root.createElement('input');
@@ -191,10 +196,15 @@ View.buildContentAbout = function(root){
       form.setAttribute('method','POST');
       form.setAttribute('enctype','multipart/form-data');
 
+      let name = root.createElement('input');
+      name.setAttribute('type','text');
+      name.setAttribute('name', 'nameFile');
+
       let input = root.createElement('input');
       input.setAttribute('type','file');
       input.setAttribute('name', 'upload');
 
+      form.appendChild(name);
       form.appendChild(input);
 
       let submit = root.createElement('input');
@@ -202,7 +212,17 @@ View.buildContentAbout = function(root){
 
       form.appendChild(submit);
 
+      const form2 = root.createElement('form');
+      form2.setAttribute('action', '/admin/api/download');
+      form2.setAttribute('method','GET');
+
+      let submit2 = root.createElement('input');
+      submit2.setAttribute('type', 'submit');
+
+      form2.appendChild(submit2);
+
       contentBox.appendChild(form);
+      contentBox.appendChild(form2);
     }
 };
 

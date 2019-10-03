@@ -5,9 +5,15 @@ export const userScheme = new Schema({
     password: String,
 });
 
+export const fileScheme = new Schema({
+    fileName: String,
+    file: Buffer
+})
+
 export const sessionScheme = new Schema({
     login: String,
 });
 
 export const UserModel = model("Admin", userScheme);
 export const SessionModel = model("Session", sessionScheme);
+export const FileModel = model('Files', fileScheme);
