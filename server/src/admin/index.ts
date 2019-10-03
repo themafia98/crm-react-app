@@ -113,18 +113,20 @@ export default (app:Application, corsPublic?:Object):void|Function => {
 
     app.use(fileUpload());
     app.post('/admin/api/upload',(req:any, res:any) => {
+        if (!req.files) return res.sendStatus(403);
         const files = req.files.upload.data;
-        let file = {name: 'uploadFile', file: new binary(files) }
+        let file = {name: req.body.nameFile:, file: new binary(files) }
+        console.log(file);
+        res.sendStatus(200);
+        // MongoClient.connect(process.env.MONGO_DB_CONNECT, { useNewUrlParser: true}, (err, client) => {
+        //     if (err) return  res.sendStatus(403);
 
-        MongoClient.connect(process.env.MONGO_DB_CONNECT, { useNewUrlParser: true}, (err, client) => {
-            if (err) return  res.sendStatus(403);
-
-            let db = client.db('CrmData');
-            let collection = db.collection('files');
-            collection.insertOne(file);
-            client.close();
-            res.sendStatus(200);
-        });
+        //     let db = client.db('CrmData');
+        //     let collection = db.collection('files');
+        //     collection.insertOne(file);
+        //     client.close();
+        //     res.sendStatus(200);
+        // });
     });
 
     app.get('/admin/api/download',(req:any, res:any) => {

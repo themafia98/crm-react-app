@@ -1,6 +1,7 @@
+import { Binary } from 'mongodb';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-import {UserModel, SessionModel} from '../configCode/schema';
+import {UserModel, FileModel} from '../configCode/schema';
 
 import {log} from '../logger/logModule';
 
@@ -38,6 +39,18 @@ namespace Database {
             return user;
         });
         return currentUser;
+    };
+
+    export const saveFile = async (fileName:string, file:Object) => {
+        if (!fileName || !file) return false;
+
+        const fileObj = new FileModel({
+            fileName: fileName,
+            file: new Binary(file)
+        });
+
+        mongoose.connect(process.env.MONGO_DB_CONNECT, {useNewUrlParser: true, useUnifiedTopology: true});
+
     };
 };
 
