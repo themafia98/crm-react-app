@@ -13,3 +13,6 @@
 {"message":"Missing credentials for \"PLAIN\" 1/ 1569274366804","level":"\u001b[31merror\u001b[39m"}
 {"message":"Missing credentials for \"PLAIN\" / 1569274388225","level":"\u001b[31merror\u001b[39m"}
 {"message":"Missing credentials for \"PLAIN\" / 1569274403379","level":"\u001b[31merror\u001b[39m"}
+{"message":"data and salt arguments required / 1570223327140","level":"\u001b[31merror\u001b[39m"}
+{"message":"data and salt arguments required / 1570223327143","level":"\u001b[31merror\u001b[39m"}
+{"message":"data and hash arguments required / 1570223327146","level":"\u001b[31merror\u001b[39m"}
