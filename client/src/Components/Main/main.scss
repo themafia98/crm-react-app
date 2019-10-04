@@ -17,6 +17,10 @@
         font-weight: bold;
         z-index: 10;
     }
+
+    &.mainDetectedScroller {
+        height: calc(90vh + 73px);
+    }
 }
 
 .blackout {
@@ -27,4 +31,7 @@
     height: 90vh;
     z-index: 1;
     background: rgba(2, 2, 2, 0.6);
+    &.mainDetectedScroller {
+        height: calc(90vh + 73px);
+    }
 }

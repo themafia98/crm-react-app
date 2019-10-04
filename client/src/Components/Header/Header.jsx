@@ -27,7 +27,10 @@ class Header extends React.PureComponent {
                ...this.state,
                fixed: eventItem.action
            });
-       }
+           const answerForMain = eventItem.action ? 'fixed' : null;
+           eventEmitter.emit(
+               'EventSetBufferForScroller',answerForMain);
+           };
     };
 
 
