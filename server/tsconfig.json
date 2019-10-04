@@ -7,7 +7,7 @@
     "outDir": "./build",   
     "rootDir": "./src",  
     "composite": true,  
-    "alwaysStrict": true,  
+    //"alwaysStrict": true,  
     "moduleResolution": "node",
     "esModuleInterop": true 
   },

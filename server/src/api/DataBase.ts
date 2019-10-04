@@ -46,7 +46,7 @@ namespace Database {
 
         const fileObj = new FileModel({
             fileName: fileName,
-            file: new Binary(file)
+            file: new Binary(<Buffer>file)
         });
 
         mongoose.connect(process.env.MONGO_DB_CONNECT, {useNewUrlParser: true, useUnifiedTopology: true});

@@ -6,6 +6,7 @@ declare module 'helmet';
 declare module 'cookie-parser';
 declare module 'express-session';
 declare module 'uuid/v1';
+declare module 'mongodb';
 declare module 'mongoose';
 declare module 'express-fileupload';
 declare module 'connect-mongo';

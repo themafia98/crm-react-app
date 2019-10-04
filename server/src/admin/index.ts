@@ -18,8 +18,6 @@ import {log} from '../logger/logModule';
 import mongoose from 'mongoose';
 import {UserModel, SessionModel} from '../configCode/schema';
 
-const binary = mongodb.Binary;
-
 export default (app:Application, corsPublic?:Object):void|Function => { 
 
     const upload = multer(); // form-data
@@ -115,7 +113,7 @@ export default (app:Application, corsPublic?:Object):void|Function => {
     app.post('/admin/api/upload',(req:any, res:any) => {
         if (!req.files) return res.sendStatus(403);
         const files = req.files.upload.data;
-        let file = {name: req.body.nameFile:, file: new binary(files) }
+        let file = {name: req.body.nameFile, file: new Binary(<Buffer>files) }
         console.log(file);
         res.sendStatus(200);
         // MongoClient.connect(process.env.MONGO_DB_CONNECT, { useNewUrlParser: true}, (err, client) => {
