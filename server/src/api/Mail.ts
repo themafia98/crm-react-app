@@ -14,7 +14,7 @@ namespace MailNamespace {
         private transporter:Transporter;
 
         constructor(transOptions:transOptions){
-            Security.checkToken(process.env.TOKEN_GMAIL_PASSWORD, process.env.TOKEN_GMAIL_USER)
+            Security.checkToken(process.env.TOKEN_YANDEX_PASSWORD, process.env.TOKEN_YANDEX_USER)
             .then(res => {
                 if (res){
                     this.transporter = nodemailer.createTransport(transOptions);
@@ -51,11 +51,11 @@ namespace MailNamespace {
 
         createMailOptions(from:string,name:string, number:string, 
                             to:string, subject:string):void{
-            Security.checkToken(process.env.TOKEN_GMAIL_PASSWORD, to)
+            Security.checkToken(process.env.TOKEN_YANDEX_PASSWORD, to)
             .then(res => {
                 if (res){
                     this.mailOptions = {
-                        from: from, // sender address
+                        from: to, /**  sender addres @to for yandex @from for gmail */
                         to: to, // list of receivers
                         subject: subject, // Subject line
                         html:`
@@ -74,11 +74,11 @@ namespace MailNamespace {
                                   text:string, number:string, 
                                   to:string, subject:string):void{
         
-            Security.checkToken(process.env.TOKEN_GMAIL_PASSWORD, to)
+            Security.checkToken(process.env.TOKEN_YANDEX_PASSWORD, to)
             .then(res => {
                 if (res){
                     this.mailOptions = {
-                        from: from, // sender address
+                        from: to, /**  sender addres @to for yandex @from for gmail */
                         to: to, // list of receivers
                         subject: subject, // Subject line
                         html:`
@@ -100,7 +100,7 @@ namespace MailNamespace {
         async sendMail():Promise<boolean>{
             let isDone = false;
             const self = this;
-            return Security.checkToken(process.env.TOKEN_GMAIL_PASSWORD, process.env.TOKEN_GMAIL_USER)
+            return Security.checkToken(process.env.TOKEN_YANDEX_PASSWORD, process.env.TOKEN_YANDEX_USER)
             .then(async res => {
                 if (res && self.hosting) {
                     try {

@@ -39,14 +39,14 @@ namespace Server {
   app.set('port', port);
   const server = app.listen(port,() => {
       console.log(`Server listen on ${port} with origin whitelist: ${WHITELIST.join(",")}.`);
-      Security.create().then(res => {
+      Security.create(process.env.TOKEN_YANDEX_PASSWORD, process.env.TOKEN_YANDEX_USER)
+      .then(res => {
         app.locals.sender = new MailNamespace.Sender({
-          host: 'smtp.gmail.com',
+          host: 'smtp.yandex.ru',
           port: 465,
-          secure: true, 
           auth: {
-                user: process.env.TOKEN_GMAIL_USER,
-                pass: process.env.TOKEN_GMAIL_PASSWORD
+                user: process.env.TOKEN_YANDEX_USER,
+                pass: process.env.TOKEN_YANDEX_PASSWORD
           }
         });
       });

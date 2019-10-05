@@ -22,7 +22,10 @@ class Header extends React.PureComponent {
     }
 
     fixed = eventItem => {
-       if (this.state.fixed !== eventItem.action){
+        const { location } = this.props;
+        console.log(location.pathname)
+        if (location.pathname === "/Contact") return;
+        if (this.state.fixed !== eventItem.action){
            this.setState({
                ...this.state,
                fixed: eventItem.action

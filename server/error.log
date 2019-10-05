@@ -16,3 +16,19 @@
 {"message":"data and salt arguments required / 1570223327140","level":"\u001b[31merror\u001b[39m"}
 {"message":"data and salt arguments required / 1570223327143","level":"\u001b[31merror\u001b[39m"}
 {"message":"data and hash arguments required / 1570223327146","level":"\u001b[31merror\u001b[39m"}
+{"message":"data and salt arguments required / 1570280145884","level":"\u001b[31merror\u001b[39m"}
+{"message":"data and salt arguments required / 1570280145892","level":"\u001b[31merror\u001b[39m"}
+{"message":"data and hash arguments required / 1570280145900","level":"\u001b[31merror\u001b[39m"}
+{"message":"data and salt arguments required / 1570280226551","level":"\u001b[31merror\u001b[39m"}
+{"message":"data and salt arguments required / 1570280226561","level":"\u001b[31merror\u001b[39m"}
+{"message":"data and hash arguments required / 1570280226570","level":"\u001b[31merror\u001b[39m"}
+{"message":"Missing credentials for \"PLAIN\" / 1570281006275","level":"\u001b[31merror\u001b[39m"}
+{"message":"Access error password / 1570281255687","level":"\u001b[31merror\u001b[39m"}
+{"message":"Access error password / 1570281353607","level":"\u001b[31merror\u001b[39m"}
+{"message":"Access error password / 1570281478510","level":"\u001b[31merror\u001b[39m"}
+{"message":"Access error password / 1570281499682","level":"\u001b[31merror\u001b[39m"}
+{"message":"Access error password / 1570281544479","level":"\u001b[31merror\u001b[39m"}
+{"message":"Mail command failed: 553 5.7.1 Sender address rejected: not owned by auth user. / 1570285059827","level":"\u001b[31merror\u001b[39m"}
+{"message":"Mail command failed: 553 5.7.1 Sender address rejected: not owned by auth user. / 1570285092078","level":"\u001b[31merror\u001b[39m"}
+{"message":"Mail command failed: 553 5.7.1 Sender address rejected: not owned by auth user. / 1570285538677","level":"\u001b[31merror\u001b[39m"}
+{"message":"Mail command failed: 553 5.7.1 Sender address rejected: not owned by auth user. / 1570285961373","level":"\u001b[31merror\u001b[39m"}

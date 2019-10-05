@@ -49,7 +49,7 @@ header.fixed{
 
 @media screen and (max-width: 650px){
     header:not(.fixed) {
-        height: 15vh;
+        height: 120px;
     }
     .header-flex {
         flex-direction: column;
@@ -79,7 +79,7 @@ header.fixed{
 
 @media screen and (max-width: 400px){
     header:not(.fixed) {
-        height: 20vh;
+        height: 22vh;
     }
     div.buffer:before {
         content: '';
