@@ -1,5 +1,5 @@
 import namespace from '../store/namespace.js';
-import {getMenu, getDataServices} from '../rest.js';
+import {getMenu, getDataServices, getCardsList} from '../rest.js';
 import Controller from '../controller/index.js';
 import State from '../store/state.js';
 
@@ -52,6 +52,126 @@ View.prototype.getListMenu = function (path){
        .catch(error => console.error(error.message));
     })
     .catch(error => console.error(error.message));
+};
+
+View.prototype.buildFormsFile = function(root, domNode){
+
+    let node = null;
+
+    !domNode ? node = root.createElement('div') : node = domNode;
+
+    let contentContainer = root.createElement('div');
+    contentContainer.classList.add('flex-wrapper');
+
+    let formBox1 = root.createElement('div');
+    formBox1.classList.add('flex-box');
+    let formBox2 = root.createElement('div');
+    formBox2.classList.add('flex-box');
+
+    if (!domNode){
+        node.classList.add('col');
+        node.classList.add('contentBox');
+    }
+
+    const form = root.createElement('form');
+    form.classList.add('uploadForm');
+    form.setAttribute('action', '/admin/api/upload');
+    form.setAttribute('method','POST');
+    form.setAttribute('enctype','multipart/form-data');
+
+    let name = root.createElement('input');
+    name.setAttribute('type','text');
+    name.setAttribute('placeholder', 'file name');
+    name.setAttribute('required', true);
+    name.setAttribute('name', 'nameFile');
+
+    let input = root.createElement('input');
+    input.setAttribute('type','file');
+    input.setAttribute('name', 'upload');
+
+    form.appendChild(name);
+    form.appendChild(input);
+
+    let submit = root.createElement('input');
+    submit.setAttribute('type', 'submit');
+
+    form.appendChild(submit);
+
+    formBox1.appendChild(form);
+    contentContainer.appendChild(formBox1);
+
+
+    const form2 = root.createElement('form');
+    form2.classList.add('downloadForm');
+    form2.setAttribute('action', '/admin/api/download');
+    form2.setAttribute('method','GET');
+
+    let name2 = root.createElement('input');
+    name2.setAttribute('type','text');
+    name2.setAttribute('placeholder', 'file name');
+    name2.setAttribute('required', true);
+    name2.setAttribute('name', 'nameFile');
+
+    let submit2 = root.createElement('input');
+    submit2.setAttribute('type', 'submit');
+    submit2.value = 'получить';
+
+    form2.appendChild(name2);
+    form2.appendChild(submit2);
+
+    formBox2.appendChild(form2);
+    contentContainer.appendChild(formBox2);
+
+    node.appendChild(contentContainer);
+
+    return node;
+}
+
+View.prototype.fill = async (component, type, root) => {
+    if (!component || !type) return;
+    const list = await getCardsList(type);
+    if (list && list.length > 1) {
+        list.forEach(item => {
+
+            let itemCard = root.createElement('li');
+            itemCard.setAttribute('data-name', item.name);
+
+            let name = root.createElement('p');
+            name.classList.add('nameCard');
+            name.innerHTML = item.name;
+            let contentCard = root.createElement('p');
+            contentCard.classList.add('contentCard');
+            contentCard.innerHTML = item.content;
+            let priceCard = root.createElement('p');
+            priceCard.classList.add('priceCard');
+            priceCard.innerHTML = item.price;
+
+            itemCard.appendChild(name);
+            itemCard.appendChild(contentCard);
+            itemCard.appendChild(priceCard);
+
+            component.appendChild(itemCard);
+        });
+        return true;
+    }
+    else if (list.length === 1) { 
+
+        let itemCard = root.createElement('li');
+
+        let name = root.createElement('p');
+        name.classList.add('nameCard');
+        let contentCard = root.createElement('p');
+        contentCard.classList.add('contentCard');
+        let priceCard = root.createElement('p');
+        priceCard.classList.add('priceCard');
+
+        itemCard.appendChild(name);
+        itemCard.appendChild(contentCard);
+        itemCard.appendChild(priceCard);
+
+        component.appendChild(itemCard);
+        return true;
+    } else return false;
 };
 
 View.linkPathActive = function(link, mode){
@@ -145,84 +265,13 @@ View.buildContentAbout = function(root){
     const { view } = namespace;
     const contentBox = root.querySelector('.contentBox');
     if (!contentBox){
-        let node = root.createElement('div');
-        let contentContainer = root.createElement('div');
-
-        node.classList.add('col');
-        node.classList.add('contentBox');
-
-        const form = root.createElement('form');
-        form.setAttribute('action', '/admin/api/upload');
-        form.setAttribute('method','POST');
-        form.setAttribute('enctype','multipart/form-data');
-  
-        let name = root.createElement('input');
-        name.setAttribute('type','text');
-        name.setAttribute('name', 'nameFile');
-
-        let input = root.createElement('input');
-        input.setAttribute('type','file');
-        input.setAttribute('name', 'upload');
-  
-        form.appendChild(name);
-        form.appendChild(input);
-  
-        let submit = root.createElement('input');
-        submit.setAttribute('type', 'submit');
-  
-        form.appendChild(submit);
-  
-        node.appendChild(form);
-
-
-        const form2 = root.createElement('form');
-        form2.setAttribute('action', '/admin/api/download');
-        form2.setAttribute('method','GET');
-  
-        let submit2 = root.createElement('input');
-        submit2.setAttribute('type', 'submit');
-  
-        form2.appendChild(submit2);
-  
-        node.appendChild(form2);
-
-        node.appendChild(contentContainer);
+        const node = view.buildFormsFile(root);
         view.mainContentNode = node.querySelector('.contentBox');
         return node;
-    } else {
-
-      const form = root.createElement('form');
-      form.setAttribute('action', '/admin/api/upload');
-      form.setAttribute('method','POST');
-      form.setAttribute('enctype','multipart/form-data');
-
-      let name = root.createElement('input');
-      name.setAttribute('type','text');
-      name.setAttribute('name', 'nameFile');
-
-      let input = root.createElement('input');
-      input.setAttribute('type','file');
-      input.setAttribute('name', 'upload');
-
-      form.appendChild(name);
-      form.appendChild(input);
-
-      let submit = root.createElement('input');
-      submit.setAttribute('type', 'submit');
-
-      form.appendChild(submit);
-
-      const form2 = root.createElement('form');
-      form2.setAttribute('action', '/admin/api/download');
-      form2.setAttribute('method','GET');
-
-      let submit2 = root.createElement('input');
-      submit2.setAttribute('type', 'submit');
-
-      form2.appendChild(submit2);
-
-      contentBox.appendChild(form);
-      contentBox.appendChild(form2);
+    } else  {
+        view.mainContentNode = contentBox;
+        view.clear(); /** @param default = part */
+        view.buildFormsFile(root, contentBox);
     }
 };
 
@@ -249,11 +298,20 @@ View.buildContentServices = async (root) =>{
 
         node.classList.add('col');
         node.classList.add('contentBox');
+        view.mainContentNode = node.querySelector('.contentBox');
 
         let servicesInformationBlock = root.createElement('div');
         servicesInformationBlock.classList.add('servicesInformationBlock');
         let menu = await View.createContentMenu(path);
         let data =  await View.createDataServices(view.getPathContext());
+
+        let title = root.createElement('p');
+        title.classList.add('titleContent');
+        title.innerHTML = 'Main content';
+
+        let titleCard = root.createElement('p');
+        titleCard.classList.add('titleContent');
+        titleCard.innerHTML = 'Cards';
 
         let textArea = root.createElement('textarea');
         textArea.classList.add('servicesTextArea');
@@ -264,11 +322,23 @@ View.buildContentServices = async (root) =>{
         inputChange.setAttribute('type', 'button');
         inputChange.value = 'Принять изменения';
 
+        let cardsList = root.createElement('ul');
+        cardsList.classList.add('cardsList');
+        const statusMountCards = await view.fill(cardsList, view.getPathContext(), root);
+
 
         menu ? node.appendChild(menu) : null;
+        node.appendChild(title);
         textArea ? node.appendChild(textArea) : null;
         contentContainer ? node.appendChild(contentContainer) : null;
         inputChange && textArea ? node.appendChild(inputChange) : null;
+
+        if (statusMountCards){
+            node.appendChild(titleCard);
+            node.appendChild(cardsList);
+        }
+
+        view.buildFormsFile(root, node);
 
         view.mainContentNode = node.querySelector('.contentBox');
 
@@ -283,11 +353,20 @@ View.buildContentServices = async (root) =>{
         }
         return node;
     } else {
-        contentBox.innerHTML = '';
 
-        
+        view.mainContentNode = root.querySelector('.contentBox');
+        view.clear();
+
         let menu = await View.createContentMenu(path);
         let data =  await View.createDataServices(view.getPathContext());
+
+        let title = root.createElement('p');
+        title.classList.add('titleContent');
+        title.innerHTML = 'Main content';
+
+        let titleCard = root.createElement('p');
+        titleCard.classList.add('titleContent');
+        titleCard.innerHTML = 'Cards';
 
         let textArea = root.createElement('textarea');
         textArea.classList.add('servicesTextArea');
@@ -297,11 +376,14 @@ View.buildContentServices = async (root) =>{
         inputChange.classList.add('sendChangeServices');
         inputChange.value = 'Принять изменения';
 
-
         menu ? contentBox.appendChild(menu) : null;
+        contentBox.appendChild(title);
         textArea ? contentBox.appendChild(textArea) : null;
         contentContainer ? contentBox.appendChild(contentContainer) : null;
         inputChange && textArea ? contentBox.appendChild(inputChange) : null;
+        contentBox.appendChild(titleCard);
+
+        view.buildFormsFile(root, contentBox);
         
         const button = contentBox.querySelector('.sendChangeServices');
         if (button){

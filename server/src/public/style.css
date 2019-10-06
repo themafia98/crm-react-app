@@ -117,6 +117,70 @@ body {
     height: 50%;
 }
 
+.cabinetAction .uploadForm, .cabinetAction .downloadForm {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.cabinetAction .uploadForm::before {
+    content: 'Upload form';
+    display: block;
+    font-weight: bold;
+}
+
+.cabinetAction .downloadForm::before {
+    content: 'Download form';
+    display: block;
+    font-weight: bold;
+}
+
+.cabinetAction .uploadForm input, .cabinetAction .downloadForm input {
+    margin: 5px;
+}
+
+.cabinetAction .cardsList {
+    display: flex;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    list-style-type: none;
+}
+
+.cabinetAction .cardsList li {
+    flex: 0 0 25%;
+    padding: 5px;
+    margin: 1px;
+    border: 1px solid black;
+}
+
+
+.cabinetAction .cardsList p {
+    margin: 0;
+    text-align: center;
+}
+
+.titleContent {
+    font-weight: bold;
+}
+
+.contentBox {
+    padding: 10px;
+    overflow: hidden;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+.flex-box {
+    flex: 0 0 50%;
+}
+
+.flex-wrapper {
+    display: flex;
+}
+
 .col {
     flex: 0 0 50%;
     height: 80vh;
