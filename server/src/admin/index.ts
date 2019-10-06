@@ -106,9 +106,9 @@ export default (app:Application, corsPublic?:Object):void|Function => {
 
     app.use(fileUpload());
     app.post('/admin/api/upload',(req:any, res:any) => {
-        if (!req.files || !req.body || !req.body.nameFile) return void errorSender(res, 404);
+        if (!req.files || !req.body || !req.body.nameFile || !req.body.format) return void errorSender(res, 404);
         const files = req.files.upload.data;
-        Database.saveFile({fileName: <string>req.body.nameFile, binary: new Binary(files)})
+        Database.saveFile({fileName: <string>req.body.nameFile,format: <string>req.body.format, binary: new Binary(files)})
         .then(response => {
             if (response) res.sendStatus(200);
             else return void errorSender(res,404);
@@ -119,22 +119,24 @@ export default (app:Application, corsPublic?:Object):void|Function => {
     app.get('/admin/api/download',(req:RequestParam, res:Response) => {
         // if (!req.body || !req.body.nameFile) return void errorSender(res, 404);
         // const { nameFile } = req.body;
-        res.setHeader('Content-disposition', 'attachment; filename=' + 'uploadFile');
         const nameFile = 'uploadFile'; /**  @file for test */
         if (nameFile){
-            Database.getFile(nameFile)
+            Database.getFile(nameFile, 'xlsx' /** @param for format, for test @param = xlsx (excel) */)
             .then(response => {
                 if (response['status']) {
-                    const buffFile:Buffer = response['fileArray'][0]['file']; 
-                    const stream = fs.createWriteStream('binaryFile');
-                    stream.on('open', () => {
-                        console.log(buffFile);
-                        stream.write(buffFile);
-                    }).on('end', () => {
-                        stream.end();
-                        let read = fs.createReadStream('binaryFile');
-                        read.pipe(res);
-                    });
+                    const format = response['format'];
+                    res.setHeader('Content-disposition', `attachment; "filename=uploadFile.${format}"`);
+                    const buffFile:Buffer|Array<Object> =  response['fileArray'].length === 1 ? 
+                                            response['fileArray'][0]['file'] : null;
+                    let arrayFiles:Array<Object>|null = null;
+                    
+                    if (!buffFile){
+                        arrayFiles = response['fileArray'].map(fileObg => {
+                            return {name: fileObg.name, file: fileObg.file};
+                        });
+                        return void res.send(JSON.stringify(arrayFiles));
+                    } else return void res.send(buffFile);
+
                 }
                 else return void errorSender(res, 404);
             });

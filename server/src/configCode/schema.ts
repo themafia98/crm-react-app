@@ -7,6 +7,7 @@ export const userScheme = new Schema({
 
 export const fileScheme = new Schema({
     fileName: String,
+    format: String,
     file: Buffer
 })
 

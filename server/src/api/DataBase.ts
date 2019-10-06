@@ -39,14 +39,15 @@ namespace Database {
         return currentUser;
     };
 
-    export const saveFile = async (file:{fileName: string, binary: any}):Promise<boolean> => {
-        const { fileName, binary } = file;
+    export const saveFile = async (file:{fileName: string,format:string, binary: any}):Promise<boolean> => {
+        const { fileName, binary, format } = file;
         let status = false;
         if (!fileName || !binary) return false;
 
         const fileObj = new FileModel({
             fileName: fileName,
-            file: binary
+            format: format,
+            file: binary,
         });
 
         mongoose.connect(process.env.MONGO_DB_CONNECT, {useNewUrlParser: true, useUnifiedTopology: true});
@@ -60,11 +61,11 @@ namespace Database {
         return status;
     };
 
-    export const getFile = async (fileName:string):Promise<Object> => {
+    export const getFile = async (fileName:string, format:string):Promise<Object> => {
         let status = false;
         let findFiles:Array<Object>|null = null;
         mongoose.connect(process.env.MONGO_DB_CONNECT, {useNewUrlParser: true, useUnifiedTopology: true});
-        await FileModel.find({name: fileName}, (err:Error, docs:Array<Object>) => {
+        await FileModel.find({name: fileName, format: format}, (err:Error, docs:Array<Object>) => {
             mongoose.disconnect();
             if (err) {  log.error(err); return void console.log(err); }
             if (docs as Array<Object> && docs.length){
@@ -73,7 +74,7 @@ namespace Database {
             }
         });
 
-        return { status: status, fileArray: findFiles};
+        return { status: status, fileArray: findFiles, format: format};
     };
 };
 
