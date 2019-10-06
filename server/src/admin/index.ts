@@ -116,50 +116,43 @@ export default (app:Application, corsPublic?:Object):void|Function => {
         .catch(err => void errorSender(res,403));
     });
 
-    app.get('/admin/api/download',(req:RequestParam, res:Response) => {
-        // if (!req.body || !req.body.nameFile) return void errorSender(res, 404);
-        // const { nameFile } = req.body;
-        const nameFile = 'uploadFile'; /**  @file for test */
+    app.post('/admin/api/download',(req:RequestParam, res:Response) => {
+        const { nameFile } = req.body;
+        //const nameFile = 'uploadFile'; /**  @file for test */
+        if (!req.body || !nameFile) return void errorSender(res, 404);
+
         if (nameFile){
             Database.getFile(nameFile, 'xlsx' /** @param for format, for test @param = xlsx (excel) */)
             .then(response => {
                 if (response['status']) {
                     const format = response['format'];
-                    res.setHeader('Content-disposition', `attachment; "filename=uploadFile.${format}"`);
+                    // res.setHeader('Content-disposition', `attachment; filename="uploadFile.${format}"`);
                     const buffFile:Buffer|Array<Object> =  response['fileArray'].length === 1 ? 
                                             response['fileArray'][0]['file'] : null;
                     let arrayFiles:Array<Object>|null = null;
-                    
+
                     if (!buffFile){
                         arrayFiles = response['fileArray'].map(fileObg => {
                             return {name: fileObg.name, file: fileObg.file};
                         });
-                        return void res.send(JSON.stringify(arrayFiles));
-                    } else return void res.send(buffFile);
+                        return void res.json({format: format, list: arrayFiles});
+                    } else return void res.json({format: format, list: arrayFiles});
 
                 }
                 else return void errorSender(res, 404);
             });
         } else return void errorSender(res, 403);
     });
+
+    app.param('typeCard', (req:RequestParam, res:Response, next:NextFunction, typeCard:string) =>{
+        req.type = typeCard;
+        next();
+    });
+    app.get('/admin/api/services/cardsList/:typeCard',(req:RequestParam, res:Response) => {
+        res.json([{name: 'card 1', content: 'card1 content', price: '99999'}, 
+        {name: 'card 1', content: 'card1 content', price: '99999'}, 
+        {name: 'card 1', content: 'card1 content', price: '99999'}]);
+    });
 };
 
-    // app.get('/admin/api/download',(req:any, res:any) => {
-
-
-        
-    //     // MongoClient.connect(process.env.MONGO_DB_CONNECT, { useNewUrlParser: true}, (err, client) => {
-    //     //     if (err) return void errorSender(res, 403);
-
-    //     //     let db = client.db('CrmData');
-    //     //     let collection = db.collection('files');
-    //     //     collection.find({}).toArray((err, doc) => {
-    //     //         if (err) return void errorSender(res, 403);
-    //     //         let buffer = doc[0].file.buffer;
-    //     //         fs.writeFileSync(__dirname + '/upload.xlsx', buffer);
-    //     //     });
-    //     //     client.close();
-    //     //     res.sendStatus(200);
-    //     // });
-    // });
 
