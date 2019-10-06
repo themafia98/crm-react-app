@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import {UserModel, FileModel} from '../configCode/schema';
 
 import {log} from '../logger/logModule';
+import { type } from 'os';
 
 namespace Database {
 
@@ -29,28 +30,50 @@ namespace Database {
         if (password) findObject['password'] = password;
 
         mongoose.connect(process.env.MONGO_DB_CONNECT, {useNewUrlParser: true, useUnifiedTopology: true});
-        await UserModel.findOne(findObject, (error:Error, user:Object) => {
+        await UserModel.findOne(findObject, (err:Error, user:Object) => {
             mongoose.disconnect();
-            if(error) {
-                log.error(error);
-                return console.error(error);
-            }
+            if (err) {  log.error(err); return void console.log(err); }
             currentUser = user;
             return user;
         });
         return currentUser;
     };
 
-    export const saveFile = async (fileName:string, file:Object) => {
-        if (!fileName || !file) return false;
+    export const saveFile = async (file:{fileName: string, binary: any}):Promise<boolean> => {
+        const { fileName, binary } = file;
+        let status = false;
+        if (!fileName || !binary) return false;
 
         const fileObj = new FileModel({
             fileName: fileName,
-            file: new Binary(<Buffer>file)
+            file: binary
         });
 
         mongoose.connect(process.env.MONGO_DB_CONNECT, {useNewUrlParser: true, useUnifiedTopology: true});
+        await fileObj.save((err:Error):void => {
+            mongoose.disconnect();
+            if (err) {  log.error(err); return void console.log(err); }
+            console.log('Save file in database');
+            status = true;
+        });
 
+        return status;
+    };
+
+    export const getFile = async (fileName:string):Promise<Object> => {
+        let status = false;
+        let findFiles:Array<Object>|null = null;
+        mongoose.connect(process.env.MONGO_DB_CONNECT, {useNewUrlParser: true, useUnifiedTopology: true});
+        await FileModel.find({name: fileName}, (err:Error, docs:Array<Object>) => {
+            mongoose.disconnect();
+            if (err) {  log.error(err); return void console.log(err); }
+            if (docs as Array<Object> && docs.length){
+                status = true;
+                findFiles = docs;
+            }
+        });
+
+        return { status: status, fileArray: findFiles};
     };
 };
 
