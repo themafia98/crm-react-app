@@ -54,7 +54,7 @@ View.prototype.getListMenu = function (path){
     .catch(error => console.error(error.message));
 };
 
-View.prototype.buildFormsFile = function(root, domNode){
+View.prototype.buildFormsFile = async (root, domNode) =>{
 
     let node = null;
 
@@ -62,6 +62,7 @@ View.prototype.buildFormsFile = function(root, domNode){
 
     let contentContainer = root.createElement('div');
     contentContainer.classList.add('flex-wrapper');
+    contentContainer.classList.add('formsFile');
 
     let formBox1 = root.createElement('div');
     formBox1.classList.add('flex-box');
@@ -131,10 +132,10 @@ View.prototype.fill = async (component, type, root) => {
     if (!component || !type) return;
     const list = await getCardsList(type);
     if (list && list.length > 1) {
-        list.forEach(item => {
+       await list.forEach(item => {
 
             let itemCard = root.createElement('li');
-            itemCard.setAttribute('data-name', item.name);
+            itemCard.setAttribute('data-id', item._id);
 
             let name = root.createElement('p');
             name.classList.add('nameCard');
@@ -146,9 +147,27 @@ View.prototype.fill = async (component, type, root) => {
             priceCard.classList.add('priceCard');
             priceCard.innerHTML = item.price;
 
+
+            let controllersCardWrapper = root.createElement('div');
+            controllersCardWrapper.classList.add('controllersCardWrapper');
+
+            let editButton = root.createElement('input');
+            editButton.setAttribute('type', 'button');
+            editButton.setAttribute('value', 'Edit');
+            editButton.classList.add('editButton_card');
+
+            let deleteButton = root.createElement('input');
+            deleteButton.setAttribute('type', 'button');
+            deleteButton.setAttribute('value', 'Delete');
+            deleteButton.classList.add('deleteButton_card');
+
+            controllersCardWrapper.appendChild(editButton);
+            controllersCardWrapper.appendChild(deleteButton);
+
             itemCard.appendChild(name);
             itemCard.appendChild(contentCard);
             itemCard.appendChild(priceCard);
+            itemCard.appendChild(controllersCardWrapper);
 
             component.appendChild(itemCard);
         });
@@ -281,7 +300,6 @@ View.createDataServices = async (path) => {
     view.renderLoader();
     const data = await getDataServices(path)
     .catch(error => console.error(error.message));
-    view.loader.remove();
     return data;
 };
 
@@ -324,8 +342,10 @@ View.buildContentServices = async (root) =>{
 
         let cardsList = root.createElement('ul');
         cardsList.classList.add('cardsList');
-        const statusMountCards = await view.fill(cardsList, view.getPathContext(), root);
 
+
+        const statusMountCards = await view.fill(cardsList, view.getPathContext(), root)
+        .then((status) => { view.removeLoader(); return status; });
 
         menu ? node.appendChild(menu) : null;
         node.appendChild(title);
@@ -338,7 +358,7 @@ View.buildContentServices = async (root) =>{
             node.appendChild(cardsList);
         }
 
-        view.buildFormsFile(root, node);
+        await view.buildFormsFile(root, node);
 
         view.mainContentNode = node.querySelector('.contentBox');
 
@@ -376,14 +396,28 @@ View.buildContentServices = async (root) =>{
         inputChange.classList.add('sendChangeServices');
         inputChange.value = 'Принять изменения';
 
+        
+        let cardsList = root.createElement('ul');
+        cardsList.classList.add('cardsList');
+
+
+        const statusMountCards = await view.fill(cardsList, view.getPathContext(), root)
+        .then((status) => { view.removeLoader(); return status; });
+
+
         menu ? contentBox.appendChild(menu) : null;
         contentBox.appendChild(title);
         textArea ? contentBox.appendChild(textArea) : null;
         contentContainer ? contentBox.appendChild(contentContainer) : null;
         inputChange && textArea ? contentBox.appendChild(inputChange) : null;
-        contentBox.appendChild(titleCard);
 
-        view.buildFormsFile(root, contentBox);
+        if (statusMountCards){
+            contentBox.appendChild(titleCard);
+            contentBox.appendChild(cardsList);
+        }
+
+        await view.buildFormsFile(root, contentBox)
+        .then(() => view.removeLoader())
         
         const button = contentBox.querySelector('.sendChangeServices');
         if (button){
@@ -413,22 +447,22 @@ View.prototype.parseMenu = function(root){
     return menuContentBlock;
 };
 
-View.prototype.renderLoader = function(){
+View.prototype.renderLoader = function(loc = this.root){
 
     if (this.loaderHTML){
         this.loaderHTML.classList.add('loader');
-        this.root.appendChild(this.loaderHTML);
+        loc.appendChild(this.loaderHTML);
         this.loader = this.root.querySelector('.loader');
     } else {
         const loader = namespace.controller.root.createElement('p');
         loader.innerHTML = 'loading...';
         loader.classList.add('loader');
-        root.appendChild(loader);
+        loc.appendChild(loader);
         loader = this.root.querySelector('.loader');
     }
 };
 
-View.prototype.removeLoader = function(){
+View.prototype.removeLoader = function(loc){
     if (this.loader) this.loader.remove();
     else {
         const loaderHTML =  this.root.querySelector('.loader');
@@ -474,7 +508,7 @@ View.buildMenu = function(root){
         let node = root.createElement('div');
         let nav = root.createElement('nav');
         nav.classList.add('cabinet_navigator');
-        node.classList.add('col');
+        node.classList.add('col-menu');
 
         let main = root.createElement('a');
         main.classList.add('cabinetAction__link');

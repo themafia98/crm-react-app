@@ -28,7 +28,8 @@ namespace Database {
         if (login) findObject['login'] = login;
         if (password) findObject['password'] = password;
 
-        const connect = await mongoose.connect(process.env.MONGO_DB_CONNECT, {useNewUrlParser: true, useUnifiedTopology: true});
+        const connect = await mongoose.connect(process.env.MONGO_DB_CONNECT, {useNewUrlParser: true, useUnifiedTopology: true})
+        .catch(err => {  log.error(err); return void console.log(err); });
         await UserModel.findOne(findObject, (err:Error, user:Object) => {
             if (connect) connect.disconnect();
             if (err) {  log.error(err); return void console.log(err); }
@@ -49,7 +50,9 @@ namespace Database {
             file: binary,
         });
 
-        const connect = await mongoose.connect(process.env.MONGO_DB_CONNECT, {useNewUrlParser: true, useUnifiedTopology: true});
+        const connect = await mongoose.connect(process.env.MONGO_DB_CONNECT, {useNewUrlParser: true, useUnifiedTopology: true})
+        .catch(err => {  log.error(err); return void console.log(err); });
+
         await fileObj.save((err:Error):void => {
             if (connect) connect.disconnect();
             if (err) {  log.error(err); return void console.log(err); }
@@ -63,7 +66,9 @@ namespace Database {
     export const getCards = async (type:string):Promise<Array<Object>> => {
         let result = [];
         try {
-            const connect = await mongoose.connect(process.env.MONGO_DB_CONNECT, {useNewUrlParser: true, useUnifiedTopology: true});
+            const connect = await mongoose.connect(process.env.MONGO_DB_CONNECT, {useNewUrlParser: true, useUnifiedTopology: true})
+            .catch(err => {  log.error(err); return void console.log(err); });
+
             return await CardsModel.find({type: type}, (err:Error, docs:Array<Object>) => {
             if (connect) connect.disconnect();
                 if (err) {  log.error(err); return void console.log(err); }
@@ -84,7 +89,9 @@ namespace Database {
     export const getFile = async (fileName:string, format:string):Promise<Object> => {
         let status = false;
         let findFiles:Array<Object>|null = null;
-        const connect = await mongoose.connect(process.env.MONGO_DB_CONNECT, {useNewUrlParser: true, useUnifiedTopology: true});
+        const connect = await mongoose.connect(process.env.MONGO_DB_CONNECT, {useNewUrlParser: true, useUnifiedTopology: true})
+        .catch(err => {  log.error(err); return void console.log(err); });
+        
         await FileModel.find({name: fileName, format: format}, (err:Error, docs:Array<Object>) => {
             if (connect) connect.disconnect();
             if (err) {  log.error(err); return void console.log(err); }

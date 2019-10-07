@@ -1,6 +1,6 @@
 import {Request, Response, Application, NextFunction} from 'express';
 import fileUpload from 'express-fileupload';
-import { Binary, MongoClient } from 'mongodb';
+import { Binary } from 'mongodb';
 import fs, {ReadStream} from 'fs';
 import path from 'path';
 import {RequestParam} from '../configCode/interface';
@@ -149,9 +149,15 @@ export default (app:Application, corsPublic?:Object):void|Function => {
         next();
     });
     app.get('/admin/api/services/cardsList/:typeCard',(req:RequestParam, res:Response) => {
-        res.json([{name: 'card 1', content: 'card1 content', price: '99999'}, 
-        {name: 'card 1', content: 'card1 content', price: '99999'}, 
-        {name: 'card 1', content: 'card1 content', price: '99999'}]);
+        if (!req.type) return void errorSender(res,403);
+
+        Database.getCards(req['type'])
+        .then(list => {
+            if (list && list.length > 0){
+              return res.json(list);
+            } else return void errorSender(res, 404);
+        })
+          .catch(err =>  { log.error(err); return void errorSender(res, 404); });
     });
 };
 
