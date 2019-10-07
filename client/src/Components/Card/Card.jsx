@@ -3,17 +3,18 @@ import PropTypes from 'prop-types';
 
 import './card.scss';
 
-const Card = ({mode}) => {
+const Card = ({mode, content, name,price, _id}) => {
+    if (!content, !name, !price, !_id) return null;
     return (
-        <div key = 'Card' className = 'Card'>
-            <p className ='Card__title'>SIP Install</p>
+        <div key = {`Card ${_id}`} className = 'Card'>
+            <p className ='Card__title'>{name}</p>
             <p className = 'Card__content'>
-                Подключение SIP телефонии и настройка виртуальной АТС под задачу клиента
+            {content}
             </p>
             <p className = 'Card__priceName'>
                 Цена:&nbsp;
                 <span key = {`price${mode}`} className = 'Card__priceCard'> 
-                    999999 $
+                    {price}
                 </span>
             </p>
         </div>

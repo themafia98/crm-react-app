@@ -1,4 +1,5 @@
 import React,{Fragment} from 'react';
+import Loader from '../../Components/Loader/Loader';
 import PropTypes from 'prop-types';
 import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
@@ -32,6 +33,7 @@ class Price extends React.PureComponent {
     }
 
     render(){
+        const { cards: { storeCards } = null, errorServer } = this.props;
         return (
             <Fragment>
                 <Header go = {true} />
@@ -39,8 +41,11 @@ class Price extends React.PureComponent {
                     <div className = 'container'>
                         <div className = 'priceWrapperContent'>
                             <input className = 'goBack_button' type = 'button' value = 'назад' onClick = {this.goBack} />
-                            {
+                            { !errorServer && storeCards['length'] ?
                                 <PriceContent cards = {this.props.cards}  mode = {this.state.mode} />
+                                : !errorServer ?
+                                <Loader loaderClass = 'loaderServicesList' />
+                                : <PriceContent cards = {{}} errorServer = {errorServer} />
                             }
                         </div>
                     </div>
@@ -53,13 +58,14 @@ class Price extends React.PureComponent {
 
     componentDidMount = () => {
         const {loadCards} = this.props;
-        if (!this.props.cards.type) loadCards(this.state.mode);
+        loadCards(this.state.mode);
     };
 }
 
 const mapStateFromProps = ({services}) => {
     return {
         cards: services.cards,
+        errorServer: services.error,
     }
 };
 

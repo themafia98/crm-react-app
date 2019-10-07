@@ -1,4 +1,4 @@
-import {updateServicesType, loadPriceCards} from '../actions/servicesActions';
+import {updateServicesType, loadPriceCards, errorSetter} from '../actions/servicesActions';
 import AJAX from '../../Utils/Utils';
 
 const loadMiddlewareServices = (action) => async (dispatch) => {
@@ -46,10 +46,10 @@ const loadMiddlewarePriceCardsServices = (action) => async (dispatch) => {
         .then(cards =>{
             dispatch(loadPriceCards({
                 type: action,
-                cards: cards[action]
+                cards: [...cards]
             }));
         })
-        .catch(error => console.error(error.message));
+        .catch(error => { console.error(error.message); return dispatch(errorSetter(error.message)) });
         return true;
 };
 

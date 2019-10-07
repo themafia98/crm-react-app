@@ -6,13 +6,18 @@ import './content.scss';
 class PriceContent extends React.PureComponent {
 
     buildCard(cards){
+        const { errorServer } = this.props;
         if (cards.type){
             return cards.storeCards.map((it,i) => {
                 return (
                 <Card 
-                    key = {i} 
-                    mode = {cards.type}
-                    content = {it}
+                    key = {i + it['_id']} 
+                    _id = {it['_id']}
+                    mode = {cards.type ? cards.type : null}
+                    content = {it.content ? it.content : null}
+                    name = {it.name ? it.name : null}
+                    price = {it.price ? it.price : null}
+
                 />
                 )
             });
@@ -20,7 +25,7 @@ class PriceContent extends React.PureComponent {
             <div 
                 key = 'nonePrice' 
                 className = 'PriceContent nonePrice'>
-                    Прайс-лист не найден.
+                    Прайс-лист не найден. {/* {errorServer ? `Ошибка: ${errorServer}` : null} */}
             </div>
         )
     }

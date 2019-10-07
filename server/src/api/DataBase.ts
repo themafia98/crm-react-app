@@ -1,10 +1,9 @@
 import { Binary } from 'mongodb';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-import {UserModel, FileModel} from '../configCode/schema';
+import {UserModel, FileModel, CardsModel} from '../configCode/schema';
 
 import {log} from '../logger/logModule';
-import { type } from 'os';
 
 namespace Database {
 
@@ -29,9 +28,9 @@ namespace Database {
         if (login) findObject['login'] = login;
         if (password) findObject['password'] = password;
 
-        mongoose.connect(process.env.MONGO_DB_CONNECT, {useNewUrlParser: true, useUnifiedTopology: true});
+        const connect = await mongoose.connect(process.env.MONGO_DB_CONNECT, {useNewUrlParser: true, useUnifiedTopology: true});
         await UserModel.findOne(findObject, (err:Error, user:Object) => {
-            mongoose.disconnect();
+            if (connect) connect.disconnect();
             if (err) {  log.error(err); return void console.log(err); }
             currentUser = user;
             return user;
@@ -50,9 +49,9 @@ namespace Database {
             file: binary,
         });
 
-        mongoose.connect(process.env.MONGO_DB_CONNECT, {useNewUrlParser: true, useUnifiedTopology: true});
+        const connect = await mongoose.connect(process.env.MONGO_DB_CONNECT, {useNewUrlParser: true, useUnifiedTopology: true});
         await fileObj.save((err:Error):void => {
-            mongoose.disconnect();
+            if (connect) connect.disconnect();
             if (err) {  log.error(err); return void console.log(err); }
             console.log('Save file in database');
             status = true;
@@ -61,12 +60,33 @@ namespace Database {
         return status;
     };
 
+    export const getCards = async (type:string):Promise<Array<Object>> => {
+        let result = [];
+        try {
+            const connect = await mongoose.connect(process.env.MONGO_DB_CONNECT, {useNewUrlParser: true, useUnifiedTopology: true});
+            return await CardsModel.find({type: type}, (err:Error, docs:Array<Object>) => {
+            if (connect) connect.disconnect();
+                if (err) {  log.error(err); return void console.log(err); }
+                if (docs as Array<Object> && docs.length){
+                    result = docs.map(card => {
+                        return {id: card['_id'] + '', name: card['name'], content: card['content'], price: card['price']};
+                    });
+                    return true;
+                } else return [{id: docs['_id'] + '', name: docs['name'], content: docs['content'], price: docs['price']}];
+            });
+        }
+        catch(err) {
+            log.error(err); 
+            return void console.log(err);
+        }
+    };
+
     export const getFile = async (fileName:string, format:string):Promise<Object> => {
         let status = false;
         let findFiles:Array<Object>|null = null;
-        mongoose.connect(process.env.MONGO_DB_CONNECT, {useNewUrlParser: true, useUnifiedTopology: true});
+        const connect = await mongoose.connect(process.env.MONGO_DB_CONNECT, {useNewUrlParser: true, useUnifiedTopology: true});
         await FileModel.find({name: fileName, format: format}, (err:Error, docs:Array<Object>) => {
-            mongoose.disconnect();
+            if (connect) connect.disconnect();
             if (err) {  log.error(err); return void console.log(err); }
             if (docs as Array<Object> && docs.length){
                 status = true;

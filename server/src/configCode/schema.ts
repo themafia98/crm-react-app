@@ -15,6 +15,14 @@ export const sessionScheme = new Schema({
     login: String,
 });
 
+export const cardsScheme = new Schema({
+    type: String,
+    name: String,
+    content: String,
+    price: String,
+});
+
 export const UserModel = model("Admin", userScheme);
 export const SessionModel = model("Session", sessionScheme);
 export const FileModel = model('Files', fileScheme);
+export const CardsModel = model('Cards', cardsScheme);
