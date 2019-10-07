@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import {UserModel, FileModel, CardsModel} from '../configCode/schema';
 
-import {log} from '../logger/logModule';
+import {log, debug} from '../logger/logModule';
 
 namespace Database {
 
@@ -56,7 +56,7 @@ namespace Database {
         await fileObj.save((err:Error):void => {
             if (connect) connect.disconnect();
             if (err) {  log.error(err); return void console.log(err); }
-            console.log('Save file in database');
+            debug.info('Save file in database.', fileObj);
             status = true;
         });
 
@@ -76,8 +76,14 @@ namespace Database {
                     result = docs.map(card => {
                         return {id: card['_id'] + '', name: card['name'], content: card['content'], price: card['price']};
                     });
+                    debug.info(`Find cards array.`, result);
                     return true;
-                } else return [{id: docs['_id'] + '', name: docs['name'], content: docs['content'], price: docs['price']}];
+                } else { 
+                    debug.info(`Find card.`, result);
+                    return [
+                        {id: docs['_id'] + '', name: docs['name'], content: docs['content'], price: docs['price']}
+                    ];
+                }
             });
         }
         catch(err) {
@@ -85,6 +91,25 @@ namespace Database {
             return void console.log(err);
         }
     };
+
+    export const putCard = async (type:string, name:string, content:string, price:string):Promise<boolean> =>{
+        try {
+            let answer = true;
+            const connect = await mongoose.connect(process.env.MONGO_DB_CONNECT, {useNewUrlParser: true, useUnifiedTopology: true})
+            .catch(err => {  log.error(err); return void console.log(err); });
+
+            await CardsModel.create({type: type, name: name, content: content, price: price}, (err:Error, doc:Object) => {
+                if (connect) connect.disconnect();
+                if (err){  log.error(err); return void console.log(err); }
+                debug.info(`Create new card.`, doc);
+                return answer;
+            });
+            return answer;
+        } catch(err){
+            log.error(err); 
+            return void console.log(err);
+        }
+    }
 
     export const getFile = async (fileName:string, format:string):Promise<Object> => {
         let status = false;
@@ -98,6 +123,7 @@ namespace Database {
             if (docs as Array<Object> && docs.length){
                 status = true;
                 findFiles = docs;
+                debug.info(`Find fiels.`, findFiles);
             }
         });
 

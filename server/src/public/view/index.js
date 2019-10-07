@@ -1,5 +1,5 @@
 import namespace from '../store/namespace.js';
-import {getMenu, getDataServices, getCardsList} from '../rest.js';
+import {getMenu, getDataServices, getCardsList, putCard} from '../rest.js';
 import Controller from '../controller/index.js';
 import State from '../store/state.js';
 
@@ -127,6 +127,66 @@ View.prototype.buildFormsFile = async (root, domNode) =>{
 
     return node;
 }
+
+View.prototype.createCardsForm = (node, root) => {
+
+    const { controller, view } = namespace;
+    const button = node.querySelector('.submitNewCardAdd');
+
+    const form = root.createElement('form');
+    form.classList.add('FormCardsAdd');
+    form.setAttribute('name','FormCardsAdd');
+    const type = root.createElement('input');
+    type.setAttribute('type', 'input');
+    type.setAttribute('name', 'type');
+    type.setAttribute('value', view.getPathContext().replace('/',''));
+    type.setAttribute('disabled', true);
+    type.setAttribute('placeholder', 'type');
+
+    const name = root.createElement('input');
+    name.setAttribute('type', 'input');
+    name.setAttribute('name', 'name');
+    name.setAttribute('placeholder', 'name');
+
+    const content = root.createElement('input');
+    content.setAttribute('type', 'input');
+    content.setAttribute('name', 'content');
+    content.setAttribute('placeholder', 'content');
+
+    const price = root.createElement('input');
+    price.setAttribute('type', 'input');
+    price.setAttribute('name', 'price');
+    price.setAttribute('placeholder', 'price');
+
+    const submit = root.createElement('input');
+    submit.classList.add('submitNewCardAdd');
+    submit.setAttribute('type', 'button');
+    submit.setAttribute('value', 'Добавить карту');
+
+    if (button){
+        if (controller.getListener('EventNewCard'))
+            controller.removeListeners('EventNewCard');
+
+        controller.setListeners('EventNewCard', 
+        button, 'click', (event) => {
+            putCard(new FormData(controller.root.forms.FormCardsAdd));
+        });
+    } else {
+        controller.setListeners('EventNewCard', 
+        submit, 'click', (event) => {
+            putCard(new FormData(controller.root.forms.FormCardsAdd));
+        });
+    }
+
+
+    form.appendChild(type);
+    form.appendChild(name);
+    form.appendChild(content);
+    form.appendChild(price);
+    form.appendChild(submit);
+
+    node.appendChild(form);
+};
 
 View.prototype.fill = async (component, type, root) => {
     if (!component || !type) return;
@@ -303,6 +363,7 @@ View.createDataServices = async (path) => {
     return data;
 };
 
+
 View.buildContentServices = async (root) =>{
 
     const { view, state, controller } = namespace;
@@ -342,7 +403,7 @@ View.buildContentServices = async (root) =>{
 
         let cardsList = root.createElement('ul');
         cardsList.classList.add('cardsList');
-
+        
 
         const statusMountCards = await view.fill(cardsList, view.getPathContext(), root)
         .then((status) => { view.removeLoader(); return status; });
@@ -352,6 +413,8 @@ View.buildContentServices = async (root) =>{
         textArea ? node.appendChild(textArea) : null;
         contentContainer ? node.appendChild(contentContainer) : null;
         inputChange && textArea ? node.appendChild(inputChange) : null;
+
+        view.createCardsForm(node, root);
 
         if (statusMountCards){
             node.appendChild(titleCard);
@@ -410,6 +473,9 @@ View.buildContentServices = async (root) =>{
         textArea ? contentBox.appendChild(textArea) : null;
         contentContainer ? contentBox.appendChild(contentContainer) : null;
         inputChange && textArea ? contentBox.appendChild(inputChange) : null;
+
+
+        view.createCardsForm(contentBox, root);
 
         if (statusMountCards){
             contentBox.appendChild(titleCard);

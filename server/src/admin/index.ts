@@ -37,7 +37,7 @@ export default (app:Application, corsPublic?:Object):void|Function => {
                     return res.redirect(200, '/admin/cabinet');
                 } else return void errorSender(res, 403);
             });
-        }  else return void errorSender(res, 403);
+        }  else return void errorSender(res, 501);
     });
 
      app.use('/admin',(req:Request, res:Response, next:NextFunction) => {
@@ -90,7 +90,7 @@ export default (app:Application, corsPublic?:Object):void|Function => {
 
           service.on('error', (error:Error) => {
             log.error(error.message);
-            errorSender(res, 404);
+            errorSender(res, 501);
           });
 
       });
@@ -113,7 +113,7 @@ export default (app:Application, corsPublic?:Object):void|Function => {
             if (response) res.sendStatus(200);
             else return void errorSender(res,404);
         })
-        .catch(err => void errorSender(res,403));
+        .catch(err => void errorSender(res,501));
     });
 
     app.post('/admin/api/download',(req:RequestParam, res:Response) => {
@@ -126,7 +126,7 @@ export default (app:Application, corsPublic?:Object):void|Function => {
             .then(response => {
                 if (response['status']) {
                     const format = response['format'];
-                    // res.setHeader('Content-disposition', `attachment; filename="uploadFile.${format}"`);
+                    res.setHeader('Content-disposition', `attachment; filename="uploadFile.${format}"`);
                     const buffFile:Buffer|Array<Object> =  response['fileArray'].length === 1 ? 
                                             response['fileArray'][0]['file'] : null;
                     let arrayFiles:Array<Object>|null = null;
@@ -141,7 +141,7 @@ export default (app:Application, corsPublic?:Object):void|Function => {
                 }
                 else return void errorSender(res, 404);
             });
-        } else return void errorSender(res, 403);
+        } else return void errorSender(res, 501);
     });
 
     app.param('typeCard', (req:RequestParam, res:Response, next:NextFunction, typeCard:string) =>{
@@ -157,7 +157,24 @@ export default (app:Application, corsPublic?:Object):void|Function => {
               return res.json(list);
             } else return void errorSender(res, 404);
         })
-          .catch(err =>  { log.error(err); return void errorSender(res, 404); });
+          .catch(err =>  { log.error(err); return void errorSender(res, 501); });
+    });
+
+    app.put('/admin/api/putCard',(req:RequestParam, res:Response) => {
+        try {
+            console.log(req.body);
+            const { name, type, content, price } = req.body;
+            if (!req.body || !name || !type || !content || !price) return void errorSender(res, 404);
+
+            Database.putCard(type, name, content, price)
+            .then(response => {
+                console.log(response);
+                if (response){
+                return res.sendStatus(200);
+                } else return void errorSender(res, 403);
+            })
+            .catch(err =>  { log.error(err); return void errorSender(res, 501); });
+        } catch (err)  { log.error(err); return void errorSender(res, 501); };
     });
 };
 

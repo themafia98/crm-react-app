@@ -59,3 +59,21 @@ export const getMenu = async (path) => {
         AJAX.send(JSON.stringify({path: path}));
     });
 };
+
+export const putCard = async(formData) =>{
+    return new Promise(function(resolve, reject){
+    let AJAX = new XMLHttpRequest();
+    AJAX.open('PUT', "/admin/api/putCard");
+    AJAX.onload = function(){
+        if (this.status === 200)
+            resolve(this.status);
+        else {
+            let error = new Error(this.statusText);
+            reject(error);
+        }       
+    };
+    
+    AJAX.onerror = () => reject(new Error('Requst send error'));
+    AJAX.send(formData);
+});
+}
