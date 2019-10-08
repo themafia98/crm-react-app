@@ -16,3 +16,11 @@ export interface RequestParam extends Request {
     files?:any,
     session?: any,
 }
+
+export interface Card {
+    _id:string,
+    type:string, 
+    name:string,
+     content:string, 
+     price:string
+}

@@ -1,5 +1,5 @@
 import namespace from '../store/namespace.js';
-import {getMenu, getDataServices, getCardsList, putCard} from '../rest.js';
+import {getMenu, getDataServices, getCardsList, putCard, deleteCard} from '../rest.js';
 import Controller from '../controller/index.js';
 import State from '../store/state.js';
 
@@ -140,7 +140,6 @@ View.prototype.createCardsForm = (node, root) => {
     type.setAttribute('type', 'input');
     type.setAttribute('name', 'type');
     type.setAttribute('value', view.getPathContext().replace('/',''));
-    type.setAttribute('disabled', true);
     type.setAttribute('placeholder', 'type');
 
     const name = root.createElement('input');
@@ -169,12 +168,29 @@ View.prototype.createCardsForm = (node, root) => {
 
         controller.setListeners('EventNewCard', 
         button, 'click', (event) => {
-            putCard(new FormData(controller.root.forms.FormCardsAdd));
+            const nodeWrapper = root.querySelector('.cardsList');
+            const formData = new FormData(controller.root.forms.FormCardsAdd);
+            const item = {};
+            for (let key of formData.keys()) {
+                let val = formData.get(key);
+                item[key] = val;
+             }
+             console.log(item);
+            putCard(item, formData, nodeWrapper, view.InsertOnceCard.bind(view));
         });
     } else {
         controller.setListeners('EventNewCard', 
         submit, 'click', (event) => {
-            putCard(new FormData(controller.root.forms.FormCardsAdd));
+            const nodeWrapper = root.querySelector('.cardsList');
+            const formData = new FormData(controller.root.forms.FormCardsAdd);
+            const item = {};
+            for (let key of formData.keys()) {
+                let val = formData.get(key);
+                item[key] = val;
+             }
+             console.log(item);
+
+            putCard(item, formData, nodeWrapper, view.InsertOnceCard.bind(view));
         });
     }
 
@@ -190,10 +206,12 @@ View.prototype.createCardsForm = (node, root) => {
 
 View.prototype.fill = async (component, type, root) => {
     if (!component || !type) return;
+    const { controller } = namespace;
     const list = await getCardsList(type);
-    if (list && list.length > 1) {
+    if (list) {
        await list.forEach(item => {
 
+            const button = root.querySelector(`cardDelete${item._id}`);
             let itemCard = root.createElement('li');
             itemCard.setAttribute('data-id', item._id);
 
@@ -208,18 +226,43 @@ View.prototype.fill = async (component, type, root) => {
             priceCard.innerHTML = item.price;
 
 
-            let controllersCardWrapper = root.createElement('div');
+            let controllersCardWrapper = root.createElement('form');
+            controllersCardWrapper.setAttribute('name', 'controllersCardWrapper');
             controllersCardWrapper.classList.add('controllersCardWrapper');
 
             let editButton = root.createElement('input');
             editButton.setAttribute('type', 'button');
             editButton.setAttribute('value', 'Edit');
             editButton.classList.add('editButton_card');
+            editButton.classList.add(`cardEdit${item._id}`);
 
             let deleteButton = root.createElement('input');
             deleteButton.setAttribute('type', 'button');
             deleteButton.setAttribute('value', 'Delete');
             deleteButton.classList.add('deleteButton_card');
+            deleteButton.classList.add(`cardDelete${item._id}`);
+
+            if (button){
+                if (controller.getListener('EventDeleteCard'))
+                    controller.removeListeners('EventDeleteCard');
+        
+                controller.setListeners('EventDeleteCard', 
+                button, 'click', (event) => {
+                    
+                    const _id = event.currentTarget.parentNode.parentNode.dataset['id'];
+                    if (_id)
+                        deleteCard({_id: _id}, event.currentTarget.parentNode.parentNode);
+                        
+                });
+            } else {
+                controller.setListeners('EventDeleteCard', 
+                deleteButton, 'click', (event) => {
+                    const _id = event.currentTarget.parentNode.parentNode.dataset['id'];
+                    if (_id) 
+                        deleteCard({_id: _id}, event.currentTarget.parentNode.parentNode);
+                });
+            }
+
 
             controllersCardWrapper.appendChild(editButton);
             controllersCardWrapper.appendChild(deleteButton);
@@ -233,24 +276,59 @@ View.prototype.fill = async (component, type, root) => {
         });
         return true;
     }
-    else if (list.length === 1) { 
+};
 
-        let itemCard = root.createElement('li');
+View.prototype.InsertOnceCard = function(node, item){
 
-        let name = root.createElement('p');
-        name.classList.add('nameCard');
-        let contentCard = root.createElement('p');
-        contentCard.classList.add('contentCard');
-        let priceCard = root.createElement('p');
-        priceCard.classList.add('priceCard');
+    const {controller, controller: { root } } = namespace;
 
-        itemCard.appendChild(name);
-        itemCard.appendChild(contentCard);
-        itemCard.appendChild(priceCard);
+    let itemCard = root.createElement('li');
 
-        component.appendChild(itemCard);
-        return true;
-    } else return false;
+    if (item._id) itemCard.setAttribute('data-id', item._id);
+
+    let name = root.createElement('p');
+    name.classList.add('nameCard');
+    name.innerHTML = item.name;
+    let contentCard = root.createElement('p');
+    contentCard.classList.add('contentCard');
+    contentCard.innerHTML = item.content;
+    let priceCard = root.createElement('p');
+    priceCard.classList.add('priceCard');
+    priceCard.innerHTML = item.price;
+
+
+    let controllersCardWrapper = root.createElement('form');
+    controllersCardWrapper.setAttribute('name', 'controllersCardWrapper');
+    controllersCardWrapper.classList.add('controllersCardWrapper');
+
+    let editButton = root.createElement('input');
+    editButton.setAttribute('type', 'button');
+    editButton.setAttribute('value', 'Edit');
+    editButton.classList.add('editButton_card');
+    if (item._id) deleteButton.classList.add(`cardEdit${item._id}`);
+
+    let deleteButton = root.createElement('input');
+    deleteButton.setAttribute('type', 'button');
+    deleteButton.setAttribute('value', 'Delete');
+    deleteButton.classList.add('deleteButton_card');
+    if (item._id) deleteButton.classList.add(`cardDelete${item._id}`);
+
+     controller.setListeners('EventDeleteCard', 
+        deleteButton, 'click', (event) => {
+            const _id = event.currentTarget.parentNode.parentNode.dataset['id'];
+            if (_id) 
+                deleteCard({_id: _id}, event.currentTarget.parentNode.parentNode);
+    });
+
+    controllersCardWrapper.appendChild(editButton);
+    controllersCardWrapper.appendChild(deleteButton);
+
+    itemCard.appendChild(name);
+    itemCard.appendChild(contentCard);
+    itemCard.appendChild(priceCard);
+    itemCard.appendChild(controllersCardWrapper);
+
+    node.appendChild(itemCard);
 };
 
 View.linkPathActive = function(link, mode){
@@ -431,7 +509,7 @@ View.buildContentServices = async (root) =>{
 
             controller.setListeners('sendChangeServices', 
             button, 'click', (event) => {
-                debugger;
+                
             });
         }
         return node;
@@ -493,7 +571,7 @@ View.buildContentServices = async (root) =>{
 
             controller.setListeners('sendChangeServices', 
             button, 'click', (event) => {
-                debugger;
+                
             });
         }
     }

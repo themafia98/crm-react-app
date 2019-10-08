@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import {UserModel, FileModel, CardsModel} from '../configCode/schema';
 
+import {Card} from '../configCode/interface';
 import {log, debug} from '../logger/logModule';
 
 namespace Database {
@@ -30,8 +31,8 @@ namespace Database {
 
         const connect = await mongoose.connect(process.env.MONGO_DB_CONNECT, {useNewUrlParser: true, useUnifiedTopology: true})
         .catch(err => {  log.error(err); return void console.log(err); });
-        await UserModel.findOne(findObject, (err:Error, user:Object) => {
-            if (connect) connect.disconnect();
+        await UserModel.findOne(findObject, (err:Error, user:Card) => {
+            if (connect) connect.disconnect().catch(err => {  log.error(err); });
             if (err) {  log.error(err); return void console.log(err); }
             currentUser = user;
             return user;
@@ -54,7 +55,7 @@ namespace Database {
         .catch(err => {  log.error(err); return void console.log(err); });
 
         await fileObj.save((err:Error):void => {
-            if (connect) connect.disconnect();
+            if (connect) connect.disconnect().catch(err => {  log.error(err); });
             if (err) {  log.error(err); return void console.log(err); }
             debug.info('Save file in database.', fileObj);
             status = true;
@@ -70,19 +71,14 @@ namespace Database {
             .catch(err => {  log.error(err); return void console.log(err); });
 
             return await CardsModel.find({type: type}, (err:Error, docs:Array<Object>) => {
-            if (connect) connect.disconnect();
+                if (connect) connect.disconnect().catch(err => {  log.error(err); });
                 if (err) {  log.error(err); return void console.log(err); }
-                if (docs as Array<Object> && docs.length){
+                if (docs){
                     result = docs.map(card => {
                         return {id: card['_id'] + '', name: card['name'], content: card['content'], price: card['price']};
                     });
                     debug.info(`Find cards array.`, result);
                     return true;
-                } else { 
-                    debug.info(`Find card.`, result);
-                    return [
-                        {id: docs['_id'] + '', name: docs['name'], content: docs['content'], price: docs['price']}
-                    ];
                 }
             });
         }
@@ -98,8 +94,8 @@ namespace Database {
             const connect = await mongoose.connect(process.env.MONGO_DB_CONNECT, {useNewUrlParser: true, useUnifiedTopology: true})
             .catch(err => {  log.error(err); return void console.log(err); });
 
-            await CardsModel.create({type: type, name: name, content: content, price: price}, (err:Error, doc:Object) => {
-                if (connect) connect.disconnect();
+            await CardsModel.create({type: type, name: name, content: content, price: price}, (err:Error, doc:Card) => {
+                if (connect) connect.disconnect().catch(err => {  log.error(err); });
                 if (err){  log.error(err); return void console.log(err); }
                 debug.info(`Create new card.`, doc);
                 return answer;
@@ -109,7 +105,26 @@ namespace Database {
             log.error(err); 
             return void console.log(err);
         }
-    }
+    };
+
+    export const deleteCard = async (_id:string):Promise<boolean> =>{
+        try {
+            let answer = true;
+            const connect = await mongoose.connect(process.env.MONGO_DB_CONNECT, {useNewUrlParser: true, useUnifiedTopology: true})
+            .catch(err => {  log.error(err); return void console.log(err); });
+
+            await CardsModel.findByIdAndRemove(_id, (err:Error, offer:Card) => {
+                if (connect) connect.disconnect().catch(err => {  log.error(err); });
+                if (err){  log.error(err); return void console.log(err); }
+                debug.info(`Delete card.`, offer);
+                return answer;
+            });
+            return answer;
+        } catch(err){
+            log.error(err); 
+            return void console.log(err);
+        }
+    };
 
     export const getFile = async (fileName:string, format:string):Promise<Object> => {
         let status = false;
@@ -118,7 +133,7 @@ namespace Database {
         .catch(err => {  log.error(err); return void console.log(err); });
         
         await FileModel.find({name: fileName, format: format}, (err:Error, docs:Array<Object>) => {
-            if (connect) connect.disconnect();
+           if (connect) connect.disconnect().catch(err => {  log.error(err); });
             if (err) {  log.error(err); return void console.log(err); }
             if (docs as Array<Object> && docs.length){
                 status = true;

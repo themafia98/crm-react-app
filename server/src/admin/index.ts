@@ -160,13 +160,29 @@ export default (app:Application, corsPublic?:Object):void|Function => {
           .catch(err =>  { log.error(err); return void errorSender(res, 501); });
     });
 
-    app.put('/admin/api/putCard',(req:RequestParam, res:Response) => {
+    app.put('/admin/api/putCard',async (req:RequestParam, res:Response) => {
         try {
             console.log(req.body);
             const { name, type, content, price } = req.body;
             if (!req.body || !name || !type || !content || !price) return void errorSender(res, 404);
 
-            Database.putCard(type, name, content, price)
+            await Database.putCard(type, name, content, price)
+            .then(response => {
+                console.log(response);
+                if (response){
+                return res.json(response);
+                } else return void errorSender(res, 403);
+            })
+            .catch(err =>  { log.error(err); return void errorSender(res, 501); });
+        } catch (err)  { log.error(err); return void errorSender(res, 501); };
+    });
+
+    app.delete('/admin/api/deleteCard',(req:RequestParam, res:Response) => {
+        try {
+            if (!req.body || !req.body['_id']) return void errorSender(res, 404);
+            console.log(req.body);
+         
+            Database.deleteCard(req.body['_id'].trim())
             .then(response => {
                 console.log(response);
                 if (response){
@@ -174,8 +190,9 @@ export default (app:Application, corsPublic?:Object):void|Function => {
                 } else return void errorSender(res, 403);
             })
             .catch(err =>  { log.error(err); return void errorSender(res, 501); });
+
         } catch (err)  { log.error(err); return void errorSender(res, 501); };
     });
+
+
 };
-
-
