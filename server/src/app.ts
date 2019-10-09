@@ -20,6 +20,7 @@ namespace AppNamespace {
 
     export const app:Application = express();
     export const eventEmitter = new Events();
+
     const SessionStore = MongoStore(session);
 
     const sessionOptions = {

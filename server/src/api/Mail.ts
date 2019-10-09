@@ -21,7 +21,6 @@ namespace MailNamespace {
                     this.transporter.verify()
                     .then(res => {
                         if (res) {
-                        console.log("Server is ready to take messages");
                         eventEmitter.emit('EventSetTransporter');
                         } else throw new Error('Server error to take messages');
                     })

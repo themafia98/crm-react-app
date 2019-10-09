@@ -11,6 +11,8 @@ namespace Database {
     dotenv.config();
 
     export const storeSession = () => {
+        mongoose.set('useNewUrlParser', true);
+        mongoose.set('useUnifiedTopology', true);
         return {
             dbname: process.env.MAIN_DATABASE,
             host: process.env.HOST_MONGO_DB,
@@ -31,7 +33,7 @@ namespace Database {
 
         const connect = await mongoose.connect(process.env.MONGO_DB_CONNECT, {useNewUrlParser: true, useUnifiedTopology: true})
         .catch(err => {  log.error(err); return void console.log(err); });
-        await UserModel.findOne(findObject, (err:Error, user:Card) => {
+        await UserModel.findOne(findObject, (err:Error, user:Object) => {
             if (connect) connect.disconnect().catch(err => {  log.error(err); });
             if (err) {  log.error(err); return void console.log(err); }
             currentUser = user;

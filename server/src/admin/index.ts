@@ -22,7 +22,6 @@ export default (app:Application, corsPublic?:Object):void|Function => {
     dotenv.config();
     
     app.get('/admin', (req:RequestParam, res:Response) => {
-        console.log(process.env.NODE_ENV);
        if (req.cookies['sid'] && req['session'] && req['session'].login){
             return res.redirect('/admin/cabinet');
         }

@@ -59,10 +59,9 @@ namespace Security {
             app.locals.token = token['encrypted'];
           else app.locals.token = null;
           try {
-                const token_1 = await Security.createCryptPassword(tokenUser);
-                console.log(token_1);
-                if (token_1['isSave'])
-                    app.locals.tokenName = token_1['encrypted'];
+                const tokenBuf = await Security.createCryptPassword(tokenUser);
+                if (tokenBuf['isSave'])
+                    app.locals.tokenName = tokenBuf['encrypted'];
                 else
                     app.locals.tokenName = null;
             }
