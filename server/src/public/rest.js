@@ -62,13 +62,14 @@ export const getMenu = async (path) => {
     });
 };
 
-export const putCard = async(item, formData, nodeWrapper, callback) =>{
+export const putCard = async(item = {}, formData, nodeWrapper, callback) =>{
     return new Promise(function(resolve, reject){
         let AJAX = new XMLHttpRequest();
         AJAX.open('PUT', "/admin/api/putCard");
         AJAX.onload = function(){
             if (this.status === 200){
-                if (nodeWrapper) callback(nodeWrapper, item);
+                debugger;
+                if (nodeWrapper) callback(nodeWrapper, JSON.parse(this.response));
                 resolve(this.status);
             }
             else {

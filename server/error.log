@@ -35,3 +35,8 @@
 {"name":"MongoError","level":"\u001b[31merror\u001b[39m"}
 {"name":"MongoError","level":"\u001b[31merror\u001b[39m"}
 {"name":"MongoError","level":"\u001b[31merror\u001b[39m"}
+{"errno":"ESERVFAIL","code":"ESERVFAIL","syscall":"querySrv","hostname":"_mongodb._tcp.crmcluster-h4bzy.gcp.mongodb.net","level":"\u001b[31merror\u001b[39m"}
+{"errno":"ESERVFAIL","code":"ESERVFAIL","syscall":"querySrv","hostname":"_mongodb._tcp.crmcluster-h4bzy.gcp.mongodb.net","level":"\u001b[31merror\u001b[39m"}
+{"errno":"ESERVFAIL","code":"ESERVFAIL","syscall":"querySrv","hostname":"_mongodb._tcp.crmcluster-h4bzy.gcp.mongodb.net","level":"\u001b[31merror\u001b[39m"}
+{"level":"\u001b[31merror\u001b[39m"}
+{"name":"MongoNetworkError","errorLabels":["TransientTransactionError"],"level":"\u001b[31merror\u001b[39m"}

@@ -170,27 +170,27 @@ View.prototype.createCardsForm = (node, root) => {
         button, 'click', (event) => {
             const nodeWrapper = root.querySelector('.cardsList');
             const formData = new FormData(controller.root.forms.FormCardsAdd);
-            const item = {};
-            for (let key of formData.keys()) {
-                let val = formData.get(key);
-                item[key] = val;
-             }
-             console.log(item);
-            putCard(item, formData, nodeWrapper, view.InsertOnceCard.bind(view));
+            // const item = {};
+            // for (let key of formData.keys()) {
+            //     let val = formData.get(key);
+            //     item[key] = val;
+            //  }
+            //  console.log(item);
+            putCard({}, formData, nodeWrapper, view.InsertOnceCard.bind(view));
         });
     } else {
         controller.setListeners('EventNewCard', 
         submit, 'click', (event) => {
             const nodeWrapper = root.querySelector('.cardsList');
             const formData = new FormData(controller.root.forms.FormCardsAdd);
-            const item = {};
-            for (let key of formData.keys()) {
-                let val = formData.get(key);
-                item[key] = val;
-             }
-             console.log(item);
+            // const item = {};
+            // for (let key of formData.keys()) {
+            //     let val = formData.get(key);
+            //     item[key] = val;
+            //  }
+            //  console.log(item);
 
-            putCard(item, formData, nodeWrapper, view.InsertOnceCard.bind(view));
+            putCard({}, formData, nodeWrapper, view.InsertOnceCard.bind(view));
         });
     }
 
@@ -305,7 +305,7 @@ View.prototype.InsertOnceCard = function(node, item){
     editButton.setAttribute('type', 'button');
     editButton.setAttribute('value', 'Edit');
     editButton.classList.add('editButton_card');
-    if (item._id) deleteButton.classList.add(`cardEdit${item._id}`);
+    if (item._id) editButton.classList.add(`cardEdit${item._id}`);
 
     let deleteButton = root.createElement('input');
     deleteButton.setAttribute('type', 'button');

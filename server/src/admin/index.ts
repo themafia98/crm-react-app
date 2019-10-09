@@ -1,4 +1,5 @@
 import {Request, Response, Application, NextFunction} from 'express';
+import mongoose from 'mongoose';
 import fileUpload from 'express-fileupload';
 import { Binary } from 'mongodb';
 import fs, {ReadStream} from 'fs';
@@ -10,7 +11,9 @@ import multer from 'multer';
 import dotenv from 'dotenv';
 import _ from 'lodash';
 
-import {log} from '../logger/logModule';
+import { CardsModel} from '../configCode/schema';
+import {Card} from '../configCode/interface';
+import {log, debug} from '../logger/logModule';
 
 
 export default (app:Application, corsPublic?:Object):void|Function => { 
@@ -160,21 +163,24 @@ export default (app:Application, corsPublic?:Object):void|Function => {
           .catch(err =>  { log.error(err); return void errorSender(res, 501); });
     });
 
-    app.put('/admin/api/putCard',async (req:RequestParam, res:Response) => {
-        try {
+    app.put('/admin/api/putCard', (req:RequestParam, res:Response) => {
             console.log(req.body);
             const { name, type, content, price } = req.body;
             if (!req.body || !name || !type || !content || !price) return void errorSender(res, 404);
 
-            await Database.putCard(type, name, content, price)
-            .then(response => {
-                console.log(response);
-                if (response){
-                return res.json(response);
-                } else return void errorSender(res, 403);
-            })
-            .catch(err =>  { log.error(err); return void errorSender(res, 501); });
-        } catch (err)  { log.error(err); return void errorSender(res, 501); };
+                const connect = mongoose.connect(process.env.MONGO_DB_CONNECT, {useNewUrlParser: true, useUnifiedTopology: true})
+                .then(connect => {
+                    CardsModel.create({type: type, name: name, content: content, price: price}, (err:Error, doc:Card) => {
+                        if (connect) connect.disconnect().catch(err => {  log.error(err); });
+                        if (err){  log.error(err); console.log(err); return void errorSender(res, 403); }
+                        else {
+                            debug.info(`Create new card.`, doc);
+                            return res.json(doc);
+                        }
+                    });
+                })
+                .catch(err => {  log.error(err);  return void errorSender(res, 501); });
+        
     });
 
     app.delete('/admin/api/deleteCard',(req:RequestParam, res:Response) => {
