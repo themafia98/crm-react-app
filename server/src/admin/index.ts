@@ -173,7 +173,7 @@ export default (app:Application, corsPublic?:Object):void|Function => {
                         if (connect) connect.disconnect().catch(err => {  log.error(err); });
                         if (err){  log.error(err); console.log(err); return void errorSender(res, 403); }
                         else {
-                            debug.info(`Create new card.`, doc);
+                            debug.info(`Create new card. cluster: ${process.pid} `, doc);
                             return res.json(doc);
                         }
                     });

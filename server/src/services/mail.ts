@@ -43,10 +43,10 @@ export default (app:Application):Function|void => {
             const time  = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
             const day = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
       
-            debug.info(`Start send requset mail from ${data.email} to ${process.env.TOKEN_YANDEX_USER} /${day}/${time}`);
+            debug.info(`Start send requset mail from ${data.email} to ${process.env.TOKEN_YANDEX_USER} /${day}/${time}. cluster: ${process.pid}`);
       
             app.locals.sender.sendMail().then((resPromise: string) => {
-              debug.info('Send Mail status: ' + resPromise);
+              debug.info(`cluster: ${process.pid}. Send Mail status: ${resPromise}`);
               if (resPromise)
               res.sendStatus(200);
               else errorSender(res, 400);
@@ -68,10 +68,10 @@ export default (app:Application):Function|void => {
             const time  = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
             const day = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
                                       
-            debug.info(`Start send feedback mail from ${data.email} to ${process.env.TOKEN_YANDEX_USER} /${day}/${time}`);  
+            debug.info(`Start send feedback mail from ${data.email} to ${process.env.TOKEN_YANDEX_USER} /${day}/${time}. cluster: ${process.pid}`);  
       
             app.locals.sender.sendMail().then((resPromise: string) => {
-              debug.info('Send Mail status: ' + resPromise);
+              debug.info(`Send Mail status: ${resPromise}. cluster: ${process.pid}`);
               if (resPromise)
               res.sendStatus(200);
               else errorSender(res, 400);

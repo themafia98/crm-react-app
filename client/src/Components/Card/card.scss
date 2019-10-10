@@ -3,7 +3,12 @@
     width: 30%;
     background-color: rgb(211, 206, 206);
     padding: 3px;
+    margin: 5px;
 
+    p {
+        word-break: break-word;
+        padding: 5px;
+    }
     .Card__title {
         font-weight: bold;
         font-size: 30px;
@@ -19,7 +24,7 @@
     }
 }
 
-@media screen and (max-width: 815px){
+@media screen and (max-width: 867px){
     .Card {
         width: 80%;
         margin-bottom: 10px;

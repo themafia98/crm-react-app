@@ -1,6 +1,11 @@
 .Price {
     display: flex;
+
+    .container {
+        width: 1140px;
+    }
     .priceWrapperContent {
+        max-width: 100%;
         display: flex;
         margin: 10px;
         flex-direction: column;
@@ -16,10 +21,11 @@
         border-radius: 7px;
         color: white;
         transition: .3s ease-out;
-    }
-    .goBack_button:hover{
-        cursor: pointer;
-        color: black;
-        box-shadow: 0 0 10px;
+
+        &:hover{
+            cursor: pointer;
+            color: black;
+            box-shadow: 0 0 10px;
+        }
     }
 }

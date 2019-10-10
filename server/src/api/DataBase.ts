@@ -59,7 +59,7 @@ namespace Database {
         await fileObj.save((err:Error):void => {
             if (connect) connect.disconnect().catch(err => {  log.error(err); });
             if (err) {  log.error(err); return void console.log(err); }
-            debug.info('Save file in database.', fileObj);
+            debug.info(`Save file in database. cluster: ${process.pid} `, fileObj);
             status = true;
         });
 
@@ -79,7 +79,7 @@ namespace Database {
                     result = docs.map(card => {
                         return {id: card['_id'] + '', name: card['name'], content: card['content'], price: card['price']};
                     });
-                    debug.info(`Find cards array.`, result);
+                    debug.info(`Find cards array. cluster: ${process.pid} `, result);
                     return true;
                 }
             });
@@ -118,7 +118,7 @@ namespace Database {
             await CardsModel.findByIdAndRemove(_id, (err:Error, offer:Card) => {
                 if (connect) connect.disconnect().catch(err => {  log.error(err); });
                 if (err){  log.error(err); return void console.log(err); }
-                debug.info(`Delete card.`, offer);
+                debug.info(`Delete card. cluster: ${process.pid} `, offer);
                 return answer;
             });
             return answer;
@@ -140,7 +140,7 @@ namespace Database {
             if (docs as Array<Object> && docs.length){
                 status = true;
                 findFiles = docs;
-                debug.info(`Find fiels.`, findFiles);
+                debug.info(`Find fiels. cluster: ${process.pid} `, findFiles);
             }
         });
 

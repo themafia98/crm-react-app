@@ -11,7 +11,7 @@ import {WHITELIST} from './utils/const';
 import Security from './api/security';
 import MailNamespace from './api/Mail';
 
-import {log} from './logger/logModule';
+import {log, debug} from './logger/logModule';
 
 const numCPUs = os.cpus().length;
 
@@ -33,8 +33,12 @@ namespace Server {
       });
     }
 
-    cluster.on('exit', (worker, code, signal) => {
-      console.log(`worker ${worker.process.pid} died`);
+    cluster.on('exit', (deadWorker, code, signal) => {
+      console.log(`worker ${deadWorker.process.pid} died. start restart worker...`);
+      let worker = cluster.fork();
+      let newPID = worker.process.pid;
+
+      debug.info(`worker ${newPID} born.`);
     });
     
   } else {
