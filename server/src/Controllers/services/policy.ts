@@ -15,7 +15,7 @@ export default (app:Application) => {
         res.setHeader('Access-Control-Allow-Origin',WHITELIST[0]);
         else res.setHeader('Access-Control-Allow-Origin',WHITELIST[WHITELIST.length-1]);
 
-          const policy = fs.createReadStream(path.join(__dirname, '../data','policy.txt'));
+          const policy = fs.createReadStream(path.join(__dirname, '../../data','policy.txt'));
       
           policy.on('open', () => {
             res.setHeader('Content-Type','text/html; charset=utf-8');

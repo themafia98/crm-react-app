@@ -22,7 +22,7 @@ View.prototype.getPathContext = function(){
     return this.pathContent;
 };
 
-View.prototype.setDeaultContetPath = function(){
+View.prototype.setDefaultContentPath = function(){
     this.pathContent = '/auto';
 };
 

@@ -1,6 +1,6 @@
 export const getDataServices = async (path) => {
     if (path == '/') {
-        view.setDeaultContetPath();
+        view.setDefaultContentPath();
         path = view.getPathContext();
     }
     return new Promise(function(resolve, reject){
@@ -65,7 +65,6 @@ export const getMenu = async (path) => {
 
 export const editContent = async (content, type) => {
     return new Promise(function(resolve, reject){
-        debugger;
         let AJAX = new XMLHttpRequest();
         AJAX.open('POST', `/admin/api/edit/services${type}`);
         AJAX.setRequestHeader('Content-Type', "application/json");
