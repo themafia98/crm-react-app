@@ -25,16 +25,16 @@ export default (app:Application) => {
           if (!req.serviceType){ return void errorSender(res, 404); };
 
           if (req.serviceType === 'auto')
-          service = fs.createReadStream(path.join(__dirname, '../data','autoAbout.txt'));
+          service = fs.createReadStream(path.join(__dirname, '../../data','autoAbout.txt'));
           else if (req.serviceType === 'amoCRM')
-          service = fs.createReadStream(path.join(__dirname, '../data','amoCRMAbout.txt'));
+          service = fs.createReadStream(path.join(__dirname, '../../data','amoCRMAbout.txt'));
           else if (req.serviceType === 'retailCRM')
-          service = fs.createReadStream(path.join(__dirname, '../data','retailCRMAbout.txt'));
+          service = fs.createReadStream(path.join(__dirname, '../../data','retailCRMAbout.txt'));
           else  return void errorSender(res, 404);
 
           service.on('open', () => {
-            res.setHeader('Content-Type','text/html; charset=utf-8');
-            service.pipe(res)
+            res.setHeader('Content-Type','text/plain; charset=utf-8');
+            service.pipe(res);
           });
           service.on('error', (error:Error) => {
             log.error(error.message);

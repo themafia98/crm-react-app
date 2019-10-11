@@ -176,6 +176,11 @@ body {
     height: 80vh;
 }
 
+.statusLoadContent {
+    font-weight: bold;
+    color: red;
+}
+
 
 .cabinetAction .cardsList p {
     margin: 0;

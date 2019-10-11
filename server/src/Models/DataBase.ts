@@ -11,8 +11,6 @@ namespace Database {
     dotenv.config();
 
     export const storeSession = () => {
-        mongoose.set('useNewUrlParser', true);
-        mongoose.set('useUnifiedTopology', true);
         return {
             dbname: process.env.MAIN_DATABASE,
             host: process.env.HOST_MONGO_DB,

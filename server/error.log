@@ -45,3 +45,6 @@
 {"message":"queryA ESERVFAIL smtp.yandex.ru / 1570644658674","level":"\u001b[31merror\u001b[39m"}
 {"message":"queryA ESERVFAIL smtp.yandex.ru / 1570644658988","level":"\u001b[31merror\u001b[39m"}
 {"errno":"ESERVFAIL","code":"ESERVFAIL","syscall":"queryTxt","hostname":"crmcluster-h4bzy.gcp.mongodb.net","level":"\u001b[31merror\u001b[39m"}
+{"message":"ENOENT: no such file or directory, open 'C:\\Dev\\Frontend\\crm-react-app\\server\\src\\Controllers\\data\\autoAbout.txt'","level":"\u001b[31merror\u001b[39m"}
+{"message":"ENOENT: no such file or directory, open 'C:\\Dev\\Frontend\\crm-react-app\\server\\src\\Controllers\\data\\autoAbout.txt'","level":"\u001b[31merror\u001b[39m"}
+{"message":"ENOENT: no such file or directory, open 'C:\\Dev\\Frontend\\crm-react-app\\server\\src\\Controllers\\data\\autoAbout.txt'","level":"\u001b[31merror\u001b[39m"}

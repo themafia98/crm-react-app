@@ -68,7 +68,8 @@ namespace Server {
     app.set('port', port);
     const server = app.listen(port,() => {
         console.log(`Worker ${process.pid} started`);
-        console.log(`Server listen on ${port} with origin whitelist: ${WHITELIST.join(",")}.`);
+        console.log(`Server or worker listen on ${port}.`);
+
         Security.create(process.env.TOKEN_YANDEX_PASSWORD, process.env.TOKEN_YANDEX_USER)
         .then(res => {
           app.locals.sender = new MailNamespace.Sender({

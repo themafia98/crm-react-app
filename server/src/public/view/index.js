@@ -1,5 +1,5 @@
 import namespace from '../store/namespace.js';
-import {getMenu, getDataServices, getCardsList, putCard, deleteCard} from '../rest.js';
+import {getMenu, getDataServices, getCardsList, putCard, deleteCard, editContent} from '../rest.js';
 import Controller from '../controller/index.js';
 import State from '../store/state.js';
 
@@ -85,16 +85,19 @@ View.prototype.buildFormsFile = async (root, domNode) =>{
     name.setAttribute('placeholder', 'file name');
     name.setAttribute('required', true);
     name.setAttribute('name', 'nameFile');
+    name.setAttribute('disabled', true); // test disabled
 
     let input = root.createElement('input');
     input.setAttribute('type','file');
     input.setAttribute('name', 'upload');
+    input.setAttribute('disabled', true); // test disabled
 
     form.appendChild(name);
     form.appendChild(input);
 
     let submit = root.createElement('input');
     submit.setAttribute('type', 'submit');
+    submit.setAttribute('disabled', true); // test disabled 
 
     form.appendChild(submit);
 
@@ -112,10 +115,12 @@ View.prototype.buildFormsFile = async (root, domNode) =>{
     name2.setAttribute('placeholder', 'file name');
     name2.setAttribute('required', true);
     name2.setAttribute('name', 'nameFile');
+    name2.setAttribute('disabled', true); // test disabled
 
     let submit2 = root.createElement('input');
     submit2.setAttribute('type', 'submit');
     submit2.value = 'получить';
+    submit2.setAttribute('disabled', true);
 
     form2.appendChild(name2);
     form2.appendChild(submit2);
@@ -170,12 +175,6 @@ View.prototype.createCardsForm = (node, root) => {
         button, 'click', (event) => {
             const nodeWrapper = root.querySelector('.cardsList');
             const formData = new FormData(controller.root.forms.FormCardsAdd);
-            // const item = {};
-            // for (let key of formData.keys()) {
-            //     let val = formData.get(key);
-            //     item[key] = val;
-            //  }
-            //  console.log(item);
             putCard({}, formData, nodeWrapper, view.InsertOnceCard.bind(view));
         });
     } else {
@@ -183,13 +182,6 @@ View.prototype.createCardsForm = (node, root) => {
         submit, 'click', (event) => {
             const nodeWrapper = root.querySelector('.cardsList');
             const formData = new FormData(controller.root.forms.FormCardsAdd);
-            // const item = {};
-            // for (let key of formData.keys()) {
-            //     let val = formData.get(key);
-            //     item[key] = val;
-            //  }
-            //  console.log(item);
-
             putCard({}, formData, nodeWrapper, view.InsertOnceCard.bind(view));
         });
     }
@@ -365,7 +357,7 @@ View.buildAbout = function(view, root){
 };
 
 View.buildServices =  async (view, root) => {
-    ;
+
     if (!view.root) {
         let app = root.querySelector('.cabinet');
         let root = root.createElement('div');
@@ -466,6 +458,9 @@ View.buildContentServices = async (root) =>{
         title.classList.add('titleContent');
         title.innerHTML = 'Main content';
 
+        let status = root.createElement('p');
+        status.classList.add('statusLoadContent');
+
         let titleCard = root.createElement('p');
         titleCard.classList.add('titleContent');
         titleCard.innerHTML = 'Cards';
@@ -488,6 +483,7 @@ View.buildContentServices = async (root) =>{
 
         menu ? node.appendChild(menu) : null;
         node.appendChild(title);
+        node.appendChild(status);
         textArea ? node.appendChild(textArea) : null;
         contentContainer ? node.appendChild(contentContainer) : null;
         inputChange && textArea ? node.appendChild(inputChange) : null;
@@ -505,13 +501,32 @@ View.buildContentServices = async (root) =>{
 
         const button = node.querySelector('.sendChangeServices');
 
-        if (button && !controller.getListener('sendChangeServices')){
-
+        if (button){
+            if (controller.getListener('sendChangeServices'))
+                controller.removeListeners('sendChangeServices');
+    
             controller.setListeners('sendChangeServices', 
             button, 'click', (event) => {
-                
+                const contentBox = root.querySelector('.servicesTextArea');
+                if (contentBox)
+                editContent(contentBox.value, view.getPathContext())
+                .then(res => {
+                    if (res) {
+                        const statusValue = root.querySelector('.statusLoadContent');
+                        if (statusValue) statusValue.innerHTML = 'Content update';
+                        return contentBox.value = res;
+                    }
+                    else throw new Error('error write content');
+                })
+                .catch(error => {
+                    console.log(error);
+                    const statusValue = root.querySelector('.statusLoadContent');
+                    if (statusValue) { 
+                        statusValue.innerHTML = 'Content update fail';
+                    }
+                });       
             });
-        }
+        };
         return node;
     } else {
 
@@ -524,6 +539,9 @@ View.buildContentServices = async (root) =>{
         let title = root.createElement('p');
         title.classList.add('titleContent');
         title.innerHTML = 'Main content';
+
+        let status = root.createElement('p');
+        status.classList.add('statusLoadContent');
 
         let titleCard = root.createElement('p');
         titleCard.classList.add('titleContent');
@@ -548,6 +566,7 @@ View.buildContentServices = async (root) =>{
 
         menu ? contentBox.appendChild(menu) : null;
         contentBox.appendChild(title);
+        contentBox.appendChild(status);
         textArea ? contentBox.appendChild(textArea) : null;
         contentContainer ? contentBox.appendChild(contentContainer) : null;
         inputChange && textArea ? contentBox.appendChild(inputChange) : null;
@@ -571,9 +590,51 @@ View.buildContentServices = async (root) =>{
 
             controller.setListeners('sendChangeServices', 
             button, 'click', (event) => {
-                
+                const contentBox = root.querySelector('.servicesTextArea');
+                if (contentBox)
+                editContent(contentBox.value, view.getPathContext())
+                .then(res => {
+                    if (res) {
+                        const statusValue = root.querySelector('.statusLoadContent');
+                        if (statusValue) statusValue.innerHTML = 'Content update';
+                        return contentBox.value = res;
+                    }
+                    else throw new Error('error write content');
+                })
+                .catch(error => {
+                    console.log(error);
+                    const statusValue = root.querySelector('.statusLoadContent');
+                    if (statusValue) { 
+                        statusValue.innerHTML = 'Content update fail';
+                    }
+                });
+                    
             });
-        }
+        } else {
+        
+        controller.setListeners('sendChangeServices', 
+        inputChange, 'click', (event) => {
+            const contentBox = root.querySelector('.servicesTextArea');
+            if (contentBox)
+            editContent(contentBox.value, view.getPathContext())
+            .then(res => {
+                if (res) {
+                    const statusValue = root.querySelector('.statusLoadContent');
+                    if (statusValue) statusValue.innerHTML = 'Content update';
+                    return contentBox.value = res;
+                }
+                else throw new Error('error write content');
+            })
+            .catch(error => {
+                console.log(error);
+                const statusValue = root.querySelector('.statusLoadContent');
+                if (statusValue) { 
+                    statusValue.innerHTML = 'Content update fail';
+                }
+            });
+                
+        });
+    }
     }
 };
 

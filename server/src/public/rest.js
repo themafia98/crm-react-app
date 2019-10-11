@@ -62,6 +62,27 @@ export const getMenu = async (path) => {
     });
 };
 
+
+export const editContent = async (content, type) => {
+    return new Promise(function(resolve, reject){
+        debugger;
+        let AJAX = new XMLHttpRequest();
+        AJAX.open('POST', `/admin/api/edit/services${type}`);
+        AJAX.setRequestHeader('Content-Type', "application/json");
+        AJAX.onload = function(){
+            if (this.status === 200)
+                resolve(this.response);
+            else {
+                let error = new Error(this.statusText);
+                reject(error);
+            }       
+        };
+        
+        AJAX.onerror = () => reject(new Error('Requst send error'));
+        AJAX.send(JSON.stringify({content: content}));
+    });
+};
+
 export const putCard = async(item = {}, formData, nodeWrapper, callback) =>{
     return new Promise(function(resolve, reject){
         let AJAX = new XMLHttpRequest();

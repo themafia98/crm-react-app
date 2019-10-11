@@ -78,24 +78,60 @@ export default (app:Application, corsPublic?:Object):void|Function => {
           if (!req.type){ return void errorSender(res, 404); };
 
           if (req.type === 'auto')
-          service = fs.createReadStream(path.join(__dirname, '../data','autoAbout.txt'));
+          service = fs.createReadStream(path.join(__dirname, '../../data','autoAbout.txt'));
           else if (req.type === 'amoCRM')
-          service = fs.createReadStream(path.join(__dirname, '../data','amoCRMAbout.txt'));
+          service = fs.createReadStream(path.join(__dirname, '../../data','amoCRMAbout.txt'));
           else if (req.type === 'retailCRM')
-          service = fs.createReadStream(path.join(__dirname, '../data','retailCRMAbout.txt'));
+          service = fs.createReadStream(path.join(__dirname, '../../data','retailCRMAbout.txt'));
           else  return void errorSender(res, 404);
     
           service.on('open', () => {
-            res.setHeader('Content-Type','text/html; charset=utf-8');
-            service.pipe(res)
+            res.setHeader('Content-Type','text/plain; charset=utf-8');
+            service.pipe(res);
           });
 
           service.on('error', (error:Error) => {
             log.error(error.message);
             errorSender(res, 501);
           });
-
       });
+
+    app.post('/admin/api/edit/services/:type',(req:RequestParam, res:Response) => {
+        let service:null|ReadStream = null;
+    
+          if (!req.type || !req.body){ return void errorSender(res, 404); };
+
+          const { content } = req.body;
+
+        try {
+          fs.writeFile(path.join(__dirname,'../../data',`${req.type}About.txt`), content, (err) => {
+              if (err) return void errorSender(res, 404);
+              else {
+                if (req.type === 'auto')
+                service = fs.createReadStream(path.join(__dirname, '../../data','autoAbout.txt'));
+                else if (req.type === 'amoCRM')
+                service = fs.createReadStream(path.join(__dirname, '../../data','amoCRMAbout.txt'));
+                else if (req.type === 'retailCRM')
+                service = fs.createReadStream(path.join(__dirname, '../../data','retailCRMAbout.txt'));
+                else  return void errorSender(res, 404);
+
+                service.on('open', () => {
+                    res.setHeader('Content-Type','text/plain; charset=utf-8');
+                    service.pipe(res);
+                  });
+        
+                  service.on('error', (error:Error) => {
+                    log.error(error.message);
+                    errorSender(res, 501);
+                  });
+              }
+          });
+        } catch (err) {
+            log.error(err);
+            return void errorSender(res, 503);
+        }
+    
+    });
 
     app.post('/admin/api/list',(req:Request, res:Response) => {
        if (!_.isEmpty(req.body.path)){
