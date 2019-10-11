@@ -89,8 +89,7 @@ export const putCard = async(item = {}, formData, nodeWrapper, callback) =>{
         AJAX.open('PUT', "/admin/api/putCard");
         AJAX.onload = function(){
             if (this.status === 200){
-                debugger;
-                if (nodeWrapper) callback(nodeWrapper, JSON.parse(this.response));
+                if (nodeWrapper && callback) callback(nodeWrapper, JSON.parse(this.response));
                 resolve(this.status);
             }
             else {
@@ -122,5 +121,26 @@ export const deleteCard = async(cardId, node) =>{
         
         AJAX.onerror = () => reject(new Error('Requst send error'));
         AJAX.send(JSON.stringify(cardId));
+    });
+};
+
+export const editCard = async(item = {}, formData, nodeWrapper, callback) =>{
+    return new Promise(function(resolve, reject){
+        let AJAX = new XMLHttpRequest();
+        AJAX.open('POST', "/admin/api/editCard");
+        AJAX.onload = function(){
+            if (this.status === 200){
+                debugger;
+                if (nodeWrapper && callback) callback(nodeWrapper, JSON.parse(this.response));
+                resolve(this.status);
+            }
+            else {
+                let error = new Error(this.statusText);
+                reject(error);
+            }       
+        };
+        
+        AJAX.onerror = () => reject(new Error('Requst send error'));
+        AJAX.send(formData);
     });
 };

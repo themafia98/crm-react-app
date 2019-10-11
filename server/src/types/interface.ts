@@ -22,5 +22,14 @@ export interface Card {
     type:string, 
     name:string,
      content:string, 
-     price:string
+     price:string,
+     save?:Function
+}
+
+export interface updateCard {
+    _id?:string,
+    type:string, 
+    name:string,
+    content:string, 
+    price:string
 }

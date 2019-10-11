@@ -107,6 +107,25 @@ namespace Database {
         }
     };
 
+    export const editCard = async (type:string, name:string, content:string, price:string):Promise<boolean> =>{
+        try {
+            let answer = true;
+            const connect = await mongoose.connect(process.env.MONGO_DB_CONNECT, {useNewUrlParser: true, useUnifiedTopology: true})
+            .catch(err => {  log.error(err); return void console.log(err); });
+
+            await CardsModel.create({type: type, name: name, content: content, price: price}, (err:Error, doc:Card) => {
+                if (connect) connect.disconnect().catch(err => {  log.error(err); });
+                if (err){  log.error(err); return void console.log(err); }
+                debug.info(`Create new card.`, doc);
+                return answer;
+            });
+            return answer;
+        } catch(err){
+            log.error(err); 
+            return void console.log(err);
+        }
+    };
+
     export const deleteCard = async (_id:string):Promise<boolean> =>{
         try {
             let answer = true;

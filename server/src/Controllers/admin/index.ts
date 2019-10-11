@@ -4,7 +4,7 @@ import fileUpload from 'express-fileupload';
 import { Binary } from 'mongodb';
 import fs, {ReadStream} from 'fs';
 import path from 'path';
-import {RequestParam} from '../../types/interface';
+import {RequestParam, updateCard, Card} from '../../types/interface';
 import {errorSender} from '../../utils/mainUtils';
 import Database from '../../Models/DataBase';
 import multer from 'multer';
@@ -12,7 +12,6 @@ import dotenv from 'dotenv';
 import _ from 'lodash';
 
 import { CardsModel} from '../../config/schema';
-import {Card} from '../../types/interface';
 import {log, debug} from '../../logger/logModule';
 
 
@@ -39,7 +38,7 @@ export default (app:Application, corsPublic?:Object):void|Function => {
                     return res.redirect(200, '/admin/cabinet');
                 } else return void errorSender(res, 403);
             });
-        }  else return void errorSender(res, 501);
+        }  else return void errorSender(res, 503);
     });
 
      app.use('/admin',(req:Request, res:Response, next:NextFunction) => {
@@ -92,7 +91,7 @@ export default (app:Application, corsPublic?:Object):void|Function => {
 
           service.on('error', (error:Error) => {
             log.error(error.message);
-            errorSender(res, 501);
+            errorSender(res, 503);
           });
       });
 
@@ -122,7 +121,7 @@ export default (app:Application, corsPublic?:Object):void|Function => {
         
                   service.on('error', (error:Error) => {
                     log.error(error.message);
-                    errorSender(res, 501);
+                    errorSender(res, 503);
                   });
               }
           });
@@ -151,7 +150,7 @@ export default (app:Application, corsPublic?:Object):void|Function => {
             if (response) res.sendStatus(200);
             else return void errorSender(res,404);
         })
-        .catch(err => void errorSender(res,501));
+        .catch(err => void errorSender(res,503));
     });
 
     app.post('/admin/api/download',(req:RequestParam, res:Response) => {
@@ -179,7 +178,7 @@ export default (app:Application, corsPublic?:Object):void|Function => {
                 }
                 else return void errorSender(res, 404);
             });
-        } else return void errorSender(res, 501);
+        } else return void errorSender(res, 503);
     });
 
     app.param('typeCard', (req:RequestParam, res:Response, next:NextFunction, typeCard:string) =>{
@@ -195,8 +194,10 @@ export default (app:Application, corsPublic?:Object):void|Function => {
               return res.json(list);
             } else return void errorSender(res, 404);
         })
-          .catch(err =>  { log.error(err); return void errorSender(res, 501); });
+          .catch(err =>  { log.error(err); return void errorSender(res, 503); });
     });
+
+    
 
     app.put('/admin/api/putCard', (req:RequestParam, res:Response) => {
             console.log(req.body);
@@ -214,8 +215,37 @@ export default (app:Application, corsPublic?:Object):void|Function => {
                         }
                     });
                 })
-                .catch(err => {  log.error(err);  return void errorSender(res, 501); });
+                .catch(err => {  log.error(err);  return void errorSender(res, 503); });
         
+    });
+
+    app.post('/admin/api/editCard',(req:RequestParam, res:Response) => {
+        try {
+            const { name, type, content, price, _id } = req.body;
+
+            if (!req.body || !name || !type || !content || !price || !req.body._id) return void errorSender(res, 404);
+
+            const connect = mongoose.connect(process.env.MONGO_DB_CONNECT, {useNewUrlParser: true, useUnifiedTopology: true})
+            .then(connect => {
+                CardsModel.findById(_id, (err:Error, doc:Card) => {
+                    if (connect) connect.disconnect().catch(err => {  log.error(err); });
+                    if (err){  log.error(err); console.log(err); return void errorSender(res, 403); }
+                    else {
+                        
+                        doc['name'] = name;
+                        doc['content'] = content;
+                        doc['price'] = price;
+                        doc['type'] = type;
+                        doc.save();
+
+                        debug.info(`Update card ${_id}. cluster: ${process.pid} `, doc);
+                        return res.json(doc);
+                    }
+                });
+            })
+            .catch(err => {  log.error(err);  return void errorSender(res, 503); });
+
+        } catch (err)  { log.error(err); return void errorSender(res, 503); };
     });
 
     app.delete('/admin/api/deleteCard',(req:RequestParam, res:Response) => {
@@ -230,9 +260,9 @@ export default (app:Application, corsPublic?:Object):void|Function => {
                 return res.sendStatus(200);
                 } else return void errorSender(res, 403);
             })
-            .catch(err =>  { log.error(err); return void errorSender(res, 501); });
+            .catch(err =>  { log.error(err); return void errorSender(res, 503); });
 
-        } catch (err)  { log.error(err); return void errorSender(res, 501); };
+        } catch (err)  { log.error(err); return void errorSender(res, 503); };
     });
 
 
