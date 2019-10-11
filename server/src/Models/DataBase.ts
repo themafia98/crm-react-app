@@ -1,9 +1,9 @@
 import { Binary } from 'mongodb';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-import {UserModel, FileModel, CardsModel} from '../configCode/schema';
+import {UserModel, FileModel, CardsModel} from '../config/schema';
 
-import {Card} from '../configCode/interface';
+import {Card} from '../types/interface';
 import {log, debug} from '../logger/logModule';
 
 namespace Database {

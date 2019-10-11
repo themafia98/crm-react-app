@@ -8,8 +8,8 @@ import path from 'path';
 import fs from 'fs';
 
 import {WHITELIST} from './utils/const';
-import Security from './api/security';
-import MailNamespace from './api/Mail';
+import Security from './Models/security';
+import MailNamespace from './Models/Mail';
 
 import {log, debug} from './logger/logModule';
 

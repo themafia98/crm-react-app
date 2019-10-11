@@ -4,16 +4,16 @@ import fileUpload from 'express-fileupload';
 import { Binary } from 'mongodb';
 import fs, {ReadStream} from 'fs';
 import path from 'path';
-import {RequestParam} from '../configCode/interface';
-import {errorSender} from '../utils/mainUtils';
-import Database from '../api/DataBase';
+import {RequestParam} from '../../types/interface';
+import {errorSender} from '../../utils/mainUtils';
+import Database from '../../Models/DataBase';
 import multer from 'multer';
 import dotenv from 'dotenv';
 import _ from 'lodash';
 
-import { CardsModel} from '../configCode/schema';
-import {Card} from '../configCode/interface';
-import {log, debug} from '../logger/logModule';
+import { CardsModel} from '../../config/schema';
+import {Card} from '../../types/interface';
+import {log, debug} from '../../logger/logModule';
 
 
 export default (app:Application, corsPublic?:Object):void|Function => { 

@@ -1,12 +1,12 @@
 import {Application, Response, NextFunction} from 'express';
 import dotenv from 'dotenv';
 import multer from 'multer';
-import {debug, log} from '../logger/logModule';
-import {formData} from '../configCode/types';
-import {RequestParam} from '../configCode/interface';
+import {debug, log} from '../../logger/logModule';
+import {formData} from '../../types/types';
+import {RequestParam} from '../../types/interface';
 
-import {WHITELIST} from '../utils/const';
-import {errorSender} from '../utils/mainUtils';
+import {WHITELIST} from '../../utils/const';
+import {errorSender} from '../../utils/mainUtils';
 
 export default (app:Application):Function|void => {
 

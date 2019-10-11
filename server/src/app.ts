@@ -6,13 +6,13 @@ import cookieParser from 'cookie-parser';
 import helmet from 'helmet';
 import Events from 'events';
 
-import adminInterface from './admin';
-import servicesMail from './services/mail';
-import policy from './services/policy';
-import price from './services/price';
-import servicesType from './services/servicesType';
+import adminInterface from './Controllers/admin';
+import servicesMail from './Controllers/services/mail';
+import policy from './Controllers/services/policy';
+import price from './Controllers/services/price';
+import servicesType from './Controllers/services/servicesType';
 
-import Database from './api/DataBase';
+import Database from './Models/DataBase';
 import {WHITELIST} from './utils/const';
 import cors from 'cors';
 

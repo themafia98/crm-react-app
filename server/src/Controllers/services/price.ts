@@ -1,12 +1,12 @@
 import  {Response, NextFunction, Application} from 'express';
-import Database from '../api/DataBase';
+import Database from '../../Models/DataBase';
 import fs,{ReadStream} from 'fs';
 import path from 'path';
-import {RequestParam} from '../configCode/interface';
+import {RequestParam} from '../../types/interface';
 
-import {WHITELIST} from '../utils/const';
-import {errorSender} from '../utils/mainUtils';
-import {log} from '../logger/logModule';
+import {WHITELIST} from '../../utils/const';
+import {errorSender} from '../../utils/mainUtils';
+import {log} from '../../logger/logModule';
 
 export default (app:Application) => {
 
