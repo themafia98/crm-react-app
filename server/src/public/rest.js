@@ -170,7 +170,7 @@ export const editCard = async(item = {}, formData, nodeWrapper, callback) =>{
         AJAX.open('POST', "/admin/api/editCard");
         AJAX.onload = function(){
             if (this.status === 200){
-                debugger;
+                
                 if (nodeWrapper && callback) callback(nodeWrapper, JSON.parse(this.response));
                 resolve(this.status);
             }

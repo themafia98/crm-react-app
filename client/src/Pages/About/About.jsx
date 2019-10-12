@@ -38,7 +38,7 @@ class About extends React.PureComponent {
             else address = 'http://localhost:3001/api/aboutData/main';
 
             await AJAX.reset().send(address).then(res => {
-                    debugger;
+                    
                 if (res.statusSend && res.statusSend === 'wait')
                     throw new Error ('Wait');
                 if (res.ok) return res.text();
@@ -48,7 +48,7 @@ class About extends React.PureComponent {
                 if (process.env.NODE_ENV === 'production') address = process.env.REACT_APP_ABOUT_ME;
                 else address = 'http://localhost:3001/api/aboutData/aboutMe';
                 await AJAX.reset().send(address).then(res => {
-                    debugger;
+                    
                     if (res.statusSend && res.statusSend === 'wait')
                         throw new Error ('Wait');
                     if (res.ok) return res.text();
