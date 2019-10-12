@@ -176,7 +176,7 @@ body {
     height: 80vh;
 }
 
-.statusLoadContent {
+.statusLoadContent, .statusLoadContentAboutMe , .statusLoadContentAbout{
     font-weight: bold;
     color: red;
 }

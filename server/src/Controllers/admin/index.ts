@@ -102,7 +102,7 @@ export default (app:Application, corsPublic?:Object):void|Function => {
 
         if (req.type === 'main') service = fs.createReadStream(path.join(__dirname, '../../data','About.txt'));
         else if (req.type === 'aboutMe') service = fs.createReadStream(path.join(__dirname, '../../data','AboutMe.txt'));
-        
+
           service.on('open', () => {
             res.setHeader('Content-Type','text/plain; charset=utf-8');
             service.pipe(res);
@@ -113,6 +113,41 @@ export default (app:Application, corsPublic?:Object):void|Function => {
             errorSender(res, 503);
           });
           
+    });
+
+    app.post('/admin/api/about/:type',(req:RequestParam, res:Response) => {
+        let service:null|ReadStream = null;
+    
+          if (!req.type || !req.body){ return void errorSender(res, 404); };
+
+          const { content } = req.body;
+
+        try {
+          fs.writeFile(path.join(__dirname,'../../data',`${req.type}.txt`), content, (err) => {
+              if (err) return void errorSender(res, 404);
+              else {
+                if (req.type === 'about')
+                service = fs.createReadStream(path.join(__dirname, '../../data','About.txt'));
+                else if (req.type === 'aboutMe')
+                service = fs.createReadStream(path.join(__dirname, '../../data','AboutMe.txt'));
+                else  return void errorSender(res, 404);
+
+                service.on('open', () => {
+                    res.setHeader('Content-Type','text/plain; charset=utf-8');
+                    service.pipe(res);
+                  });
+        
+                  service.on('error', (error:Error) => {
+                    log.error(error.message);
+                    errorSender(res, 503);
+                  });
+              }
+          });
+        } catch (err) {
+            log.error(err);
+            return void errorSender(res, 503);
+        }
+    
     });
 
     app.post('/admin/api/edit/services/:type',(req:RequestParam, res:Response) => {

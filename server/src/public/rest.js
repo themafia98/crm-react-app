@@ -104,10 +104,12 @@ export const getMenu = async (path) => {
 };
 
 
-export const editContent = async (content, type) => {
+export const editContent = async (content, type, api = `/admin/api/edit/services`) => {
     return new Promise(function(resolve, reject){
         let AJAX = new XMLHttpRequest();
-        AJAX.open('POST', `/admin/api/edit/services${type}`);
+
+        if (api === '/admin/api/edit/services') AJAX.open('POST', `${api}${type}`);
+        else AJAX.open('POST', `${api}`);
         AJAX.setRequestHeader('Content-Type', "application/json");
         AJAX.onload = function(){
             if (this.status === 200)

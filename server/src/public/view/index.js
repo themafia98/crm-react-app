@@ -417,6 +417,9 @@ View.buildContentAbout = async function(root){
     const node = root.createElement('div');
     const contentContainer = root.createElement('div');
     const contentBox = root.querySelector('.contentBox');
+
+    let inputChange = null;
+    let inputChange2 = null;
     
     if (!contentBox){
 
@@ -443,13 +446,16 @@ View.buildContentAbout = async function(root){
         titleType2.innerHTML = 'About me';
 
         let status = root.createElement('p');
-        status.classList.add('statusLoadContent');
+        status.classList.add('statusLoadContentAbout');
+
+        let status2 = root.createElement('p');
+        status2.classList.add('statusLoadContentAboutMe');
 
         let textArea = root.createElement('textarea');
         textArea.classList.add('mainAboutTextArea');
         textArea.innerHTML = data && data.main ? data.main : '';
 
-         let inputChange = root.createElement('input');
+        inputChange = root.createElement('input');
         inputChange.classList.add('sendChangeMainAbout');
         inputChange.setAttribute('type', 'button');
         inputChange.value = 'Принять изменения';
@@ -458,7 +464,7 @@ View.buildContentAbout = async function(root){
         textAreaAboutMe.classList.add('aboutMeTextArea');
         textAreaAboutMe.innerHTML = data && data.aboutMe ? data.aboutMe : '';
 
-        let inputChange2 = root.createElement('input');
+        inputChange2 = root.createElement('input');
         inputChange2.classList.add('sendChangeAboutMe');
         inputChange2.setAttribute('type', 'button');
         inputChange2.value = 'Принять изменения';
@@ -471,11 +477,11 @@ View.buildContentAbout = async function(root){
         textArea ? node.appendChild(textArea) : null;
         inputChange && textArea ? node.appendChild(inputChange) : null;
         textAreaAboutMe ? node.appendChild(titleType2) : null;
+        node.appendChild(status2);
         textAreaAboutMe ? node.appendChild(textAreaAboutMe) : null;
         inputChange2 && textArea ? node.appendChild(inputChange2) : null;
         contentContainer ? node.appendChild(contentContainer) : null;
         view.mainContentNode = node.querySelector('.contentBox');
-        return node;
     } else  {
 
         view.mainContentNode = contentBox;
@@ -500,13 +506,16 @@ View.buildContentAbout = async function(root){
         titleType2.innerHTML = 'About me';
 
         let status = root.createElement('p');
-        status.classList.add('statusLoadContent');
+        status.classList.add('statusLoadContentAbout');
+
+        let status2 = root.createElement('p');
+        status2.classList.add('statusLoadContentAboutMe');
 
         let textArea = root.createElement('textarea');
         textArea.classList.add('mainAboutTextArea');
         textArea.innerHTML = data && data.main ? data.main : '';
 
-         let inputChange = root.createElement('input');
+        inputChange = root.createElement('input');
         inputChange.classList.add('sendChangeMainAbout');
         inputChange.setAttribute('type', 'button');
         inputChange.value = 'Принять изменения';
@@ -515,7 +524,7 @@ View.buildContentAbout = async function(root){
         textAreaAboutMe.classList.add('aboutMeTextArea');
         textAreaAboutMe.innerHTML = data && data.aboutMe ? data.aboutMe : '';
 
-        let inputChange2 = root.createElement('input');
+        inputChange2 = root.createElement('input');
         inputChange2.classList.add('sendChangeAboutMe');
         inputChange2.setAttribute('type', 'button');
         inputChange2.value = 'Принять изменения';
@@ -528,11 +537,73 @@ View.buildContentAbout = async function(root){
         textArea ? contentBox.appendChild(textArea) : null;
         inputChange && textArea ? contentBox.appendChild(inputChange) : null;
         textAreaAboutMe ? contentBox.appendChild(titleType2) : null;
+        contentBox.appendChild(status2);
         textAreaAboutMe ? contentBox.appendChild(textAreaAboutMe) : null;
         inputChange2 && textArea ? contentBox.appendChild(inputChange2) : null;
         contentContainer ? contentBox.appendChild(contentContainer) : null;
     
     }
+        let button = null; 
+        let button2 = null;
+
+        if (contentBox) {
+            button = contentBox.querySelector('.sendChangeMainAbout');
+            button2 = contentBox.querySelector('.sendChangeAboutMe');
+        }
+
+        function eventSave(event){
+
+            let contentBox = null;
+            let contentChange = null;
+            const isAbout = event.currentTarget.classList[0] === 'sendChangeMainAbout';
+            const isAboutMe = event.currentTarget.classList[0] === 'sendChangeAboutMe';
+
+                    if (isAbout) {
+                        contentChange = 'about';
+                        contentBox = root.querySelector('.mainAboutTextArea');
+                    }
+                    else  if (isAboutMe) {
+                        contentChange = 'aboutMe';
+                        contentBox = root.querySelector('.aboutMeTextArea');
+                    }
+
+                    if (contentBox) editContent(contentBox.value, contentChange, `/admin/api/about/${contentChange}`)
+                    .then(res => {
+                        if (res) {
+                            debugger;
+                            let statusValue = null;
+
+                            if (isAbout) statusValue = root.querySelector('.statusLoadContentAbout');
+                            else if (isAboutMe) statusValue = root.querySelector('.statusLoadContentAboutMe');
+
+                            if (statusValue) statusValue.innerHTML = 'Content update';
+                            return contentBox.value = res;
+                        }
+                        else throw new Error('error write content');
+                    })
+                    .catch(error => {
+                        console.log(error);
+                        const statusValue = root.querySelector('.statusLoadContent');
+                        if (statusValue) { 
+                            statusValue.innerHTML = 'Content update fail';
+                        }
+                    });
+                };
+
+        if (button){
+
+            if (controller.getListener('sendChangeServices'))
+                controller.removeListeners('sendChangeServices');
+
+            controller.setListeners('sendChangeAboutMain', button, 'click', eventSave);
+             controller.setListeners('sendChangeAboutMe', button2, 'click', eventSave);
+        } else {
+        
+        controller.setListeners('sendChangeAboutMain', inputChange, 'click', eventSave);
+         controller.setListeners('sendChangeAboutMe', inputChange2, 'click', eventSave);
+        }
+
+    if (node) return node;
 };
 
 View.createDataServices = async (path) => {
