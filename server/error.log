@@ -48,3 +48,5 @@
 {"message":"ENOENT: no such file or directory, open 'C:\\Dev\\Frontend\\crm-react-app\\server\\src\\Controllers\\data\\autoAbout.txt'","level":"\u001b[31merror\u001b[39m"}
 {"message":"ENOENT: no such file or directory, open 'C:\\Dev\\Frontend\\crm-react-app\\server\\src\\Controllers\\data\\autoAbout.txt'","level":"\u001b[31merror\u001b[39m"}
 {"message":"ENOENT: no such file or directory, open 'C:\\Dev\\Frontend\\crm-react-app\\server\\src\\Controllers\\data\\autoAbout.txt'","level":"\u001b[31merror\u001b[39m"}
+{"message":"ENOENT: no such file or directory, open 'C:\\Dev\\Frontend\\crm-react-app\\server\\src\\data\\AboutMe.txt'","level":"\u001b[31merror\u001b[39m"}
+{"message":"ENOENT: no such file or directory, open 'C:\\Dev\\Frontend\\crm-react-app\\server\\src\\data\\AboutMe.txt'","level":"\u001b[31merror\u001b[39m"}

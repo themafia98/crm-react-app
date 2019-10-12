@@ -21,6 +21,47 @@ export const getDataServices = async (path) => {
     });
 };
 
+export const getDataAbout = async () => {
+    const getAboutMe = async () => {
+            return new Promise(function(resolve, reject){
+            let AJAX = new XMLHttpRequest();
+            AJAX.open('GET', `/admin/api/about/aboutMe`);
+            AJAX.setRequestHeader('Content-Type', "application/json");
+            AJAX.onload = function(){
+                if (this.status === 200){
+                    resolve(this.response);
+                }
+                else {
+                    let error = new Error(this.statusText);
+                    reject(error);
+                }       
+            };
+            
+            AJAX.onerror = () => reject(new Error('Requst send error'));
+            AJAX.send();
+        });
+    };
+
+    return new Promise(async function(resolve, reject){
+        let AJAX = new XMLHttpRequest();
+        AJAX.open('GET', `/admin/api/about/main`);
+        AJAX.setRequestHeader('Content-Type', "application/json");
+        AJAX.onload = async function(){
+            if (this.status === 200){
+                const aboutMeData = await getAboutMe();
+                resolve({main: this.response, aboutMe: aboutMeData});
+            }
+            else {
+                let error = new Error(this.statusText);
+                reject(error);
+            }       
+        };
+        
+        AJAX.onerror = () => reject(new Error('Requst send error'));
+        AJAX.send();
+    });
+};
+
 export const getCardsList = async (type) => {
     return new Promise(function(resolve, reject){
         let AJAX = new XMLHttpRequest();

@@ -9,6 +9,7 @@ import Events from 'events';
 import adminInterface from './Controllers/admin';
 import servicesMail from './Controllers/services/mail';
 import policy from './Controllers/services/policy';
+import about from './Controllers/services/about';
 import price from './Controllers/services/price';
 import servicesType from './Controllers/services/servicesType';
 
@@ -66,6 +67,7 @@ namespace AppNamespace {
     servicesMail(app);
     servicesType(app);
     policy(app);
+    about(app);
     price(app);
 };
 

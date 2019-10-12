@@ -95,6 +95,26 @@ export default (app:Application, corsPublic?:Object):void|Function => {
           });
       });
 
+    app.get('/admin/api/about/:type', (req:RequestParam, res:Response) => {
+
+        if (!req.type){ return void errorSender(res, 404); };
+        let service:ReadStream|null = null;
+
+        if (req.type === 'main') service = fs.createReadStream(path.join(__dirname, '../../data','About.txt'));
+        else if (req.type === 'aboutMe') service = fs.createReadStream(path.join(__dirname, '../../data','AboutMe.txt'));
+        
+          service.on('open', () => {
+            res.setHeader('Content-Type','text/plain; charset=utf-8');
+            service.pipe(res);
+          });
+
+          service.on('error', (error:Error) => {
+            log.error(error.message);
+            errorSender(res, 503);
+          });
+          
+    });
+
     app.post('/admin/api/edit/services/:type',(req:RequestParam, res:Response) => {
         let service:null|ReadStream = null;
     

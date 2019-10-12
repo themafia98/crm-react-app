@@ -1,5 +1,5 @@
 import namespace from '../store/namespace.js';
-import {getMenu, getDataServices, getCardsList, putCard, deleteCard, editContent} from '../rest.js';
+import {getMenu, getDataServices, getCardsList, putCard, deleteCard, editContent, getDataAbout} from '../rest.js';
 import Controller from '../controller/index.js';
 import State from '../store/state.js';
 
@@ -340,7 +340,7 @@ View.linkPathActive = function(link, mode){
     }
 };
 
-View.buildAbout = function(view, root){
+View.buildAbout = async function(view, root){
     if (!view.root) {
         let app = root.querySelector('.cabinet');
         let root = root.createElement('div');
@@ -350,7 +350,7 @@ View.buildAbout = function(view, root){
     }
 
     const menuBlock = View.buildMenu(root);
-    const contentAbout = View.buildContentAbout(root);
+    const contentAbout = await View.buildContentAbout(root);
 
     if (menuBlock) view.root.appendChild(menuBlock);
     if (contentAbout) view.root.appendChild(contentAbout);
@@ -410,17 +410,128 @@ View.buildContentMain = function(root){
     }
 };
 
-View.buildContentAbout = function(root){
-    const { view } = namespace;
+View.buildContentAbout = async function(root){
+
+    const { view, state, controller } = namespace;
+    const path = state.getState().path;
+    const node = root.createElement('div');
+    const contentContainer = root.createElement('div');
     const contentBox = root.querySelector('.contentBox');
+    
     if (!contentBox){
-        const node = view.buildFormsFile(root);
+
+        node.classList.add('col');
+        node.classList.add('contentBox');
+        view.mainContentNode = node.querySelector('.contentBox');
+
+        let servicesInformationBlock = root.createElement('div');
+        servicesInformationBlock.classList.add('servicesInformationBlock');
+
+        let data =  await View.createDataAbout()
+        view.removeLoader();
+
+        let title = root.createElement('p');
+        title.classList.add('titleContent');
+        title.innerHTML = 'About';
+
+        let titleType = root.createElement('p');
+        titleType.classList.add('titleContent');
+        titleType.innerHTML = 'Main about';
+
+        let titleType2 = root.createElement('p');
+        titleType2.classList.add('titleContent');
+        titleType2.innerHTML = 'About me';
+
+        let status = root.createElement('p');
+        status.classList.add('statusLoadContent');
+
+        let textArea = root.createElement('textarea');
+        textArea.classList.add('mainAboutTextArea');
+        textArea.innerHTML = data && data.main ? data.main : '';
+
+         let inputChange = root.createElement('input');
+        inputChange.classList.add('sendChangeMainAbout');
+        inputChange.setAttribute('type', 'button');
+        inputChange.value = 'Принять изменения';
+
+        let textAreaAboutMe = root.createElement('textarea');
+        textAreaAboutMe.classList.add('aboutMeTextArea');
+        textAreaAboutMe.innerHTML = data && data.aboutMe ? data.aboutMe : '';
+
+        let inputChange2 = root.createElement('input');
+        inputChange2.classList.add('sendChangeAboutMe');
+        inputChange2.setAttribute('type', 'button');
+        inputChange2.value = 'Принять изменения';
+
+
+
+        node.appendChild(title);
+        node.appendChild(status);
+        textArea ? node.appendChild(titleType) : null;
+        textArea ? node.appendChild(textArea) : null;
+        inputChange && textArea ? node.appendChild(inputChange) : null;
+        textAreaAboutMe ? node.appendChild(titleType2) : null;
+        textAreaAboutMe ? node.appendChild(textAreaAboutMe) : null;
+        inputChange2 && textArea ? node.appendChild(inputChange2) : null;
+        contentContainer ? node.appendChild(contentContainer) : null;
         view.mainContentNode = node.querySelector('.contentBox');
         return node;
     } else  {
+
         view.mainContentNode = contentBox;
         view.clear(); /** @param default = part */
-        view.buildFormsFile(root, contentBox);
+
+        let servicesInformationBlock = root.createElement('div');
+        servicesInformationBlock.classList.add('servicesInformationBlock');
+
+        let data =  await View.createDataAbout()
+        view.removeLoader();
+
+        let title = root.createElement('p');
+        title.classList.add('titleContent');
+        title.innerHTML = 'About';
+
+        let titleType = root.createElement('p');
+        titleType.classList.add('titleContent');
+        titleType.innerHTML = 'Main about';
+
+        let titleType2 = root.createElement('p');
+        titleType2.classList.add('titleContent');
+        titleType2.innerHTML = 'About me';
+
+        let status = root.createElement('p');
+        status.classList.add('statusLoadContent');
+
+        let textArea = root.createElement('textarea');
+        textArea.classList.add('mainAboutTextArea');
+        textArea.innerHTML = data && data.main ? data.main : '';
+
+         let inputChange = root.createElement('input');
+        inputChange.classList.add('sendChangeMainAbout');
+        inputChange.setAttribute('type', 'button');
+        inputChange.value = 'Принять изменения';
+
+        let textAreaAboutMe = root.createElement('textarea');
+        textAreaAboutMe.classList.add('aboutMeTextArea');
+        textAreaAboutMe.innerHTML = data && data.aboutMe ? data.aboutMe : '';
+
+        let inputChange2 = root.createElement('input');
+        inputChange2.classList.add('sendChangeAboutMe');
+        inputChange2.setAttribute('type', 'button');
+        inputChange2.value = 'Принять изменения';
+
+
+
+        contentBox.appendChild(title);
+        contentBox.appendChild(status);
+        textArea ? contentBox.appendChild(titleType) : null;
+        textArea ? contentBox.appendChild(textArea) : null;
+        inputChange && textArea ? contentBox.appendChild(inputChange) : null;
+        textAreaAboutMe ? contentBox.appendChild(titleType2) : null;
+        textAreaAboutMe ? contentBox.appendChild(textAreaAboutMe) : null;
+        inputChange2 && textArea ? contentBox.appendChild(inputChange2) : null;
+        contentContainer ? contentBox.appendChild(contentContainer) : null;
+    
     }
 };
 
@@ -429,6 +540,15 @@ View.createDataServices = async (path) => {
 
     view.renderLoader();
     const data = await getDataServices(path)
+    .catch(error => console.error(error.message));
+    return data;
+};
+
+View.createDataAbout = async () => {
+    const { view } = namespace;
+
+    view.renderLoader();
+    const data = await getDataAbout()
     .catch(error => console.error(error.message));
     return data;
 };
